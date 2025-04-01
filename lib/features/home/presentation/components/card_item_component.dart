@@ -177,23 +177,27 @@ class CardItemComponent extends ConsumerWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                CardButtonComponent(
-                  title: tr(context).cancel,
-                  isColored: false,
-                  onPressed: cancelOrder,
+                Expanded( // Allow the button to shrink if needed
+                  child: CardButtonComponent(
+                    title: tr(context).cancel,
+                    isColored: false,
+                    onPressed: cancelOrder,
+                  ),
                 ),
-                if (isUpcomingOrder)
-                  CardButtonComponent(
+                const SizedBox(width: 8), // Add spacing between buttons
+                Expanded(
+                  child: isUpcomingOrder
+                      ? CardButtonComponent(
                     title: tr(context).deliver,
                     isColored: true,
                     onPressed: deliverOrder,
                   )
-                else
-                  CardButtonComponent(
+                      : CardButtonComponent(
                     title: tr(context).confirm,
                     isColored: true,
                     onPressed: confirmOrder,
                   ),
+                ),
               ],
             ),
           ],

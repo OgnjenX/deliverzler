@@ -30,11 +30,11 @@ class ProfileRemoteDataSource {
   final FirebaseFirestoreFacade firebaseFirestore;
   final FirebaseStorageFacade firebaseStorage;
 
-  static const String usersCollectionPath = 'users';
+  static const String usersCollectionPath = 'Deliverers';
 
   static String userDocPath(String uid) => '$usersCollectionPath/$uid';
 
-  static const String usersStorageFolderPath = 'users';
+  static const String usersStorageFolderPath = 'Deliverers';
 
   static String userStorageFolderPath(String uid) => '$usersStorageFolderPath/$uid';
 

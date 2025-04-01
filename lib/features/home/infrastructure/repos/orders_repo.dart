@@ -12,7 +12,7 @@ import '../dtos/update_delivery_status_dto.dart';
 part 'orders_repo.g.dart';
 
 @Riverpod(keepAlive: true)
-OrdersRepo ordersRepo(OrdersRepoRef ref) {
+OrdersRepo ordersRepo(Ref ref) {
   return OrdersRepo(ref);
 }
 

@@ -25,7 +25,7 @@ class OrdersRemoteDataSource {
   final OrdersRemoteDataSourceRef ref;
   final FirebaseFirestoreFacade firebaseFirestore;
 
-  static const String ordersCollectionPath = 'orders';
+  static const String ordersCollectionPath = 'DeliveryOrders';
 
   static String orderDocPath(String id) => '$ordersCollectionPath/$id';
 

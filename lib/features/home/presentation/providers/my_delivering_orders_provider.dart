@@ -7,11 +7,11 @@ import 'upcoming_orders_provider.dart';
 part 'my_delivering_orders_provider.g.dart';
 
 @riverpod
-List<AppOrder> myDeliveringOrders(MyDeliveringOrdersRef ref) {
+List<AppOrder> myDeliveringOrders(Ref ref) {
   final userId = ref.watch(currentUserProvider.select((user) => user.id));
   final orders = ref.watch(
     upcomingOrdersProvider.select(
-      (orders) => orders.valueOrNull
+          (orders) => orders.valueOrNull
           ?.where(
             (order) =>
                 order.deliveryId == userId && order.deliveryStatus == DeliveryStatus.onTheWay,

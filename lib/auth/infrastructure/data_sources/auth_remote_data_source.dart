@@ -27,7 +27,7 @@ class AuthRemoteDataSource {
   final FirebaseAuthFacade firebaseAuth;
   final FirebaseFirestoreFacade firebaseFirestore;
 
-  static const String usersCollectionPath = 'users';
+  static const String usersCollectionPath = 'Deliverers';
 
   static String userDocPath(String uid) => '$usersCollectionPath/$uid';
 

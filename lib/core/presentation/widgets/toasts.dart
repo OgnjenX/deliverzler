@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 import '../../core_features/theme/presentation/utils/app_static_colors.dart';
 import '../../core_features/theme/presentation/utils/custom_colors.dart';
@@ -15,7 +16,8 @@ abstract class Toasts {
   }) {
     CustomToast.showToast(
       context,
-      positionedToastBuilder: (context, child) {
+      positionedToastBuilder:
+          (BuildContext context, Widget child, ToastGravity? gravity) {
         return Positioned(
           bottom: 0,
           right: 0,
@@ -29,14 +31,16 @@ abstract class Toasts {
         children: <Widget>[
           Text(
             title,
-            style: TextStyles.f16SemiBold(context).copyWith(color: AppStaticColors.lightBlack),
+            style: TextStyles.f16SemiBold(context)
+                .copyWith(color: AppStaticColors.lightBlack),
           ),
           const SizedBox(
             height: Sizes.marginV2,
           ),
           Text(
             description,
-            style: TextStyles.f14(context).copyWith(color: AppStaticColors.lightBlack),
+            style: TextStyles.f14(context)
+                .copyWith(color: AppStaticColors.lightBlack),
           ),
         ],
       ),
@@ -72,7 +76,8 @@ abstract class Toasts {
             connectionStatus == ConnectionStatus.disconnected
                 ? tr(context).youAreCurrentlyOffline
                 : tr(context).youAreBackOnline,
-            style: TextStyles.f16SemiBold(context).copyWith(color: AppStaticColors.lightBlack),
+            style: TextStyles.f16SemiBold(context)
+                .copyWith(color: AppStaticColors.lightBlack),
           ),
         ],
       ),
