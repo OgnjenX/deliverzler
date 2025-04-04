@@ -4,16 +4,16 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import 'notification_service.dart';
 import '../../../../core/presentation/utils/fp_framework.dart';
 import '../../../../core/presentation/utils/riverpod_framework.dart';
 import 'fcm_remote_message_providers.dart';
+import 'notification_service.dart';
 
 part 'notification.freezed.dart';
 part 'notification.g.dart';
 
 @freezed
-class NotificationPayload with _$NotificationPayload {
+abstract class NotificationPayload with _$NotificationPayload {
   const factory NotificationPayload({
     required String? routeLocation,
     required Map<String, dynamic>? data,
@@ -23,18 +23,35 @@ class NotificationPayload with _$NotificationPayload {
       _$NotificationPayloadFromJson(json);
 }
 
-@riverpod
-Option<NotificationPayload> tappedNotification(TappedNotificationRef ref) {
-  void updateState(NotificationPayload ntf) {
-    ref.state = Some(ntf);
-    ref.notifyListeners();
-  }
+// Create a StateNotifier to manage the notification state
+class NotificationStateNotifier
+    extends StateNotifier<Option<NotificationPayload>> {
+  NotificationStateNotifier() : super(const None());
 
+  void updateState(NotificationPayload ntf) {
+    state = Some(ntf);
+  }
+}
+
+// Generate the StateNotifierProvider for NotificationStateNotifier
+final notificationStateNotifierProvider = StateNotifierProvider<
+    NotificationStateNotifier, Option<NotificationPayload>>(
+  (ref) => NotificationStateNotifier(),
+);
+
+// This helper function handles the logic of updating the notification state.
+void _updateNotificationState(Ref ref, NotificationPayload ntf) {
+  ref.read(notificationStateNotifierProvider.notifier).updateState(ntf);
+}
+
+@riverpod
+Option<NotificationPayload> tappedNotification(Ref ref) {
+  // Listen for the notifications and update state
   ref.listen(getInitialMessageProvider, (previous, next) {
     next.whenData((message) {
       if (message is Some<RemoteMessage> && message.value.data.isNotEmpty) {
         final ntf = NotificationPayload.fromJson(message.value.data);
-        updateState(ntf);
+        _updateNotificationState(ref, ntf); // Call the helper function here
       }
     });
   });
@@ -44,7 +61,7 @@ Option<NotificationPayload> tappedNotification(TappedNotificationRef ref) {
       (message) {
         if (message.data.isNotEmpty) {
           final ntf = NotificationPayload.fromJson(message.data);
-          updateState(ntf);
+          _updateNotificationState(ref, ntf); // Call the helper function here
         }
       },
     );
@@ -57,7 +74,7 @@ Option<NotificationPayload> tappedNotification(TappedNotificationRef ref) {
 
       final decodedPayload = jsonDecode(payload) as Map<String, dynamic>;
       final ntf = NotificationPayload.fromJson(decodedPayload);
-      updateState(ntf);
+      _updateNotificationState(ref, ntf); // Call the helper function here
     }
   });
 

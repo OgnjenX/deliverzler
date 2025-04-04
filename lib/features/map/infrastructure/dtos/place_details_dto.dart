@@ -8,7 +8,7 @@ part 'place_details_dto.freezed.dart';
 part 'place_details_dto.g.dart';
 
 @Freezed(toJson: false)
-class PlaceDetailsDto with _$PlaceDetailsDto {
+abstract class PlaceDetailsDto with _$PlaceDetailsDto {
   const factory PlaceDetailsDto({
     @JsonKey(name: 'geometry', fromJson: _fromJsonGeoPoint) required GeoPoint geoPoint,
   }) = _PlaceDetailsDto;

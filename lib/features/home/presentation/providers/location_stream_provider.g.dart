@@ -20,6 +20,8 @@ final locationStreamProvider = AutoDisposeStreamProvider<Position>.internal(
   allTransitiveDependencies: null,
 );
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 typedef LocationStreamRef = AutoDisposeStreamProviderRef<Position>;
 String _$enableLocationHash() => r'3bc9a81dfda77cf6b6febc52669453183eb7f28a';
 
@@ -43,8 +45,6 @@ class _SystemHash {
     return 0x1fffffff & (hash + ((0x00003fff & hash) << 15));
   }
 }
-
-typedef EnableLocationRef = AutoDisposeFutureProviderRef<void>;
 
 /// See also [enableLocation].
 @ProviderFor(enableLocation)
@@ -92,10 +92,10 @@ class EnableLocationFamily extends Family<AsyncValue<void>> {
 class EnableLocationProvider extends AutoDisposeFutureProvider<void> {
   /// See also [enableLocation].
   EnableLocationProvider(
-    this.locationService,
-  ) : super.internal(
+    LocationService locationService,
+  ) : this._internal(
           (ref) => enableLocation(
-            ref,
+            ref as EnableLocationRef,
             locationService,
           ),
           from: enableLocationProvider,
@@ -107,9 +107,43 @@ class EnableLocationProvider extends AutoDisposeFutureProvider<void> {
           dependencies: EnableLocationFamily._dependencies,
           allTransitiveDependencies:
               EnableLocationFamily._allTransitiveDependencies,
+          locationService: locationService,
         );
 
+  EnableLocationProvider._internal(
+    super._createNotifier, {
+    required super.name,
+    required super.dependencies,
+    required super.allTransitiveDependencies,
+    required super.debugGetCreateSourceHash,
+    required super.from,
+    required this.locationService,
+  }) : super.internal();
+
   final LocationService locationService;
+
+  @override
+  Override overrideWith(
+    FutureOr<void> Function(EnableLocationRef provider) create,
+  ) {
+    return ProviderOverride(
+      origin: this,
+      override: EnableLocationProvider._internal(
+        (ref) => create(ref as EnableLocationRef),
+        from: from,
+        name: null,
+        dependencies: null,
+        allTransitiveDependencies: null,
+        debugGetCreateSourceHash: null,
+        locationService: locationService,
+      ),
+    );
+  }
+
+  @override
+  AutoDisposeFutureProviderElement<void> createElement() {
+    return _EnableLocationProviderElement(this);
+  }
 
   @override
   bool operator ==(Object other) {
@@ -126,9 +160,24 @@ class EnableLocationProvider extends AutoDisposeFutureProvider<void> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
+mixin EnableLocationRef on AutoDisposeFutureProviderRef<void> {
+  /// The parameter `locationService` of this provider.
+  LocationService get locationService;
+}
+
+class _EnableLocationProviderElement
+    extends AutoDisposeFutureProviderElement<void> with EnableLocationRef {
+  _EnableLocationProviderElement(super.provider);
+
+  @override
+  LocationService get locationService =>
+      (origin as EnableLocationProvider).locationService;
+}
+
 String _$requestLocationPermissionHash() =>
     r'3b5dd8d64080eacb6bde6acf8c7c03010ec632ab';
-typedef RequestLocationPermissionRef = AutoDisposeFutureProviderRef<void>;
 
 /// See also [requestLocationPermission].
 @ProviderFor(requestLocationPermission)
@@ -177,10 +226,10 @@ class RequestLocationPermissionProvider
     extends AutoDisposeFutureProvider<void> {
   /// See also [requestLocationPermission].
   RequestLocationPermissionProvider(
-    this.locationService,
-  ) : super.internal(
+    LocationService locationService,
+  ) : this._internal(
           (ref) => requestLocationPermission(
-            ref,
+            ref as RequestLocationPermissionRef,
             locationService,
           ),
           from: requestLocationPermissionProvider,
@@ -192,9 +241,43 @@ class RequestLocationPermissionProvider
           dependencies: RequestLocationPermissionFamily._dependencies,
           allTransitiveDependencies:
               RequestLocationPermissionFamily._allTransitiveDependencies,
+          locationService: locationService,
         );
 
+  RequestLocationPermissionProvider._internal(
+    super._createNotifier, {
+    required super.name,
+    required super.dependencies,
+    required super.allTransitiveDependencies,
+    required super.debugGetCreateSourceHash,
+    required super.from,
+    required this.locationService,
+  }) : super.internal();
+
   final LocationService locationService;
+
+  @override
+  Override overrideWith(
+    FutureOr<void> Function(RequestLocationPermissionRef provider) create,
+  ) {
+    return ProviderOverride(
+      origin: this,
+      override: RequestLocationPermissionProvider._internal(
+        (ref) => create(ref as RequestLocationPermissionRef),
+        from: from,
+        name: null,
+        dependencies: null,
+        allTransitiveDependencies: null,
+        debugGetCreateSourceHash: null,
+        locationService: locationService,
+      ),
+    );
+  }
+
+  @override
+  AutoDisposeFutureProviderElement<void> createElement() {
+    return _RequestLocationPermissionProviderElement(this);
+  }
 
   @override
   bool operator ==(Object other) {
@@ -210,4 +293,22 @@ class RequestLocationPermissionProvider
     return _SystemHash.finish(hash);
   }
 }
-// ignore_for_file: unnecessary_raw_strings, subtype_of_sealed_class, invalid_use_of_internal_member, do_not_use_environment, prefer_const_constructors, public_member_api_docs, avoid_private_typedef_functions
+
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
+mixin RequestLocationPermissionRef on AutoDisposeFutureProviderRef<void> {
+  /// The parameter `locationService` of this provider.
+  LocationService get locationService;
+}
+
+class _RequestLocationPermissionProviderElement
+    extends AutoDisposeFutureProviderElement<void>
+    with RequestLocationPermissionRef {
+  _RequestLocationPermissionProviderElement(super.provider);
+
+  @override
+  LocationService get locationService =>
+      (origin as RequestLocationPermissionProvider).locationService;
+}
+// ignore_for_file: type=lint
+// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,92 +10,76 @@ part of 'profile_details_dto.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$ProfileDetailsDto {
-  String get name => throw _privateConstructorUsedError;
-  String get phone => throw _privateConstructorUsedError;
+  String get name;
+  String get phone;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $ProfileDetailsDtoCopyWith<ProfileDetailsDto> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $ProfileDetailsDtoCopyWith<$Res> {
-  factory $ProfileDetailsDtoCopyWith(
-          ProfileDetailsDto value, $Res Function(ProfileDetailsDto) then) =
-      _$ProfileDetailsDtoCopyWithImpl<$Res, ProfileDetailsDto>;
-  @useResult
-  $Res call({String name, String phone});
-}
-
-/// @nodoc
-class _$ProfileDetailsDtoCopyWithImpl<$Res, $Val extends ProfileDetailsDto>
-    implements $ProfileDetailsDtoCopyWith<$Res> {
-  _$ProfileDetailsDtoCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
+  /// Create a copy of ProfileDetailsDto
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @pragma('vm:prefer-inline')
+  $ProfileDetailsDtoCopyWith<ProfileDetailsDto> get copyWith =>
+      _$ProfileDetailsDtoCopyWithImpl<ProfileDetailsDto>(
+          this as ProfileDetailsDto, _$identity);
+
+  /// Serializes this ProfileDetailsDto to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? name = null,
-    Object? phone = null,
-  }) {
-    return _then(_value.copyWith(
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      phone: null == phone
-          ? _value.phone
-          : phone // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is ProfileDetailsDto &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.phone, phone) || other.phone == phone));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, name, phone);
+
+  @override
+  String toString() {
+    return 'ProfileDetailsDto(name: $name, phone: $phone)';
   }
 }
 
 /// @nodoc
-abstract class _$$_ProfileDetailsDtoCopyWith<$Res>
-    implements $ProfileDetailsDtoCopyWith<$Res> {
-  factory _$$_ProfileDetailsDtoCopyWith(_$_ProfileDetailsDto value,
-          $Res Function(_$_ProfileDetailsDto) then) =
-      __$$_ProfileDetailsDtoCopyWithImpl<$Res>;
-  @override
+abstract mixin class $ProfileDetailsDtoCopyWith<$Res> {
+  factory $ProfileDetailsDtoCopyWith(
+          ProfileDetailsDto value, $Res Function(ProfileDetailsDto) _then) =
+      _$ProfileDetailsDtoCopyWithImpl;
   @useResult
   $Res call({String name, String phone});
 }
 
 /// @nodoc
-class __$$_ProfileDetailsDtoCopyWithImpl<$Res>
-    extends _$ProfileDetailsDtoCopyWithImpl<$Res, _$_ProfileDetailsDto>
-    implements _$$_ProfileDetailsDtoCopyWith<$Res> {
-  __$$_ProfileDetailsDtoCopyWithImpl(
-      _$_ProfileDetailsDto _value, $Res Function(_$_ProfileDetailsDto) _then)
-      : super(_value, _then);
+class _$ProfileDetailsDtoCopyWithImpl<$Res>
+    implements $ProfileDetailsDtoCopyWith<$Res> {
+  _$ProfileDetailsDtoCopyWithImpl(this._self, this._then);
 
+  final ProfileDetailsDto _self;
+  final $Res Function(ProfileDetailsDto) _then;
+
+  /// Create a copy of ProfileDetailsDto
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? name = null,
     Object? phone = null,
   }) {
-    return _then(_$_ProfileDetailsDto(
+    return _then(_self.copyWith(
       name: null == name
-          ? _value.name
+          ? _self.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
       phone: null == phone
-          ? _value.phone
+          ? _self.phone
           : phone // ignore: cast_nullable_to_non_nullable
               as String,
     ));
@@ -103,58 +88,86 @@ class __$$_ProfileDetailsDtoCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable(createFactory: false)
-class _$_ProfileDetailsDto implements _ProfileDetailsDto {
-  const _$_ProfileDetailsDto({required this.name, required this.phone});
+class _ProfileDetailsDto implements ProfileDetailsDto {
+  const _ProfileDetailsDto({required this.name, required this.phone});
 
   @override
   final String name;
   @override
   final String phone;
 
+  /// Create a copy of ProfileDetailsDto
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'ProfileDetailsDto(name: $name, phone: $phone)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$ProfileDetailsDtoCopyWith<_ProfileDetailsDto> get copyWith =>
+      __$ProfileDetailsDtoCopyWithImpl<_ProfileDetailsDto>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$ProfileDetailsDtoToJson(
+      this,
+    );
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ProfileDetailsDto &&
+            other is _ProfileDetailsDto &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.phone, phone) || other.phone == phone));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, name, phone);
 
-  @JsonKey(ignore: true)
   @override
-  @pragma('vm:prefer-inline')
-  _$$_ProfileDetailsDtoCopyWith<_$_ProfileDetailsDto> get copyWith =>
-      __$$_ProfileDetailsDtoCopyWithImpl<_$_ProfileDetailsDto>(
-          this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$_ProfileDetailsDtoToJson(
-      this,
-    );
+  String toString() {
+    return 'ProfileDetailsDto(name: $name, phone: $phone)';
   }
 }
 
-abstract class _ProfileDetailsDto implements ProfileDetailsDto {
-  const factory _ProfileDetailsDto(
-      {required final String name,
-      required final String phone}) = _$_ProfileDetailsDto;
-
+/// @nodoc
+abstract mixin class _$ProfileDetailsDtoCopyWith<$Res>
+    implements $ProfileDetailsDtoCopyWith<$Res> {
+  factory _$ProfileDetailsDtoCopyWith(
+          _ProfileDetailsDto value, $Res Function(_ProfileDetailsDto) _then) =
+      __$ProfileDetailsDtoCopyWithImpl;
   @override
-  String get name;
-  @override
-  String get phone;
-  @override
-  @JsonKey(ignore: true)
-  _$$_ProfileDetailsDtoCopyWith<_$_ProfileDetailsDto> get copyWith =>
-      throw _privateConstructorUsedError;
+  @useResult
+  $Res call({String name, String phone});
 }
+
+/// @nodoc
+class __$ProfileDetailsDtoCopyWithImpl<$Res>
+    implements _$ProfileDetailsDtoCopyWith<$Res> {
+  __$ProfileDetailsDtoCopyWithImpl(this._self, this._then);
+
+  final _ProfileDetailsDto _self;
+  final $Res Function(_ProfileDetailsDto) _then;
+
+  /// Create a copy of ProfileDetailsDto
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? name = null,
+    Object? phone = null,
+  }) {
+    return _then(_ProfileDetailsDto(
+      name: null == name
+          ? _self.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      phone: null == phone
+          ? _self.phone
+          : phone // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+// dart format on

@@ -13,6 +13,7 @@ import '../../domain/value_objects.dart';
 import '../providers/selected_order_provider.dart';
 import '../providers/upcoming_orders_provider.dart';
 import '../providers/update_delivery_status_provider/update_delivery_status_provider.dart';
+import '../providers/update_delivery_status_provider/update_delivery_status_state.dart';
 import 'card_item_component.dart';
 
 class UpcomingOrdersComponent extends ConsumerWidget {
@@ -23,13 +24,21 @@ class UpcomingOrdersComponent extends ConsumerWidget {
     ref.easyListen(
       updateDeliveryStatusControllerProvider,
       whenData: (state) {
-        state.whenOrNull(
-          success: (orderId, deliveryStatus) async {
-            if (deliveryStatus != DeliveryStatus.onTheWay) return;
-            ref.read(selectedOrderIdProvider.notifier).update((_) => Some(orderId));
-            const MapRoute().go(context);
-          },
-        );
+        // Manually check the type of state
+        if (state is Idle) {
+          // Handle idle state here if necessary
+        } else if (state is Success) {
+          final successState = state;
+          final orderId = successState.orderId;
+          final deliveryStatus = successState.deliveryStatus;
+          if (deliveryStatus != DeliveryStatus.onTheWay) return;
+          ref
+              .read(selectedOrderIdProvider.notifier)
+              .update((_) => Some<String>(orderId));
+          const MapRoute().go(context);
+        } else {
+          // Handle other state types if necessary
+        }
       },
     );
 

@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,143 +10,73 @@ part of 'app_exception.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$AppException {
-  Enum get type => throw _privateConstructorUsedError;
-  String get message => throw _privateConstructorUsedError;
-  int? get code => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(
-            ServerExceptionType type, String message, int? code)
-        serverException,
-    required TResult Function(
-            CacheExceptionType type, String message, int? code)
-        cacheException,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(ServerExceptionType type, String message, int? code)?
-        serverException,
-    TResult? Function(CacheExceptionType type, String message, int? code)?
-        cacheException,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(ServerExceptionType type, String message, int? code)?
-        serverException,
-    TResult Function(CacheExceptionType type, String message, int? code)?
-        cacheException,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(ServerException value) serverException,
-    required TResult Function(CacheException value) cacheException,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(ServerException value)? serverException,
-    TResult? Function(CacheException value)? cacheException,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(ServerException value)? serverException,
-    TResult Function(CacheException value)? cacheException,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  Enum get type;
+  String get message;
+  int? get code;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of AppException
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
   $AppExceptionCopyWith<AppException> get copyWith =>
-      throw _privateConstructorUsedError;
+      _$AppExceptionCopyWithImpl<AppException>(
+          this as AppException, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is AppException &&
+            (identical(other.type, type) || other.type == type) &&
+            (identical(other.message, message) || other.message == message) &&
+            (identical(other.code, code) || other.code == code));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, type, message, code);
+
+  @override
+  String toString() {
+    return 'AppException(type: $type, message: $message, code: $code)';
+  }
 }
 
 /// @nodoc
-abstract class $AppExceptionCopyWith<$Res> {
+abstract mixin class $AppExceptionCopyWith<$Res> {
   factory $AppExceptionCopyWith(
-          AppException value, $Res Function(AppException) then) =
-      _$AppExceptionCopyWithImpl<$Res, AppException>;
+          AppException value, $Res Function(AppException) _then) =
+      _$AppExceptionCopyWithImpl;
   @useResult
   $Res call({String message, int? code});
 }
 
 /// @nodoc
-class _$AppExceptionCopyWithImpl<$Res, $Val extends AppException>
-    implements $AppExceptionCopyWith<$Res> {
-  _$AppExceptionCopyWithImpl(this._value, this._then);
+class _$AppExceptionCopyWithImpl<$Res> implements $AppExceptionCopyWith<$Res> {
+  _$AppExceptionCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final AppException _self;
+  final $Res Function(AppException) _then;
 
+  /// Create a copy of AppException
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? message = null,
     Object? code = freezed,
   }) {
-    return _then(_value.copyWith(
+    return _then(_self.copyWith(
       message: null == message
-          ? _value.message
+          ? _self.message
           : message // ignore: cast_nullable_to_non_nullable
               as String,
       code: freezed == code
-          ? _value.code
-          : code // ignore: cast_nullable_to_non_nullable
-              as int?,
-    ) as $Val);
-  }
-}
-
-/// @nodoc
-abstract class _$$ServerExceptionCopyWith<$Res>
-    implements $AppExceptionCopyWith<$Res> {
-  factory _$$ServerExceptionCopyWith(
-          _$ServerException value, $Res Function(_$ServerException) then) =
-      __$$ServerExceptionCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({ServerExceptionType type, String message, int? code});
-}
-
-/// @nodoc
-class __$$ServerExceptionCopyWithImpl<$Res>
-    extends _$AppExceptionCopyWithImpl<$Res, _$ServerException>
-    implements _$$ServerExceptionCopyWith<$Res> {
-  __$$ServerExceptionCopyWithImpl(
-      _$ServerException _value, $Res Function(_$ServerException) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? type = null,
-    Object? message = null,
-    Object? code = freezed,
-  }) {
-    return _then(_$ServerException(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as ServerExceptionType,
-      message: null == message
-          ? _value.message
-          : message // ignore: cast_nullable_to_non_nullable
-              as String,
-      code: freezed == code
-          ? _value.code
+          ? _self.code
           : code // ignore: cast_nullable_to_non_nullable
               as int?,
     ));
@@ -154,9 +85,8 @@ class __$$ServerExceptionCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ServerException implements ServerException {
-  const _$ServerException(
-      {required this.type, required this.message, this.code});
+class ServerException implements AppException {
+  const ServerException({required this.type, required this.message, this.code});
 
   @override
   final ServerExceptionType type;
@@ -165,16 +95,19 @@ class _$ServerException implements ServerException {
   @override
   final int? code;
 
+  /// Create a copy of AppException
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'AppException.serverException(type: $type, message: $message, code: $code)';
-  }
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $ServerExceptionCopyWith<ServerException> get copyWith =>
+      _$ServerExceptionCopyWithImpl<ServerException>(this, _$identity);
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ServerException &&
+            other is ServerException &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.message, message) || other.message == message) &&
             (identical(other.code, code) || other.code == code));
@@ -183,138 +116,51 @@ class _$ServerException implements ServerException {
   @override
   int get hashCode => Object.hash(runtimeType, type, message, code);
 
-  @JsonKey(ignore: true)
   @override
-  @pragma('vm:prefer-inline')
-  _$$ServerExceptionCopyWith<_$ServerException> get copyWith =>
-      __$$ServerExceptionCopyWithImpl<_$ServerException>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(
-            ServerExceptionType type, String message, int? code)
-        serverException,
-    required TResult Function(
-            CacheExceptionType type, String message, int? code)
-        cacheException,
-  }) {
-    return serverException(type, message, code);
+  String toString() {
+    return 'AppException.serverException(type: $type, message: $message, code: $code)';
   }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(ServerExceptionType type, String message, int? code)?
-        serverException,
-    TResult? Function(CacheExceptionType type, String message, int? code)?
-        cacheException,
-  }) {
-    return serverException?.call(type, message, code);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(ServerExceptionType type, String message, int? code)?
-        serverException,
-    TResult Function(CacheExceptionType type, String message, int? code)?
-        cacheException,
-    required TResult orElse(),
-  }) {
-    if (serverException != null) {
-      return serverException(type, message, code);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(ServerException value) serverException,
-    required TResult Function(CacheException value) cacheException,
-  }) {
-    return serverException(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(ServerException value)? serverException,
-    TResult? Function(CacheException value)? cacheException,
-  }) {
-    return serverException?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(ServerException value)? serverException,
-    TResult Function(CacheException value)? cacheException,
-    required TResult orElse(),
-  }) {
-    if (serverException != null) {
-      return serverException(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class ServerException implements AppException {
-  const factory ServerException(
-      {required final ServerExceptionType type,
-      required final String message,
-      final int? code}) = _$ServerException;
-
-  @override
-  ServerExceptionType get type;
-  @override
-  String get message;
-  @override
-  int? get code;
-  @override
-  @JsonKey(ignore: true)
-  _$$ServerExceptionCopyWith<_$ServerException> get copyWith =>
-      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$CacheExceptionCopyWith<$Res>
+abstract mixin class $ServerExceptionCopyWith<$Res>
     implements $AppExceptionCopyWith<$Res> {
-  factory _$$CacheExceptionCopyWith(
-          _$CacheException value, $Res Function(_$CacheException) then) =
-      __$$CacheExceptionCopyWithImpl<$Res>;
+  factory $ServerExceptionCopyWith(
+          ServerException value, $Res Function(ServerException) _then) =
+      _$ServerExceptionCopyWithImpl;
   @override
   @useResult
-  $Res call({CacheExceptionType type, String message, int? code});
+  $Res call({ServerExceptionType type, String message, int? code});
 }
 
 /// @nodoc
-class __$$CacheExceptionCopyWithImpl<$Res>
-    extends _$AppExceptionCopyWithImpl<$Res, _$CacheException>
-    implements _$$CacheExceptionCopyWith<$Res> {
-  __$$CacheExceptionCopyWithImpl(
-      _$CacheException _value, $Res Function(_$CacheException) _then)
-      : super(_value, _then);
+class _$ServerExceptionCopyWithImpl<$Res>
+    implements $ServerExceptionCopyWith<$Res> {
+  _$ServerExceptionCopyWithImpl(this._self, this._then);
 
-  @pragma('vm:prefer-inline')
+  final ServerException _self;
+  final $Res Function(ServerException) _then;
+
+  /// Create a copy of AppException
+  /// with the given fields replaced by the non-null parameter values.
   @override
+  @pragma('vm:prefer-inline')
   $Res call({
     Object? type = null,
     Object? message = null,
     Object? code = freezed,
   }) {
-    return _then(_$CacheException(
+    return _then(ServerException(
       type: null == type
-          ? _value.type
+          ? _self.type
           : type // ignore: cast_nullable_to_non_nullable
-              as CacheExceptionType,
+              as ServerExceptionType,
       message: null == message
-          ? _value.message
+          ? _self.message
           : message // ignore: cast_nullable_to_non_nullable
               as String,
       code: freezed == code
-          ? _value.code
+          ? _self.code
           : code // ignore: cast_nullable_to_non_nullable
               as int?,
     ));
@@ -323,9 +169,8 @@ class __$$CacheExceptionCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$CacheException implements CacheException {
-  const _$CacheException(
-      {required this.type, required this.message, this.code});
+class CacheException implements AppException {
+  const CacheException({required this.type, required this.message, this.code});
 
   @override
   final CacheExceptionType type;
@@ -334,16 +179,19 @@ class _$CacheException implements CacheException {
   @override
   final int? code;
 
+  /// Create a copy of AppException
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'AppException.cacheException(type: $type, message: $message, code: $code)';
-  }
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $CacheExceptionCopyWith<CacheException> get copyWith =>
+      _$CacheExceptionCopyWithImpl<CacheException>(this, _$identity);
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$CacheException &&
+            other is CacheException &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.message, message) || other.message == message) &&
             (identical(other.code, code) || other.code == code));
@@ -352,97 +200,55 @@ class _$CacheException implements CacheException {
   @override
   int get hashCode => Object.hash(runtimeType, type, message, code);
 
-  @JsonKey(ignore: true)
+  @override
+  String toString() {
+    return 'AppException.cacheException(type: $type, message: $message, code: $code)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $CacheExceptionCopyWith<$Res>
+    implements $AppExceptionCopyWith<$Res> {
+  factory $CacheExceptionCopyWith(
+          CacheException value, $Res Function(CacheException) _then) =
+      _$CacheExceptionCopyWithImpl;
+  @override
+  @useResult
+  $Res call({CacheExceptionType type, String message, int? code});
+}
+
+/// @nodoc
+class _$CacheExceptionCopyWithImpl<$Res>
+    implements $CacheExceptionCopyWith<$Res> {
+  _$CacheExceptionCopyWithImpl(this._self, this._then);
+
+  final CacheException _self;
+  final $Res Function(CacheException) _then;
+
+  /// Create a copy of AppException
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  _$$CacheExceptionCopyWith<_$CacheException> get copyWith =>
-      __$$CacheExceptionCopyWithImpl<_$CacheException>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(
-            ServerExceptionType type, String message, int? code)
-        serverException,
-    required TResult Function(
-            CacheExceptionType type, String message, int? code)
-        cacheException,
+  $Res call({
+    Object? type = null,
+    Object? message = null,
+    Object? code = freezed,
   }) {
-    return cacheException(type, message, code);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(ServerExceptionType type, String message, int? code)?
-        serverException,
-    TResult? Function(CacheExceptionType type, String message, int? code)?
-        cacheException,
-  }) {
-    return cacheException?.call(type, message, code);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(ServerExceptionType type, String message, int? code)?
-        serverException,
-    TResult Function(CacheExceptionType type, String message, int? code)?
-        cacheException,
-    required TResult orElse(),
-  }) {
-    if (cacheException != null) {
-      return cacheException(type, message, code);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(ServerException value) serverException,
-    required TResult Function(CacheException value) cacheException,
-  }) {
-    return cacheException(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(ServerException value)? serverException,
-    TResult? Function(CacheException value)? cacheException,
-  }) {
-    return cacheException?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(ServerException value)? serverException,
-    TResult Function(CacheException value)? cacheException,
-    required TResult orElse(),
-  }) {
-    if (cacheException != null) {
-      return cacheException(this);
-    }
-    return orElse();
+    return _then(CacheException(
+      type: null == type
+          ? _self.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as CacheExceptionType,
+      message: null == message
+          ? _self.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+      code: freezed == code
+          ? _self.code
+          : code // ignore: cast_nullable_to_non_nullable
+              as int?,
+    ));
   }
 }
 
-abstract class CacheException implements AppException {
-  const factory CacheException(
-      {required final CacheExceptionType type,
-      required final String message,
-      final int? code}) = _$CacheException;
-
-  @override
-  CacheExceptionType get type;
-  @override
-  String get message;
-  @override
-  int? get code;
-  @override
-  @JsonKey(ignore: true)
-  _$$CacheExceptionCopyWith<_$CacheException> get copyWith =>
-      throw _privateConstructorUsedError;
-}
+// dart format on

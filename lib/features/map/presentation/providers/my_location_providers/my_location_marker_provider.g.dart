@@ -20,6 +20,8 @@ final myLocationMarkerProvider = AutoDisposeProvider<Option<Marker>>.internal(
   allTransitiveDependencies: null,
 );
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 typedef MyLocationMarkerRef = AutoDisposeProviderRef<Option<Marker>>;
 String _$myLocationMarkerIconHash() =>
     r'2ba8d3e107de7aafbd3379de2da1ff2cc7efeb57';
@@ -37,6 +39,9 @@ final myLocationMarkerIconProvider =
   allTransitiveDependencies: null,
 );
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 typedef MyLocationMarkerIconRef
     = AutoDisposeFutureProviderRef<BitmapDescriptor>;
-// ignore_for_file: unnecessary_raw_strings, subtype_of_sealed_class, invalid_use_of_internal_member, do_not_use_environment, prefer_const_constructors, public_member_api_docs, avoid_private_typedef_functions
+// ignore_for_file: type=lint
+// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

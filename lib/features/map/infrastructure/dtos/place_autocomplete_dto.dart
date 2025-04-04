@@ -7,7 +7,7 @@ part 'place_autocomplete_dto.freezed.dart';
 part 'place_autocomplete_dto.g.dart';
 
 @Freezed(toJson: false)
-class PlaceAutocompleteDto with _$PlaceAutocompleteDto {
+abstract class PlaceAutocompleteDto with _$PlaceAutocompleteDto {
   const factory PlaceAutocompleteDto({
     @JsonKey(name: 'place_id') required String placeId,
     @JsonKey(name: 'description') required String description,

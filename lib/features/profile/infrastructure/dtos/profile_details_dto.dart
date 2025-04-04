@@ -7,7 +7,7 @@ part 'profile_details_dto.freezed.dart';
 part 'profile_details_dto.g.dart';
 
 @Freezed(toJson: true)
-class ProfileDetailsDto with _$ProfileDetailsDto {
+abstract class ProfileDetailsDto with _$ProfileDetailsDto {
   const factory ProfileDetailsDto({
     required String name,
     required String phone,

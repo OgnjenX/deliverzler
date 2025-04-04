@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,82 +10,53 @@ part of 'place_directions.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$PlaceDirections {
-  LatLngBounds get bounds => throw _privateConstructorUsedError;
-  List<PointLatLng> get polylinePoints => throw _privateConstructorUsedError;
-  int get distance => throw _privateConstructorUsedError;
-  String get duration => throw _privateConstructorUsedError;
+  LatLngBounds get bounds;
+  List<PointLatLng> get polylinePoints;
+  int get distance;
+  String get duration;
 
-  @JsonKey(ignore: true)
-  $PlaceDirectionsCopyWith<PlaceDirections> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $PlaceDirectionsCopyWith<$Res> {
-  factory $PlaceDirectionsCopyWith(
-          PlaceDirections value, $Res Function(PlaceDirections) then) =
-      _$PlaceDirectionsCopyWithImpl<$Res, PlaceDirections>;
-  @useResult
-  $Res call(
-      {LatLngBounds bounds,
-      List<PointLatLng> polylinePoints,
-      int distance,
-      String duration});
-}
-
-/// @nodoc
-class _$PlaceDirectionsCopyWithImpl<$Res, $Val extends PlaceDirections>
-    implements $PlaceDirectionsCopyWith<$Res> {
-  _$PlaceDirectionsCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
+  /// Create a copy of PlaceDirections
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @pragma('vm:prefer-inline')
+  $PlaceDirectionsCopyWith<PlaceDirections> get copyWith =>
+      _$PlaceDirectionsCopyWithImpl<PlaceDirections>(
+          this as PlaceDirections, _$identity);
+
   @override
-  $Res call({
-    Object? bounds = null,
-    Object? polylinePoints = null,
-    Object? distance = null,
-    Object? duration = null,
-  }) {
-    return _then(_value.copyWith(
-      bounds: null == bounds
-          ? _value.bounds
-          : bounds // ignore: cast_nullable_to_non_nullable
-              as LatLngBounds,
-      polylinePoints: null == polylinePoints
-          ? _value.polylinePoints
-          : polylinePoints // ignore: cast_nullable_to_non_nullable
-              as List<PointLatLng>,
-      distance: null == distance
-          ? _value.distance
-          : distance // ignore: cast_nullable_to_non_nullable
-              as int,
-      duration: null == duration
-          ? _value.duration
-          : duration // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is PlaceDirections &&
+            (identical(other.bounds, bounds) || other.bounds == bounds) &&
+            const DeepCollectionEquality()
+                .equals(other.polylinePoints, polylinePoints) &&
+            (identical(other.distance, distance) ||
+                other.distance == distance) &&
+            (identical(other.duration, duration) ||
+                other.duration == duration));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, bounds,
+      const DeepCollectionEquality().hash(polylinePoints), distance, duration);
+
+  @override
+  String toString() {
+    return 'PlaceDirections(bounds: $bounds, polylinePoints: $polylinePoints, distance: $distance, duration: $duration)';
   }
 }
 
 /// @nodoc
-abstract class _$$_PlaceDirectionsCopyWith<$Res>
-    implements $PlaceDirectionsCopyWith<$Res> {
-  factory _$$_PlaceDirectionsCopyWith(
-          _$_PlaceDirections value, $Res Function(_$_PlaceDirections) then) =
-      __$$_PlaceDirectionsCopyWithImpl<$Res>;
-  @override
+abstract mixin class $PlaceDirectionsCopyWith<$Res> {
+  factory $PlaceDirectionsCopyWith(
+          PlaceDirections value, $Res Function(PlaceDirections) _then) =
+      _$PlaceDirectionsCopyWithImpl;
   @useResult
   $Res call(
       {LatLngBounds bounds,
@@ -94,13 +66,15 @@ abstract class _$$_PlaceDirectionsCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_PlaceDirectionsCopyWithImpl<$Res>
-    extends _$PlaceDirectionsCopyWithImpl<$Res, _$_PlaceDirections>
-    implements _$$_PlaceDirectionsCopyWith<$Res> {
-  __$$_PlaceDirectionsCopyWithImpl(
-      _$_PlaceDirections _value, $Res Function(_$_PlaceDirections) _then)
-      : super(_value, _then);
+class _$PlaceDirectionsCopyWithImpl<$Res>
+    implements $PlaceDirectionsCopyWith<$Res> {
+  _$PlaceDirectionsCopyWithImpl(this._self, this._then);
 
+  final PlaceDirections _self;
+  final $Res Function(PlaceDirections) _then;
+
+  /// Create a copy of PlaceDirections
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -109,21 +83,21 @@ class __$$_PlaceDirectionsCopyWithImpl<$Res>
     Object? distance = null,
     Object? duration = null,
   }) {
-    return _then(_$_PlaceDirections(
+    return _then(_self.copyWith(
       bounds: null == bounds
-          ? _value.bounds
+          ? _self.bounds
           : bounds // ignore: cast_nullable_to_non_nullable
               as LatLngBounds,
       polylinePoints: null == polylinePoints
-          ? _value._polylinePoints
+          ? _self.polylinePoints
           : polylinePoints // ignore: cast_nullable_to_non_nullable
               as List<PointLatLng>,
       distance: null == distance
-          ? _value.distance
+          ? _self.distance
           : distance // ignore: cast_nullable_to_non_nullable
               as int,
       duration: null == duration
-          ? _value.duration
+          ? _self.duration
           : duration // ignore: cast_nullable_to_non_nullable
               as String,
     ));
@@ -132,8 +106,8 @@ class __$$_PlaceDirectionsCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_PlaceDirections implements _PlaceDirections {
-  const _$_PlaceDirections(
+class _PlaceDirections implements PlaceDirections {
+  const _PlaceDirections(
       {required this.bounds,
       required final List<PointLatLng> polylinePoints,
       required this.distance,
@@ -155,16 +129,19 @@ class _$_PlaceDirections implements _PlaceDirections {
   @override
   final String duration;
 
+  /// Create a copy of PlaceDirections
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'PlaceDirections(bounds: $bounds, polylinePoints: $polylinePoints, distance: $distance, duration: $duration)';
-  }
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$PlaceDirectionsCopyWith<_PlaceDirections> get copyWith =>
+      __$PlaceDirectionsCopyWithImpl<_PlaceDirections>(this, _$identity);
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_PlaceDirections &&
+            other is _PlaceDirections &&
             (identical(other.bounds, bounds) || other.bounds == bounds) &&
             const DeepCollectionEquality()
                 .equals(other._polylinePoints, _polylinePoints) &&
@@ -178,142 +155,84 @@ class _$_PlaceDirections implements _PlaceDirections {
   int get hashCode => Object.hash(runtimeType, bounds,
       const DeepCollectionEquality().hash(_polylinePoints), distance, duration);
 
-  @JsonKey(ignore: true)
   @override
-  @pragma('vm:prefer-inline')
-  _$$_PlaceDirectionsCopyWith<_$_PlaceDirections> get copyWith =>
-      __$$_PlaceDirectionsCopyWithImpl<_$_PlaceDirections>(this, _$identity);
-}
-
-abstract class _PlaceDirections implements PlaceDirections {
-  const factory _PlaceDirections(
-      {required final LatLngBounds bounds,
-      required final List<PointLatLng> polylinePoints,
-      required final int distance,
-      required final String duration}) = _$_PlaceDirections;
-
-  @override
-  LatLngBounds get bounds;
-  @override
-  List<PointLatLng> get polylinePoints;
-  @override
-  int get distance;
-  @override
-  String get duration;
-  @override
-  @JsonKey(ignore: true)
-  _$$_PlaceDirectionsCopyWith<_$_PlaceDirections> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-mixin _$PlaceDirectionsQuery {
-  Position get origin => throw _privateConstructorUsedError;
-  GeoPoint get destination => throw _privateConstructorUsedError;
-
-  @JsonKey(ignore: true)
-  $PlaceDirectionsQueryCopyWith<PlaceDirectionsQuery> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $PlaceDirectionsQueryCopyWith<$Res> {
-  factory $PlaceDirectionsQueryCopyWith(PlaceDirectionsQuery value,
-          $Res Function(PlaceDirectionsQuery) then) =
-      _$PlaceDirectionsQueryCopyWithImpl<$Res, PlaceDirectionsQuery>;
-  @useResult
-  $Res call({Position origin, GeoPoint destination});
-}
-
-/// @nodoc
-class _$PlaceDirectionsQueryCopyWithImpl<$Res,
-        $Val extends PlaceDirectionsQuery>
-    implements $PlaceDirectionsQueryCopyWith<$Res> {
-  _$PlaceDirectionsQueryCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? origin = null,
-    Object? destination = null,
-  }) {
-    return _then(_value.copyWith(
-      origin: null == origin
-          ? _value.origin
-          : origin // ignore: cast_nullable_to_non_nullable
-              as Position,
-      destination: null == destination
-          ? _value.destination
-          : destination // ignore: cast_nullable_to_non_nullable
-              as GeoPoint,
-    ) as $Val);
+  String toString() {
+    return 'PlaceDirections(bounds: $bounds, polylinePoints: $polylinePoints, distance: $distance, duration: $duration)';
   }
 }
 
 /// @nodoc
-abstract class _$$_PlaceDirectionsQueryCopyWith<$Res>
-    implements $PlaceDirectionsQueryCopyWith<$Res> {
-  factory _$$_PlaceDirectionsQueryCopyWith(_$_PlaceDirectionsQuery value,
-          $Res Function(_$_PlaceDirectionsQuery) then) =
-      __$$_PlaceDirectionsQueryCopyWithImpl<$Res>;
+abstract mixin class _$PlaceDirectionsCopyWith<$Res>
+    implements $PlaceDirectionsCopyWith<$Res> {
+  factory _$PlaceDirectionsCopyWith(
+          _PlaceDirections value, $Res Function(_PlaceDirections) _then) =
+      __$PlaceDirectionsCopyWithImpl;
   @override
   @useResult
-  $Res call({Position origin, GeoPoint destination});
+  $Res call(
+      {LatLngBounds bounds,
+      List<PointLatLng> polylinePoints,
+      int distance,
+      String duration});
 }
 
 /// @nodoc
-class __$$_PlaceDirectionsQueryCopyWithImpl<$Res>
-    extends _$PlaceDirectionsQueryCopyWithImpl<$Res, _$_PlaceDirectionsQuery>
-    implements _$$_PlaceDirectionsQueryCopyWith<$Res> {
-  __$$_PlaceDirectionsQueryCopyWithImpl(_$_PlaceDirectionsQuery _value,
-      $Res Function(_$_PlaceDirectionsQuery) _then)
-      : super(_value, _then);
+class __$PlaceDirectionsCopyWithImpl<$Res>
+    implements _$PlaceDirectionsCopyWith<$Res> {
+  __$PlaceDirectionsCopyWithImpl(this._self, this._then);
 
-  @pragma('vm:prefer-inline')
+  final _PlaceDirections _self;
+  final $Res Function(_PlaceDirections) _then;
+
+  /// Create a copy of PlaceDirections
+  /// with the given fields replaced by the non-null parameter values.
   @override
+  @pragma('vm:prefer-inline')
   $Res call({
-    Object? origin = null,
-    Object? destination = null,
+    Object? bounds = null,
+    Object? polylinePoints = null,
+    Object? distance = null,
+    Object? duration = null,
   }) {
-    return _then(_$_PlaceDirectionsQuery(
-      origin: null == origin
-          ? _value.origin
-          : origin // ignore: cast_nullable_to_non_nullable
-              as Position,
-      destination: null == destination
-          ? _value.destination
-          : destination // ignore: cast_nullable_to_non_nullable
-              as GeoPoint,
+    return _then(_PlaceDirections(
+      bounds: null == bounds
+          ? _self.bounds
+          : bounds // ignore: cast_nullable_to_non_nullable
+              as LatLngBounds,
+      polylinePoints: null == polylinePoints
+          ? _self._polylinePoints
+          : polylinePoints // ignore: cast_nullable_to_non_nullable
+              as List<PointLatLng>,
+      distance: null == distance
+          ? _self.distance
+          : distance // ignore: cast_nullable_to_non_nullable
+              as int,
+      duration: null == duration
+          ? _self.duration
+          : duration // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
 
 /// @nodoc
+mixin _$PlaceDirectionsQuery {
+  Position get origin;
+  GeoPoint get destination;
 
-class _$_PlaceDirectionsQuery implements _PlaceDirectionsQuery {
-  const _$_PlaceDirectionsQuery(
-      {required this.origin, required this.destination});
-
-  @override
-  final Position origin;
-  @override
-  final GeoPoint destination;
-
-  @override
-  String toString() {
-    return 'PlaceDirectionsQuery(origin: $origin, destination: $destination)';
-  }
+  /// Create a copy of PlaceDirectionsQuery
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $PlaceDirectionsQueryCopyWith<PlaceDirectionsQuery> get copyWith =>
+      _$PlaceDirectionsQueryCopyWithImpl<PlaceDirectionsQuery>(
+          this as PlaceDirectionsQuery, _$identity);
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_PlaceDirectionsQuery &&
+            other is PlaceDirectionsQuery &&
             (identical(other.origin, origin) || other.origin == origin) &&
             (identical(other.destination, destination) ||
                 other.destination == destination));
@@ -322,25 +241,127 @@ class _$_PlaceDirectionsQuery implements _PlaceDirectionsQuery {
   @override
   int get hashCode => Object.hash(runtimeType, origin, destination);
 
-  @JsonKey(ignore: true)
+  @override
+  String toString() {
+    return 'PlaceDirectionsQuery(origin: $origin, destination: $destination)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $PlaceDirectionsQueryCopyWith<$Res> {
+  factory $PlaceDirectionsQueryCopyWith(PlaceDirectionsQuery value,
+          $Res Function(PlaceDirectionsQuery) _then) =
+      _$PlaceDirectionsQueryCopyWithImpl;
+  @useResult
+  $Res call({Position origin, GeoPoint destination});
+}
+
+/// @nodoc
+class _$PlaceDirectionsQueryCopyWithImpl<$Res>
+    implements $PlaceDirectionsQueryCopyWith<$Res> {
+  _$PlaceDirectionsQueryCopyWithImpl(this._self, this._then);
+
+  final PlaceDirectionsQuery _self;
+  final $Res Function(PlaceDirectionsQuery) _then;
+
+  /// Create a copy of PlaceDirectionsQuery
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? origin = null,
+    Object? destination = null,
+  }) {
+    return _then(_self.copyWith(
+      origin: null == origin
+          ? _self.origin
+          : origin // ignore: cast_nullable_to_non_nullable
+              as Position,
+      destination: null == destination
+          ? _self.destination
+          : destination // ignore: cast_nullable_to_non_nullable
+              as GeoPoint,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _PlaceDirectionsQuery implements PlaceDirectionsQuery {
+  const _PlaceDirectionsQuery(
+      {required this.origin, required this.destination});
+
+  @override
+  final Position origin;
+  @override
+  final GeoPoint destination;
+
+  /// Create a copy of PlaceDirectionsQuery
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$PlaceDirectionsQueryCopyWith<_PlaceDirectionsQuery> get copyWith =>
+      __$PlaceDirectionsQueryCopyWithImpl<_PlaceDirectionsQuery>(
+          this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _PlaceDirectionsQuery &&
+            (identical(other.origin, origin) || other.origin == origin) &&
+            (identical(other.destination, destination) ||
+                other.destination == destination));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, origin, destination);
+
+  @override
+  String toString() {
+    return 'PlaceDirectionsQuery(origin: $origin, destination: $destination)';
+  }
+}
+
+/// @nodoc
+abstract mixin class _$PlaceDirectionsQueryCopyWith<$Res>
+    implements $PlaceDirectionsQueryCopyWith<$Res> {
+  factory _$PlaceDirectionsQueryCopyWith(_PlaceDirectionsQuery value,
+          $Res Function(_PlaceDirectionsQuery) _then) =
+      __$PlaceDirectionsQueryCopyWithImpl;
+  @override
+  @useResult
+  $Res call({Position origin, GeoPoint destination});
+}
+
+/// @nodoc
+class __$PlaceDirectionsQueryCopyWithImpl<$Res>
+    implements _$PlaceDirectionsQueryCopyWith<$Res> {
+  __$PlaceDirectionsQueryCopyWithImpl(this._self, this._then);
+
+  final _PlaceDirectionsQuery _self;
+  final $Res Function(_PlaceDirectionsQuery) _then;
+
+  /// Create a copy of PlaceDirectionsQuery
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  _$$_PlaceDirectionsQueryCopyWith<_$_PlaceDirectionsQuery> get copyWith =>
-      __$$_PlaceDirectionsQueryCopyWithImpl<_$_PlaceDirectionsQuery>(
-          this, _$identity);
+  $Res call({
+    Object? origin = null,
+    Object? destination = null,
+  }) {
+    return _then(_PlaceDirectionsQuery(
+      origin: null == origin
+          ? _self.origin
+          : origin // ignore: cast_nullable_to_non_nullable
+              as Position,
+      destination: null == destination
+          ? _self.destination
+          : destination // ignore: cast_nullable_to_non_nullable
+              as GeoPoint,
+    ));
+  }
 }
 
-abstract class _PlaceDirectionsQuery implements PlaceDirectionsQuery {
-  const factory _PlaceDirectionsQuery(
-      {required final Position origin,
-      required final GeoPoint destination}) = _$_PlaceDirectionsQuery;
-
-  @override
-  Position get origin;
-  @override
-  GeoPoint get destination;
-  @override
-  @JsonKey(ignore: true)
-  _$$_PlaceDirectionsQueryCopyWith<_$_PlaceDirectionsQuery> get copyWith =>
-      throw _privateConstructorUsedError;
-}
+// dart format on

@@ -7,7 +7,7 @@ import '../../../core/domain/value_validators.dart';
 part 'profile_details.freezed.dart';
 
 @freezed
-class ProfileDetails with _$ProfileDetails {
+abstract class ProfileDetails with _$ProfileDetails {
   const factory ProfileDetails({
     required String name,
     required String phone,

@@ -10,7 +10,7 @@ import 'value_objects.dart';
 part 'order.freezed.dart';
 
 @freezed
-class AppOrder with _$AppOrder {
+abstract class AppOrder with _$AppOrder {
   const factory AppOrder({
     required String id,
     required int date,
@@ -38,7 +38,7 @@ class AppOrder with _$AppOrder {
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_AppOrder &&
+            other is _AppOrder &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.date, date) || other.date == date) &&
             (identical(other.pickupOption, pickupOption) || other.pickupOption == pickupOption) &&

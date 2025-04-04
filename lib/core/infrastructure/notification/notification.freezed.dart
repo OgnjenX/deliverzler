@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,96 +10,78 @@ part of 'notification.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-NotificationPayload _$NotificationPayloadFromJson(Map<String, dynamic> json) {
-  return _NotificationPayload.fromJson(json);
-}
 
 /// @nodoc
 mixin _$NotificationPayload {
-  String? get routeLocation => throw _privateConstructorUsedError;
-  Map<String, dynamic>? get data => throw _privateConstructorUsedError;
+  String? get routeLocation;
+  Map<String, dynamic>? get data;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $NotificationPayloadCopyWith<NotificationPayload> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $NotificationPayloadCopyWith<$Res> {
-  factory $NotificationPayloadCopyWith(
-          NotificationPayload value, $Res Function(NotificationPayload) then) =
-      _$NotificationPayloadCopyWithImpl<$Res, NotificationPayload>;
-  @useResult
-  $Res call({String? routeLocation, Map<String, dynamic>? data});
-}
-
-/// @nodoc
-class _$NotificationPayloadCopyWithImpl<$Res, $Val extends NotificationPayload>
-    implements $NotificationPayloadCopyWith<$Res> {
-  _$NotificationPayloadCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
+  /// Create a copy of NotificationPayload
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @pragma('vm:prefer-inline')
+  $NotificationPayloadCopyWith<NotificationPayload> get copyWith =>
+      _$NotificationPayloadCopyWithImpl<NotificationPayload>(
+          this as NotificationPayload, _$identity);
+
+  /// Serializes this NotificationPayload to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? routeLocation = freezed,
-    Object? data = freezed,
-  }) {
-    return _then(_value.copyWith(
-      routeLocation: freezed == routeLocation
-          ? _value.routeLocation
-          : routeLocation // ignore: cast_nullable_to_non_nullable
-              as String?,
-      data: freezed == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>?,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is NotificationPayload &&
+            (identical(other.routeLocation, routeLocation) ||
+                other.routeLocation == routeLocation) &&
+            const DeepCollectionEquality().equals(other.data, data));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, routeLocation, const DeepCollectionEquality().hash(data));
+
+  @override
+  String toString() {
+    return 'NotificationPayload(routeLocation: $routeLocation, data: $data)';
   }
 }
 
 /// @nodoc
-abstract class _$$_NotificationPayloadCopyWith<$Res>
-    implements $NotificationPayloadCopyWith<$Res> {
-  factory _$$_NotificationPayloadCopyWith(_$_NotificationPayload value,
-          $Res Function(_$_NotificationPayload) then) =
-      __$$_NotificationPayloadCopyWithImpl<$Res>;
-  @override
+abstract mixin class $NotificationPayloadCopyWith<$Res> {
+  factory $NotificationPayloadCopyWith(
+          NotificationPayload value, $Res Function(NotificationPayload) _then) =
+      _$NotificationPayloadCopyWithImpl;
   @useResult
   $Res call({String? routeLocation, Map<String, dynamic>? data});
 }
 
 /// @nodoc
-class __$$_NotificationPayloadCopyWithImpl<$Res>
-    extends _$NotificationPayloadCopyWithImpl<$Res, _$_NotificationPayload>
-    implements _$$_NotificationPayloadCopyWith<$Res> {
-  __$$_NotificationPayloadCopyWithImpl(_$_NotificationPayload _value,
-      $Res Function(_$_NotificationPayload) _then)
-      : super(_value, _then);
+class _$NotificationPayloadCopyWithImpl<$Res>
+    implements $NotificationPayloadCopyWith<$Res> {
+  _$NotificationPayloadCopyWithImpl(this._self, this._then);
 
+  final NotificationPayload _self;
+  final $Res Function(NotificationPayload) _then;
+
+  /// Create a copy of NotificationPayload
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? routeLocation = freezed,
     Object? data = freezed,
   }) {
-    return _then(_$_NotificationPayload(
+    return _then(_self.copyWith(
       routeLocation: freezed == routeLocation
-          ? _value.routeLocation
+          ? _self.routeLocation
           : routeLocation // ignore: cast_nullable_to_non_nullable
               as String?,
       data: freezed == data
-          ? _value._data
+          ? _self.data
           : data // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
     ));
@@ -107,13 +90,12 @@ class __$$_NotificationPayloadCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_NotificationPayload implements _NotificationPayload {
-  const _$_NotificationPayload(
+class _NotificationPayload implements NotificationPayload {
+  const _NotificationPayload(
       {required this.routeLocation, required final Map<String, dynamic>? data})
       : _data = data;
-
-  factory _$_NotificationPayload.fromJson(Map<String, dynamic> json) =>
-      _$$_NotificationPayloadFromJson(json);
+  factory _NotificationPayload.fromJson(Map<String, dynamic> json) =>
+      _$NotificationPayloadFromJson(json);
 
   @override
   final String? routeLocation;
@@ -127,55 +109,81 @@ class _$_NotificationPayload implements _NotificationPayload {
     return EqualUnmodifiableMapView(value);
   }
 
+  /// Create a copy of NotificationPayload
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'NotificationPayload(routeLocation: $routeLocation, data: $data)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$NotificationPayloadCopyWith<_NotificationPayload> get copyWith =>
+      __$NotificationPayloadCopyWithImpl<_NotificationPayload>(
+          this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$NotificationPayloadToJson(
+      this,
+    );
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_NotificationPayload &&
+            other is _NotificationPayload &&
             (identical(other.routeLocation, routeLocation) ||
                 other.routeLocation == routeLocation) &&
             const DeepCollectionEquality().equals(other._data, _data));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType, routeLocation, const DeepCollectionEquality().hash(_data));
 
-  @JsonKey(ignore: true)
   @override
-  @pragma('vm:prefer-inline')
-  _$$_NotificationPayloadCopyWith<_$_NotificationPayload> get copyWith =>
-      __$$_NotificationPayloadCopyWithImpl<_$_NotificationPayload>(
-          this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$_NotificationPayloadToJson(
-      this,
-    );
+  String toString() {
+    return 'NotificationPayload(routeLocation: $routeLocation, data: $data)';
   }
 }
 
-abstract class _NotificationPayload implements NotificationPayload {
-  const factory _NotificationPayload(
-      {required final String? routeLocation,
-      required final Map<String, dynamic>? data}) = _$_NotificationPayload;
-
-  factory _NotificationPayload.fromJson(Map<String, dynamic> json) =
-      _$_NotificationPayload.fromJson;
-
+/// @nodoc
+abstract mixin class _$NotificationPayloadCopyWith<$Res>
+    implements $NotificationPayloadCopyWith<$Res> {
+  factory _$NotificationPayloadCopyWith(_NotificationPayload value,
+          $Res Function(_NotificationPayload) _then) =
+      __$NotificationPayloadCopyWithImpl;
   @override
-  String? get routeLocation;
-  @override
-  Map<String, dynamic>? get data;
-  @override
-  @JsonKey(ignore: true)
-  _$$_NotificationPayloadCopyWith<_$_NotificationPayload> get copyWith =>
-      throw _privateConstructorUsedError;
+  @useResult
+  $Res call({String? routeLocation, Map<String, dynamic>? data});
 }
+
+/// @nodoc
+class __$NotificationPayloadCopyWithImpl<$Res>
+    implements _$NotificationPayloadCopyWith<$Res> {
+  __$NotificationPayloadCopyWithImpl(this._self, this._then);
+
+  final _NotificationPayload _self;
+  final $Res Function(_NotificationPayload) _then;
+
+  /// Create a copy of NotificationPayload
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? routeLocation = freezed,
+    Object? data = freezed,
+  }) {
+    return _then(_NotificationPayload(
+      routeLocation: freezed == routeLocation
+          ? _self.routeLocation
+          : routeLocation // ignore: cast_nullable_to_non_nullable
+              as String?,
+      data: freezed == data
+          ? _self._data
+          : data // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
+    ));
+  }
+}
+
+// dart format on

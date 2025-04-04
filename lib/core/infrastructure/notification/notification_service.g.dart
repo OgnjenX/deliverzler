@@ -22,6 +22,8 @@ final setupFlutterNotificationsProvider =
   allTransitiveDependencies: null,
 );
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 typedef SetupFlutterNotificationsRef = AutoDisposeFutureProviderRef<void>;
 String _$requestNotificationPermissionsHash() =>
     r'048b7e7439534a493ba60e54c9e8433f455e26cb';
@@ -39,6 +41,8 @@ final requestNotificationPermissionsProvider =
   allTransitiveDependencies: null,
 );
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 typedef RequestNotificationPermissionsRef
     = AutoDisposeFutureProviderRef<AuthorizationStatus>;
 String _$notificationServiceHash() =>
@@ -56,6 +60,8 @@ final notificationServiceProvider = Provider<NotificationService>.internal(
   allTransitiveDependencies: null,
 );
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 typedef NotificationServiceRef = ProviderRef<NotificationService>;
 String _$notificationResponseEventHash() =>
     r'2a042768d47ca4db0cc1593b7fa2947b1a2fee10';
@@ -74,4 +80,5 @@ final notificationResponseEventProvider = NotifierProvider<
 );
 
 typedef _$NotificationResponseEvent = Notifier<Option<NotificationResponse>>;
-// ignore_for_file: unnecessary_raw_strings, subtype_of_sealed_class, invalid_use_of_internal_member, do_not_use_environment, prefer_const_constructors, public_member_api_docs, avoid_private_typedef_functions
+// ignore_for_file: type=lint
+// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

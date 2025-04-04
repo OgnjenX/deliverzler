@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,99 +10,67 @@ part of 'user_dto.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-UserDto _$UserDtoFromJson(Map<String, dynamic> json) {
-  return _UserDto.fromJson(json);
-}
 
 /// @nodoc
 mixin _$UserDto {
-  String get id => throw _privateConstructorUsedError;
-  String get email => throw _privateConstructorUsedError;
-  String? get name => throw _privateConstructorUsedError;
-  String? get phone => throw _privateConstructorUsedError;
-  String? get image => throw _privateConstructorUsedError;
+  String get id;
+  String get email;
+  String? get name;
+  String? get phone;
+  String? get image;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $UserDtoCopyWith<UserDto> get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $UserDtoCopyWith<$Res> {
-  factory $UserDtoCopyWith(UserDto value, $Res Function(UserDto) then) =
-      _$UserDtoCopyWithImpl<$Res, UserDto>;
-  @useResult
-  $Res call(
-      {String id, String email, String? name, String? phone, String? image});
-}
-
-/// @nodoc
-class _$UserDtoCopyWithImpl<$Res, $Val extends UserDto>
-    implements $UserDtoCopyWith<$Res> {
-  _$UserDtoCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
+  /// Create a copy of UserDto
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @pragma('vm:prefer-inline')
+  $UserDtoCopyWith<UserDto> get copyWith =>
+      _$UserDtoCopyWithImpl<UserDto>(this as UserDto, _$identity);
+
+  /// Serializes this UserDto to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? id = null,
-    Object? email = null,
-    Object? name = freezed,
-    Object? phone = freezed,
-    Object? image = freezed,
-  }) {
-    return _then(_value.copyWith(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String,
-      email: null == email
-          ? _value.email
-          : email // ignore: cast_nullable_to_non_nullable
-              as String,
-      name: freezed == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String?,
-      phone: freezed == phone
-          ? _value.phone
-          : phone // ignore: cast_nullable_to_non_nullable
-              as String?,
-      image: freezed == image
-          ? _value.image
-          : image // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is UserDto &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.email, email) || other.email == email) &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.phone, phone) || other.phone == phone) &&
+            (identical(other.image, image) || other.image == image));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, id, email, name, phone, image);
+
+  @override
+  String toString() {
+    return 'UserDto(id: $id, email: $email, name: $name, phone: $phone, image: $image)';
   }
 }
 
 /// @nodoc
-abstract class _$$_UserDtoCopyWith<$Res> implements $UserDtoCopyWith<$Res> {
-  factory _$$_UserDtoCopyWith(
-          _$_UserDto value, $Res Function(_$_UserDto) then) =
-      __$$_UserDtoCopyWithImpl<$Res>;
-  @override
+abstract mixin class $UserDtoCopyWith<$Res> {
+  factory $UserDtoCopyWith(UserDto value, $Res Function(UserDto) _then) =
+      _$UserDtoCopyWithImpl;
   @useResult
   $Res call(
       {String id, String email, String? name, String? phone, String? image});
 }
 
 /// @nodoc
-class __$$_UserDtoCopyWithImpl<$Res>
-    extends _$UserDtoCopyWithImpl<$Res, _$_UserDto>
-    implements _$$_UserDtoCopyWith<$Res> {
-  __$$_UserDtoCopyWithImpl(_$_UserDto _value, $Res Function(_$_UserDto) _then)
-      : super(_value, _then);
+class _$UserDtoCopyWithImpl<$Res> implements $UserDtoCopyWith<$Res> {
+  _$UserDtoCopyWithImpl(this._self, this._then);
 
+  final UserDto _self;
+  final $Res Function(UserDto) _then;
+
+  /// Create a copy of UserDto
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -111,25 +80,25 @@ class __$$_UserDtoCopyWithImpl<$Res>
     Object? phone = freezed,
     Object? image = freezed,
   }) {
-    return _then(_$_UserDto(
+    return _then(_self.copyWith(
       id: null == id
-          ? _value.id
+          ? _self.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
       email: null == email
-          ? _value.email
+          ? _self.email
           : email // ignore: cast_nullable_to_non_nullable
               as String,
       name: freezed == name
-          ? _value.name
+          ? _self.name
           : name // ignore: cast_nullable_to_non_nullable
               as String?,
       phone: freezed == phone
-          ? _value.phone
+          ? _self.phone
           : phone // ignore: cast_nullable_to_non_nullable
               as String?,
       image: freezed == image
-          ? _value.image
+          ? _self.image
           : image // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
@@ -138,17 +107,16 @@ class __$$_UserDtoCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_UserDto extends _UserDto {
-  const _$_UserDto(
+class _UserDto extends UserDto {
+  const _UserDto(
       {required this.id,
       required this.email,
       required this.name,
       required this.phone,
       required this.image})
       : super._();
-
-  factory _$_UserDto.fromJson(Map<String, dynamic> json) =>
-      _$$_UserDtoFromJson(json);
+  factory _UserDto.fromJson(Map<String, dynamic> json) =>
+      _$UserDtoFromJson(json);
 
   @override
   final String id;
@@ -161,16 +129,26 @@ class _$_UserDto extends _UserDto {
   @override
   final String? image;
 
+  /// Create a copy of UserDto
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'UserDto(id: $id, email: $email, name: $name, phone: $phone, image: $image)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$UserDtoCopyWith<_UserDto> get copyWith =>
+      __$UserDtoCopyWithImpl<_UserDto>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$UserDtoToJson(
+      this,
+    );
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_UserDto &&
+            other is _UserDto &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.email, email) || other.email == email) &&
             (identical(other.name, name) || other.name == name) &&
@@ -178,47 +156,67 @@ class _$_UserDto extends _UserDto {
             (identical(other.image, image) || other.image == image));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, id, email, name, phone, image);
 
-  @JsonKey(ignore: true)
   @override
-  @pragma('vm:prefer-inline')
-  _$$_UserDtoCopyWith<_$_UserDto> get copyWith =>
-      __$$_UserDtoCopyWithImpl<_$_UserDto>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$_UserDtoToJson(
-      this,
-    );
+  String toString() {
+    return 'UserDto(id: $id, email: $email, name: $name, phone: $phone, image: $image)';
   }
 }
 
-abstract class _UserDto extends UserDto {
-  const factory _UserDto(
-      {required final String id,
-      required final String email,
-      required final String? name,
-      required final String? phone,
-      required final String? image}) = _$_UserDto;
-  const _UserDto._() : super._();
-
-  factory _UserDto.fromJson(Map<String, dynamic> json) = _$_UserDto.fromJson;
-
+/// @nodoc
+abstract mixin class _$UserDtoCopyWith<$Res> implements $UserDtoCopyWith<$Res> {
+  factory _$UserDtoCopyWith(_UserDto value, $Res Function(_UserDto) _then) =
+      __$UserDtoCopyWithImpl;
   @override
-  String get id;
-  @override
-  String get email;
-  @override
-  String? get name;
-  @override
-  String? get phone;
-  @override
-  String? get image;
-  @override
-  @JsonKey(ignore: true)
-  _$$_UserDtoCopyWith<_$_UserDto> get copyWith =>
-      throw _privateConstructorUsedError;
+  @useResult
+  $Res call(
+      {String id, String email, String? name, String? phone, String? image});
 }
+
+/// @nodoc
+class __$UserDtoCopyWithImpl<$Res> implements _$UserDtoCopyWith<$Res> {
+  __$UserDtoCopyWithImpl(this._self, this._then);
+
+  final _UserDto _self;
+  final $Res Function(_UserDto) _then;
+
+  /// Create a copy of UserDto
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? id = null,
+    Object? email = null,
+    Object? name = freezed,
+    Object? phone = freezed,
+    Object? image = freezed,
+  }) {
+    return _then(_UserDto(
+      id: null == id
+          ? _self.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      email: null == email
+          ? _self.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as String,
+      name: freezed == name
+          ? _self.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String?,
+      phone: freezed == phone
+          ? _self.phone
+          : phone // ignore: cast_nullable_to_non_nullable
+              as String?,
+      image: freezed == image
+          ? _self.image
+          : image // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+// dart format on

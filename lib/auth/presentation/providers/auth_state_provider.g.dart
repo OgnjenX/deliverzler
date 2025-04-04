@@ -20,6 +20,8 @@ final currentUserStateProvider = AutoDisposeFutureProvider<User>.internal(
   allTransitiveDependencies: null,
 );
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 typedef CurrentUserStateRef = AutoDisposeFutureProviderRef<User>;
 String _$currentUserHash() => r'a4c1c6b5d12d4eea16187cb31f05001c09d5839f';
 
@@ -34,6 +36,8 @@ final currentUserProvider = AutoDisposeProvider<User>.internal(
   allTransitiveDependencies: null,
 );
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 typedef CurrentUserRef = AutoDisposeProviderRef<User>;
 String _$authStateHash() => r'1009ba3f81452f2e5b7062ad2709ebc8cacc8375';
 
@@ -49,4 +53,5 @@ final authStateProvider = NotifierProvider<AuthState, Option<User>>.internal(
 );
 
 typedef _$AuthState = Notifier<Option<User>>;
-// ignore_for_file: unnecessary_raw_strings, subtype_of_sealed_class, invalid_use_of_internal_member, do_not_use_environment, prefer_const_constructors, public_member_api_docs, avoid_private_typedef_functions
+// ignore_for_file: type=lint
+// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

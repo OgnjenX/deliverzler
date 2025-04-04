@@ -25,6 +25,8 @@ final getInitialMessageProvider =
   allTransitiveDependencies: null,
 );
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 typedef GetInitialMessageRef
     = AutoDisposeFutureProviderRef<Option<RemoteMessage>>;
 String _$onMessageHash() => r'9ef0da5670c6b7de2b80f9c572c74a894d340d44';
@@ -42,6 +44,8 @@ final onMessageProvider = AutoDisposeStreamProvider<RemoteMessage>.internal(
   allTransitiveDependencies: null,
 );
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 typedef OnMessageRef = AutoDisposeStreamProviderRef<RemoteMessage>;
 String _$onMessageOpenedAppHash() =>
     r'bd9066dfcd4b24ad4f964dfb8a073cf69f822620';
@@ -62,5 +66,8 @@ final onMessageOpenedAppProvider =
   allTransitiveDependencies: null,
 );
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 typedef OnMessageOpenedAppRef = AutoDisposeStreamProviderRef<RemoteMessage>;
-// ignore_for_file: unnecessary_raw_strings, subtype_of_sealed_class, invalid_use_of_internal_member, do_not_use_environment, prefer_const_constructors, public_member_api_docs, avoid_private_typedef_functions
+// ignore_for_file: type=lint
+// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

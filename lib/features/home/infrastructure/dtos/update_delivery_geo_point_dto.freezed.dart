@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,97 +10,78 @@ part of 'update_delivery_geo_point_dto.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$UpdateDeliveryGeoPointDto {
-  String get orderId => throw _privateConstructorUsedError;
+  String get orderId;
   @GeoPointConverter()
-  GeoPoint get geoPoint => throw _privateConstructorUsedError;
+  GeoPoint get geoPoint;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $UpdateDeliveryGeoPointDtoCopyWith<UpdateDeliveryGeoPointDto> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $UpdateDeliveryGeoPointDtoCopyWith<$Res> {
-  factory $UpdateDeliveryGeoPointDtoCopyWith(UpdateDeliveryGeoPointDto value,
-          $Res Function(UpdateDeliveryGeoPointDto) then) =
-      _$UpdateDeliveryGeoPointDtoCopyWithImpl<$Res, UpdateDeliveryGeoPointDto>;
-  @useResult
-  $Res call({String orderId, @GeoPointConverter() GeoPoint geoPoint});
-}
-
-/// @nodoc
-class _$UpdateDeliveryGeoPointDtoCopyWithImpl<$Res,
-        $Val extends UpdateDeliveryGeoPointDto>
-    implements $UpdateDeliveryGeoPointDtoCopyWith<$Res> {
-  _$UpdateDeliveryGeoPointDtoCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
+  /// Create a copy of UpdateDeliveryGeoPointDto
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @pragma('vm:prefer-inline')
+  $UpdateDeliveryGeoPointDtoCopyWith<UpdateDeliveryGeoPointDto> get copyWith =>
+      _$UpdateDeliveryGeoPointDtoCopyWithImpl<UpdateDeliveryGeoPointDto>(
+          this as UpdateDeliveryGeoPointDto, _$identity);
+
+  /// Serializes this UpdateDeliveryGeoPointDto to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? orderId = null,
-    Object? geoPoint = null,
-  }) {
-    return _then(_value.copyWith(
-      orderId: null == orderId
-          ? _value.orderId
-          : orderId // ignore: cast_nullable_to_non_nullable
-              as String,
-      geoPoint: null == geoPoint
-          ? _value.geoPoint
-          : geoPoint // ignore: cast_nullable_to_non_nullable
-              as GeoPoint,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is UpdateDeliveryGeoPointDto &&
+            (identical(other.orderId, orderId) || other.orderId == orderId) &&
+            (identical(other.geoPoint, geoPoint) ||
+                other.geoPoint == geoPoint));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, orderId, geoPoint);
+
+  @override
+  String toString() {
+    return 'UpdateDeliveryGeoPointDto(orderId: $orderId, geoPoint: $geoPoint)';
   }
 }
 
 /// @nodoc
-abstract class _$$_UpdateDeliveryGeoPointDtoCopyWith<$Res>
-    implements $UpdateDeliveryGeoPointDtoCopyWith<$Res> {
-  factory _$$_UpdateDeliveryGeoPointDtoCopyWith(
-          _$_UpdateDeliveryGeoPointDto value,
-          $Res Function(_$_UpdateDeliveryGeoPointDto) then) =
-      __$$_UpdateDeliveryGeoPointDtoCopyWithImpl<$Res>;
-  @override
+abstract mixin class $UpdateDeliveryGeoPointDtoCopyWith<$Res> {
+  factory $UpdateDeliveryGeoPointDtoCopyWith(UpdateDeliveryGeoPointDto value,
+          $Res Function(UpdateDeliveryGeoPointDto) _then) =
+      _$UpdateDeliveryGeoPointDtoCopyWithImpl;
   @useResult
   $Res call({String orderId, @GeoPointConverter() GeoPoint geoPoint});
 }
 
 /// @nodoc
-class __$$_UpdateDeliveryGeoPointDtoCopyWithImpl<$Res>
-    extends _$UpdateDeliveryGeoPointDtoCopyWithImpl<$Res,
-        _$_UpdateDeliveryGeoPointDto>
-    implements _$$_UpdateDeliveryGeoPointDtoCopyWith<$Res> {
-  __$$_UpdateDeliveryGeoPointDtoCopyWithImpl(
-      _$_UpdateDeliveryGeoPointDto _value,
-      $Res Function(_$_UpdateDeliveryGeoPointDto) _then)
-      : super(_value, _then);
+class _$UpdateDeliveryGeoPointDtoCopyWithImpl<$Res>
+    implements $UpdateDeliveryGeoPointDtoCopyWith<$Res> {
+  _$UpdateDeliveryGeoPointDtoCopyWithImpl(this._self, this._then);
 
+  final UpdateDeliveryGeoPointDto _self;
+  final $Res Function(UpdateDeliveryGeoPointDto) _then;
+
+  /// Create a copy of UpdateDeliveryGeoPointDto
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? orderId = null,
     Object? geoPoint = null,
   }) {
-    return _then(_$_UpdateDeliveryGeoPointDto(
+    return _then(_self.copyWith(
       orderId: null == orderId
-          ? _value.orderId
+          ? _self.orderId
           : orderId // ignore: cast_nullable_to_non_nullable
               as String,
       geoPoint: null == geoPoint
-          ? _value.geoPoint
+          ? _self.geoPoint
           : geoPoint // ignore: cast_nullable_to_non_nullable
               as GeoPoint,
     ));
@@ -108,8 +90,8 @@ class __$$_UpdateDeliveryGeoPointDtoCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable(createFactory: false)
-class _$_UpdateDeliveryGeoPointDto implements _UpdateDeliveryGeoPointDto {
-  const _$_UpdateDeliveryGeoPointDto(
+class _UpdateDeliveryGeoPointDto implements UpdateDeliveryGeoPointDto {
+  const _UpdateDeliveryGeoPointDto(
       {required this.orderId, @GeoPointConverter() required this.geoPoint});
 
   @override
@@ -118,53 +100,81 @@ class _$_UpdateDeliveryGeoPointDto implements _UpdateDeliveryGeoPointDto {
   @GeoPointConverter()
   final GeoPoint geoPoint;
 
+  /// Create a copy of UpdateDeliveryGeoPointDto
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'UpdateDeliveryGeoPointDto(orderId: $orderId, geoPoint: $geoPoint)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$UpdateDeliveryGeoPointDtoCopyWith<_UpdateDeliveryGeoPointDto>
+      get copyWith =>
+          __$UpdateDeliveryGeoPointDtoCopyWithImpl<_UpdateDeliveryGeoPointDto>(
+              this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$UpdateDeliveryGeoPointDtoToJson(
+      this,
+    );
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_UpdateDeliveryGeoPointDto &&
+            other is _UpdateDeliveryGeoPointDto &&
             (identical(other.orderId, orderId) || other.orderId == orderId) &&
             (identical(other.geoPoint, geoPoint) ||
                 other.geoPoint == geoPoint));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, orderId, geoPoint);
 
-  @JsonKey(ignore: true)
   @override
-  @pragma('vm:prefer-inline')
-  _$$_UpdateDeliveryGeoPointDtoCopyWith<_$_UpdateDeliveryGeoPointDto>
-      get copyWith => __$$_UpdateDeliveryGeoPointDtoCopyWithImpl<
-          _$_UpdateDeliveryGeoPointDto>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$_UpdateDeliveryGeoPointDtoToJson(
-      this,
-    );
+  String toString() {
+    return 'UpdateDeliveryGeoPointDto(orderId: $orderId, geoPoint: $geoPoint)';
   }
 }
 
-abstract class _UpdateDeliveryGeoPointDto implements UpdateDeliveryGeoPointDto {
-  const factory _UpdateDeliveryGeoPointDto(
-          {required final String orderId,
-          @GeoPointConverter() required final GeoPoint geoPoint}) =
-      _$_UpdateDeliveryGeoPointDto;
-
+/// @nodoc
+abstract mixin class _$UpdateDeliveryGeoPointDtoCopyWith<$Res>
+    implements $UpdateDeliveryGeoPointDtoCopyWith<$Res> {
+  factory _$UpdateDeliveryGeoPointDtoCopyWith(_UpdateDeliveryGeoPointDto value,
+          $Res Function(_UpdateDeliveryGeoPointDto) _then) =
+      __$UpdateDeliveryGeoPointDtoCopyWithImpl;
   @override
-  String get orderId;
-  @override
-  @GeoPointConverter()
-  GeoPoint get geoPoint;
-  @override
-  @JsonKey(ignore: true)
-  _$$_UpdateDeliveryGeoPointDtoCopyWith<_$_UpdateDeliveryGeoPointDto>
-      get copyWith => throw _privateConstructorUsedError;
+  @useResult
+  $Res call({String orderId, @GeoPointConverter() GeoPoint geoPoint});
 }
+
+/// @nodoc
+class __$UpdateDeliveryGeoPointDtoCopyWithImpl<$Res>
+    implements _$UpdateDeliveryGeoPointDtoCopyWith<$Res> {
+  __$UpdateDeliveryGeoPointDtoCopyWithImpl(this._self, this._then);
+
+  final _UpdateDeliveryGeoPointDto _self;
+  final $Res Function(_UpdateDeliveryGeoPointDto) _then;
+
+  /// Create a copy of UpdateDeliveryGeoPointDto
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? orderId = null,
+    Object? geoPoint = null,
+  }) {
+    return _then(_UpdateDeliveryGeoPointDto(
+      orderId: null == orderId
+          ? _self.orderId
+          : orderId // ignore: cast_nullable_to_non_nullable
+              as String,
+      geoPoint: null == geoPoint
+          ? _self.geoPoint
+          : geoPoint // ignore: cast_nullable_to_non_nullable
+              as GeoPoint,
+    ));
+  }
+}
+
+// dart format on

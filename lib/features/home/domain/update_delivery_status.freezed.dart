@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,83 +10,53 @@ part of 'update_delivery_status.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$UpdateDeliveryStatus {
-  String get orderId => throw _privateConstructorUsedError;
-  DeliveryStatus get deliveryStatus => throw _privateConstructorUsedError;
-  String? get deliveryId => throw _privateConstructorUsedError;
-  String? get employeeCancelNote => throw _privateConstructorUsedError;
+  String get orderId;
+  DeliveryStatus get deliveryStatus;
+  String? get deliveryId;
+  String? get employeeCancelNote;
 
-  @JsonKey(ignore: true)
-  $UpdateDeliveryStatusCopyWith<UpdateDeliveryStatus> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $UpdateDeliveryStatusCopyWith<$Res> {
-  factory $UpdateDeliveryStatusCopyWith(UpdateDeliveryStatus value,
-          $Res Function(UpdateDeliveryStatus) then) =
-      _$UpdateDeliveryStatusCopyWithImpl<$Res, UpdateDeliveryStatus>;
-  @useResult
-  $Res call(
-      {String orderId,
-      DeliveryStatus deliveryStatus,
-      String? deliveryId,
-      String? employeeCancelNote});
-}
-
-/// @nodoc
-class _$UpdateDeliveryStatusCopyWithImpl<$Res,
-        $Val extends UpdateDeliveryStatus>
-    implements $UpdateDeliveryStatusCopyWith<$Res> {
-  _$UpdateDeliveryStatusCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
+  /// Create a copy of UpdateDeliveryStatus
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @pragma('vm:prefer-inline')
+  $UpdateDeliveryStatusCopyWith<UpdateDeliveryStatus> get copyWith =>
+      _$UpdateDeliveryStatusCopyWithImpl<UpdateDeliveryStatus>(
+          this as UpdateDeliveryStatus, _$identity);
+
   @override
-  $Res call({
-    Object? orderId = null,
-    Object? deliveryStatus = null,
-    Object? deliveryId = freezed,
-    Object? employeeCancelNote = freezed,
-  }) {
-    return _then(_value.copyWith(
-      orderId: null == orderId
-          ? _value.orderId
-          : orderId // ignore: cast_nullable_to_non_nullable
-              as String,
-      deliveryStatus: null == deliveryStatus
-          ? _value.deliveryStatus
-          : deliveryStatus // ignore: cast_nullable_to_non_nullable
-              as DeliveryStatus,
-      deliveryId: freezed == deliveryId
-          ? _value.deliveryId
-          : deliveryId // ignore: cast_nullable_to_non_nullable
-              as String?,
-      employeeCancelNote: freezed == employeeCancelNote
-          ? _value.employeeCancelNote
-          : employeeCancelNote // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is UpdateDeliveryStatus &&
+            (identical(other.orderId, orderId) || other.orderId == orderId) &&
+            (identical(other.deliveryStatus, deliveryStatus) ||
+                other.deliveryStatus == deliveryStatus) &&
+            (identical(other.deliveryId, deliveryId) ||
+                other.deliveryId == deliveryId) &&
+            (identical(other.employeeCancelNote, employeeCancelNote) ||
+                other.employeeCancelNote == employeeCancelNote));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, orderId, deliveryStatus, deliveryId, employeeCancelNote);
+
+  @override
+  String toString() {
+    return 'UpdateDeliveryStatus(orderId: $orderId, deliveryStatus: $deliveryStatus, deliveryId: $deliveryId, employeeCancelNote: $employeeCancelNote)';
   }
 }
 
 /// @nodoc
-abstract class _$$_UpdateDeliveryStatusCopyWith<$Res>
-    implements $UpdateDeliveryStatusCopyWith<$Res> {
-  factory _$$_UpdateDeliveryStatusCopyWith(_$_UpdateDeliveryStatus value,
-          $Res Function(_$_UpdateDeliveryStatus) then) =
-      __$$_UpdateDeliveryStatusCopyWithImpl<$Res>;
-  @override
+abstract mixin class $UpdateDeliveryStatusCopyWith<$Res> {
+  factory $UpdateDeliveryStatusCopyWith(UpdateDeliveryStatus value,
+          $Res Function(UpdateDeliveryStatus) _then) =
+      _$UpdateDeliveryStatusCopyWithImpl;
   @useResult
   $Res call(
       {String orderId,
@@ -95,13 +66,15 @@ abstract class _$$_UpdateDeliveryStatusCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_UpdateDeliveryStatusCopyWithImpl<$Res>
-    extends _$UpdateDeliveryStatusCopyWithImpl<$Res, _$_UpdateDeliveryStatus>
-    implements _$$_UpdateDeliveryStatusCopyWith<$Res> {
-  __$$_UpdateDeliveryStatusCopyWithImpl(_$_UpdateDeliveryStatus _value,
-      $Res Function(_$_UpdateDeliveryStatus) _then)
-      : super(_value, _then);
+class _$UpdateDeliveryStatusCopyWithImpl<$Res>
+    implements $UpdateDeliveryStatusCopyWith<$Res> {
+  _$UpdateDeliveryStatusCopyWithImpl(this._self, this._then);
 
+  final UpdateDeliveryStatus _self;
+  final $Res Function(UpdateDeliveryStatus) _then;
+
+  /// Create a copy of UpdateDeliveryStatus
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -110,21 +83,21 @@ class __$$_UpdateDeliveryStatusCopyWithImpl<$Res>
     Object? deliveryId = freezed,
     Object? employeeCancelNote = freezed,
   }) {
-    return _then(_$_UpdateDeliveryStatus(
+    return _then(_self.copyWith(
       orderId: null == orderId
-          ? _value.orderId
+          ? _self.orderId
           : orderId // ignore: cast_nullable_to_non_nullable
               as String,
       deliveryStatus: null == deliveryStatus
-          ? _value.deliveryStatus
+          ? _self.deliveryStatus
           : deliveryStatus // ignore: cast_nullable_to_non_nullable
               as DeliveryStatus,
       deliveryId: freezed == deliveryId
-          ? _value.deliveryId
+          ? _self.deliveryId
           : deliveryId // ignore: cast_nullable_to_non_nullable
               as String?,
       employeeCancelNote: freezed == employeeCancelNote
-          ? _value.employeeCancelNote
+          ? _self.employeeCancelNote
           : employeeCancelNote // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
@@ -133,8 +106,8 @@ class __$$_UpdateDeliveryStatusCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_UpdateDeliveryStatus implements _UpdateDeliveryStatus {
-  const _$_UpdateDeliveryStatus(
+class _UpdateDeliveryStatus implements UpdateDeliveryStatus {
+  const _UpdateDeliveryStatus(
       {required this.orderId,
       required this.deliveryStatus,
       this.deliveryId,
@@ -149,16 +122,20 @@ class _$_UpdateDeliveryStatus implements _UpdateDeliveryStatus {
   @override
   final String? employeeCancelNote;
 
+  /// Create a copy of UpdateDeliveryStatus
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'UpdateDeliveryStatus(orderId: $orderId, deliveryStatus: $deliveryStatus, deliveryId: $deliveryId, employeeCancelNote: $employeeCancelNote)';
-  }
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$UpdateDeliveryStatusCopyWith<_UpdateDeliveryStatus> get copyWith =>
+      __$UpdateDeliveryStatusCopyWithImpl<_UpdateDeliveryStatus>(
+          this, _$identity);
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_UpdateDeliveryStatus &&
+            other is _UpdateDeliveryStatus &&
             (identical(other.orderId, orderId) || other.orderId == orderId) &&
             (identical(other.deliveryStatus, deliveryStatus) ||
                 other.deliveryStatus == deliveryStatus) &&
@@ -172,31 +149,64 @@ class _$_UpdateDeliveryStatus implements _UpdateDeliveryStatus {
   int get hashCode => Object.hash(
       runtimeType, orderId, deliveryStatus, deliveryId, employeeCancelNote);
 
-  @JsonKey(ignore: true)
+  @override
+  String toString() {
+    return 'UpdateDeliveryStatus(orderId: $orderId, deliveryStatus: $deliveryStatus, deliveryId: $deliveryId, employeeCancelNote: $employeeCancelNote)';
+  }
+}
+
+/// @nodoc
+abstract mixin class _$UpdateDeliveryStatusCopyWith<$Res>
+    implements $UpdateDeliveryStatusCopyWith<$Res> {
+  factory _$UpdateDeliveryStatusCopyWith(_UpdateDeliveryStatus value,
+          $Res Function(_UpdateDeliveryStatus) _then) =
+      __$UpdateDeliveryStatusCopyWithImpl;
+  @override
+  @useResult
+  $Res call(
+      {String orderId,
+      DeliveryStatus deliveryStatus,
+      String? deliveryId,
+      String? employeeCancelNote});
+}
+
+/// @nodoc
+class __$UpdateDeliveryStatusCopyWithImpl<$Res>
+    implements _$UpdateDeliveryStatusCopyWith<$Res> {
+  __$UpdateDeliveryStatusCopyWithImpl(this._self, this._then);
+
+  final _UpdateDeliveryStatus _self;
+  final $Res Function(_UpdateDeliveryStatus) _then;
+
+  /// Create a copy of UpdateDeliveryStatus
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  _$$_UpdateDeliveryStatusCopyWith<_$_UpdateDeliveryStatus> get copyWith =>
-      __$$_UpdateDeliveryStatusCopyWithImpl<_$_UpdateDeliveryStatus>(
-          this, _$identity);
+  $Res call({
+    Object? orderId = null,
+    Object? deliveryStatus = null,
+    Object? deliveryId = freezed,
+    Object? employeeCancelNote = freezed,
+  }) {
+    return _then(_UpdateDeliveryStatus(
+      orderId: null == orderId
+          ? _self.orderId
+          : orderId // ignore: cast_nullable_to_non_nullable
+              as String,
+      deliveryStatus: null == deliveryStatus
+          ? _self.deliveryStatus
+          : deliveryStatus // ignore: cast_nullable_to_non_nullable
+              as DeliveryStatus,
+      deliveryId: freezed == deliveryId
+          ? _self.deliveryId
+          : deliveryId // ignore: cast_nullable_to_non_nullable
+              as String?,
+      employeeCancelNote: freezed == employeeCancelNote
+          ? _self.employeeCancelNote
+          : employeeCancelNote // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
 }
 
-abstract class _UpdateDeliveryStatus implements UpdateDeliveryStatus {
-  const factory _UpdateDeliveryStatus(
-      {required final String orderId,
-      required final DeliveryStatus deliveryStatus,
-      final String? deliveryId,
-      final String? employeeCancelNote}) = _$_UpdateDeliveryStatus;
-
-  @override
-  String get orderId;
-  @override
-  DeliveryStatus get deliveryStatus;
-  @override
-  String? get deliveryId;
-  @override
-  String? get employeeCancelNote;
-  @override
-  @JsonKey(ignore: true)
-  _$$_UpdateDeliveryStatusCopyWith<_$_UpdateDeliveryStatus> get copyWith =>
-      throw _privateConstructorUsedError;
-}
+// dart format on

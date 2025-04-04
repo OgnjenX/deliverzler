@@ -6,8 +6,8 @@ part of 'order_dto.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_OrderDto _$$_OrderDtoFromJson(Map<String, dynamic> json) => _$_OrderDto(
-      date: json['date'] as int,
+_OrderDto _$OrderDtoFromJson(Map<String, dynamic> json) => _OrderDto(
+      date: (json['date'] as num).toInt(),
       pickupOption: $enumDecode(_$PickupOptionEnumMap, json['pickupOption']),
       paymentMethod: json['paymentMethod'] as String,
       address: json['addressModel'] == null
@@ -47,8 +47,7 @@ Value? _$JsonConverterFromJson<Json, Value>(
 ) =>
     json == null ? null : fromJson(json as Json);
 
-_$_AddressDto _$$_AddressDtoFromJson(Map<String, dynamic> json) =>
-    _$_AddressDto(
+_AddressDto _$AddressDtoFromJson(Map<String, dynamic> json) => _AddressDto(
       state: json['state'] as String,
       city: json['city'] as String,
       street: json['street'] as String,

@@ -4,7 +4,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'update_delivery_geopoint.freezed.dart';
 
 @freezed
-class UpdateDeliveryGeoPoint with _$UpdateDeliveryGeoPoint {
+abstract class UpdateDeliveryGeoPoint with _$UpdateDeliveryGeoPoint {
   const factory UpdateDeliveryGeoPoint({
     required String orderId,
     required GeoPoint geoPoint,

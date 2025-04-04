@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,91 +10,58 @@ part of 'place_autocomplete_dto.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-PlaceAutocompleteDto _$PlaceAutocompleteDtoFromJson(Map<String, dynamic> json) {
-  return _PlaceAutocompleteDto.fromJson(json);
-}
 
 /// @nodoc
 mixin _$PlaceAutocompleteDto {
   @JsonKey(name: 'place_id')
-  String get placeId => throw _privateConstructorUsedError;
+  String get placeId;
   @JsonKey(name: 'description')
-  String get description => throw _privateConstructorUsedError;
+  String get description;
   @JsonKey(readValue: _readMainText)
-  String get mainText => throw _privateConstructorUsedError;
+  String get mainText;
   @JsonKey(readValue: _readSecondaryText)
-  String get secondaryText => throw _privateConstructorUsedError;
+  String get secondaryText;
 
-  @JsonKey(ignore: true)
-  $PlaceAutocompleteDtoCopyWith<PlaceAutocompleteDto> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $PlaceAutocompleteDtoCopyWith<$Res> {
-  factory $PlaceAutocompleteDtoCopyWith(PlaceAutocompleteDto value,
-          $Res Function(PlaceAutocompleteDto) then) =
-      _$PlaceAutocompleteDtoCopyWithImpl<$Res, PlaceAutocompleteDto>;
-  @useResult
-  $Res call(
-      {@JsonKey(name: 'place_id') String placeId,
-      @JsonKey(name: 'description') String description,
-      @JsonKey(readValue: _readMainText) String mainText,
-      @JsonKey(readValue: _readSecondaryText) String secondaryText});
-}
-
-/// @nodoc
-class _$PlaceAutocompleteDtoCopyWithImpl<$Res,
-        $Val extends PlaceAutocompleteDto>
-    implements $PlaceAutocompleteDtoCopyWith<$Res> {
-  _$PlaceAutocompleteDtoCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
+  /// Create a copy of PlaceAutocompleteDto
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @pragma('vm:prefer-inline')
+  $PlaceAutocompleteDtoCopyWith<PlaceAutocompleteDto> get copyWith =>
+      _$PlaceAutocompleteDtoCopyWithImpl<PlaceAutocompleteDto>(
+          this as PlaceAutocompleteDto, _$identity);
+
   @override
-  $Res call({
-    Object? placeId = null,
-    Object? description = null,
-    Object? mainText = null,
-    Object? secondaryText = null,
-  }) {
-    return _then(_value.copyWith(
-      placeId: null == placeId
-          ? _value.placeId
-          : placeId // ignore: cast_nullable_to_non_nullable
-              as String,
-      description: null == description
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
-              as String,
-      mainText: null == mainText
-          ? _value.mainText
-          : mainText // ignore: cast_nullable_to_non_nullable
-              as String,
-      secondaryText: null == secondaryText
-          ? _value.secondaryText
-          : secondaryText // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is PlaceAutocompleteDto &&
+            (identical(other.placeId, placeId) || other.placeId == placeId) &&
+            (identical(other.description, description) ||
+                other.description == description) &&
+            (identical(other.mainText, mainText) ||
+                other.mainText == mainText) &&
+            (identical(other.secondaryText, secondaryText) ||
+                other.secondaryText == secondaryText));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, placeId, description, mainText, secondaryText);
+
+  @override
+  String toString() {
+    return 'PlaceAutocompleteDto(placeId: $placeId, description: $description, mainText: $mainText, secondaryText: $secondaryText)';
   }
 }
 
 /// @nodoc
-abstract class _$$_PlaceAutocompleteDtoCopyWith<$Res>
-    implements $PlaceAutocompleteDtoCopyWith<$Res> {
-  factory _$$_PlaceAutocompleteDtoCopyWith(_$_PlaceAutocompleteDto value,
-          $Res Function(_$_PlaceAutocompleteDto) then) =
-      __$$_PlaceAutocompleteDtoCopyWithImpl<$Res>;
-  @override
+abstract mixin class $PlaceAutocompleteDtoCopyWith<$Res> {
+  factory $PlaceAutocompleteDtoCopyWith(PlaceAutocompleteDto value,
+          $Res Function(PlaceAutocompleteDto) _then) =
+      _$PlaceAutocompleteDtoCopyWithImpl;
   @useResult
   $Res call(
       {@JsonKey(name: 'place_id') String placeId,
@@ -103,13 +71,15 @@ abstract class _$$_PlaceAutocompleteDtoCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_PlaceAutocompleteDtoCopyWithImpl<$Res>
-    extends _$PlaceAutocompleteDtoCopyWithImpl<$Res, _$_PlaceAutocompleteDto>
-    implements _$$_PlaceAutocompleteDtoCopyWith<$Res> {
-  __$$_PlaceAutocompleteDtoCopyWithImpl(_$_PlaceAutocompleteDto _value,
-      $Res Function(_$_PlaceAutocompleteDto) _then)
-      : super(_value, _then);
+class _$PlaceAutocompleteDtoCopyWithImpl<$Res>
+    implements $PlaceAutocompleteDtoCopyWith<$Res> {
+  _$PlaceAutocompleteDtoCopyWithImpl(this._self, this._then);
 
+  final PlaceAutocompleteDto _self;
+  final $Res Function(PlaceAutocompleteDto) _then;
+
+  /// Create a copy of PlaceAutocompleteDto
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -118,21 +88,21 @@ class __$$_PlaceAutocompleteDtoCopyWithImpl<$Res>
     Object? mainText = null,
     Object? secondaryText = null,
   }) {
-    return _then(_$_PlaceAutocompleteDto(
+    return _then(_self.copyWith(
       placeId: null == placeId
-          ? _value.placeId
+          ? _self.placeId
           : placeId // ignore: cast_nullable_to_non_nullable
               as String,
       description: null == description
-          ? _value.description
+          ? _self.description
           : description // ignore: cast_nullable_to_non_nullable
               as String,
       mainText: null == mainText
-          ? _value.mainText
+          ? _self.mainText
           : mainText // ignore: cast_nullable_to_non_nullable
               as String,
       secondaryText: null == secondaryText
-          ? _value.secondaryText
+          ? _self.secondaryText
           : secondaryText // ignore: cast_nullable_to_non_nullable
               as String,
     ));
@@ -141,16 +111,15 @@ class __$$_PlaceAutocompleteDtoCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable(createToJson: false)
-class _$_PlaceAutocompleteDto extends _PlaceAutocompleteDto {
-  const _$_PlaceAutocompleteDto(
+class _PlaceAutocompleteDto extends PlaceAutocompleteDto {
+  const _PlaceAutocompleteDto(
       {@JsonKey(name: 'place_id') required this.placeId,
       @JsonKey(name: 'description') required this.description,
       @JsonKey(readValue: _readMainText) required this.mainText,
       @JsonKey(readValue: _readSecondaryText) required this.secondaryText})
       : super._();
-
-  factory _$_PlaceAutocompleteDto.fromJson(Map<String, dynamic> json) =>
-      _$$_PlaceAutocompleteDtoFromJson(json);
+  factory _PlaceAutocompleteDto.fromJson(Map<String, dynamic> json) =>
+      _$PlaceAutocompleteDtoFromJson(json);
 
   @override
   @JsonKey(name: 'place_id')
@@ -165,16 +134,20 @@ class _$_PlaceAutocompleteDto extends _PlaceAutocompleteDto {
   @JsonKey(readValue: _readSecondaryText)
   final String secondaryText;
 
+  /// Create a copy of PlaceAutocompleteDto
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'PlaceAutocompleteDto(placeId: $placeId, description: $description, mainText: $mainText, secondaryText: $secondaryText)';
-  }
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$PlaceAutocompleteDtoCopyWith<_PlaceAutocompleteDto> get copyWith =>
+      __$PlaceAutocompleteDtoCopyWithImpl<_PlaceAutocompleteDto>(
+          this, _$identity);
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_PlaceAutocompleteDto &&
+            other is _PlaceAutocompleteDto &&
             (identical(other.placeId, placeId) || other.placeId == placeId) &&
             (identical(other.description, description) ||
                 other.description == description) &&
@@ -184,48 +157,69 @@ class _$_PlaceAutocompleteDto extends _PlaceAutocompleteDto {
                 other.secondaryText == secondaryText));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode =>
       Object.hash(runtimeType, placeId, description, mainText, secondaryText);
 
-  @JsonKey(ignore: true)
+  @override
+  String toString() {
+    return 'PlaceAutocompleteDto(placeId: $placeId, description: $description, mainText: $mainText, secondaryText: $secondaryText)';
+  }
+}
+
+/// @nodoc
+abstract mixin class _$PlaceAutocompleteDtoCopyWith<$Res>
+    implements $PlaceAutocompleteDtoCopyWith<$Res> {
+  factory _$PlaceAutocompleteDtoCopyWith(_PlaceAutocompleteDto value,
+          $Res Function(_PlaceAutocompleteDto) _then) =
+      __$PlaceAutocompleteDtoCopyWithImpl;
+  @override
+  @useResult
+  $Res call(
+      {@JsonKey(name: 'place_id') String placeId,
+      @JsonKey(name: 'description') String description,
+      @JsonKey(readValue: _readMainText) String mainText,
+      @JsonKey(readValue: _readSecondaryText) String secondaryText});
+}
+
+/// @nodoc
+class __$PlaceAutocompleteDtoCopyWithImpl<$Res>
+    implements _$PlaceAutocompleteDtoCopyWith<$Res> {
+  __$PlaceAutocompleteDtoCopyWithImpl(this._self, this._then);
+
+  final _PlaceAutocompleteDto _self;
+  final $Res Function(_PlaceAutocompleteDto) _then;
+
+  /// Create a copy of PlaceAutocompleteDto
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  _$$_PlaceAutocompleteDtoCopyWith<_$_PlaceAutocompleteDto> get copyWith =>
-      __$$_PlaceAutocompleteDtoCopyWithImpl<_$_PlaceAutocompleteDto>(
-          this, _$identity);
+  $Res call({
+    Object? placeId = null,
+    Object? description = null,
+    Object? mainText = null,
+    Object? secondaryText = null,
+  }) {
+    return _then(_PlaceAutocompleteDto(
+      placeId: null == placeId
+          ? _self.placeId
+          : placeId // ignore: cast_nullable_to_non_nullable
+              as String,
+      description: null == description
+          ? _self.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String,
+      mainText: null == mainText
+          ? _self.mainText
+          : mainText // ignore: cast_nullable_to_non_nullable
+              as String,
+      secondaryText: null == secondaryText
+          ? _self.secondaryText
+          : secondaryText // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
 }
 
-abstract class _PlaceAutocompleteDto extends PlaceAutocompleteDto {
-  const factory _PlaceAutocompleteDto(
-      {@JsonKey(name: 'place_id')
-          required final String placeId,
-      @JsonKey(name: 'description')
-          required final String description,
-      @JsonKey(readValue: _readMainText)
-          required final String mainText,
-      @JsonKey(readValue: _readSecondaryText)
-          required final String secondaryText}) = _$_PlaceAutocompleteDto;
-  const _PlaceAutocompleteDto._() : super._();
-
-  factory _PlaceAutocompleteDto.fromJson(Map<String, dynamic> json) =
-      _$_PlaceAutocompleteDto.fromJson;
-
-  @override
-  @JsonKey(name: 'place_id')
-  String get placeId;
-  @override
-  @JsonKey(name: 'description')
-  String get description;
-  @override
-  @JsonKey(readValue: _readMainText)
-  String get mainText;
-  @override
-  @JsonKey(readValue: _readSecondaryText)
-  String get secondaryText;
-  @override
-  @JsonKey(ignore: true)
-  _$$_PlaceAutocompleteDtoCopyWith<_$_PlaceAutocompleteDto> get copyWith =>
-      throw _privateConstructorUsedError;
-}
+// dart format on

@@ -20,6 +20,8 @@ final sharedPrefsAsyncProvider = FutureProvider<SharedPreferences>.internal(
   allTransitiveDependencies: null,
 );
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 typedef SharedPrefsAsyncRef = FutureProviderRef<SharedPreferences>;
 String _$sharedPrefsHash() => r'8962559b56664f89983a3a585463fce23dd5717a';
 
@@ -34,6 +36,8 @@ final _sharedPrefsProvider = Provider<SharedPreferences>.internal(
   allTransitiveDependencies: null,
 );
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 typedef _SharedPrefsRef = ProviderRef<SharedPreferences>;
 String _$sharedPreferencesFacadeHash() =>
     r'72adcc6265431ab4aeea928a93fe53bb839e70a4';
@@ -51,5 +55,8 @@ final sharedPreferencesFacadeProvider =
   allTransitiveDependencies: null,
 );
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 typedef SharedPreferencesFacadeRef = ProviderRef<SharedPreferencesFacade>;
-// ignore_for_file: unnecessary_raw_strings, subtype_of_sealed_class, invalid_use_of_internal_member, do_not_use_environment, prefer_const_constructors, public_member_api_docs, avoid_private_typedef_functions
+// ignore_for_file: type=lint
+// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,91 +10,72 @@ part of 'profile_details.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$ProfileDetails {
-  String get name => throw _privateConstructorUsedError;
-  String get phone => throw _privateConstructorUsedError;
+  String get name;
+  String get phone;
 
-  @JsonKey(ignore: true)
-  $ProfileDetailsCopyWith<ProfileDetails> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $ProfileDetailsCopyWith<$Res> {
-  factory $ProfileDetailsCopyWith(
-          ProfileDetails value, $Res Function(ProfileDetails) then) =
-      _$ProfileDetailsCopyWithImpl<$Res, ProfileDetails>;
-  @useResult
-  $Res call({String name, String phone});
-}
-
-/// @nodoc
-class _$ProfileDetailsCopyWithImpl<$Res, $Val extends ProfileDetails>
-    implements $ProfileDetailsCopyWith<$Res> {
-  _$ProfileDetailsCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
+  /// Create a copy of ProfileDetails
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @pragma('vm:prefer-inline')
+  $ProfileDetailsCopyWith<ProfileDetails> get copyWith =>
+      _$ProfileDetailsCopyWithImpl<ProfileDetails>(
+          this as ProfileDetails, _$identity);
+
   @override
-  $Res call({
-    Object? name = null,
-    Object? phone = null,
-  }) {
-    return _then(_value.copyWith(
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      phone: null == phone
-          ? _value.phone
-          : phone // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is ProfileDetails &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.phone, phone) || other.phone == phone));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, name, phone);
+
+  @override
+  String toString() {
+    return 'ProfileDetails(name: $name, phone: $phone)';
   }
 }
 
 /// @nodoc
-abstract class _$$_UpdateProfileParamsCopyWith<$Res>
-    implements $ProfileDetailsCopyWith<$Res> {
-  factory _$$_UpdateProfileParamsCopyWith(_$_UpdateProfileParams value,
-          $Res Function(_$_UpdateProfileParams) then) =
-      __$$_UpdateProfileParamsCopyWithImpl<$Res>;
-  @override
+abstract mixin class $ProfileDetailsCopyWith<$Res> {
+  factory $ProfileDetailsCopyWith(
+          ProfileDetails value, $Res Function(ProfileDetails) _then) =
+      _$ProfileDetailsCopyWithImpl;
   @useResult
   $Res call({String name, String phone});
 }
 
 /// @nodoc
-class __$$_UpdateProfileParamsCopyWithImpl<$Res>
-    extends _$ProfileDetailsCopyWithImpl<$Res, _$_UpdateProfileParams>
-    implements _$$_UpdateProfileParamsCopyWith<$Res> {
-  __$$_UpdateProfileParamsCopyWithImpl(_$_UpdateProfileParams _value,
-      $Res Function(_$_UpdateProfileParams) _then)
-      : super(_value, _then);
+class _$ProfileDetailsCopyWithImpl<$Res>
+    implements $ProfileDetailsCopyWith<$Res> {
+  _$ProfileDetailsCopyWithImpl(this._self, this._then);
 
+  final ProfileDetails _self;
+  final $Res Function(ProfileDetails) _then;
+
+  /// Create a copy of ProfileDetails
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? name = null,
     Object? phone = null,
   }) {
-    return _then(_$_UpdateProfileParams(
+    return _then(_self.copyWith(
       name: null == name
-          ? _value.name
+          ? _self.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
       phone: null == phone
-          ? _value.phone
+          ? _self.phone
           : phone // ignore: cast_nullable_to_non_nullable
               as String,
     ));
@@ -102,24 +84,28 @@ class __$$_UpdateProfileParamsCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_UpdateProfileParams implements _UpdateProfileParams {
-  const _$_UpdateProfileParams({required this.name, required this.phone});
+class _UpdateProfileParams implements ProfileDetails {
+  const _UpdateProfileParams({required this.name, required this.phone});
 
   @override
   final String name;
   @override
   final String phone;
 
+  /// Create a copy of ProfileDetails
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'ProfileDetails(name: $name, phone: $phone)';
-  }
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$UpdateProfileParamsCopyWith<_UpdateProfileParams> get copyWith =>
+      __$UpdateProfileParamsCopyWithImpl<_UpdateProfileParams>(
+          this, _$identity);
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_UpdateProfileParams &&
+            other is _UpdateProfileParams &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.phone, phone) || other.phone == phone));
   }
@@ -127,25 +113,50 @@ class _$_UpdateProfileParams implements _UpdateProfileParams {
   @override
   int get hashCode => Object.hash(runtimeType, name, phone);
 
-  @JsonKey(ignore: true)
+  @override
+  String toString() {
+    return 'ProfileDetails(name: $name, phone: $phone)';
+  }
+}
+
+/// @nodoc
+abstract mixin class _$UpdateProfileParamsCopyWith<$Res>
+    implements $ProfileDetailsCopyWith<$Res> {
+  factory _$UpdateProfileParamsCopyWith(_UpdateProfileParams value,
+          $Res Function(_UpdateProfileParams) _then) =
+      __$UpdateProfileParamsCopyWithImpl;
+  @override
+  @useResult
+  $Res call({String name, String phone});
+}
+
+/// @nodoc
+class __$UpdateProfileParamsCopyWithImpl<$Res>
+    implements _$UpdateProfileParamsCopyWith<$Res> {
+  __$UpdateProfileParamsCopyWithImpl(this._self, this._then);
+
+  final _UpdateProfileParams _self;
+  final $Res Function(_UpdateProfileParams) _then;
+
+  /// Create a copy of ProfileDetails
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  _$$_UpdateProfileParamsCopyWith<_$_UpdateProfileParams> get copyWith =>
-      __$$_UpdateProfileParamsCopyWithImpl<_$_UpdateProfileParams>(
-          this, _$identity);
+  $Res call({
+    Object? name = null,
+    Object? phone = null,
+  }) {
+    return _then(_UpdateProfileParams(
+      name: null == name
+          ? _self.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      phone: null == phone
+          ? _self.phone
+          : phone // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
 }
 
-abstract class _UpdateProfileParams implements ProfileDetails {
-  const factory _UpdateProfileParams(
-      {required final String name,
-      required final String phone}) = _$_UpdateProfileParams;
-
-  @override
-  String get name;
-  @override
-  String get phone;
-  @override
-  @JsonKey(ignore: true)
-  _$$_UpdateProfileParamsCopyWith<_$_UpdateProfileParams> get copyWith =>
-      throw _privateConstructorUsedError;
-}
+// dart format on

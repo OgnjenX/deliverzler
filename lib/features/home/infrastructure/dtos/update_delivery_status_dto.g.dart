@@ -6,22 +6,14 @@ part of 'update_delivery_status_dto.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-Map<String, dynamic> _$$_UpdateDeliveryStatusDtoToJson(
-    _$_UpdateDeliveryStatusDto instance) {
-  final val = <String, dynamic>{
-    'deliveryStatus': _$DeliveryStatusEnumMap[instance.deliveryStatus]!,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('deliveryId', instance.deliveryId);
-  writeNotNull('employeeCancelNote', instance.employeeCancelNote);
-  return val;
-}
+Map<String, dynamic> _$UpdateDeliveryStatusDtoToJson(
+        _UpdateDeliveryStatusDto instance) =>
+    <String, dynamic>{
+      'deliveryStatus': _$DeliveryStatusEnumMap[instance.deliveryStatus]!,
+      if (instance.deliveryId case final value?) 'deliveryId': value,
+      if (instance.employeeCancelNote case final value?)
+        'employeeCancelNote': value,
+    };
 
 const _$DeliveryStatusEnumMap = {
   DeliveryStatus.pending: 'pending',

@@ -11,7 +11,7 @@ part 'place_directions_dto.freezed.dart';
 part 'place_directions_dto.g.dart';
 
 @Freezed(toJson: false)
-class PlaceDirectionsDto with _$PlaceDirectionsDto {
+abstract class PlaceDirectionsDto with _$PlaceDirectionsDto {
   const factory PlaceDirectionsDto({
     @JsonKey(fromJson: _fromJsonBounds) required LatLngBounds bounds,
     @JsonKey(name: 'overview_polyline', fromJson: _fromJsonPolylinePoints)
@@ -44,7 +44,7 @@ class PlaceDirectionsDto with _$PlaceDirectionsDto {
 }
 
 @Freezed(toJson: true)
-class PlaceDirectionsQueryDto with _$PlaceDirectionsQueryDto {
+abstract class PlaceDirectionsQueryDto with _$PlaceDirectionsQueryDto {
   const factory PlaceDirectionsQueryDto({
     @JsonKey(toJson: _toJsonOrigin) required Position origin,
     @JsonKey(toJson: _toJsonDestination) required GeoPoint destination,

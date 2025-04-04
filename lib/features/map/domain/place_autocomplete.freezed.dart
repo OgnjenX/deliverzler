@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,82 +10,53 @@ part of 'place_autocomplete.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$PlaceAutocomplete {
-  String get placeId => throw _privateConstructorUsedError;
-  String get description => throw _privateConstructorUsedError;
-  String get mainText => throw _privateConstructorUsedError;
-  String get secondaryText => throw _privateConstructorUsedError;
+  String get placeId;
+  String get description;
+  String get mainText;
+  String get secondaryText;
 
-  @JsonKey(ignore: true)
-  $PlaceAutocompleteCopyWith<PlaceAutocomplete> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $PlaceAutocompleteCopyWith<$Res> {
-  factory $PlaceAutocompleteCopyWith(
-          PlaceAutocomplete value, $Res Function(PlaceAutocomplete) then) =
-      _$PlaceAutocompleteCopyWithImpl<$Res, PlaceAutocomplete>;
-  @useResult
-  $Res call(
-      {String placeId,
-      String description,
-      String mainText,
-      String secondaryText});
-}
-
-/// @nodoc
-class _$PlaceAutocompleteCopyWithImpl<$Res, $Val extends PlaceAutocomplete>
-    implements $PlaceAutocompleteCopyWith<$Res> {
-  _$PlaceAutocompleteCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
+  /// Create a copy of PlaceAutocomplete
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @pragma('vm:prefer-inline')
+  $PlaceAutocompleteCopyWith<PlaceAutocomplete> get copyWith =>
+      _$PlaceAutocompleteCopyWithImpl<PlaceAutocomplete>(
+          this as PlaceAutocomplete, _$identity);
+
   @override
-  $Res call({
-    Object? placeId = null,
-    Object? description = null,
-    Object? mainText = null,
-    Object? secondaryText = null,
-  }) {
-    return _then(_value.copyWith(
-      placeId: null == placeId
-          ? _value.placeId
-          : placeId // ignore: cast_nullable_to_non_nullable
-              as String,
-      description: null == description
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
-              as String,
-      mainText: null == mainText
-          ? _value.mainText
-          : mainText // ignore: cast_nullable_to_non_nullable
-              as String,
-      secondaryText: null == secondaryText
-          ? _value.secondaryText
-          : secondaryText // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is PlaceAutocomplete &&
+            (identical(other.placeId, placeId) || other.placeId == placeId) &&
+            (identical(other.description, description) ||
+                other.description == description) &&
+            (identical(other.mainText, mainText) ||
+                other.mainText == mainText) &&
+            (identical(other.secondaryText, secondaryText) ||
+                other.secondaryText == secondaryText));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, placeId, description, mainText, secondaryText);
+
+  @override
+  String toString() {
+    return 'PlaceAutocomplete(placeId: $placeId, description: $description, mainText: $mainText, secondaryText: $secondaryText)';
   }
 }
 
 /// @nodoc
-abstract class _$$_PlaceAutocompleteCopyWith<$Res>
-    implements $PlaceAutocompleteCopyWith<$Res> {
-  factory _$$_PlaceAutocompleteCopyWith(_$_PlaceAutocomplete value,
-          $Res Function(_$_PlaceAutocomplete) then) =
-      __$$_PlaceAutocompleteCopyWithImpl<$Res>;
-  @override
+abstract mixin class $PlaceAutocompleteCopyWith<$Res> {
+  factory $PlaceAutocompleteCopyWith(
+          PlaceAutocomplete value, $Res Function(PlaceAutocomplete) _then) =
+      _$PlaceAutocompleteCopyWithImpl;
   @useResult
   $Res call(
       {String placeId,
@@ -94,13 +66,15 @@ abstract class _$$_PlaceAutocompleteCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_PlaceAutocompleteCopyWithImpl<$Res>
-    extends _$PlaceAutocompleteCopyWithImpl<$Res, _$_PlaceAutocomplete>
-    implements _$$_PlaceAutocompleteCopyWith<$Res> {
-  __$$_PlaceAutocompleteCopyWithImpl(
-      _$_PlaceAutocomplete _value, $Res Function(_$_PlaceAutocomplete) _then)
-      : super(_value, _then);
+class _$PlaceAutocompleteCopyWithImpl<$Res>
+    implements $PlaceAutocompleteCopyWith<$Res> {
+  _$PlaceAutocompleteCopyWithImpl(this._self, this._then);
 
+  final PlaceAutocomplete _self;
+  final $Res Function(PlaceAutocomplete) _then;
+
+  /// Create a copy of PlaceAutocomplete
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -109,21 +83,21 @@ class __$$_PlaceAutocompleteCopyWithImpl<$Res>
     Object? mainText = null,
     Object? secondaryText = null,
   }) {
-    return _then(_$_PlaceAutocomplete(
+    return _then(_self.copyWith(
       placeId: null == placeId
-          ? _value.placeId
+          ? _self.placeId
           : placeId // ignore: cast_nullable_to_non_nullable
               as String,
       description: null == description
-          ? _value.description
+          ? _self.description
           : description // ignore: cast_nullable_to_non_nullable
               as String,
       mainText: null == mainText
-          ? _value.mainText
+          ? _self.mainText
           : mainText // ignore: cast_nullable_to_non_nullable
               as String,
       secondaryText: null == secondaryText
-          ? _value.secondaryText
+          ? _self.secondaryText
           : secondaryText // ignore: cast_nullable_to_non_nullable
               as String,
     ));
@@ -132,8 +106,8 @@ class __$$_PlaceAutocompleteCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_PlaceAutocomplete implements _PlaceAutocomplete {
-  const _$_PlaceAutocomplete(
+class _PlaceAutocomplete implements PlaceAutocomplete {
+  const _PlaceAutocomplete(
       {required this.placeId,
       required this.description,
       required this.mainText,
@@ -148,16 +122,19 @@ class _$_PlaceAutocomplete implements _PlaceAutocomplete {
   @override
   final String secondaryText;
 
+  /// Create a copy of PlaceAutocomplete
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'PlaceAutocomplete(placeId: $placeId, description: $description, mainText: $mainText, secondaryText: $secondaryText)';
-  }
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$PlaceAutocompleteCopyWith<_PlaceAutocomplete> get copyWith =>
+      __$PlaceAutocompleteCopyWithImpl<_PlaceAutocomplete>(this, _$identity);
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_PlaceAutocomplete &&
+            other is _PlaceAutocomplete &&
             (identical(other.placeId, placeId) || other.placeId == placeId) &&
             (identical(other.description, description) ||
                 other.description == description) &&
@@ -171,31 +148,64 @@ class _$_PlaceAutocomplete implements _PlaceAutocomplete {
   int get hashCode =>
       Object.hash(runtimeType, placeId, description, mainText, secondaryText);
 
-  @JsonKey(ignore: true)
+  @override
+  String toString() {
+    return 'PlaceAutocomplete(placeId: $placeId, description: $description, mainText: $mainText, secondaryText: $secondaryText)';
+  }
+}
+
+/// @nodoc
+abstract mixin class _$PlaceAutocompleteCopyWith<$Res>
+    implements $PlaceAutocompleteCopyWith<$Res> {
+  factory _$PlaceAutocompleteCopyWith(
+          _PlaceAutocomplete value, $Res Function(_PlaceAutocomplete) _then) =
+      __$PlaceAutocompleteCopyWithImpl;
+  @override
+  @useResult
+  $Res call(
+      {String placeId,
+      String description,
+      String mainText,
+      String secondaryText});
+}
+
+/// @nodoc
+class __$PlaceAutocompleteCopyWithImpl<$Res>
+    implements _$PlaceAutocompleteCopyWith<$Res> {
+  __$PlaceAutocompleteCopyWithImpl(this._self, this._then);
+
+  final _PlaceAutocomplete _self;
+  final $Res Function(_PlaceAutocomplete) _then;
+
+  /// Create a copy of PlaceAutocomplete
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  _$$_PlaceAutocompleteCopyWith<_$_PlaceAutocomplete> get copyWith =>
-      __$$_PlaceAutocompleteCopyWithImpl<_$_PlaceAutocomplete>(
-          this, _$identity);
+  $Res call({
+    Object? placeId = null,
+    Object? description = null,
+    Object? mainText = null,
+    Object? secondaryText = null,
+  }) {
+    return _then(_PlaceAutocomplete(
+      placeId: null == placeId
+          ? _self.placeId
+          : placeId // ignore: cast_nullable_to_non_nullable
+              as String,
+      description: null == description
+          ? _self.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String,
+      mainText: null == mainText
+          ? _self.mainText
+          : mainText // ignore: cast_nullable_to_non_nullable
+              as String,
+      secondaryText: null == secondaryText
+          ? _self.secondaryText
+          : secondaryText // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
 }
 
-abstract class _PlaceAutocomplete implements PlaceAutocomplete {
-  const factory _PlaceAutocomplete(
-      {required final String placeId,
-      required final String description,
-      required final String mainText,
-      required final String secondaryText}) = _$_PlaceAutocomplete;
-
-  @override
-  String get placeId;
-  @override
-  String get description;
-  @override
-  String get mainText;
-  @override
-  String get secondaryText;
-  @override
-  @JsonKey(ignore: true)
-  _$$_PlaceAutocompleteCopyWith<_$_PlaceAutocomplete> get copyWith =>
-      throw _privateConstructorUsedError;
-}
+// dart format on

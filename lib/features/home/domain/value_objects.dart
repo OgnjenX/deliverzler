@@ -4,7 +4,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'value_objects.freezed.dart';
 
 @freezed
-class Address with _$Address {
+abstract class Address with _$Address {
   const factory Address({
     required String state,
     required String city,

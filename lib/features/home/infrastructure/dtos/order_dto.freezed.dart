@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,44 +10,96 @@ part of 'order_dto.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-OrderDto _$OrderDtoFromJson(Map<String, dynamic> json) {
-  return _OrderDto.fromJson(json);
-}
 
 /// @nodoc
 mixin _$OrderDto {
-  int get date => throw _privateConstructorUsedError;
-  PickupOption get pickupOption => throw _privateConstructorUsedError;
-  String get paymentMethod => throw _privateConstructorUsedError;
+  int get date;
+  PickupOption get pickupOption;
+  String get paymentMethod;
   @JsonKey(name: 'addressModel')
-  AddressDto? get address => throw _privateConstructorUsedError;
-  String get userId => throw _privateConstructorUsedError;
-  String get userName => throw _privateConstructorUsedError;
-  String get userImage => throw _privateConstructorUsedError;
-  String get userPhone => throw _privateConstructorUsedError;
-  String get userNote => throw _privateConstructorUsedError;
-  String? get employeeCancelNote => throw _privateConstructorUsedError;
-  DeliveryStatus get deliveryStatus => throw _privateConstructorUsedError;
-  String? get deliveryId => throw _privateConstructorUsedError;
+  AddressDto? get address;
+  String get userId;
+  String get userName;
+  String get userImage;
+  String get userPhone;
+  String get userNote;
+  String? get employeeCancelNote;
+  DeliveryStatus get deliveryStatus;
+  String? get deliveryId;
   @GeoPointConverter()
-  GeoPoint? get deliveryGeoPoint => throw _privateConstructorUsedError;
+  GeoPoint? get deliveryGeoPoint;
   @JsonKey(includeToJson: false)
-  String? get id => throw _privateConstructorUsedError;
+  String? get id;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of OrderDto
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
   $OrderDtoCopyWith<OrderDto> get copyWith =>
-      throw _privateConstructorUsedError;
+      _$OrderDtoCopyWithImpl<OrderDto>(this as OrderDto, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is OrderDto &&
+            (identical(other.date, date) || other.date == date) &&
+            (identical(other.pickupOption, pickupOption) ||
+                other.pickupOption == pickupOption) &&
+            (identical(other.paymentMethod, paymentMethod) ||
+                other.paymentMethod == paymentMethod) &&
+            (identical(other.address, address) || other.address == address) &&
+            (identical(other.userId, userId) || other.userId == userId) &&
+            (identical(other.userName, userName) ||
+                other.userName == userName) &&
+            (identical(other.userImage, userImage) ||
+                other.userImage == userImage) &&
+            (identical(other.userPhone, userPhone) ||
+                other.userPhone == userPhone) &&
+            (identical(other.userNote, userNote) ||
+                other.userNote == userNote) &&
+            (identical(other.employeeCancelNote, employeeCancelNote) ||
+                other.employeeCancelNote == employeeCancelNote) &&
+            (identical(other.deliveryStatus, deliveryStatus) ||
+                other.deliveryStatus == deliveryStatus) &&
+            (identical(other.deliveryId, deliveryId) ||
+                other.deliveryId == deliveryId) &&
+            (identical(other.deliveryGeoPoint, deliveryGeoPoint) ||
+                other.deliveryGeoPoint == deliveryGeoPoint) &&
+            (identical(other.id, id) || other.id == id));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      date,
+      pickupOption,
+      paymentMethod,
+      address,
+      userId,
+      userName,
+      userImage,
+      userPhone,
+      userNote,
+      employeeCancelNote,
+      deliveryStatus,
+      deliveryId,
+      deliveryGeoPoint,
+      id);
+
+  @override
+  String toString() {
+    return 'OrderDto(date: $date, pickupOption: $pickupOption, paymentMethod: $paymentMethod, address: $address, userId: $userId, userName: $userName, userImage: $userImage, userPhone: $userPhone, userNote: $userNote, employeeCancelNote: $employeeCancelNote, deliveryStatus: $deliveryStatus, deliveryId: $deliveryId, deliveryGeoPoint: $deliveryGeoPoint, id: $id)';
+  }
 }
 
 /// @nodoc
-abstract class $OrderDtoCopyWith<$Res> {
-  factory $OrderDtoCopyWith(OrderDto value, $Res Function(OrderDto) then) =
-      _$OrderDtoCopyWithImpl<$Res, OrderDto>;
+abstract mixin class $OrderDtoCopyWith<$Res> {
+  factory $OrderDtoCopyWith(OrderDto value, $Res Function(OrderDto) _then) =
+      _$OrderDtoCopyWithImpl;
   @useResult
   $Res call(
       {int date,
@@ -68,15 +121,14 @@ abstract class $OrderDtoCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$OrderDtoCopyWithImpl<$Res, $Val extends OrderDto>
-    implements $OrderDtoCopyWith<$Res> {
-  _$OrderDtoCopyWithImpl(this._value, this._then);
+class _$OrderDtoCopyWithImpl<$Res> implements $OrderDtoCopyWith<$Res> {
+  _$OrderDtoCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final OrderDto _self;
+  final $Res Function(OrderDto) _then;
 
+  /// Create a copy of OrderDto
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -95,197 +147,85 @@ class _$OrderDtoCopyWithImpl<$Res, $Val extends OrderDto>
     Object? deliveryGeoPoint = freezed,
     Object? id = freezed,
   }) {
-    return _then(_value.copyWith(
+    return _then(_self.copyWith(
       date: null == date
-          ? _value.date
+          ? _self.date
           : date // ignore: cast_nullable_to_non_nullable
               as int,
       pickupOption: null == pickupOption
-          ? _value.pickupOption
+          ? _self.pickupOption
           : pickupOption // ignore: cast_nullable_to_non_nullable
               as PickupOption,
       paymentMethod: null == paymentMethod
-          ? _value.paymentMethod
+          ? _self.paymentMethod
           : paymentMethod // ignore: cast_nullable_to_non_nullable
               as String,
       address: freezed == address
-          ? _value.address
+          ? _self.address
           : address // ignore: cast_nullable_to_non_nullable
               as AddressDto?,
       userId: null == userId
-          ? _value.userId
+          ? _self.userId
           : userId // ignore: cast_nullable_to_non_nullable
               as String,
       userName: null == userName
-          ? _value.userName
+          ? _self.userName
           : userName // ignore: cast_nullable_to_non_nullable
               as String,
       userImage: null == userImage
-          ? _value.userImage
+          ? _self.userImage
           : userImage // ignore: cast_nullable_to_non_nullable
               as String,
       userPhone: null == userPhone
-          ? _value.userPhone
+          ? _self.userPhone
           : userPhone // ignore: cast_nullable_to_non_nullable
               as String,
       userNote: null == userNote
-          ? _value.userNote
+          ? _self.userNote
           : userNote // ignore: cast_nullable_to_non_nullable
               as String,
       employeeCancelNote: freezed == employeeCancelNote
-          ? _value.employeeCancelNote
+          ? _self.employeeCancelNote
           : employeeCancelNote // ignore: cast_nullable_to_non_nullable
               as String?,
       deliveryStatus: null == deliveryStatus
-          ? _value.deliveryStatus
+          ? _self.deliveryStatus
           : deliveryStatus // ignore: cast_nullable_to_non_nullable
               as DeliveryStatus,
       deliveryId: freezed == deliveryId
-          ? _value.deliveryId
+          ? _self.deliveryId
           : deliveryId // ignore: cast_nullable_to_non_nullable
               as String?,
       deliveryGeoPoint: freezed == deliveryGeoPoint
-          ? _value.deliveryGeoPoint
+          ? _self.deliveryGeoPoint
           : deliveryGeoPoint // ignore: cast_nullable_to_non_nullable
               as GeoPoint?,
       id: freezed == id
-          ? _value.id
+          ? _self.id
           : id // ignore: cast_nullable_to_non_nullable
               as String?,
-    ) as $Val);
+    ));
   }
 
+  /// Create a copy of OrderDto
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $AddressDtoCopyWith<$Res>? get address {
-    if (_value.address == null) {
+    if (_self.address == null) {
       return null;
     }
 
-    return $AddressDtoCopyWith<$Res>(_value.address!, (value) {
-      return _then(_value.copyWith(address: value) as $Val);
+    return $AddressDtoCopyWith<$Res>(_self.address!, (value) {
+      return _then(_self.copyWith(address: value));
     });
   }
 }
 
 /// @nodoc
-abstract class _$$_OrderDtoCopyWith<$Res> implements $OrderDtoCopyWith<$Res> {
-  factory _$$_OrderDtoCopyWith(
-          _$_OrderDto value, $Res Function(_$_OrderDto) then) =
-      __$$_OrderDtoCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {int date,
-      PickupOption pickupOption,
-      String paymentMethod,
-      @JsonKey(name: 'addressModel') AddressDto? address,
-      String userId,
-      String userName,
-      String userImage,
-      String userPhone,
-      String userNote,
-      String? employeeCancelNote,
-      DeliveryStatus deliveryStatus,
-      String? deliveryId,
-      @GeoPointConverter() GeoPoint? deliveryGeoPoint,
-      @JsonKey(includeToJson: false) String? id});
-
-  @override
-  $AddressDtoCopyWith<$Res>? get address;
-}
-
-/// @nodoc
-class __$$_OrderDtoCopyWithImpl<$Res>
-    extends _$OrderDtoCopyWithImpl<$Res, _$_OrderDto>
-    implements _$$_OrderDtoCopyWith<$Res> {
-  __$$_OrderDtoCopyWithImpl(
-      _$_OrderDto _value, $Res Function(_$_OrderDto) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? date = null,
-    Object? pickupOption = null,
-    Object? paymentMethod = null,
-    Object? address = freezed,
-    Object? userId = null,
-    Object? userName = null,
-    Object? userImage = null,
-    Object? userPhone = null,
-    Object? userNote = null,
-    Object? employeeCancelNote = freezed,
-    Object? deliveryStatus = null,
-    Object? deliveryId = freezed,
-    Object? deliveryGeoPoint = freezed,
-    Object? id = freezed,
-  }) {
-    return _then(_$_OrderDto(
-      date: null == date
-          ? _value.date
-          : date // ignore: cast_nullable_to_non_nullable
-              as int,
-      pickupOption: null == pickupOption
-          ? _value.pickupOption
-          : pickupOption // ignore: cast_nullable_to_non_nullable
-              as PickupOption,
-      paymentMethod: null == paymentMethod
-          ? _value.paymentMethod
-          : paymentMethod // ignore: cast_nullable_to_non_nullable
-              as String,
-      address: freezed == address
-          ? _value.address
-          : address // ignore: cast_nullable_to_non_nullable
-              as AddressDto?,
-      userId: null == userId
-          ? _value.userId
-          : userId // ignore: cast_nullable_to_non_nullable
-              as String,
-      userName: null == userName
-          ? _value.userName
-          : userName // ignore: cast_nullable_to_non_nullable
-              as String,
-      userImage: null == userImage
-          ? _value.userImage
-          : userImage // ignore: cast_nullable_to_non_nullable
-              as String,
-      userPhone: null == userPhone
-          ? _value.userPhone
-          : userPhone // ignore: cast_nullable_to_non_nullable
-              as String,
-      userNote: null == userNote
-          ? _value.userNote
-          : userNote // ignore: cast_nullable_to_non_nullable
-              as String,
-      employeeCancelNote: freezed == employeeCancelNote
-          ? _value.employeeCancelNote
-          : employeeCancelNote // ignore: cast_nullable_to_non_nullable
-              as String?,
-      deliveryStatus: null == deliveryStatus
-          ? _value.deliveryStatus
-          : deliveryStatus // ignore: cast_nullable_to_non_nullable
-              as DeliveryStatus,
-      deliveryId: freezed == deliveryId
-          ? _value.deliveryId
-          : deliveryId // ignore: cast_nullable_to_non_nullable
-              as String?,
-      deliveryGeoPoint: freezed == deliveryGeoPoint
-          ? _value.deliveryGeoPoint
-          : deliveryGeoPoint // ignore: cast_nullable_to_non_nullable
-              as GeoPoint?,
-      id: freezed == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ));
-  }
-}
-
-/// @nodoc
 @JsonSerializable(createToJson: false)
-class _$_OrderDto extends _OrderDto {
-  const _$_OrderDto(
+class _OrderDto extends OrderDto {
+  const _OrderDto(
       {required this.date,
       required this.pickupOption,
       required this.paymentMethod,
@@ -301,9 +241,8 @@ class _$_OrderDto extends _OrderDto {
       @GeoPointConverter() required this.deliveryGeoPoint,
       @JsonKey(includeToJson: false) this.id})
       : super._();
-
-  factory _$_OrderDto.fromJson(Map<String, dynamic> json) =>
-      _$$_OrderDtoFromJson(json);
+  factory _OrderDto.fromJson(Map<String, dynamic> json) =>
+      _$OrderDtoFromJson(json);
 
   @override
   final int date;
@@ -337,16 +276,19 @@ class _$_OrderDto extends _OrderDto {
   @JsonKey(includeToJson: false)
   final String? id;
 
+  /// Create a copy of OrderDto
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'OrderDto(date: $date, pickupOption: $pickupOption, paymentMethod: $paymentMethod, address: $address, userId: $userId, userName: $userName, userImage: $userImage, userPhone: $userPhone, userNote: $userNote, employeeCancelNote: $employeeCancelNote, deliveryStatus: $deliveryStatus, deliveryId: $deliveryId, deliveryGeoPoint: $deliveryGeoPoint, id: $id)';
-  }
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$OrderDtoCopyWith<_OrderDto> get copyWith =>
+      __$OrderDtoCopyWithImpl<_OrderDto>(this, _$identity);
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_OrderDto &&
+            other is _OrderDto &&
             (identical(other.date, date) || other.date == date) &&
             (identical(other.pickupOption, pickupOption) ||
                 other.pickupOption == pickupOption) &&
@@ -373,7 +315,7 @@ class _$_OrderDto extends _OrderDto {
             (identical(other.id, id) || other.id == id));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -392,153 +334,186 @@ class _$_OrderDto extends _OrderDto {
       deliveryGeoPoint,
       id);
 
-  @JsonKey(ignore: true)
   @override
-  @pragma('vm:prefer-inline')
-  _$$_OrderDtoCopyWith<_$_OrderDto> get copyWith =>
-      __$$_OrderDtoCopyWithImpl<_$_OrderDto>(this, _$identity);
-}
-
-abstract class _OrderDto extends OrderDto {
-  const factory _OrderDto(
-      {required final int date,
-      required final PickupOption pickupOption,
-      required final String paymentMethod,
-      @JsonKey(name: 'addressModel') required final AddressDto? address,
-      required final String userId,
-      required final String userName,
-      required final String userImage,
-      required final String userPhone,
-      required final String userNote,
-      required final String? employeeCancelNote,
-      required final DeliveryStatus deliveryStatus,
-      required final String? deliveryId,
-      @GeoPointConverter() required final GeoPoint? deliveryGeoPoint,
-      @JsonKey(includeToJson: false) final String? id}) = _$_OrderDto;
-  const _OrderDto._() : super._();
-
-  factory _OrderDto.fromJson(Map<String, dynamic> json) = _$_OrderDto.fromJson;
-
-  @override
-  int get date;
-  @override
-  PickupOption get pickupOption;
-  @override
-  String get paymentMethod;
-  @override
-  @JsonKey(name: 'addressModel')
-  AddressDto? get address;
-  @override
-  String get userId;
-  @override
-  String get userName;
-  @override
-  String get userImage;
-  @override
-  String get userPhone;
-  @override
-  String get userNote;
-  @override
-  String? get employeeCancelNote;
-  @override
-  DeliveryStatus get deliveryStatus;
-  @override
-  String? get deliveryId;
-  @override
-  @GeoPointConverter()
-  GeoPoint? get deliveryGeoPoint;
-  @override
-  @JsonKey(includeToJson: false)
-  String? get id;
-  @override
-  @JsonKey(ignore: true)
-  _$$_OrderDtoCopyWith<_$_OrderDto> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-AddressDto _$AddressDtoFromJson(Map<String, dynamic> json) {
-  return _AddressDto.fromJson(json);
-}
-
-/// @nodoc
-mixin _$AddressDto {
-  String get state => throw _privateConstructorUsedError;
-  String get city => throw _privateConstructorUsedError;
-  String get street => throw _privateConstructorUsedError;
-  String get mobile => throw _privateConstructorUsedError;
-  @GeoPointConverter()
-  GeoPoint? get geoPoint => throw _privateConstructorUsedError;
-
-  @JsonKey(ignore: true)
-  $AddressDtoCopyWith<AddressDto> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $AddressDtoCopyWith<$Res> {
-  factory $AddressDtoCopyWith(
-          AddressDto value, $Res Function(AddressDto) then) =
-      _$AddressDtoCopyWithImpl<$Res, AddressDto>;
-  @useResult
-  $Res call(
-      {String state,
-      String city,
-      String street,
-      String mobile,
-      @GeoPointConverter() GeoPoint? geoPoint});
-}
-
-/// @nodoc
-class _$AddressDtoCopyWithImpl<$Res, $Val extends AddressDto>
-    implements $AddressDtoCopyWith<$Res> {
-  _$AddressDtoCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? state = null,
-    Object? city = null,
-    Object? street = null,
-    Object? mobile = null,
-    Object? geoPoint = freezed,
-  }) {
-    return _then(_value.copyWith(
-      state: null == state
-          ? _value.state
-          : state // ignore: cast_nullable_to_non_nullable
-              as String,
-      city: null == city
-          ? _value.city
-          : city // ignore: cast_nullable_to_non_nullable
-              as String,
-      street: null == street
-          ? _value.street
-          : street // ignore: cast_nullable_to_non_nullable
-              as String,
-      mobile: null == mobile
-          ? _value.mobile
-          : mobile // ignore: cast_nullable_to_non_nullable
-              as String,
-      geoPoint: freezed == geoPoint
-          ? _value.geoPoint
-          : geoPoint // ignore: cast_nullable_to_non_nullable
-              as GeoPoint?,
-    ) as $Val);
+  String toString() {
+    return 'OrderDto(date: $date, pickupOption: $pickupOption, paymentMethod: $paymentMethod, address: $address, userId: $userId, userName: $userName, userImage: $userImage, userPhone: $userPhone, userNote: $userNote, employeeCancelNote: $employeeCancelNote, deliveryStatus: $deliveryStatus, deliveryId: $deliveryId, deliveryGeoPoint: $deliveryGeoPoint, id: $id)';
   }
 }
 
 /// @nodoc
-abstract class _$$_AddressDtoCopyWith<$Res>
-    implements $AddressDtoCopyWith<$Res> {
-  factory _$$_AddressDtoCopyWith(
-          _$_AddressDto value, $Res Function(_$_AddressDto) then) =
-      __$$_AddressDtoCopyWithImpl<$Res>;
+abstract mixin class _$OrderDtoCopyWith<$Res>
+    implements $OrderDtoCopyWith<$Res> {
+  factory _$OrderDtoCopyWith(_OrderDto value, $Res Function(_OrderDto) _then) =
+      __$OrderDtoCopyWithImpl;
   @override
+  @useResult
+  $Res call(
+      {int date,
+      PickupOption pickupOption,
+      String paymentMethod,
+      @JsonKey(name: 'addressModel') AddressDto? address,
+      String userId,
+      String userName,
+      String userImage,
+      String userPhone,
+      String userNote,
+      String? employeeCancelNote,
+      DeliveryStatus deliveryStatus,
+      String? deliveryId,
+      @GeoPointConverter() GeoPoint? deliveryGeoPoint,
+      @JsonKey(includeToJson: false) String? id});
+
+  @override
+  $AddressDtoCopyWith<$Res>? get address;
+}
+
+/// @nodoc
+class __$OrderDtoCopyWithImpl<$Res> implements _$OrderDtoCopyWith<$Res> {
+  __$OrderDtoCopyWithImpl(this._self, this._then);
+
+  final _OrderDto _self;
+  final $Res Function(_OrderDto) _then;
+
+  /// Create a copy of OrderDto
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? date = null,
+    Object? pickupOption = null,
+    Object? paymentMethod = null,
+    Object? address = freezed,
+    Object? userId = null,
+    Object? userName = null,
+    Object? userImage = null,
+    Object? userPhone = null,
+    Object? userNote = null,
+    Object? employeeCancelNote = freezed,
+    Object? deliveryStatus = null,
+    Object? deliveryId = freezed,
+    Object? deliveryGeoPoint = freezed,
+    Object? id = freezed,
+  }) {
+    return _then(_OrderDto(
+      date: null == date
+          ? _self.date
+          : date // ignore: cast_nullable_to_non_nullable
+              as int,
+      pickupOption: null == pickupOption
+          ? _self.pickupOption
+          : pickupOption // ignore: cast_nullable_to_non_nullable
+              as PickupOption,
+      paymentMethod: null == paymentMethod
+          ? _self.paymentMethod
+          : paymentMethod // ignore: cast_nullable_to_non_nullable
+              as String,
+      address: freezed == address
+          ? _self.address
+          : address // ignore: cast_nullable_to_non_nullable
+              as AddressDto?,
+      userId: null == userId
+          ? _self.userId
+          : userId // ignore: cast_nullable_to_non_nullable
+              as String,
+      userName: null == userName
+          ? _self.userName
+          : userName // ignore: cast_nullable_to_non_nullable
+              as String,
+      userImage: null == userImage
+          ? _self.userImage
+          : userImage // ignore: cast_nullable_to_non_nullable
+              as String,
+      userPhone: null == userPhone
+          ? _self.userPhone
+          : userPhone // ignore: cast_nullable_to_non_nullable
+              as String,
+      userNote: null == userNote
+          ? _self.userNote
+          : userNote // ignore: cast_nullable_to_non_nullable
+              as String,
+      employeeCancelNote: freezed == employeeCancelNote
+          ? _self.employeeCancelNote
+          : employeeCancelNote // ignore: cast_nullable_to_non_nullable
+              as String?,
+      deliveryStatus: null == deliveryStatus
+          ? _self.deliveryStatus
+          : deliveryStatus // ignore: cast_nullable_to_non_nullable
+              as DeliveryStatus,
+      deliveryId: freezed == deliveryId
+          ? _self.deliveryId
+          : deliveryId // ignore: cast_nullable_to_non_nullable
+              as String?,
+      deliveryGeoPoint: freezed == deliveryGeoPoint
+          ? _self.deliveryGeoPoint
+          : deliveryGeoPoint // ignore: cast_nullable_to_non_nullable
+              as GeoPoint?,
+      id: freezed == id
+          ? _self.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+
+  /// Create a copy of OrderDto
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $AddressDtoCopyWith<$Res>? get address {
+    if (_self.address == null) {
+      return null;
+    }
+
+    return $AddressDtoCopyWith<$Res>(_self.address!, (value) {
+      return _then(_self.copyWith(address: value));
+    });
+  }
+}
+
+/// @nodoc
+mixin _$AddressDto {
+  String get state;
+  String get city;
+  String get street;
+  String get mobile;
+  @GeoPointConverter()
+  GeoPoint? get geoPoint;
+
+  /// Create a copy of AddressDto
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $AddressDtoCopyWith<AddressDto> get copyWith =>
+      _$AddressDtoCopyWithImpl<AddressDto>(this as AddressDto, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is AddressDto &&
+            (identical(other.state, state) || other.state == state) &&
+            (identical(other.city, city) || other.city == city) &&
+            (identical(other.street, street) || other.street == street) &&
+            (identical(other.mobile, mobile) || other.mobile == mobile) &&
+            (identical(other.geoPoint, geoPoint) ||
+                other.geoPoint == geoPoint));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, state, city, street, mobile, geoPoint);
+
+  @override
+  String toString() {
+    return 'AddressDto(state: $state, city: $city, street: $street, mobile: $mobile, geoPoint: $geoPoint)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $AddressDtoCopyWith<$Res> {
+  factory $AddressDtoCopyWith(
+          AddressDto value, $Res Function(AddressDto) _then) =
+      _$AddressDtoCopyWithImpl;
   @useResult
   $Res call(
       {String state,
@@ -549,13 +524,14 @@ abstract class _$$_AddressDtoCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_AddressDtoCopyWithImpl<$Res>
-    extends _$AddressDtoCopyWithImpl<$Res, _$_AddressDto>
-    implements _$$_AddressDtoCopyWith<$Res> {
-  __$$_AddressDtoCopyWithImpl(
-      _$_AddressDto _value, $Res Function(_$_AddressDto) _then)
-      : super(_value, _then);
+class _$AddressDtoCopyWithImpl<$Res> implements $AddressDtoCopyWith<$Res> {
+  _$AddressDtoCopyWithImpl(this._self, this._then);
 
+  final AddressDto _self;
+  final $Res Function(AddressDto) _then;
+
+  /// Create a copy of AddressDto
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -565,25 +541,25 @@ class __$$_AddressDtoCopyWithImpl<$Res>
     Object? mobile = null,
     Object? geoPoint = freezed,
   }) {
-    return _then(_$_AddressDto(
+    return _then(_self.copyWith(
       state: null == state
-          ? _value.state
+          ? _self.state
           : state // ignore: cast_nullable_to_non_nullable
               as String,
       city: null == city
-          ? _value.city
+          ? _self.city
           : city // ignore: cast_nullable_to_non_nullable
               as String,
       street: null == street
-          ? _value.street
+          ? _self.street
           : street // ignore: cast_nullable_to_non_nullable
               as String,
       mobile: null == mobile
-          ? _value.mobile
+          ? _self.mobile
           : mobile // ignore: cast_nullable_to_non_nullable
               as String,
       geoPoint: freezed == geoPoint
-          ? _value.geoPoint
+          ? _self.geoPoint
           : geoPoint // ignore: cast_nullable_to_non_nullable
               as GeoPoint?,
     ));
@@ -592,17 +568,16 @@ class __$$_AddressDtoCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable(createToJson: false)
-class _$_AddressDto extends _AddressDto {
-  const _$_AddressDto(
+class _AddressDto extends AddressDto {
+  const _AddressDto(
       {required this.state,
       required this.city,
       required this.street,
       required this.mobile,
       @GeoPointConverter() required this.geoPoint})
       : super._();
-
-  factory _$_AddressDto.fromJson(Map<String, dynamic> json) =>
-      _$$_AddressDtoFromJson(json);
+  factory _AddressDto.fromJson(Map<String, dynamic> json) =>
+      _$AddressDtoFromJson(json);
 
   @override
   final String state;
@@ -616,16 +591,19 @@ class _$_AddressDto extends _AddressDto {
   @GeoPointConverter()
   final GeoPoint? geoPoint;
 
+  /// Create a copy of AddressDto
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'AddressDto(state: $state, city: $city, street: $street, mobile: $mobile, geoPoint: $geoPoint)';
-  }
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$AddressDtoCopyWith<_AddressDto> get copyWith =>
+      __$AddressDtoCopyWithImpl<_AddressDto>(this, _$identity);
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_AddressDto &&
+            other is _AddressDto &&
             (identical(other.state, state) || other.state == state) &&
             (identical(other.city, city) || other.city == city) &&
             (identical(other.street, street) || other.street == street) &&
@@ -634,43 +612,74 @@ class _$_AddressDto extends _AddressDto {
                 other.geoPoint == geoPoint));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode =>
       Object.hash(runtimeType, state, city, street, mobile, geoPoint);
 
-  @JsonKey(ignore: true)
+  @override
+  String toString() {
+    return 'AddressDto(state: $state, city: $city, street: $street, mobile: $mobile, geoPoint: $geoPoint)';
+  }
+}
+
+/// @nodoc
+abstract mixin class _$AddressDtoCopyWith<$Res>
+    implements $AddressDtoCopyWith<$Res> {
+  factory _$AddressDtoCopyWith(
+          _AddressDto value, $Res Function(_AddressDto) _then) =
+      __$AddressDtoCopyWithImpl;
+  @override
+  @useResult
+  $Res call(
+      {String state,
+      String city,
+      String street,
+      String mobile,
+      @GeoPointConverter() GeoPoint? geoPoint});
+}
+
+/// @nodoc
+class __$AddressDtoCopyWithImpl<$Res> implements _$AddressDtoCopyWith<$Res> {
+  __$AddressDtoCopyWithImpl(this._self, this._then);
+
+  final _AddressDto _self;
+  final $Res Function(_AddressDto) _then;
+
+  /// Create a copy of AddressDto
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  _$$_AddressDtoCopyWith<_$_AddressDto> get copyWith =>
-      __$$_AddressDtoCopyWithImpl<_$_AddressDto>(this, _$identity);
+  $Res call({
+    Object? state = null,
+    Object? city = null,
+    Object? street = null,
+    Object? mobile = null,
+    Object? geoPoint = freezed,
+  }) {
+    return _then(_AddressDto(
+      state: null == state
+          ? _self.state
+          : state // ignore: cast_nullable_to_non_nullable
+              as String,
+      city: null == city
+          ? _self.city
+          : city // ignore: cast_nullable_to_non_nullable
+              as String,
+      street: null == street
+          ? _self.street
+          : street // ignore: cast_nullable_to_non_nullable
+              as String,
+      mobile: null == mobile
+          ? _self.mobile
+          : mobile // ignore: cast_nullable_to_non_nullable
+              as String,
+      geoPoint: freezed == geoPoint
+          ? _self.geoPoint
+          : geoPoint // ignore: cast_nullable_to_non_nullable
+              as GeoPoint?,
+    ));
+  }
 }
 
-abstract class _AddressDto extends AddressDto {
-  const factory _AddressDto(
-      {required final String state,
-      required final String city,
-      required final String street,
-      required final String mobile,
-      @GeoPointConverter() required final GeoPoint? geoPoint}) = _$_AddressDto;
-  const _AddressDto._() : super._();
-
-  factory _AddressDto.fromJson(Map<String, dynamic> json) =
-      _$_AddressDto.fromJson;
-
-  @override
-  String get state;
-  @override
-  String get city;
-  @override
-  String get street;
-  @override
-  String get mobile;
-  @override
-  @GeoPointConverter()
-  GeoPoint? get geoPoint;
-  @override
-  @JsonKey(ignore: true)
-  _$$_AddressDtoCopyWith<_$_AddressDto> get copyWith =>
-      throw _privateConstructorUsedError;
-}
+// dart format on

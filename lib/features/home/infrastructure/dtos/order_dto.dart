@@ -10,7 +10,7 @@ part 'order_dto.freezed.dart';
 part 'order_dto.g.dart';
 
 @Freezed(toJson: false)
-class OrderDto with _$OrderDto {
+abstract class OrderDto with _$OrderDto {
   const factory OrderDto({
     required int date,
     required PickupOption pickupOption,
@@ -81,7 +81,7 @@ class OrderDto with _$OrderDto {
 }
 
 @Freezed(toJson: false)
-class AddressDto with _$AddressDto {
+abstract class AddressDto with _$AddressDto {
   const factory AddressDto({
     required String state,
     required String city,

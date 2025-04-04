@@ -1,10 +1,10 @@
+import 'package:deliverzler/core/infrastructure/error/app_exception.dart';
+import 'package:deliverzler/core/presentation/extensions/cache_exception_message.dart';
+import 'package:deliverzler/core/presentation/extensions/server_exception_message.dart';
+import 'package:deliverzler/core/presentation/helpers/localization_helper.dart';
 import 'package:flutter/material.dart';
-
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:deliverzler/core/infrastructure/error/app_exception.dart';
-import 'package:deliverzler/core/presentation/extensions/app_error_extension.dart';
-import 'package:deliverzler/core/presentation/helpers/localization_helper.dart';
 import '../../../utils.dart';
 
 void main() {
@@ -22,7 +22,9 @@ void main() {
           message: 'error',
         );
         // WHEN
-        final result = tException.errorMessage(context);
+        final result = (tException as CacheException).cacheErrorMessage(
+          context,
+        ); // Use the specific extension method here
         // THEN
         expect(result, tException.message);
       },
@@ -39,7 +41,8 @@ void main() {
           message: 'error',
         );
         // WHEN
-        final result = tException.errorMessage(context);
+        final result =
+            (tException as CacheException).cacheErrorMessage(context);
         // THEN
         expect(result, tr(context).unknownError);
       },
@@ -56,7 +59,8 @@ void main() {
         message: tMessage,
       );
       // WHEN
-      final result = tException.errorMessage(context);
+      final result =
+          (tException as ServerException).serverErrorMessage(context);
       // THEN
       expect(result, expectedResult);
     }
