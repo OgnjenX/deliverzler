@@ -34,18 +34,16 @@ class MapRemoteDataSource {
     String placeName, {
     required CancelToken? cancelToken,
   }) async {
+    final key = GoogleMapApiConfig.googleMapAPIKey;
     final response = await googleMapApi.getData<Map<String, dynamic>>(
       path: googleMapAutoCompletePath,
       queryParameters: {
-        'types': '(cities)',
-        //Add countries you desire for search suggestions.
-        'components': 'country:eg',
         'input': placeName,
+        'key': key,
       },
       options: Options(
         extra: {GoogleMapApiConfig.withSessionTokenExtraKey: true},
       ),
-      cancelToken: cancelToken,
     );
     return PlaceAutocompleteDto.parseListOfMap(response.data!['predictions'] as List<dynamic>);
   }

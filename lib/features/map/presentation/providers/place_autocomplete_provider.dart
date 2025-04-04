@@ -20,7 +20,8 @@ FutureOr<List<PlaceAutocomplete>> placeAutocompleteState(
 }
 
 @riverpod
-class PlaceAutocompleteQuery extends _$PlaceAutocompleteQuery with NotifierUpdate {
+class PlaceAutocompleteQuery extends _$PlaceAutocompleteQuery
+    with NotifierUpdate {
   @override
   Option<String> build() => const None();
 }

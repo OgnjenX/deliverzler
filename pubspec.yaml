@@ -35,7 +35,7 @@ dependencies:
   # Location
   location: ^8.0.0
   geolocator: ^13.0.3
-  google_maps_flutter: ^2.12.0
+  google_maps_flutter: ^2.2.8
   flutter_polyline_points: ^2.1.0
 
   # Apis
@@ -60,6 +60,7 @@ dependencies:
   lottie: ^2.3.2
 
   # Utils
+  flutter_dotenv: ^5.2.1
   mocktail: ^0.3.0
   device_info_plus: ^9.0.3
   fast_immutable_collections: ^9.1.5
@@ -113,6 +114,7 @@ flutter:
     - assets/icons/screens_icons/
     - assets/images/core/
     - assets/images/login/
+    - .env
 
   fonts:
     - family: Poppins

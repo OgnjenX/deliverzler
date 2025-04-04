@@ -1,4 +1,5 @@
 import 'package:flutter/foundation.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 class GoogleMapApiConfig {
   static const String googleMapBaseUrl = 'https://maps.googleapis.com/maps/api';
@@ -12,12 +13,12 @@ class GoogleMapApiConfig {
       defaultTargetPlatform == TargetPlatform.iOS ? _iosAPIKey : _androidAPIKey;
 
   static String get _androidAPIKey {
-    const key = String.fromEnvironment('ANDROID_GOOGLE_MAPS_API_KEY');
+    final key = dotenv.env['ANDROID_GOOGLE_MAPS_API_KEY']!;
     return key.isNotEmpty ? key : throw AssertionError('ANDROID_GOOGLE_MAPS_API_KEY is not set');
   }
 
   static String get _iosAPIKey {
-    const key = String.fromEnvironment('IOS_GOOGLE_MAPS_API_KEY');
+    final key = dotenv.env['IOS_GOOGLE_MAPS_API_KEY']!;
     return key.isNotEmpty ? key : throw AssertionError('IOS_GOOGLE_MAPS_API_KEY is not set');
   }
 
