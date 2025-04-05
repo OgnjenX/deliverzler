@@ -36,7 +36,7 @@ part 'routes/settings_branch_routes.dart';
 final _rootNavigatorKey = GlobalKey<NavigatorState>();
 
 @riverpod
-GoRouter goRouter(GoRouterRef ref) {
+GoRouter goRouter(Ref ref) {
   final listenable = ValueNotifier<bool?>(null);
 
   ref.listen(

@@ -24,7 +24,7 @@ Map<String, dynamic> _$NotificationPayloadToJson(
 // **************************************************************************
 
 String _$tappedNotificationHash() =>
-    r'30ad5390133def07ab231725a2497ad717ed64f2';
+    r'36a0081cfd5467adb94f3794bef84b622447b145';
 
 /// See also [tappedNotification].
 @ProviderFor(tappedNotification)
