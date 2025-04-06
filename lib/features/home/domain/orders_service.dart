@@ -4,7 +4,7 @@ import '../presentation/providers/update_delivery_status_provider/update_deliver
 part 'orders_service.g.dart';
 
 @Riverpod(keepAlive: true)
-OrdersService ordersService(OrdersServiceRef ref) {
+OrdersService ordersService(Ref ref) {
   return OrdersService(
     ref: ref,
   );
@@ -13,14 +13,15 @@ OrdersService ordersService(OrdersServiceRef ref) {
 class OrdersService {
   OrdersService({required this.ref});
 
-  final OrdersServiceRef ref;
+  final Ref ref;
 
   ({bool canProceed, bool isLoading}) orderAuthority({
     required String userId,
     required String? orderDeliveryId,
   }) {
     final canProceed = userId == orderDeliveryId;
-    final isLoading = ref.read(updateDeliveryStatusControllerProvider).isLoading;
+    final isLoading =
+        ref.read(updateDeliveryStatusControllerProvider).isLoading;
     return (canProceed: canProceed, isLoading: isLoading);
   }
 }

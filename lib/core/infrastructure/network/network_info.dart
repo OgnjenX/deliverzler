@@ -6,7 +6,7 @@ import 'data_connection_checker.dart';
 part 'network_info.g.dart';
 
 @Riverpod(keepAlive: true)
-NetworkInfo networkInfo(NetworkInfoRef ref) {
+NetworkInfo networkInfo(Ref ref) {
   return NetworkInfo(
     DataConnectionChecker(),
     Connectivity(),
@@ -21,5 +21,6 @@ class NetworkInfo {
 
   Future<bool> get hasInternetConnection => dataConnectionChecker.hasConnection;
 
-  Future<ConnectivityResult> get hasNetworkConnectivity => connectivity.checkConnectivity();
+  Future<ConnectivityResult> get hasNetworkConnectivity =>
+      connectivity.checkConnectivity();
 }

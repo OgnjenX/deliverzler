@@ -10,6 +10,7 @@ class CardDetailsButtonComponent extends StatelessWidget {
     required this.onPressed,
     super.key,
   });
+
   final String title;
   final VoidCallback? onPressed;
 

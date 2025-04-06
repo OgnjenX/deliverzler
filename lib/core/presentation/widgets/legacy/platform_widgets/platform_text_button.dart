@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 
 import '../../platform_widgets/platform_base_widget.dart';
 
-class PlatformTextButton extends PlatformBaseWidget<TextButton, CupertinoButton> {
+class PlatformTextButton
+    extends PlatformBaseWidget<TextButton, CupertinoButton> {
   const PlatformTextButton({
     required this.child,
     required this.onPressed,

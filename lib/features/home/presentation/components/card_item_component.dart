@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
 import '../../../../auth/presentation/providers/auth_state_provider.dart';
-import '../../../../core/presentation/helpers/localization_helper.dart';
 import '../../../../core/presentation/routing/app_router.dart';
 import '../../../../core/presentation/styles/styles.dart';
 import '../../../../core/presentation/utils/fp_framework.dart';
 import '../../../../core/presentation/utils/riverpod_framework.dart';
+import '../../../../generated/l10n.dart';
 import '../../domain/order.dart';
 import '../../domain/orders_service.dart';
 import '../../domain/update_delivery_status.dart';
@@ -43,7 +43,9 @@ class CardItemComponent extends ConsumerWidget {
 
       switch (authority) {
         case (canProceed: true, isLoading: false):
-          ref.read(selectedOrderIdProvider.notifier).update((_) => Some(order.id));
+          ref
+              .read(selectedOrderIdProvider.notifier)
+              .update((_) => Some(order.id));
           const MapRoute().go(context);
         case (canProceed: false, isLoading: false):
           OrderDialogs.showCanNotProceedDialog(context);
@@ -59,7 +61,7 @@ class CardItemComponent extends ConsumerWidget {
         case (canProceed: true, isLoading: false):
           return OrderDialogs.confirmChoiceDialog(
             context,
-            tr(context).doYouWantToConfirmTheOrder,
+            S.of(context).doYouWantToConfirmTheOrder,
           ).then(
             (confirmChoice) {
               if (confirmChoice) {
@@ -67,7 +69,9 @@ class CardItemComponent extends ConsumerWidget {
                   orderId: order.id,
                   deliveryStatus: DeliveryStatus.delivered,
                 );
-                ref.read(updateDeliveryStatusControllerProvider.notifier).updateStatus(params);
+                ref
+                    .read(updateDeliveryStatusControllerProvider.notifier)
+                    .updateStatus(params);
               }
             },
           );
@@ -85,7 +89,7 @@ class CardItemComponent extends ConsumerWidget {
         case (canProceed: _, isLoading: false):
           final confirmChoice = await OrderDialogs.confirmChoiceDialog(
             context,
-            tr(context).doYouWantToDeliverTheOrder,
+            S.of(context).doYouWantToDeliverTheOrder,
           );
           if (confirmChoice) {
             final params = UpdateDeliveryStatus(
@@ -93,7 +97,9 @@ class CardItemComponent extends ConsumerWidget {
               deliveryStatus: DeliveryStatus.onTheWay,
               deliveryId: userId,
             );
-            await ref.read(updateDeliveryStatusControllerProvider.notifier).updateStatus(params);
+            await ref
+                .read(updateDeliveryStatusControllerProvider.notifier)
+                .updateStatus(params);
           }
         case _:
           return;
@@ -113,7 +119,9 @@ class CardItemComponent extends ConsumerWidget {
                   deliveryStatus: DeliveryStatus.canceled,
                   employeeCancelNote: cancelNote,
                 );
-                ref.read(updateDeliveryStatusControllerProvider.notifier).updateStatus(params);
+                ref
+                    .read(updateDeliveryStatusControllerProvider.notifier)
+                    .updateStatus(params);
               }
             },
           );
@@ -146,7 +154,7 @@ class CardItemComponent extends ConsumerWidget {
                   ),
                 ),
                 CardDetailsButtonComponent(
-                  title: tr(context).details,
+                  title: S.of(context).details,
                   onPressed: () {
                     OrderDialogs.showOrderDetailsDialog(
                       context,
@@ -167,7 +175,7 @@ class CardItemComponent extends ConsumerWidget {
             ),
             if (!isUpcomingOrder)
               CardButtonComponent(
-                title: tr(context).showMap,
+                title: S.of(context).showMap,
                 isColored: true,
                 onPressed: showMap,
               ),
@@ -177,9 +185,10 @@ class CardItemComponent extends ConsumerWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Expanded( // Allow the button to shrink if needed
+                Expanded(
+                  // Allow the button to shrink if needed
                   child: CardButtonComponent(
-                    title: tr(context).cancel,
+                    title: S.of(context).cancel,
                     isColored: false,
                     onPressed: cancelOrder,
                   ),
@@ -188,15 +197,15 @@ class CardItemComponent extends ConsumerWidget {
                 Expanded(
                   child: isUpcomingOrder
                       ? CardButtonComponent(
-                    title: tr(context).deliver,
-                    isColored: true,
-                    onPressed: deliverOrder,
-                  )
+                          title: S.of(context).deliver,
+                          isColored: true,
+                          onPressed: deliverOrder,
+                        )
                       : CardButtonComponent(
-                    title: tr(context).confirm,
-                    isColored: true,
-                    onPressed: confirmOrder,
-                  ),
+                          title: S.of(context).confirm,
+                          isColored: true,
+                          onPressed: confirmOrder,
+                        ),
                 ),
               ],
             ),

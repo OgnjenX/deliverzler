@@ -1,7 +1,6 @@
 // This is legacy and not needed anymore.
 
 import 'package:flutter/foundation.dart';
-
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'event.freezed.dart';

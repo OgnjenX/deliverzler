@@ -11,6 +11,7 @@ class CardButtonComponent extends StatelessWidget {
     required this.onPressed,
     super.key,
   });
+
   final String title;
   final bool isColored;
   final VoidCallback? onPressed;
@@ -23,7 +24,9 @@ class CardButtonComponent extends StatelessWidget {
         horizontal: Sizes.buttonPaddingH34,
       ),
       constraints: const BoxConstraints(minWidth: 136),
-      side: isColored ? null : BorderSide(color: customColors(context).greyColor!),
+      side: isColored
+          ? null
+          : BorderSide(color: customColors(context).greyColor!),
       enableGradient: isColored,
       onPressed: onPressed,
       child: Text(

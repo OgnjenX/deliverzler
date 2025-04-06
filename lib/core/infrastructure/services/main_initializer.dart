@@ -5,7 +5,8 @@ Future<ProviderContainer> _mainInitializer() async {
   _setupLogger();
   await _initFirebase();
 
-  final container = ProviderContainer(observers: [ProviderLogger(), ProviderCrashlytics()]);
+  final container =
+      ProviderContainer(observers: [ProviderLogger(), ProviderCrashlytics()]);
   // Warming-up androidDeviceInfoProvider to be used synchronously at AppTheme to setup the navigation bar
   // behavior for older Android versions without flickering (of the navigation bar) when app starts.
   await container.read(androidDeviceInfoProvider.future).suppressError();
@@ -24,7 +25,8 @@ Future<ProviderContainer> _mainInitializer() async {
     // When the native splash screen is fullscreen, iOS will not automatically show the notification
     // bar when the app loads. To show it, setEnabledSystemUIMode has to be explicitly set:
     await SystemChrome.setEnabledSystemUIMode(
-      SystemUiMode.edgeToEdge, // https://github.com/flutter/flutter/issues/105714
+      SystemUiMode
+          .edgeToEdge, // https://github.com/flutter/flutter/issues/105714
     );
 
     // Closes splash screen, and show the app layout.

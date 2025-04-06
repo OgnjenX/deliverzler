@@ -11,7 +11,7 @@ part 'location_stream_provider.g.dart';
 
 @riverpod
 Stream<Position> locationStream(
-  LocationStreamRef ref,
+  Ref ref,
 ) async* {
   final locationService = ref.watch(locationServiceProvider);
 
@@ -21,7 +21,10 @@ Stream<Position> locationStream(
   yield* Geolocator.getPositionStream(
     locationSettings: locationService.getLocationSettings(),
     //Throttling location's stream as intervalDuration is not supported on iOS
-  ).throttleTime(const Duration(seconds: AppLocationSettings.locationChangeInterval)).handleError(
+  )
+      .throttleTime(
+          const Duration(seconds: AppLocationSettings.locationChangeInterval))
+      .handleError(
     (Object err, StackTrace st) {
       Error.throwWithStackTrace(LocationError.getLocationTimeout, st);
     },
@@ -30,7 +33,7 @@ Stream<Position> locationStream(
 
 @riverpod
 Future<void> enableLocation(
-  EnableLocationRef ref,
+  Ref ref,
   LocationService locationService,
 ) async {
   final enabled = await locationService.enableLocationService();
@@ -44,7 +47,7 @@ Future<void> enableLocation(
 
 @riverpod
 Future<void> requestLocationPermission(
-  RequestLocationPermissionRef ref,
+  Ref ref,
   LocationService locationService,
 ) async {
   final whileInUseGranted = await locationService.requestWhileInUsePermission();

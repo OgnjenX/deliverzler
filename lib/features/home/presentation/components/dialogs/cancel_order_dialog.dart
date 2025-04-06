@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../../../../core/presentation/helpers/localization_helper.dart';
 import '../../../../../core/presentation/styles/styles.dart';
+import '../../../../../generated/l10n.dart';
 
 class CancelOrderDialog extends StatelessWidget {
   const CancelOrderDialog({required this.cancelNoteController, super.key});
@@ -18,7 +18,7 @@ class CancelOrderDialog extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            '${tr(context).reasonForCancelingTheOrder}:',
+            '${S.of(context).reasonForCancelingTheOrder}:',
             style: TextStyles.f16(context),
             textAlign: TextAlign.start,
           ),
@@ -32,7 +32,7 @@ class CancelOrderDialog extends StatelessWidget {
               controller: cancelNoteController,
               decoration: InputDecoration(
                 filled: false,
-                hintText: '${tr(context).typeYourNote}...',
+                hintText: '${S.of(context).typeYourNote}...',
               ),
               textInputAction: TextInputAction.newline,
               minLines: 1,

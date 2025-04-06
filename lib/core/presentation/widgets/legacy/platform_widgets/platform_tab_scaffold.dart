@@ -2,15 +2,16 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../../../utils/riverpod_framework.dart';
-import 'platform_nav_bar.dart';
 import 'platform_base_consumer_widget.dart';
+import 'platform_nav_bar.dart';
 
 typedef IndexedAppBarBuilder = dynamic Function(
   BuildContext context,
   int index,
 );
 
-class PlatformTabScaffold extends PlatformBaseConsumerWidget<Scaffold, CupertinoTabScaffold> {
+class PlatformTabScaffold
+    extends PlatformBaseConsumerWidget<Scaffold, CupertinoTabScaffold> {
   const PlatformTabScaffold({
     required this.bottomNavigationBar,
     required this.materialData,
@@ -37,19 +38,22 @@ class PlatformTabScaffold extends PlatformBaseConsumerWidget<Scaffold, Cupertino
       bottomNavigationBar: bottomNavigationBar,
       floatingActionButton: materialData.floatingActionButton,
       drawer: materialData.drawer,
-      backgroundColor: backgroundColor ?? Theme.of(context).scaffoldBackgroundColor,
+      backgroundColor:
+          backgroundColor ?? Theme.of(context).scaffoldBackgroundColor,
       resizeToAvoidBottomInset: resizeToAvoidBottomInset,
       extendBodyBehindAppBar: materialData.extendBodyBehindAppBar ?? false,
     );
   }
 
   @override
-  CupertinoTabScaffold createCupertinoWidget(BuildContext context, WidgetRef ref) {
+  CupertinoTabScaffold createCupertinoWidget(
+      BuildContext context, WidgetRef ref) {
     return CupertinoTabScaffold(
       key: widgetKey,
       tabBuilder: cupertinoData.cupertinoTabBuilder,
       tabBar: bottomNavigationBar.createCupertinoWidget(context),
-      backgroundColor: backgroundColor ?? Theme.of(context).scaffoldBackgroundColor,
+      backgroundColor:
+          backgroundColor ?? Theme.of(context).scaffoldBackgroundColor,
       resizeToAvoidBottomInset: resizeToAvoidBottomInset,
     );
   }

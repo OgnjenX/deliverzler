@@ -4,7 +4,7 @@ import '../data_sources/locale_local_data_source.dart';
 part 'locale_repo.g.dart';
 
 @Riverpod(keepAlive: true)
-LocaleRepo localeRepo(LocaleRepoRef ref) {
+LocaleRepo localeRepo(Ref ref) {
   return LocaleRepo(
     localDataSource: ref.watch(localeLocalDataSourceProvider),
   );
@@ -17,5 +17,6 @@ class LocaleRepo {
 
   String getAppLocale() => localDataSource.getAppLocale();
 
-  Future<void> cacheAppLocale(String languageCode) => localDataSource.cacheAppLocale(languageCode);
+  Future<void> cacheAppLocale(String languageCode) =>
+      localDataSource.cacheAppLocale(languageCode);
 }

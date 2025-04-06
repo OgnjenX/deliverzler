@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
 import '../../../../auth/presentation/providers/auth_state_provider.dart';
-import '../../../../core/presentation/helpers/localization_helper.dart';
 import '../../../../core/presentation/styles/styles.dart';
 import '../../../../core/presentation/utils/riverpod_framework.dart';
 import '../../../../core/presentation/widgets/custom_elevated_button.dart';
+import '../../../../generated/l10n.dart';
 import '../../domain/profile_details.dart';
 import '../providers/profile_details_provider.dart';
 import '../widgets/titled_text_field_item.dart';
@@ -45,8 +45,8 @@ class ProfileFormComponent extends HookConsumerWidget {
               children: [
                 TitledTextFieldItem(
                   controller: nameController,
-                  title: tr(context).fullName,
-                  hintText: tr(context).enterYourName,
+                  title: S.of(context).fullName,
+                  hintText: S.of(context).enterYourName,
                   validator: ProfileDetails.validateName(context),
                   keyboardType: TextInputType.name,
                 ),
@@ -54,9 +54,9 @@ class ProfileFormComponent extends HookConsumerWidget {
                   height: Sizes.marginV24,
                 ),
                 TitledTextFieldItem(
-                  title: tr(context).mobileNumber,
+                  title: S.of(context).mobileNumber,
                   controller: mobileController,
-                  hintText: tr(context).enterYourNumber,
+                  hintText: S.of(context).enterYourNumber,
                   validator: ProfileDetails.validateMobile(context),
                   keyboardType: TextInputType.phone,
                   textInputAction: TextInputAction.done,
@@ -69,9 +69,11 @@ class ProfileFormComponent extends HookConsumerWidget {
           ),
           CustomElevatedButton(
             enableGradient: true,
-            onPressed: ref.isLoading(profileDetailsStateProvider) ? null : updateProfile,
+            onPressed: ref.isLoading(profileDetailsStateProvider)
+                ? null
+                : updateProfile,
             child: Text(
-              tr(context).confirm,
+              S.of(context).confirm,
               style: TextStyles.coloredElevatedButton(context),
             ),
           ),

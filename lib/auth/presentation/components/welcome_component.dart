@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 import '../../../core/core_features/theme/presentation/utils/custom_colors.dart';
-import '../../../core/presentation/helpers/localization_helper.dart';
 import '../../../core/presentation/styles/styles.dart';
-import '../../../gen/my_assets.dart';
+import '../../../generated/assets.dart';
+import '../../../generated/l10n.dart';
 
 class WelcomeComponent extends StatelessWidget {
   const WelcomeComponent({super.key});
@@ -18,7 +18,7 @@ class WelcomeComponent extends StatelessWidget {
           children: [
             Flexible(
               child: Text(
-                tr(context).welcome,
+                S.of(context).welcome,
                 style: TextStyles.f20(context).copyWith(
                   color: Theme.of(context).colorScheme.primary,
                 ),
@@ -26,7 +26,7 @@ class WelcomeComponent extends StatelessWidget {
               ),
             ),
             Image.asset(
-              MyAssets.ASSETS_IMAGES_LOGIN_HI_HAND_PNG,
+              Assets.loginHiHand,
               height: 44,
               width: 44,
               fit: BoxFit.contain,
@@ -37,8 +37,9 @@ class WelcomeComponent extends StatelessWidget {
           height: Sizes.marginV12,
         ),
         Text(
-          tr(context).signInToYourAccount,
-          style: TextStyles.f16SemiBold(context).copyWith(color: customColors(context).greyColor),
+          S.of(context).signInToYourAccount,
+          style: TextStyles.f16SemiBold(context)
+              .copyWith(color: customColors(context).greyColor),
         ),
       ],
     );

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 import '../../../../core/core_features/theme/presentation/providers/current_app_theme_provider.dart';
@@ -20,7 +19,8 @@ class GoogleMapComponent extends StatefulHookConsumerWidget {
 }
 
 class _GoogleMapComponentState extends ConsumerState<GoogleMapComponent> {
-  late final sub = ref.listenManual(myLocationCameraPositionProvider, (prev, next) {});
+  late final sub =
+      ref.listenManual(myLocationCameraPositionProvider, (prev, next) {});
 
   @override
   Widget build(BuildContext context) {
@@ -37,8 +37,11 @@ class _GoogleMapComponentState extends ConsumerState<GoogleMapComponent> {
       zoomControlsEnabled: false,
       myLocationButtonEnabled: false,
       onMapCreated: (controller) async {
-        ref.read(currentMapControllerProvider.notifier).update((_) => controller);
-        final isDark = ref.read(currentAppThemeModeProvider) == AppThemeMode.dark;
+        ref
+            .read(currentMapControllerProvider.notifier)
+            .update((_) => controller);
+        final isDark =
+            ref.read(currentAppThemeModeProvider) == AppThemeMode.dark;
         final mapStyle = await MapStyleHelper.getMapStyle(isDarkMode: isDark);
         await controller.setMapStyle(mapStyle);
       },

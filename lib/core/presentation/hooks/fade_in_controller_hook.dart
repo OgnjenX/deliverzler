@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'package:flutter_fadein/flutter_fadein.dart';
 
 import '../utils/riverpod_framework.dart';

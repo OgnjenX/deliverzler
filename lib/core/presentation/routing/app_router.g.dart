@@ -7,11 +7,33 @@ part of 'app_router.dart';
 // **************************************************************************
 
 List<RouteBase> get $appRoutes => [
+      $signInRoute,
       $splashRoute,
       $noInternetRoute,
-      $signInRoute,
       $homeShellRouteData,
     ];
+
+RouteBase get $signInRoute => GoRouteData.$route(
+      path: '/login',
+      factory: $SignInRouteExtension._fromState,
+    );
+
+extension $SignInRouteExtension on SignInRoute {
+  static SignInRoute _fromState(GoRouterState state) => const SignInRoute();
+
+  String get location => GoRouteData.$location(
+        '/login',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
 
 RouteBase get $splashRoute => GoRouteData.$route(
       path: '/splash',
@@ -46,28 +68,6 @@ extension $NoInternetRouteExtension on NoInternetRoute {
 
   String get location => GoRouteData.$location(
         '/no_internet',
-      );
-
-  void go(BuildContext context) => context.go(location);
-
-  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
-
-  void pushReplacement(BuildContext context) =>
-      context.pushReplacement(location);
-
-  void replace(BuildContext context) => context.replace(location);
-}
-
-RouteBase get $signInRoute => GoRouteData.$route(
-      path: '/login',
-      factory: $SignInRouteExtension._fromState,
-    );
-
-extension $SignInRouteExtension on SignInRoute {
-  static SignInRoute _fromState(GoRouterState state) => const SignInRoute();
-
-  String get location => GoRouteData.$location(
-        '/login',
       );
 
   void go(BuildContext context) => context.go(location);
@@ -118,6 +118,10 @@ RouteBase get $homeShellRouteData => StatefulShellRouteData.$route(
                 GoRouteData.$route(
                   path: 'language',
                   factory: $LanguageRouteExtension._fromState,
+                ),
+                GoRouteData.$route(
+                  path: 'workingHours',
+                  factory: $WorkingHoursRouteExtension._fromState,
                 ),
               ],
             ),
@@ -216,11 +220,29 @@ extension $LanguageRouteExtension on LanguageRoute {
   void replace(BuildContext context) => context.replace(location);
 }
 
+extension $WorkingHoursRouteExtension on WorkingHoursRoute {
+  static WorkingHoursRoute _fromState(GoRouterState state) =>
+      const WorkingHoursRoute();
+
+  String get location => GoRouteData.$location(
+        '/settings/workingHours',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
-String _$goRouterHash() => r'cbc33c7f768920a91906a6c993a1fe68c700f5a0';
+String _$goRouterHash() => r'b58eb5532837e430bc1efb7e9b969983cbffdc2b';
 
 /// See also [goRouter].
 @ProviderFor(goRouter)

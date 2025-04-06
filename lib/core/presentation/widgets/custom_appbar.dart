@@ -54,6 +54,7 @@ class CustomBackButton extends StatelessWidget {
     required this.result,
     super.key,
   });
+
   final dynamic result;
 
   @override

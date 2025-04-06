@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import '../../../../core/presentation/extensions/future_extensions.dart';
-import '../../../../core/presentation/helpers/localization_helper.dart';
 import '../../../../core/presentation/routing/app_router.dart';
 import '../../../../core/presentation/styles/styles.dart';
 import '../../../../core/presentation/utils/fp_framework.dart';
@@ -9,6 +8,7 @@ import '../../../../core/presentation/utils/riverpod_framework.dart';
 import '../../../../core/presentation/widgets/loading_widgets.dart';
 import '../../../../core/presentation/widgets/platform_widgets/platform_refresh_indicator.dart';
 import '../../../../core/presentation/widgets/seperated_sliver_child_builder_delegate.dart';
+import '../../../../generated/l10n.dart';
 import '../../domain/value_objects.dart';
 import '../providers/selected_order_provider.dart';
 import '../providers/upcoming_orders_provider.dart';
@@ -82,7 +82,7 @@ class UpcomingOrdersComponent extends ConsumerWidget {
               SliverFillRemaining(
                 child: Center(
                   child: Text(
-                    tr(context).thereAreNoOrders,
+                    S.of(context).thereAreNoOrders,
                     style: TextStyles.f18(context),
                     textAlign: TextAlign.center,
                   ),
@@ -97,7 +97,7 @@ class UpcomingOrdersComponent extends ConsumerWidget {
           SliverFillRemaining(
             child: Center(
               child: Text(
-                '${tr(context).somethingWentWrong}\n${tr(context).pleaseTryAgain}',
+                '${S.of(context).somethingWentWrong}\n${S.of(context).pleaseTryAgain}',
                 style: TextStyles.f18(context),
                 textAlign: TextAlign.center,
               ),

@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-
 import 'package:qr_flutter/qr_flutter.dart';
 
-import '../../../../../core/presentation/helpers/localization_helper.dart';
 import '../../../../../core/presentation/styles/styles.dart';
+import '../../../../../generated/l10n.dart';
 import '../../../domain/order.dart';
 
 class OrderDetailsDialog extends StatelessWidget {
@@ -11,6 +10,7 @@ class OrderDetailsDialog extends StatelessWidget {
     required this.order,
     super.key,
   });
+
   final AppOrder order;
 
   @override
@@ -42,7 +42,7 @@ class OrderDetailsDialog extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      '${tr(context).orderDetails}:',
+                      '${S.of(context).orderDetails}:',
                       style: TextStyles.f16SemiBold(context)
                           .copyWith(decoration: TextDecoration.underline),
                     ),
@@ -53,7 +53,7 @@ class OrderDetailsDialog extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          '${tr(context).id}:',
+                          '${S.of(context).id}:',
                           style: TextStyles.f16(context),
                         ),
                         Flexible(
@@ -68,7 +68,7 @@ class OrderDetailsDialog extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          '${tr(context).status}:',
+                          '${S.of(context).status}:',
                           style: TextStyles.f16(context),
                         ),
                         Flexible(
@@ -83,7 +83,7 @@ class OrderDetailsDialog extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          '${tr(context).payment}:',
+                          '${S.of(context).payment}:',
                           style: TextStyles.f16(context),
                         ),
                         Flexible(
@@ -103,8 +103,9 @@ class OrderDetailsDialog extends StatelessWidget {
             height: Sizes.marginV8,
           ),
           Text(
-            '${tr(context).userDetails}:',
-            style: TextStyles.f18SemiBold(context).copyWith(decoration: TextDecoration.underline),
+            '${S.of(context).userDetails}:',
+            style: TextStyles.f18SemiBold(context)
+                .copyWith(decoration: TextDecoration.underline),
           ),
           const SizedBox(
             height: Sizes.marginV2,
@@ -116,7 +117,7 @@ class OrderDetailsDialog extends StatelessWidget {
               children: [
                 Text(
                   order.userName.isEmpty
-                      ? tr(context).user + order.userId.substring(0, 6)
+                      ? S.of(context).user + order.userId.substring(0, 6)
                       : order.userName,
                   style: TextStyles.f16(context),
                 ),
@@ -135,8 +136,9 @@ class OrderDetailsDialog extends StatelessWidget {
             height: Sizes.marginV8,
           ),
           Text(
-            '${tr(context).note}:',
-            style: TextStyles.f18SemiBold(context).copyWith(decoration: TextDecoration.underline),
+            '${S.of(context).note}:',
+            style: TextStyles.f18SemiBold(context)
+                .copyWith(decoration: TextDecoration.underline),
           ),
           const SizedBox(
             height: Sizes.marginV2,
@@ -144,7 +146,7 @@ class OrderDetailsDialog extends StatelessWidget {
           Padding(
             padding: const EdgeInsetsDirectional.only(start: Sizes.paddingH14),
             child: Text(
-              order.userNote.isEmpty ? tr(context).none : order.userNote,
+              order.userNote.isEmpty ? S.of(context).none : order.userNote,
               style: TextStyles.f16(context),
             ),
           ),

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'package:go_router/go_router.dart';
 
 import '../../../auth/domain/user.dart';
@@ -11,6 +10,7 @@ import '../../../features/map/presentation/screens/map_screen/map_screen.dart';
 import '../../../features/profile/presentation/screens/profile_screen/profile_screen.dart';
 import '../../../features/settings/presentation/screens/language_screen/language_screen.dart';
 import '../../../features/settings/presentation/screens/settings_screen/settings_screen.dart';
+import '../../../features/settings/presentation/screens/working_hours_settings_screen/working_hours_settings_screen.dart';
 import '../screens/no_internet_screen/no_internet_screen.dart';
 import '../screens/route_error_screen/route_error_screen.dart';
 import '../screens/splash_screen/splash_screen.dart';
@@ -19,13 +19,12 @@ import '../utils/riverpod_framework.dart';
 import 'navigation_transitions.dart';
 
 part 'app_router.g.dart';
-
 part 'route_authority.dart';
 part 'route_extensions.dart';
-part 'routes/core_routes.dart';
 part 'routes/auth_routes.dart';
-part 'routes/home_shell_route.dart';
+part 'routes/core_routes.dart';
 part 'routes/home_branch_routes.dart';
+part 'routes/home_shell_route.dart';
 part 'routes/profile_branch_routes.dart';
 part 'routes/settings_branch_routes.dart';
 
@@ -53,7 +52,8 @@ GoRouter goRouter(Ref ref) {
     redirect: (BuildContext context, GoRouterState state) {
       final authState = ref.read(authStateProvider);
       final routeAuthority = state.routeAuthority;
-      final isLegitRoute = routeAuthority.contains(RouteAuthority.fromAuthState(authState));
+      final isLegitRoute =
+          routeAuthority.contains(RouteAuthority.fromAuthState(authState));
 
       if (!isLegitRoute) {
         return switch (authState) {

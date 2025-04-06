@@ -14,7 +14,7 @@ typedef QueryBuilder = Query<Map<String, dynamic>> Function(
 //Our main API is Firebase
 @Riverpod(keepAlive: true)
 FirebaseFirestoreFacade firebaseFirestoreFacade(
-  FirebaseFirestoreFacadeRef ref,
+  Ref ref,
 ) {
   return FirebaseFirestoreFacade(
     firebaseFirestore: FirebaseFirestore.instance,
@@ -91,7 +91,8 @@ class FirebaseFirestoreFacade {
   }) async {
     return _futureErrorHandler(
       () async {
-        Query<Map<String, dynamic>> reference = firebaseFirestore.collection(path);
+        Query<Map<String, dynamic>> reference =
+            firebaseFirestore.collection(path);
         if (queryBuilder != null) {
           reference = queryBuilder(reference);
         }
@@ -134,7 +135,8 @@ class FirebaseFirestoreFacade {
   }) {
     return _streamErrorHandler(
       () {
-        Query<Map<String, dynamic>> reference = firebaseFirestore.collection(path);
+        Query<Map<String, dynamic>> reference =
+            firebaseFirestore.collection(path);
         if (queryBuilder != null) {
           reference = queryBuilder(reference);
         }

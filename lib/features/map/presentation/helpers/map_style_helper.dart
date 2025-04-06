@@ -1,23 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
-import '../../../../gen/my_assets.dart';
+import '../../../../generated/assets.dart';
 
 abstract class MapStyleHelper {
   static Future<String> getMapStyle({required bool isDarkMode}) async {
     return rootBundle.loadString(
-      isDarkMode
-          ? MyAssets.ASSETS_MAP_STYLES_DARK_MAP_JSON
-          : MyAssets.ASSETS_MAP_STYLES_LIGHT_MAP_JSON,
+      isDarkMode ? Assets.mapStylesDarkMap : Assets.mapStylesLightMap,
     );
   }
 
   static Future<BitmapDescriptor> getMyLocationMarkerIcon() async {
-    return BitmapDescriptor.fromAssetImage(
+    return BitmapDescriptor.asset(
       ImageConfiguration.empty,
-      MyAssets.ASSETS_ICONS_DELIVERY_ICON_PNG,
+      Assets.iconsDeliveryIcon,
     );
   }
 

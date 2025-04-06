@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../../../../core/presentation/helpers/localization_helper.dart';
 import '../../../../core/presentation/styles/styles.dart';
 import '../../../../core/presentation/widgets/platform_widgets/platform_icons.dart';
+import '../../../../generated/l10n.dart';
 
 enum TabItem {
   home,
@@ -22,7 +22,8 @@ enum TabItem {
   IconData _getTabIconData(BuildContext context) {
     return switch (this) {
       TabItem.home => AppPlatformIcons.platformIcons(context).home,
-      TabItem.profile => AppPlatformIcons.platformIcons(context).accountCircleSolid,
+      TabItem.profile =>
+        AppPlatformIcons.platformIcons(context).accountCircleSolid,
       TabItem.settings => AppPlatformIcons.platformIcons(context).settingsSolid,
     };
   }
@@ -41,9 +42,9 @@ enum TabItem {
 
   String getTabItemLabel(BuildContext context) {
     return switch (this) {
-      TabItem.home => tr(context).home,
-      TabItem.profile => tr(context).myProfile,
-      TabItem.settings => tr(context).settings,
+      TabItem.home => S.of(context).home,
+      TabItem.profile => S.of(context).myProfile,
+      TabItem.settings => S.of(context).settings,
     };
   }
 }

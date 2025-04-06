@@ -8,6 +8,7 @@ import 'core/presentation/routing/app_router.dart';
 import 'core/presentation/routing/navigation_service.dart';
 import 'core/presentation/utils/riverpod_framework.dart';
 import 'core/presentation/utils/scroll_behaviors.dart';
+import 'generated/l10n.dart';
 
 class MyApp extends HookConsumerWidget {
   const MyApp({super.key});
@@ -19,7 +20,8 @@ class MyApp extends HookConsumerWidget {
     useOnPlatformBrightnessChange((previous, current) {
       ref.read(platformBrightnessProvider.notifier).update((_) => current);
     });
-    final supportsEdgeToEdge = ref.watch(androidDeviceInfoProvider).supportsEdgeToEdge;
+    final supportsEdgeToEdge =
+        ref.watch(androidDeviceInfoProvider).supportsEdgeToEdge;
     final themeMode = ref.watch(currentAppThemeModeProvider);
     final locale = ref.watch(currentAppLocaleProvider);
 
@@ -38,9 +40,15 @@ class MyApp extends HookConsumerWidget {
       title: 'Deliverzler',
       debugShowCheckedModeBanner: false,
       color: Theme.of(context).colorScheme.primary,
-      theme: themeMode.getThemeData(locale.fontFamily, supportsEdgeToEdge: supportsEdgeToEdge),
+      theme: themeMode.getThemeData(
+        locale.fontFamily,
+        supportsEdgeToEdge: supportsEdgeToEdge,
+      ),
       locale: Locale(locale.code),
-      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      localizationsDelegates: const [
+        ...AppLocalizations.localizationsDelegates,
+        S.delegate,
+      ],
       supportedLocales: AppLocalizations.supportedLocales,
     );
   }

@@ -1,9 +1,8 @@
-import 'package:flutter/material.dart';
-
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:flutter/material.dart';
 import 'package:logging/logging.dart';
 
-import '../../../gen/my_assets.dart';
+import '../../../generated/assets.dart';
 import '../../infrastructure/services/cache_service.dart';
 import '../utils/riverpod_framework.dart';
 
@@ -22,6 +21,7 @@ class CachedNetworkImageCircular extends ConsumerWidget {
     this.maxWidthDiskCache = 400,
     super.key,
   });
+
   final String? imageUrl;
   final String spareImageUrl;
   final double radius;
@@ -37,18 +37,20 @@ class CachedNetworkImageCircular extends ConsumerWidget {
       errorListener: (error) {
         _reportImageError(ref, error);
       },
-      imageUrl: imageUrl != null && imageUrl!.contains('http') ? imageUrl! : spareImageUrl,
+      imageUrl: imageUrl != null && imageUrl!.contains('http')
+          ? imageUrl!
+          : spareImageUrl,
       imageBuilder: (context, imageProvider) => CircleAvatar(
         radius: radius,
         backgroundImage: imageProvider,
       ),
       placeholder: (context, url) => CircleAvatar(
         radius: radius,
-        backgroundImage: const AssetImage(MyAssets.ASSETS_IMAGES_CORE_LOADING_GIF),
+        backgroundImage: const AssetImage(Assets.coreLoading),
       ),
       errorWidget: (context, url, error) => CircleAvatar(
         radius: radius,
-        backgroundImage: const AssetImage(MyAssets.ASSETS_IMAGES_CORE_NO_INTERNET_PNG),
+        backgroundImage: const AssetImage(Assets.coreNoInternet),
       ),
     );
   }

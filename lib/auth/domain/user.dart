@@ -13,6 +13,7 @@ abstract class User with _$User {
     required String? phone,
     required String? image,
   }) = _User;
+
   const User._();
 
   User copyWithProfileDetails(ProfileDetails profileDetails) {

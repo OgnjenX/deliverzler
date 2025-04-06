@@ -4,7 +4,6 @@ import '../../domain/update_delivery_status.dart';
 import '../../domain/value_objects.dart';
 
 part 'update_delivery_status_dto.freezed.dart';
-
 part 'update_delivery_status_dto.g.dart';
 
 @Freezed(toJson: true)

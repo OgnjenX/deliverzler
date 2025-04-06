@@ -38,21 +38,21 @@ final _notificationDetails = NotificationDetails(
 );
 
 @riverpod
-Future<void> setupFlutterNotifications(SetupFlutterNotificationsRef ref) async {
+Future<void> setupFlutterNotifications(Ref ref) async {
   final notificationService = ref.watch(notificationServiceProvider);
   await notificationService._setupFlutterNotifications();
 }
 
 @riverpod
 Future<AuthorizationStatus> requestNotificationPermissions(
-  RequestNotificationPermissionsRef ref,
+  Ref ref,
 ) async {
   final notificationService = ref.watch(notificationServiceProvider);
   return notificationService._requestPermissions();
 }
 
 @Riverpod(keepAlive: true)
-NotificationService notificationService(NotificationServiceRef ref) => NotificationService(
+NotificationService notificationService(Ref ref) => NotificationService(
       ref,
       FlutterLocalNotificationsPlugin(),
       FirebaseMessaging.instance,
@@ -65,7 +65,7 @@ class NotificationService {
     this._fcm,
   );
 
-  final NotificationServiceRef ref;
+  final Ref ref;
   final FlutterLocalNotificationsPlugin _flutterLocalNotifications;
   final FirebaseMessaging _fcm;
 
@@ -88,11 +88,13 @@ class NotificationService {
     // iOS & macOS setting
     const darwinSettings = DarwinInitializationSettings();
 
-    const settings = InitializationSettings(android: androidSettings, iOS: darwinSettings);
+    const settings =
+        InitializationSettings(android: androidSettings, iOS: darwinSettings);
 
     await _flutterLocalNotifications.initialize(
       settings,
-      onDidReceiveNotificationResponse: (NotificationResponse notificationResponse) {
+      onDidReceiveNotificationResponse:
+          (NotificationResponse notificationResponse) {
         ref.read(notificationResponseEventProvider.notifier).update(
               (_) => Some(notificationResponse),
             );
@@ -105,7 +107,8 @@ class NotificationService {
   /// default FCM channel to enable heads up notifications.
   Future<void> _setupAndroidHeadsUp() async {
     return await _flutterLocalNotifications
-        .resolvePlatformSpecificImplementation<AndroidFlutterLocalNotificationsPlugin>()
+        .resolvePlatformSpecificImplementation<
+            AndroidFlutterLocalNotificationsPlugin>()
         ?.createNotificationChannel(_channel);
   }
 
@@ -176,11 +179,13 @@ class NotificationService {
 
   Future<void> subscribeToTopic(String topic) => _fcm.subscribeToTopic(topic);
 
-  Future<void> unsubscribeFromTopic(String topic) => _fcm.unsubscribeFromTopic(topic);
+  Future<void> unsubscribeFromTopic(String topic) =>
+      _fcm.unsubscribeFromTopic(topic);
 }
 
 @Riverpod(keepAlive: true)
-class NotificationResponseEvent extends _$NotificationResponseEvent with NotifierUpdate {
+class NotificationResponseEvent extends _$NotificationResponseEvent
+    with NotifierUpdate {
   @override
   Option<NotificationResponse> build() => const None();
 }

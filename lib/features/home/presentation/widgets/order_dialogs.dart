@@ -1,12 +1,12 @@
 import 'package:flutter/cupertino.dart';
 
-import '../../../../core/presentation/helpers/localization_helper.dart';
 import '../../../../core/presentation/routing/navigation_service.dart';
 import '../../../../core/presentation/styles/styles.dart';
 import '../../../../core/presentation/utils/riverpod_framework.dart';
+import '../../../../core/presentation/widgets/custom_elevated_button.dart';
 import '../../../../core/presentation/widgets/dialogs.dart';
 import '../../../../core/presentation/widgets/toasts.dart';
-import '../../../../core/presentation/widgets/custom_elevated_button.dart';
+import '../../../../generated/l10n.dart';
 import '../../domain/order.dart';
 import '../components/dialogs/cancel_order_dialog.dart';
 import '../components/dialogs/order_details_dialog.dart';
@@ -30,7 +30,7 @@ abstract class OrderDialogs {
           ),
           onPressed: () => NavigationService.popDialog(ctx),
           child: Text(
-            tr(context).back,
+            S.of(context).back,
             style: TextStyles.coloredElevatedButton(context),
           ),
         ),
@@ -39,7 +39,7 @@ abstract class OrderDialogs {
         CupertinoDialogAction(
           onPressed: () => NavigationService.popDialog(ctx),
           child: Text(
-            tr(context).back,
+            S.of(context).back,
             style: TextStyles.cupertinoDialogAction(context),
           ),
         ),
@@ -51,7 +51,7 @@ abstract class OrderDialogs {
     TextEditingController? cancelNoteController;
     return Dialogs.showConfirmDialog(
       context,
-      title: tr(context).cancelTheOrder,
+      title: S.of(context).cancelTheOrder,
       content: (_) => HookBuilder(
         builder: (context) {
           cancelNoteController = useTextEditingController(text: '');
@@ -60,7 +60,7 @@ abstract class OrderDialogs {
           );
         },
       ),
-      confirmTitle: tr(context).confirm,
+      confirmTitle: S.of(context).confirm,
       confirmCallback: (ctx) =>
           NavigationService.popDialog(ctx, result: cancelNoteController!.text),
     ).then((result) {
@@ -71,8 +71,8 @@ abstract class OrderDialogs {
   static void showCanNotProceedDialog(BuildContext context) {
     return Toasts.showTitledToast(
       context,
-      title: tr(context).youCanNotProceedThisOrder,
-      description: tr(context).youCanOnlyProceedOrdersYouDelivering,
+      title: S.of(context).youCanNotProceedThisOrder,
+      description: S.of(context).youCanOnlyProceedOrdersYouDelivering,
     );
   }
 
@@ -82,9 +82,9 @@ abstract class OrderDialogs {
   ) async {
     return Dialogs.showConfirmDialog(
       context,
-      title: tr(context).areYouSure,
+      title: S.of(context).areYouSure,
       description: message,
-      confirmTitle: tr(context).confirm,
+      confirmTitle: S.of(context).confirm,
       confirmCallback: (ctx) => NavigationService.popDialog(ctx, result: true),
     ).then((result) {
       final res = result as bool?;

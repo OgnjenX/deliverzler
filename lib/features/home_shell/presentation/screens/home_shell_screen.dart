@@ -1,18 +1,17 @@
 import 'package:flutter/material.dart';
-
 import 'package:go_router/go_router.dart';
 
 import '../../../../auth/presentation/providers/sign_out_provider.dart';
+import '../../../../core/infrastructure/notification/fcm_remote_message_providers.dart';
 import '../../../../core/infrastructure/notification/notification.dart';
 import '../../../../core/infrastructure/notification/notification_service.dart';
-import '../../../../core/infrastructure/notification/fcm_remote_message_providers.dart';
 import '../../../../core/infrastructure/services/connection_stream_service.dart';
 import '../../../../core/presentation/utils/fp_framework.dart';
 import '../../../../core/presentation/utils/riverpod_framework.dart';
-import '../../../../core/presentation/widgets/toasts.dart';
 import '../../../../core/presentation/widgets/platform_widgets/platform_appbar.dart';
-import '../components/home_shell_bottom_nav_bar.dart';
+import '../../../../core/presentation/widgets/toasts.dart';
 import '../components/home_shell_appbar.dart';
+import '../components/home_shell_bottom_nav_bar.dart';
 import '../utils/tab_item.dart';
 
 /// Builds the "shell" for the home by building a Scaffold with a persistent
@@ -49,7 +48,8 @@ class HomeShellScreen extends HookConsumerWidget {
       (previous, next) {
         if (next is Some<NotificationPayload>) {
           final notification = next.value;
-          if (notification.routeLocation case final location?) context.go(location);
+          if (notification.routeLocation case final location?)
+            context.go(location);
         }
       },
     );

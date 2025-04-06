@@ -113,5 +113,6 @@
   "searchForAPlace": "ابحث عن موقع...",
   "myCurrentLocation": "موقعي الحالي",
   "pleaseSearchForLocation": "الرجاء البحث عن الموقع!",
-  "userHasNotProvidedLocation": "المستخدم لم يوفر موقعه الشخصي."
+  "userHasNotProvidedLocation": "المستخدم لم يوفر موقعه الشخصي.",
+  "working_hours": "ساعات العمل"
 }

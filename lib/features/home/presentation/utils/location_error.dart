@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../../core/presentation/helpers/localization_helper.dart';
+import '../../../../generated/l10n.dart';
 
 enum LocationError {
   notEnabledLocation,
@@ -11,9 +11,11 @@ enum LocationError {
 
   String getErrorText(BuildContext context) {
     return switch (this) {
-      LocationError.notEnabledLocation => tr(context).please_enable_location_service,
-      LocationError.notGrantedLocationPermission => tr(context).location_permission_required,
-      LocationError.getLocationTimeout => tr(context).location_timeout_error,
+      LocationError.notEnabledLocation =>
+        S.of(context).please_enable_location_service,
+      LocationError.notGrantedLocationPermission =>
+        S.of(context).location_permission_required,
+      LocationError.getLocationTimeout => S.of(context).location_timeout_error,
     };
   }
 }

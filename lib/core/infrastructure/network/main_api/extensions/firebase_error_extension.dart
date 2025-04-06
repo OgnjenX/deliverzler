@@ -14,7 +14,8 @@ extension FirebaseErrorExtension on Object {
     if (exception is TimeoutException) {
       return ServerException(
         type: ServerExceptionType.timeOut,
-        message: exception.message ?? 'Connecting timed out [${exception.duration}ms]',
+        message: exception.message ??
+            'Connecting timed out [${exception.duration}ms]',
         code: 408,
       );
     }

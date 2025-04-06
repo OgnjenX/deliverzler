@@ -69,7 +69,8 @@ class DataConnectionChecker {
   /// | 8.8.4.4        | Google     | https://developers.google.com/speed/public-dns/ |
   /// | 208.67.222.222 | OpenDNS    | https://use.opendns.com/                        |
   /// | 208.67.220.220 | OpenDNS    | https://use.opendns.com/                        |
-  static final List<AddressCheckOptions> defaultAddresses = List<AddressCheckOptions>.unmodifiable(
+  static final List<AddressCheckOptions> defaultAddresses =
+      List<AddressCheckOptions>.unmodifiable(
     <AddressCheckOptions>[
       AddressCheckOptions(
         InternetAddress(
@@ -178,7 +179,9 @@ class DataConnectionChecker {
   /// [DataConnectionStatus.connected].
   /// [DataConnectionStatus.disconnected] otherwise.
   Future<DataConnectionStatus> get connectionStatus async {
-    return await hasConnection ? DataConnectionStatus.connected : DataConnectionStatus.disconnected;
+    return await hasConnection
+        ? DataConnectionStatus.connected
+        : DataConnectionStatus.disconnected;
   }
 
   /// The interval between periodic checks. Periodic checks are
@@ -221,7 +224,8 @@ class DataConnectionChecker {
   Timer? _timerHandle;
 
   // controller for the exposed 'onStatusChange' Stream
-  final StreamController<DataConnectionStatus> _statusController = StreamController.broadcast();
+  final StreamController<DataConnectionStatus> _statusController =
+      StreamController.broadcast();
 
   /// Subscribe to this stream to receive events whenever the
   /// [DataConnectionStatus] changes. When a listener is attached
@@ -297,6 +301,7 @@ class AddressCheckOptions {
     this.port = DataConnectionChecker.defaultPort,
     this.timeout = DataConnectionChecker.defaultTimeout,
   });
+
   final InternetAddress address;
   final int port;
   final Duration timeout;
@@ -312,6 +317,7 @@ class AddressCheckResult {
     this.options, {
     required this.isSuccess,
   });
+
   final AddressCheckOptions options;
   final bool isSuccess;
 

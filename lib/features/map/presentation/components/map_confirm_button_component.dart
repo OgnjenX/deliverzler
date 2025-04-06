@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
 import '../../../../auth/presentation/providers/auth_state_provider.dart';
-import '../../../../core/presentation/helpers/localization_helper.dart';
 import '../../../../core/presentation/styles/styles.dart';
 import '../../../../core/presentation/utils/riverpod_framework.dart';
 import '../../../../core/presentation/widgets/custom_elevated_button.dart';
+import '../../../../generated/l10n.dart';
 import '../../../home/domain/orders_service.dart';
 import '../../../home/domain/update_delivery_status.dart';
 import '../../../home/domain/value_objects.dart';
@@ -30,7 +30,7 @@ class MapConfirmButtonComponent extends ConsumerWidget {
         case (canProceed: true, isLoading: true):
           return OrderDialogs.confirmChoiceDialog(
             context,
-            tr(context).doYouWantToConfirmTheOrder,
+            S.of(context).doYouWantToConfirmTheOrder,
           ).then((confirmChoice) {
             if (confirmChoice) {
               final order = ref.read(selectedOrderProvider);
@@ -41,7 +41,9 @@ class MapConfirmButtonComponent extends ConsumerWidget {
                     orderId: order.id,
                     deliveryStatus: DeliveryStatus.delivered,
                   );
-                  ref.read(mapConfirmOrderStatusProvider.notifier).confirmOrder(params);
+                  ref
+                      .read(mapConfirmOrderStatusProvider.notifier)
+                      .confirmOrder(params);
                 },
               );
             }
@@ -63,8 +65,9 @@ class MapConfirmButtonComponent extends ConsumerWidget {
               elevation: 2,
               onPressed: confirmOrder,
               child: Text(
-                tr(context).confirm,
-                style: TextStyles.coloredElevatedButton(context).copyWith(fontSize: Sizes.font18),
+                S.of(context).confirm,
+                style: TextStyles.coloredElevatedButton(context)
+                    .copyWith(fontSize: Sizes.font18),
               ),
             ),
           )

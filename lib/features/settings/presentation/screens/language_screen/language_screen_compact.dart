@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 import '../../../../../core/core_features/locale/presentation/utils/app_locale.dart';
-import '../../../../../core/presentation/helpers/localization_helper.dart';
 import '../../../../../core/presentation/screens/nested_screen_scaffold.dart';
 import '../../../../../core/presentation/styles/styles.dart';
+import '../../../../../generated/l10n.dart';
 import '../../components/language_components/language_item_component.dart';
 
 class LanguageScreenCompact extends StatelessWidget {
@@ -21,7 +21,7 @@ class LanguageScreenCompact extends StatelessWidget {
           child: Column(
             children: <Widget>[
               Text(
-                tr(context).selectYourPreferredLanguage,
+                S.of(context).selectYourPreferredLanguage,
                 style: TextStyles.f18(context),
               ),
               const SizedBox(

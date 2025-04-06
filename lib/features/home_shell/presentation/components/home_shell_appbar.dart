@@ -1,14 +1,13 @@
-import 'package:flutter/material.dart';
-
 import 'package:fast_immutable_collections/fast_immutable_collections.dart';
+import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../core/presentation/components/appbar_with_icon_component.dart';
-import '../../../../core/presentation/helpers/localization_helper.dart';
 import '../../../../core/presentation/routing/app_router.dart';
 import '../../../../core/presentation/styles/styles.dart';
 import '../../../../core/presentation/widgets/custom_appbar.dart';
-import '../../../../gen/my_assets.dart';
+import '../../../../generated/assets.dart';
+import '../../../../generated/l10n.dart';
 
 class HomeShellAppBar extends StatelessWidget {
   const HomeShellAppBar({super.key});
@@ -26,8 +25,9 @@ class HomeShellAppBar extends StatelessWidget {
       return CustomAppBar(
         centerTitle: true,
         title: Text(
-          tr(context).appName,
-          style: TextStyles.f20(context).copyWith(color: Theme.of(context).colorScheme.primary),
+          S.of(context).appName,
+          style: TextStyles.f20(context)
+              .copyWith(color: Theme.of(context).colorScheme.primary),
         ),
       );
     }
@@ -37,8 +37,8 @@ class HomeShellAppBar extends StatelessWidget {
       return CustomAppBar(
         centerTitle: true,
         title: AppBarWithIconComponent(
-          icon: MyAssets.ASSETS_ICONS_SCREENS_ICONS_PROFILE_PNG,
-          title: tr(context).myProfile,
+          icon: Assets.screensIconsProfile,
+          title: S.of(context).myProfile,
         ),
       );
     }
@@ -48,8 +48,8 @@ class HomeShellAppBar extends StatelessWidget {
       return CustomAppBar(
         centerTitle: true,
         title: AppBarWithIconComponent(
-          icon: MyAssets.ASSETS_ICONS_SCREENS_ICONS_SETTINGS_PNG,
-          title: tr(context).settings,
+          icon: Assets.screensIconsSettings,
+          title: S.of(context).settings,
         ),
       );
     } else if (location == const LanguageRoute().location) {
@@ -57,8 +57,17 @@ class HomeShellAppBar extends StatelessWidget {
         hasBackButton: true,
         centerTitle: true,
         title: AppBarWithIconComponent(
-          icon: MyAssets.ASSETS_ICONS_SCREENS_ICONS_LANGUAGE_PNG,
-          title: tr(context).language,
+          icon: Assets.screensIconsLanguage,
+          title: S.of(context).language,
+        ),
+      );
+    } else if (location == const WorkingHoursRoute().location) {
+      return CustomAppBar(
+        hasBackButton: true,
+        centerTitle: true,
+        title: AppBarWithIconComponent(
+          icon: Icons.access_time,
+          title: S.of(context).working_hours,
         ),
       );
     }

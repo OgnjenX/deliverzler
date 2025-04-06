@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../generated/l10n.dart';
 import '../../infrastructure/network/network_info.dart';
-import '../helpers/localization_helper.dart';
 import '../routing/app_router.dart';
 import '../styles/styles.dart';
 import '../utils/riverpod_framework.dart';
@@ -21,7 +21,7 @@ class NoInternetErrorComponent extends StatelessWidget {
           height: Sizes.marginV32,
         ),
         Text(
-          tr(context).noInternetConnection,
+          S.of(context).noInternetConnection,
           style: TextStyles.f20(context),
           textAlign: TextAlign.center,
         ),
@@ -29,7 +29,7 @@ class NoInternetErrorComponent extends StatelessWidget {
           height: Sizes.marginV12,
         ),
         Text(
-          tr(context).pleaseCheckYourDeviceNetwork,
+          S.of(context).pleaseCheckYourDeviceNetwork,
           style: TextStyles.f14(context),
           textAlign: TextAlign.center,
         ),
@@ -59,7 +59,7 @@ class NoInternetErrorComponent extends StatelessWidget {
               onPressed: retryOnPressed,
               buttonColor: Theme.of(context).colorScheme.primary,
               child: Text(
-                tr(context).retry.toUpperCase(),
+                S.of(context).retry.toUpperCase(),
                 style: TextStyles.coloredElevatedButton(context),
               ),
             );

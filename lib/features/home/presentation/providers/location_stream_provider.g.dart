@@ -6,7 +6,7 @@ part of 'location_stream_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$locationStreamHash() => r'8a8c4a86c760e3a13cc16e9bf033392687e14028';
+String _$locationStreamHash() => r'2ec3f990a91c3c1a7ca3a9128ed5cce6b7d78e7d';
 
 /// See also [locationStream].
 @ProviderFor(locationStream)
@@ -23,7 +23,7 @@ final locationStreamProvider = AutoDisposeStreamProvider<Position>.internal(
 @Deprecated('Will be removed in 3.0. Use Ref instead')
 // ignore: unused_element
 typedef LocationStreamRef = AutoDisposeStreamProviderRef<Position>;
-String _$enableLocationHash() => r'3bc9a81dfda77cf6b6febc52669453183eb7f28a';
+String _$enableLocationHash() => r'8d07036a35d4814014e2d3e2f33b7b248a286b96';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -177,7 +177,7 @@ class _EnableLocationProviderElement
 }
 
 String _$requestLocationPermissionHash() =>
-    r'3b5dd8d64080eacb6bde6acf8c7c03010ec632ab';
+    r'4a6b5b4b79612ac4e139d22af74459b92178e12f';
 
 /// See also [requestLocationPermission].
 @ProviderFor(requestLocationPermission)

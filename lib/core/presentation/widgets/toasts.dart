@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
+import '../../../generated/l10n.dart';
 import '../../core_features/theme/presentation/utils/app_static_colors.dart';
 import '../../core_features/theme/presentation/utils/custom_colors.dart';
-import '../helpers/localization_helper.dart';
 import '../../infrastructure/services/connection_stream_service.dart';
 import '../styles/styles.dart';
 import 'custom_toast.dart';
@@ -74,8 +74,8 @@ abstract class Toasts {
           ),
           Text(
             connectionStatus == ConnectionStatus.disconnected
-                ? tr(context).youAreCurrentlyOffline
-                : tr(context).youAreBackOnline,
+                ? S.of(context).youAreCurrentlyOffline
+                : S.of(context).youAreBackOnline,
             style: TextStyles.f16SemiBold(context)
                 .copyWith(color: AppStaticColors.lightBlack),
           ),

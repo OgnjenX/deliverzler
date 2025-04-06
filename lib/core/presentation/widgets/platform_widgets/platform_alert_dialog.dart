@@ -23,11 +23,14 @@ Future<T?> showPlatformAlertDialog<T extends Object?>({
   );
 
   if (PlatformHelper.isMaterialApp) {
-    final horizontalActionPadding = materialDialogData.actionsPadding.horizontal / 2;
+    final horizontalActionPadding =
+        materialDialogData.actionsPadding.horizontal / 2;
     final reformedActionsPadding = EdgeInsets.symmetric(
       horizontal: horizontalActionPadding,
     ).copyWith(
-      top: title == null && content == null ? materialDialogData.actionsPadding.vertical / 2 : 0,
+      top: title == null && content == null
+          ? materialDialogData.actionsPadding.vertical / 2
+          : 0,
       bottom: materialDialogData.actionsPadding.vertical / 2,
     );
     return showGeneralDialog<T>(
@@ -45,7 +48,8 @@ Future<T?> showPlatformAlertDialog<T extends Object?>({
               builder: (context, constraints) {
                 // This prioritizes insetPadding over preferred maxWidth.
                 // It's A workaround until https://github.com/flutter/flutter/issues/44570 is fixed.
-                final hInsetPadding = materialDialogData.insetPadding.horizontal;
+                final hInsetPadding =
+                    materialDialogData.insetPadding.horizontal;
                 final maxWidth = min(
                   constraints.maxWidth - hInsetPadding,
                   materialDialogData.maxWidth + hInsetPadding,
@@ -62,7 +66,8 @@ Future<T?> showPlatformAlertDialog<T extends Object?>({
                       contentPadding: reformedContentPadding,
                       actions: materialDialogData.actions?.call(context),
                       actionsPadding: reformedActionsPadding,
-                      buttonPadding: EdgeInsets.symmetric(horizontal: horizontalActionPadding / 2),
+                      buttonPadding: EdgeInsets.symmetric(
+                          horizontal: horizontalActionPadding / 2),
                       actionsAlignment: MainAxisAlignment.center,
                       insetPadding: materialDialogData.insetPadding,
                       shape: materialDialogData.shape,

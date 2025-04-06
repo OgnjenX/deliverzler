@@ -8,7 +8,7 @@ part 'pick_profile_image_provider.g.dart';
 
 @riverpod
 Future<File> pickProfileImage(
-  PickProfileImageRef ref,
+  Ref ref,
   PickSource pickSource,
 ) async {
   return ref.watch(profileServiceProvider).pickProfileImage(pickSource);

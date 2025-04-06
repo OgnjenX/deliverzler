@@ -6,7 +6,7 @@ part of 'pick_profile_image_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$pickProfileImageHash() => r'd37506ef9ad3537be4016f02b4c5973f7f984545';
+String _$pickProfileImageHash() => r'e1f9774c7a850a9e7322a811cd3d9a209cd82983';
 
 /// Copied from Dart SDK
 class _SystemHash {

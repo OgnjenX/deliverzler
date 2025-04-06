@@ -8,17 +8,28 @@ class SettingsRoute extends GoRouteData {
       path: '/settings',
       routes: [
         TypedGoRoute<LanguageRoute>(path: 'language'),
+        TypedGoRoute<WorkingHoursRoute>(path: 'workingHours'),
       ],
     ),
   ];
 
   @override
-  Widget build(BuildContext context, GoRouterState state) => const SettingsScreen();
+  Widget build(BuildContext context, GoRouterState state) =>
+      const SettingsScreen();
 }
 
 class LanguageRoute extends GoRouteData {
   const LanguageRoute();
 
   @override
-  Widget build(BuildContext context, GoRouterState state) => const LanguageScreen();
+  Widget build(BuildContext context, GoRouterState state) =>
+      const LanguageScreen();
+}
+
+class WorkingHoursRoute extends GoRouteData {
+  const WorkingHoursRoute();
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) =>
+      const WorkingHoursSettingsScreen();
 }

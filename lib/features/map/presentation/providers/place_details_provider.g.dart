@@ -7,7 +7,7 @@ part of 'place_details_provider.dart';
 // **************************************************************************
 
 String _$currentPlaceDetailsHash() =>
-    r'2565103c12fa8cf6e031a225a4c447692ca0d49f';
+    r'793764e32cb825a700dda621da1ffc99c2049cb1';
 
 /// See also [currentPlaceDetails].
 @ProviderFor(currentPlaceDetails)
@@ -25,7 +25,25 @@ final currentPlaceDetailsProvider =
 @Deprecated('Will be removed in 3.0. Use Ref instead')
 // ignore: unused_element
 typedef CurrentPlaceDetailsRef = AutoDisposeProviderRef<Option<PlaceDetails>>;
-String _$getPlaceDetailsHash() => r'78145270f13eb00f5d3a3070ca1641634ab47045';
+String _$selectedPlaceAutocompleteHash() =>
+    r'1118e9c484f58c14de3e85f0eb622a9391032be5';
+
+/// See also [SelectedPlaceAutocomplete].
+@ProviderFor(SelectedPlaceAutocomplete)
+final selectedPlaceAutocompleteProvider = AutoDisposeNotifierProvider<
+    SelectedPlaceAutocomplete, Option<PlaceAutocomplete>>.internal(
+  SelectedPlaceAutocomplete.new,
+  name: r'selectedPlaceAutocompleteProvider',
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$selectedPlaceAutocompleteHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+typedef _$SelectedPlaceAutocomplete
+    = AutoDisposeNotifier<Option<PlaceAutocomplete>>;
+String _$getPlaceDetailsHash() => r'eb748a944c2a0b7426c9e024275774a982502c54';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -48,16 +66,25 @@ class _SystemHash {
   }
 }
 
-/// See also [getPlaceDetails].
-@ProviderFor(getPlaceDetails)
+abstract class _$GetPlaceDetails
+    extends BuildlessAutoDisposeAsyncNotifier<PlaceDetails> {
+  late final String placeId;
+
+  FutureOr<PlaceDetails> build(
+    String placeId,
+  );
+}
+
+/// See also [GetPlaceDetails].
+@ProviderFor(GetPlaceDetails)
 const getPlaceDetailsProvider = GetPlaceDetailsFamily();
 
-/// See also [getPlaceDetails].
+/// See also [GetPlaceDetails].
 class GetPlaceDetailsFamily extends Family<AsyncValue<PlaceDetails>> {
-  /// See also [getPlaceDetails].
+  /// See also [GetPlaceDetails].
   const GetPlaceDetailsFamily();
 
-  /// See also [getPlaceDetails].
+  /// See also [GetPlaceDetails].
   GetPlaceDetailsProvider call(
     String placeId,
   ) {
@@ -90,16 +117,14 @@ class GetPlaceDetailsFamily extends Family<AsyncValue<PlaceDetails>> {
   String? get name => r'getPlaceDetailsProvider';
 }
 
-/// See also [getPlaceDetails].
-class GetPlaceDetailsProvider extends AutoDisposeFutureProvider<PlaceDetails> {
-  /// See also [getPlaceDetails].
+/// See also [GetPlaceDetails].
+class GetPlaceDetailsProvider extends AutoDisposeAsyncNotifierProviderImpl<
+    GetPlaceDetails, PlaceDetails> {
+  /// See also [GetPlaceDetails].
   GetPlaceDetailsProvider(
     String placeId,
   ) : this._internal(
-          (ref) => getPlaceDetails(
-            ref as GetPlaceDetailsRef,
-            placeId,
-          ),
+          () => GetPlaceDetails()..placeId = placeId,
           from: getPlaceDetailsProvider,
           name: r'getPlaceDetailsProvider',
           debugGetCreateSourceHash:
@@ -125,13 +150,20 @@ class GetPlaceDetailsProvider extends AutoDisposeFutureProvider<PlaceDetails> {
   final String placeId;
 
   @override
-  Override overrideWith(
-    FutureOr<PlaceDetails> Function(GetPlaceDetailsRef provider) create,
+  FutureOr<PlaceDetails> runNotifierBuild(
+    covariant GetPlaceDetails notifier,
   ) {
+    return notifier.build(
+      placeId,
+    );
+  }
+
+  @override
+  Override overrideWith(GetPlaceDetails Function() create) {
     return ProviderOverride(
       origin: this,
       override: GetPlaceDetailsProvider._internal(
-        (ref) => create(ref as GetPlaceDetailsRef),
+        () => create()..placeId = placeId,
         from: from,
         name: null,
         dependencies: null,
@@ -143,7 +175,8 @@ class GetPlaceDetailsProvider extends AutoDisposeFutureProvider<PlaceDetails> {
   }
 
   @override
-  AutoDisposeFutureProviderElement<PlaceDetails> createElement() {
+  AutoDisposeAsyncNotifierProviderElement<GetPlaceDetails, PlaceDetails>
+      createElement() {
     return _GetPlaceDetailsProviderElement(this);
   }
 
@@ -163,37 +196,18 @@ class GetPlaceDetailsProvider extends AutoDisposeFutureProvider<PlaceDetails> {
 
 @Deprecated('Will be removed in 3.0. Use Ref instead')
 // ignore: unused_element
-mixin GetPlaceDetailsRef on AutoDisposeFutureProviderRef<PlaceDetails> {
+mixin GetPlaceDetailsRef on AutoDisposeAsyncNotifierProviderRef<PlaceDetails> {
   /// The parameter `placeId` of this provider.
   String get placeId;
 }
 
 class _GetPlaceDetailsProviderElement
-    extends AutoDisposeFutureProviderElement<PlaceDetails>
-    with GetPlaceDetailsRef {
+    extends AutoDisposeAsyncNotifierProviderElement<GetPlaceDetails,
+        PlaceDetails> with GetPlaceDetailsRef {
   _GetPlaceDetailsProviderElement(super.provider);
 
   @override
   String get placeId => (origin as GetPlaceDetailsProvider).placeId;
 }
-
-String _$selectedPlaceAutocompleteHash() =>
-    r'1118e9c484f58c14de3e85f0eb622a9391032be5';
-
-/// See also [SelectedPlaceAutocomplete].
-@ProviderFor(SelectedPlaceAutocomplete)
-final selectedPlaceAutocompleteProvider = AutoDisposeNotifierProvider<
-    SelectedPlaceAutocomplete, Option<PlaceAutocomplete>>.internal(
-  SelectedPlaceAutocomplete.new,
-  name: r'selectedPlaceAutocompleteProvider',
-  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
-      ? null
-      : _$selectedPlaceAutocompleteHash,
-  dependencies: null,
-  allTransitiveDependencies: null,
-);
-
-typedef _$SelectedPlaceAutocomplete
-    = AutoDisposeNotifier<Option<PlaceAutocomplete>>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

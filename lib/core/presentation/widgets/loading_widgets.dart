@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
-
 import 'package:lottie/lottie.dart';
 
-import '../../../gen/my_assets.dart';
+import '../../../generated/assets.dart';
 import '../../core_features/theme/presentation/utils/custom_colors.dart';
 import '../styles/styles.dart';
 
@@ -87,7 +86,7 @@ class DeliveryLoadingAnimation extends StatelessWidget {
       child: ColoredBox(
         color: Colors.transparent,
         child: Lottie.asset(
-          MyAssets.ASSETS_IMAGES_CORE_LOADING_ANIMATION_JSON,
+          Assets.coreLoadingAnimation,
           height: height,
           width: width,
         ),

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../../gen/my_assets.dart';
-import '../helpers/localization_helper.dart';
+import '../../../generated/assets.dart';
+import '../../../generated/l10n.dart';
 import '../styles/styles.dart';
 import '../utils/riverpod_framework.dart';
 
@@ -18,7 +18,7 @@ class MainDrawerBottomComponent extends ConsumerWidget {
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
           Text(
-            tr(context).appName,
+            S.of(context).appName,
             style: TextStyles.f18(context).copyWith(
               color: Theme.of(context).colorScheme.primary,
               fontWeight: FontStyles.fontWeightExtraBold,
@@ -28,7 +28,7 @@ class MainDrawerBottomComponent extends ConsumerWidget {
             width: Sizes.marginH6,
           ),
           Image.asset(
-            MyAssets.ASSETS_IMAGES_CORE_APP_LOGO_PNG,
+            Assets.coreAppLogo,
             height: 32,
             width: 32,
             fit: BoxFit.fill,

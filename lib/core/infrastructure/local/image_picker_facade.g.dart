@@ -6,7 +6,7 @@ part of 'image_picker_facade.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$imagePickerFacadeHash() => r'ef8b5673bd79be4a502498eee65ad137757a8a65';
+String _$imagePickerFacadeHash() => r'5ad7f597d888eb35691f672e3492f2c8ab48698f';
 
 /// See also [imagePickerFacade].
 @ProviderFor(imagePickerFacade)

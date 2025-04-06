@@ -27,6 +27,7 @@ abstract class AppOrder with _$AppOrder {
     required String? deliveryId,
     required GeoPoint? deliveryGeoPoint,
   }) = _AppOrder;
+
   const AppOrder._();
 
   Option<String> get validatedUserPhone =>
@@ -41,20 +42,26 @@ abstract class AppOrder with _$AppOrder {
             other is _AppOrder &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.date, date) || other.date == date) &&
-            (identical(other.pickupOption, pickupOption) || other.pickupOption == pickupOption) &&
+            (identical(other.pickupOption, pickupOption) ||
+                other.pickupOption == pickupOption) &&
             (identical(other.paymentMethod, paymentMethod) ||
                 other.paymentMethod == paymentMethod) &&
             (identical(other.address, address) || other.address == address) &&
             (identical(other.userId, userId) || other.userId == userId) &&
-            (identical(other.userName, userName) || other.userName == userName) &&
-            (identical(other.userImage, userImage) || other.userImage == userImage) &&
-            (identical(other.userPhone, userPhone) || other.userPhone == userPhone) &&
-            (identical(other.userNote, userNote) || other.userNote == userNote) &&
+            (identical(other.userName, userName) ||
+                other.userName == userName) &&
+            (identical(other.userImage, userImage) ||
+                other.userImage == userImage) &&
+            (identical(other.userPhone, userPhone) ||
+                other.userPhone == userPhone) &&
+            (identical(other.userNote, userNote) ||
+                other.userNote == userNote) &&
             (identical(other.employeeCancelNote, employeeCancelNote) ||
                 other.employeeCancelNote == employeeCancelNote) &&
             (identical(other.deliveryStatus, deliveryStatus) ||
                 other.deliveryStatus == deliveryStatus) &&
-            (identical(other.deliveryId, deliveryId) || other.deliveryId == deliveryId));
+            (identical(other.deliveryId, deliveryId) ||
+                other.deliveryId == deliveryId));
   }
 
   @override

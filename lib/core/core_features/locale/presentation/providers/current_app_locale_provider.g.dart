@@ -6,7 +6,7 @@ part of 'current_app_locale_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$currentAppLocaleHash() => r'96b379da34a6e1ef7c61ee8b3d283b372813aa12';
+String _$currentAppLocaleHash() => r'd33394df18b15fe78d6262cf2116ee4d37c4e44e';
 
 /// See also [currentAppLocale].
 @ProviderFor(currentAppLocale)

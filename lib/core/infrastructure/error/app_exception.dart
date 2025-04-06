@@ -1,12 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+
+import '../../../generated/l10n.dart';
 import '../../presentation/extensions/cache_exception_message.dart';
 import '../../presentation/extensions/server_exception_message.dart';
-import '../../presentation/helpers/localization_helper.dart';
 
 part 'app_exception.freezed.dart';
-part 'server_exception_type.dart';
 part 'cache_exception_type.dart';
+part 'server_exception_type.dart';
 
 @freezed
 abstract class AppException with _$AppException implements Exception {
@@ -31,6 +32,6 @@ extension AppErrorExtension on Object {
     } else if (error is CacheException) {
       return error.cacheErrorMessage(context);
     }
-    return tr(context).unknownError;
+    return S.of(context).unknownError;
   }
 }

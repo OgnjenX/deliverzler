@@ -9,9 +9,7 @@ import '../dtos/profile_details_dto.dart';
 part 'profile_remote_data_source.g.dart';
 
 @Riverpod(keepAlive: true)
-ProfileRemoteDataSource profileRemoteDataSource(
-  ProfileRemoteDataSourceRef ref,
-) {
+ProfileRemoteDataSource profileRemoteDataSource(Ref ref) {
   return ProfileRemoteDataSource(
     ref,
     firebaseFirestore: ref.watch(firebaseFirestoreFacadeProvider),
@@ -26,7 +24,7 @@ class ProfileRemoteDataSource {
     required this.firebaseStorage,
   });
 
-  final ProfileRemoteDataSourceRef ref;
+  final Ref ref;
   final FirebaseFirestoreFacade firebaseFirestore;
   final FirebaseStorageFacade firebaseStorage;
 
@@ -36,12 +34,12 @@ class ProfileRemoteDataSource {
 
   static const String usersStorageFolderPath = 'Deliverers';
 
-  static String userStorageFolderPath(String uid) => '$usersStorageFolderPath/$uid';
+  static String userStorageFolderPath(String uid) =>
+      '$usersStorageFolderPath/$uid';
 
   Future<String> uploadProfileImage(File imageFile) async {
     final uid = ref.read(currentUserProvider).id;
     final imageUrl = await firebaseStorage.uploadImage(
-      //File name is always user's uid, to replace the file when updating it.
       path: '${userStorageFolderPath(uid)}/$uid',
       file: imageFile,
     );

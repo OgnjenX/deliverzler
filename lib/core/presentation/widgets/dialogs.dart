@@ -1,14 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../../../gen/my_assets.dart';
+import '../../../generated/assets.dart';
+import '../../../generated/l10n.dart';
 import '../../core_features/theme/presentation/utils/custom_colors.dart';
-import '../helpers/localization_helper.dart';
 import '../routing/navigation_service.dart';
 import '../styles/styles.dart';
 import 'custom_elevated_button.dart';
-import 'platform_widgets/platform_alert_dialog.dart';
 import 'loading_widgets.dart';
+import 'platform_widgets/platform_alert_dialog.dart';
 
 abstract class Dialogs {
   static const _defaultTitlePadding = EdgeInsets.symmetric(
@@ -48,7 +48,9 @@ abstract class Dialogs {
         textAlign: TextAlign.center,
       );
 
-  static Future<T?> showLoadingDialog<T extends Object?>(BuildContext context) async {
+  static Future<T?> showLoadingDialog<T extends Object?>(
+    BuildContext context,
+  ) async {
     return showPlatformAlertDialog(
       context: context,
       barrierDismissible: false,
@@ -66,8 +68,9 @@ abstract class Dialogs {
             height: Sizes.marginV12,
           ),
           Text(
-            tr(context).loading,
-            style: TextStyles.f18(context).copyWith(fontWeight: FontStyles.fontWeightMedium),
+            S.of(context).loading,
+            style: TextStyles.f18(context)
+                .copyWith(fontWeight: FontStyles.fontWeightMedium),
           ),
         ],
       ),
@@ -84,7 +87,8 @@ abstract class Dialogs {
     Widget? title,
     Widget Function(BuildContext context)? content,
     List<Widget>? Function(BuildContext context)? materialActions,
-    List<CupertinoDialogAction> Function(BuildContext context)? cupertinoActions,
+    List<CupertinoDialogAction> Function(BuildContext context)?
+        cupertinoActions,
   }) async {
     return showPlatformAlertDialog(
       context: context,
@@ -110,11 +114,11 @@ abstract class Dialogs {
   }) async {
     return showCustomDialog(
       context,
-      title: _titleText(context, tr(context).ops_err),
+      title: _titleText(context, S.of(context).ops_err),
       content: (_) => Column(
         children: <Widget>[
           Image.asset(
-            MyAssets.ASSETS_ICONS_DIALOG_WIDGET_ICONS_ERROR_PNG,
+            Assets.dialogWidgetIconsError,
             color: const Color(0xffcca76a),
             height: 72,
             width: 72,
@@ -131,7 +135,7 @@ abstract class Dialogs {
           enableGradient: true,
           onPressed: () => NavigationService.popDialog(ctx),
           child: Text(
-            tr(context).oK,
+            S.of(context).oK,
             style: TextStyles.coloredElevatedButton(context),
           ),
         ),
@@ -140,7 +144,7 @@ abstract class Dialogs {
         CupertinoDialogAction(
           onPressed: () => NavigationService.popDialog(ctx),
           child: Text(
-            tr(context).oK,
+            S.of(context).oK,
             style: TextStyles.cupertinoDialogAction(context),
           ),
         ),
@@ -168,7 +172,8 @@ abstract class Dialogs {
     return showCustomDialog(
       context,
       title: _titleText(context, title),
-      content: (ctx) => content?.call(ctx) ?? _contentText(context, description!),
+      content: (ctx) =>
+          content?.call(ctx) ?? _contentText(context, description!),
       materialActions: (ctx) => [
         CustomElevatedButton(
           constraints: const BoxConstraints(minWidth: 120, maxWidth: 120),
@@ -179,7 +184,7 @@ abstract class Dialogs {
           buttonColor: customColors(context).greyColor,
           onPressed: () => NavigationService.popDialog(ctx),
           child: Text(
-            tr(context).cancel,
+            S.of(context).cancel,
             style: TextStyles.coloredElevatedButton(context),
             textAlign: TextAlign.center,
           ),
@@ -204,7 +209,7 @@ abstract class Dialogs {
           isDefaultAction: true,
           onPressed: () => NavigationService.popDialog(ctx),
           child: Text(
-            tr(context).cancel,
+            S.of(context).cancel,
             style: TextStyles.cupertinoDialogAction(context),
           ),
         ),

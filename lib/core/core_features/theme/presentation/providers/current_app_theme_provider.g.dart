@@ -7,7 +7,7 @@ part of 'current_app_theme_provider.dart';
 // **************************************************************************
 
 String _$currentAppThemeModeHash() =>
-    r'33a471e3b3ba92d877a97cb840e99be8e3d6a6cd';
+    r'140ae92f33155dfa81a7f139a4b907ccc42d8f84';
 
 /// See also [currentAppThemeMode].
 @ProviderFor(currentAppThemeMode)

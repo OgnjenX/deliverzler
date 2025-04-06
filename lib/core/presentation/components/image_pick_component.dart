@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../../../gen/my_assets.dart';
+import '../../../generated/assets.dart';
+import '../../../generated/l10n.dart';
 import '../../core_features/theme/presentation/utils/custom_colors.dart';
-import '../helpers/localization_helper.dart';
 import '../styles/styles.dart';
 
 class ImagePickComponent extends StatelessWidget {
@@ -32,7 +32,7 @@ class ImagePickComponent extends StatelessWidget {
             // TODO(Ahmed): Use platform alert dialog.
             return AlertDialog(
               title: Text(
-                tr(context).chooseOption,
+                S.of(context).chooseOption,
                 style: TextStyles.f18(context).copyWith(color: Colors.blue),
                 textAlign: TextAlign.center,
               ),
@@ -49,7 +49,7 @@ class ImagePickComponent extends StatelessWidget {
                           ? null
                           : () => pickFromCameraCallBack!(ctx),
                       title: Text(
-                        tr(context).camera,
+                        S.of(context).camera,
                         style: TextStyles.f18(context),
                       ),
                       leading: const Icon(
@@ -68,7 +68,7 @@ class ImagePickComponent extends StatelessWidget {
                           ? null
                           : () => pickFromGalleryCallBack!(ctx),
                       title: Text(
-                        tr(context).gallery,
+                        S.of(context).gallery,
                         style: TextStyles.f18(context),
                       ),
                       leading: const Icon(
@@ -87,7 +87,7 @@ class ImagePickComponent extends StatelessWidget {
       fillColor: Theme.of(context).primaryColor,
       elevation: 1,
       child: ImageIcon(
-        const AssetImage(MyAssets.ASSETS_ICONS_CAMERA_PNG),
+        const AssetImage(Assets.iconsCamera),
         size: 12,
         color: customColors(context).greyColor,
       ),

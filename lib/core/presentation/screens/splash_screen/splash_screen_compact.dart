@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-
 import 'package:flutter_fadein/flutter_fadein.dart';
 import 'package:lottie/lottie.dart';
 
-import '../../../../gen/my_assets.dart';
-import '../../helpers/localization_helper.dart';
+import '../../../../generated/assets.dart';
+import '../../../../generated/l10n.dart';
 import '../../styles/styles.dart';
 import '../full_screen_scaffold.dart';
 import 'splash_screen.dart';
@@ -25,7 +24,7 @@ class SplashScreenCompact extends StatelessWidget {
         alignment: Alignment.center,
         children: [
           Image.asset(
-            MyAssets.ASSETS_IMAGES_CORE_CUSTOM_SPLASH_PNG,
+            Assets.coreCustomSplash,
             height: double.infinity,
             width: double.infinity,
             fit: BoxFit.cover,
@@ -45,7 +44,7 @@ class SplashScreenCompact extends StatelessWidget {
                       child: FractionallySizedBox(
                         widthFactor: 0.64,
                         child: Lottie.asset(
-                          MyAssets.ASSETS_IMAGES_CORE_CUSTOM_SPLASH_ANIMATION_JSON,
+                          Assets.coreCustomSplashAnimation,
                         ),
                       ),
                     ),
@@ -53,7 +52,7 @@ class SplashScreenCompact extends StatelessWidget {
                       height: Sizes.marginV12,
                     ),
                     Text(
-                      tr(context).appName,
+                      S.of(context).appName,
                       style: TextStyles.f28(context)
                           .copyWith(fontWeight: FontStyles.fontWeightExtraBold),
                     ),

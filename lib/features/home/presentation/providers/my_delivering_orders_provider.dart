@@ -11,10 +11,11 @@ List<AppOrder> myDeliveringOrders(Ref ref) {
   final userId = ref.watch(currentUserProvider.select((user) => user.id));
   final orders = ref.watch(
     upcomingOrdersProvider.select(
-          (orders) => orders.valueOrNull
+      (orders) => orders.valueOrNull
           ?.where(
             (order) =>
-                order.deliveryId == userId && order.deliveryStatus == DeliveryStatus.onTheWay,
+                order.deliveryId == userId &&
+                order.deliveryStatus == DeliveryStatus.onTheWay,
           )
           .toList(),
     ),

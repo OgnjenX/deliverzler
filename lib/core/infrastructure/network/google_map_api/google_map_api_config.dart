@@ -14,12 +14,16 @@ class GoogleMapApiConfig {
 
   static String get _androidAPIKey {
     final key = dotenv.env['ANDROID_GOOGLE_MAPS_API_KEY']!;
-    return key.isNotEmpty ? key : throw AssertionError('ANDROID_GOOGLE_MAPS_API_KEY is not set');
+    return key.isNotEmpty
+        ? key
+        : throw AssertionError('ANDROID_GOOGLE_MAPS_API_KEY is not set');
   }
 
   static String get _iosAPIKey {
     final key = dotenv.env['IOS_GOOGLE_MAPS_API_KEY']!;
-    return key.isNotEmpty ? key : throw AssertionError('IOS_GOOGLE_MAPS_API_KEY is not set');
+    return key.isNotEmpty
+        ? key
+        : throw AssertionError('IOS_GOOGLE_MAPS_API_KEY is not set');
   }
 
   static const googleMapAPIParamKey = 'key';

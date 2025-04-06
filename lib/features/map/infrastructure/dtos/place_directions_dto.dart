@@ -7,7 +7,6 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import '../../domain/place_directions.dart';
 
 part 'place_directions_dto.freezed.dart';
-
 part 'place_directions_dto.g.dart';
 
 @Freezed(toJson: false)
@@ -19,6 +18,7 @@ abstract class PlaceDirectionsDto with _$PlaceDirectionsDto {
     @JsonKey(readValue: _readDistance) required int distance,
     @JsonKey(readValue: _readDuration) required String duration,
   }) = _PlaceDirectionsDto;
+
   const PlaceDirectionsDto._();
 
   factory PlaceDirectionsDto.fromJson(Map<String, dynamic> json) =>
@@ -62,8 +62,10 @@ LatLngBounds _fromJsonBounds(Map<String, dynamic> json) {
   final southwestBounds = json['southwest'] as Map<String, dynamic>;
   final northeastBounds = json['northeast'] as Map<String, dynamic>;
   return LatLngBounds(
-    southwest: LatLng(southwestBounds['lat'] as double, southwestBounds['lng'] as double),
-    northeast: LatLng(northeastBounds['lat'] as double, northeastBounds['lng'] as double),
+    southwest: LatLng(
+        southwestBounds['lat'] as double, southwestBounds['lng'] as double),
+    northeast: LatLng(
+        northeastBounds['lat'] as double, northeastBounds['lng'] as double),
   );
 }
 

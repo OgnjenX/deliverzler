@@ -1,3 +1,4 @@
+import 'package:deliverzler/generated/l10n.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter_test/flutter_test.dart';
@@ -11,7 +12,10 @@ Future<BuildContext> setUpLocalizationsContext(WidgetTester t) async {
   await t.pumpWidget(
     MaterialApp(
       locale: const Locale('en'),
-      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      localizationsDelegates: const [
+        ...AppLocalizations.localizationsDelegates,
+        S.delegate,
+      ],
       supportedLocales: AppLocalizations.supportedLocales,
       home: Material(
         child: Builder(

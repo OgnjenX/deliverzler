@@ -20,7 +20,9 @@ class OrdersRepo {
   OrdersRepo(this.ref);
 
   final Ref ref;
-  OrdersRemoteDataSource get remoteDataSource => ref.read(ordersRemoteDataSourceProvider);
+
+  OrdersRemoteDataSource get remoteDataSource =>
+      ref.read(ordersRemoteDataSourceProvider);
 
   Stream<List<AppOrder>> getUpcomingOrders(String userId) {
     return remoteDataSource.getUpcomingOrders().map(
@@ -29,7 +31,8 @@ class OrdersRepo {
                 (order) {
                   final status = order.deliveryStatus;
                   return status == DeliveryStatus.upcoming ||
-                      (status == DeliveryStatus.onTheWay && order.deliveryId == userId);
+                      (status == DeliveryStatus.onTheWay &&
+                          order.deliveryId == userId);
                 },
               )
               .map((o) => o.toDomain())

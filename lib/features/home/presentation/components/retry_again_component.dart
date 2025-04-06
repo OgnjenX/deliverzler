@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../../../../core/presentation/helpers/localization_helper.dart';
 import '../../../../core/presentation/styles/styles.dart';
 import '../../../../core/presentation/widgets/custom_elevated_button.dart';
+import '../../../../generated/l10n.dart';
 
 class RetryAgainComponent extends StatelessWidget {
   const RetryAgainComponent({
@@ -10,6 +10,7 @@ class RetryAgainComponent extends StatelessWidget {
     required this.onPressed,
     super.key,
   });
+
   final String description;
   final VoidCallback onPressed;
 
@@ -34,7 +35,7 @@ class RetryAgainComponent extends StatelessWidget {
             onPressed: onPressed,
             buttonColor: Theme.of(context).colorScheme.primary,
             child: Text(
-              tr(context).retry,
+              S.of(context).retry,
               style: TextStyles.coloredElevatedButton(context),
             ),
           ),

@@ -5,7 +5,6 @@ import '../../../../core/domain/json_converters/geo_point_converter.dart';
 import '../../domain/update_delivery_geopoint.dart';
 
 part 'update_delivery_geo_point_dto.freezed.dart';
-
 part 'update_delivery_geo_point_dto.g.dart';
 
 @Freezed(toJson: true)

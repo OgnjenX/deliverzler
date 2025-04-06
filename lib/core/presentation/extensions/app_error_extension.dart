@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
+import '../../../generated/l10n.dart';
 import '../../infrastructure/error/app_exception.dart';
 import '../../presentation/extensions/cache_exception_message.dart';
 import '../../presentation/extensions/server_exception_message.dart';
-import '../helpers/localization_helper.dart';
 
 extension AppErrorExtension on Object {
   String errorMessage(BuildContext context) {
@@ -19,6 +19,6 @@ extension AppErrorExtension on Object {
     }
 
     // Default case: Unknown error
-    return tr(context).unknownError;
+    return S.of(context).unknownError;
   }
 }

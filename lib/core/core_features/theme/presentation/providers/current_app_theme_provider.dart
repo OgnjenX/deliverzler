@@ -17,7 +17,8 @@ class PlatformBrightness extends _$PlatformBrightness with NotifierUpdate {
 
 @Riverpod(keepAlive: true)
 AppThemeMode currentAppThemeMode(Ref ref) {
-  final theme = ref.watch(appThemeControllerProvider.select((data) => data.valueOrNull));
+  final theme =
+      ref.watch(appThemeControllerProvider.select((data) => data.valueOrNull));
   final platformBrightness = ref.watch(platformBrightnessProvider);
   return theme ?? getSystemTheme(platformBrightness);
 }

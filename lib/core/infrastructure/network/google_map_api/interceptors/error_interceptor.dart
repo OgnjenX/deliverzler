@@ -9,11 +9,14 @@ class RejectError implements Exception {}
 class ErrorInterceptor extends Interceptor {
   //This is needed if your api use statusCode 200 for business errors.
   @override
-  void onResponse(Response<dynamic> response, ResponseInterceptorHandler handler) {
+  void onResponse(
+    Response<dynamic> response,
+    ResponseInterceptorHandler handler,
+  ) {
     final data = response.data as Map<dynamic, dynamic>;
 
     if (data['status'] != 'OK') {
-      final error = DioError(
+      final error = DioException(
         response: response,
         requestOptions: response.requestOptions,
         error: RejectError(),
@@ -25,7 +28,10 @@ class ErrorInterceptor extends Interceptor {
   }
 
   @override
-  Future<void> onError(DioError err, ErrorInterceptorHandler handler) async {
+  Future<void> onError(
+    DioException err,
+    ErrorInterceptorHandler handler,
+  ) async {
     if (err.response?.statusCode == 400 || err.error is RejectError) {
       final response = err.response!;
       final data = response.data as Map<dynamic, dynamic>;
@@ -42,7 +48,7 @@ class ErrorInterceptor extends Interceptor {
           headers: response.headers,
         ),
         error: error,
-        type: DioErrorType.badResponse,
+        type: DioExceptionType.badResponse,
       );
       return handler.reject(newErr);
     }

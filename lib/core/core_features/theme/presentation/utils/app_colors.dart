@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 import 'custom_colors.dart';
 
-part 'app_colors_light.dart';
 part 'app_colors_dark.dart';
+part 'app_colors_light.dart';
 
 abstract class AppColors {
   ///Main
@@ -19,24 +19,40 @@ abstract class AppColors {
 
   ///Screen
   Color get statusBarColor;
+
   Color get systemNavBarColor;
+
   Color get olderAndroidSystemNavBarColor;
+
   Color get appBarBGColor;
+
   Color get scaffoldBGColor;
+
   Color get navBarColor;
+
   Color get navBarIndicatorColor;
 
   ///TextField Theme
   Color get textFieldSubtitle1Color;
+
   Color get textFieldHintColor;
+
   Color get textFieldCursorColor;
+
   Color get textFieldFillColor;
+
   Color get textFieldPrefixIconColor;
+
   Color get textFieldSuffixIconColor;
+
   Color get textFieldBorderColor;
+
   Color get textFieldEnabledBorderColor;
+
   Color get textFieldFocusedBorderColor;
+
   Color get textFieldErrorBorderColor;
+
   Color get textFieldErrorStyleColor;
 
   ///Icon
@@ -44,15 +60,19 @@ abstract class AppColors {
 
   ///Button
   Color get buttonColor;
+
   Color get buttonDisabledColor;
 
   ///ToggleButton
   Color get toggleButtonBorderColor;
+
   Color get toggleButtonSelectedColor;
+
   Color get toggleButtonDisabledColor;
 
   ///Card Theme
   Color get cardBGColor;
+
   Color get cardShadowColor;
 
   ///Custom Colors

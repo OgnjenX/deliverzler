@@ -4,7 +4,6 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import '../../domain/user.dart';
 
 part 'user_dto.freezed.dart';
-
 part 'user_dto.g.dart';
 
 // TODO(Ahmed): extend User entity when extending another Freezed class is supported:
@@ -21,7 +20,8 @@ abstract class UserDto with _$UserDto {
 
   const UserDto._();
 
-  factory UserDto.fromJson(Map<String, dynamic> json) => _$UserDtoFromJson(json);
+  factory UserDto.fromJson(Map<String, dynamic> json) =>
+      _$UserDtoFromJson(json);
 
   factory UserDto.fromUserCredential(f_auth.User user) {
     return UserDto(

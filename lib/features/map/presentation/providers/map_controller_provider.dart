@@ -29,11 +29,13 @@ class MapController extends _$MapController {
       currentAppThemeModeProvider,
       (previous, next) async {
         final isDark = next == AppThemeMode.dark;
-        await state?.setMapStyle(await MapStyleHelper.getMapStyle(isDarkMode: isDark));
+        await state
+            ?.setMapStyle(await MapStyleHelper.getMapStyle(isDarkMode: isDark));
       },
     );
 
-    final hasTargetPlace = ref.watch(currentPlaceDetailsProvider.select((value) => value.isSome()));
+    final hasTargetPlace = ref
+        .watch(currentPlaceDetailsProvider.select((value) => value.isSome()));
     if (hasTargetPlace) {
       ref.listen<Option<PlaceDirections>>(
         targetLocationDirectionsProvider,

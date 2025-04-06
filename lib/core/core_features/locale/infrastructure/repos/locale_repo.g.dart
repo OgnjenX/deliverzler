@@ -6,7 +6,7 @@ part of 'locale_repo.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$localeRepoHash() => r'3f6413ec283394b7f058444fe25c87a554118a99';
+String _$localeRepoHash() => r'ea303973959160e1965a744c96b02567f140f564';
 
 /// See also [localeRepo].
 @ProviderFor(localeRepo)

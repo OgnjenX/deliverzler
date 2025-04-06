@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 
 import '../../platform_widgets/platform_base_widget.dart';
 
-class PlatformIconButton extends PlatformBaseWidget<IconButton, CupertinoButton> {
+class PlatformIconButton
+    extends PlatformBaseWidget<IconButton, CupertinoButton> {
   const PlatformIconButton({
     required this.icon,
     required this.onPressed,

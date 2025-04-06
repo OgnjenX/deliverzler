@@ -3,7 +3,6 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import '../../domain/profile_details.dart';
 
 part 'profile_details_dto.freezed.dart';
-
 part 'profile_details_dto.g.dart';
 
 @Freezed(toJson: true)

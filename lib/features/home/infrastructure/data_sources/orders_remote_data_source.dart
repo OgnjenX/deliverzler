@@ -9,7 +9,7 @@ import '../dtos/update_delivery_status_dto.dart';
 part 'orders_remote_data_source.g.dart';
 
 @Riverpod(keepAlive: true)
-OrdersRemoteDataSource ordersRemoteDataSource(OrdersRemoteDataSourceRef ref) {
+OrdersRemoteDataSource ordersRemoteDataSource(Ref ref) {
   return OrdersRemoteDataSource(
     ref,
     firebaseFirestore: ref.watch(firebaseFirestoreFacadeProvider),
@@ -22,7 +22,7 @@ class OrdersRemoteDataSource {
     required this.firebaseFirestore,
   });
 
-  final OrdersRemoteDataSourceRef ref;
+  final Ref ref;
   final FirebaseFirestoreFacade firebaseFirestore;
 
   static const String ordersCollectionPath = 'DeliveryOrders';
@@ -32,18 +32,21 @@ class OrdersRemoteDataSource {
   Stream<List<OrderDto>> getUpcomingOrders() {
     final snapshots = firebaseFirestore.collectionStream(
       path: ordersCollectionPath,
-      queryBuilder: (query) =>
-          query.where('pickupOption', isEqualTo: PickupOption.delivery.name).where(
+      queryBuilder: (query) => query
+          .where('pickupOption', isEqualTo: PickupOption.delivery.name)
+          .where(
         'deliveryStatus',
         whereIn: [DeliveryStatus.upcoming.name, DeliveryStatus.onTheWay.name],
       ).orderBy('date', descending: true),
     );
 
-    return snapshots.map((snapshot) => OrderDto.parseListOfDocument(snapshot.docs));
+    return snapshots
+        .map((snapshot) => OrderDto.parseListOfDocument(snapshot.docs));
   }
 
   Future<OrderDto> getOrder(String orderId) async {
-    final response = await firebaseFirestore.getData(path: orderDocPath(orderId));
+    final response =
+        await firebaseFirestore.getData(path: orderDocPath(orderId));
     if (response.data() != null) {
       return OrderDto.fromFirestore(response);
     } else {

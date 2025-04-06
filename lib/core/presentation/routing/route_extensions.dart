@@ -7,7 +7,10 @@ extension GoRouterStateX on GoRouterState {
   List<RouteAuthority> get routeAuthority {
     const defaultAuthority = [RouteAuthority.user, RouteAuthority.admin];
 
-    final publicRoutes = [const SplashRoute().location, const NoInternetRoute().location];
+    final publicRoutes = [
+      const SplashRoute().location,
+      const NoInternetRoute().location
+    ];
     if (publicRoutes.any(routeLocation.startsWith)) {
       return RouteAuthority.values;
     }

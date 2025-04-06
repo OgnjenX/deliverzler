@@ -35,7 +35,7 @@ dependencies:
   # Location
   location: ^8.0.0
   geolocator: ^13.0.3
-  google_maps_flutter: ^2.2.8
+  google_maps_flutter: ^2.12.1
   flutter_polyline_points: ^2.1.0
 
   # Apis
@@ -69,6 +69,7 @@ dependencies:
   url_launcher: ^6.1.11
   flutter_local_notifications: ^19.0.0
   timeago: ^3.4.0
+  flutter_timezone: ^4.1.0
 
   # Widgets
   flutter_platform_widgets: ^6.0.2
@@ -127,3 +128,5 @@ flutter:
         - asset: assets/fonts/Tajawal-Regular.ttf
         - asset: assets/fonts/Tajawal-Bold.ttf
           weight: 700
+flutter_intl:
+  enabled: true

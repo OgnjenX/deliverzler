@@ -14,7 +14,7 @@ enum PickSource {
 }
 
 @Riverpod(keepAlive: true)
-ImagePickerFacade imagePickerFacade(ImagePickerFacadeRef ref) {
+ImagePickerFacade imagePickerFacade(Ref ref) {
   return ImagePickerFacade(
     imagePicker: ImagePicker(),
   );
@@ -33,7 +33,9 @@ class ImagePickerFacade {
     return _errorHandler(
       () async {
         final pickedFile = await imagePicker.pickImage(
-          source: pickSource == PickSource.camera ? ImageSource.camera : ImageSource.gallery,
+          source: pickSource == PickSource.camera
+              ? ImageSource.camera
+              : ImageSource.gallery,
           maxHeight: maxHeight,
           maxWidth: maxWidth,
         );

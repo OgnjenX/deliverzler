@@ -1,3 +1,5 @@
+import 'package:dio/dio.dart';
+
 import '../../../../../core/presentation/providers/provider_utils.dart';
 import '../../../../../core/presentation/utils/fp_framework.dart';
 import '../../../../../core/presentation/utils/riverpod_framework.dart';
@@ -10,7 +12,7 @@ part 'target_location_directions_provider.g.dart';
 
 @riverpod
 Option<PlaceDirections> targetLocationDirections(
-  TargetLocationDirectionsRef ref,
+  Ref ref,
 ) {
   return ref.watch(getTargetLocationDirectionsProvider).maybeWhen(
         skipError: true,
@@ -23,18 +25,26 @@ Option<PlaceDirections> targetLocationDirections(
 
 @riverpod
 Future<PlaceDirections> getTargetLocationDirections(
-  GetTargetLocationDirectionsRef ref,
+  Ref ref,
 ) async {
-  final myLocation = ref.watch(locationStreamProvider.select((value) => value.valueOrNull));
+  final myLocation =
+      ref.watch(locationStreamProvider.select((value) => value.valueOrNull));
   if (myLocation == null) throw AbortedException();
 
-  final targetLocation =
-      ref.watch(targetLocationGeoPointProvider).getOrElse(() => throw AbortedException());
+  final targetLocation = ref
+      .watch(targetLocationGeoPointProvider)
+      .getOrElse(() => throw AbortedException());
 
-  final cancelToken = ref.cancelToken();
+  final cancelToken = CancelToken();
   final query = PlaceDirectionsQuery(
     origin: myLocation,
     destination: targetLocation,
   );
-  return ref.watch(mapRepoProvider).getPlaceDirections(query, cancelToken: cancelToken);
+
+  ref.onDispose(cancelToken.cancel);
+
+  // Perform the map request
+  return ref
+      .watch(mapRepoProvider)
+      .getPlaceDirections(query, cancelToken: cancelToken);
 }

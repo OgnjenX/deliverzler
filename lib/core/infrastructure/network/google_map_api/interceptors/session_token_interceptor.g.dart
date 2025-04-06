@@ -7,7 +7,7 @@ part of 'session_token_interceptor.dart';
 // **************************************************************************
 
 String _$sessionTokenInterceptorHash() =>
-    r'03441f20b0eab46cc22b55bf50c54771455b2148';
+    r'ca4e205fc301475b23c65e976eb5b71446542ccc';
 
 /// See also [sessionTokenInterceptor].
 @ProviderFor(sessionTokenInterceptor)

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../core/presentation/screens/full_screen_scaffold.dart';
 import '../../../../core/presentation/styles/styles.dart';
-import '../../../../gen/my_assets.dart';
+import '../../../../generated/assets.dart';
 import '../../components/login_content_component.dart';
 import '../../components/login_logo_component.dart';
 
@@ -20,7 +20,7 @@ class SignInScreenMedium extends StatelessWidget {
               decoration: const BoxDecoration(
                 image: DecorationImage(
                   image: AssetImage(
-                    MyAssets.ASSETS_IMAGES_LOGIN_LOGIN_BACKGROUND_PNG,
+                    Assets.loginLoginBackground,
                   ),
                   fit: BoxFit.cover,
                 ),

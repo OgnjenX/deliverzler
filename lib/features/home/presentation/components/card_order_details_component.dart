@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 import '../../../../core/presentation/helpers/date_helper.dart';
-import '../../../../core/presentation/helpers/localization_helper.dart';
 import '../../../../core/presentation/styles/styles.dart';
+import '../../../../generated/l10n.dart';
 import '../../domain/order.dart';
 import '../../domain/value_objects.dart';
 
@@ -11,6 +11,7 @@ class CardOrderDetailsComponent extends StatelessWidget {
     required this.order,
     super.key,
   });
+
   final AppOrder order;
 
   @override
@@ -20,9 +21,6 @@ class CardOrderDetailsComponent extends StatelessWidget {
       children: [
         Row(
           mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: Directionality.of(context) == TextDirection.rtl
-              ? CrossAxisAlignment.baseline
-              : CrossAxisAlignment.center,
           textBaseline: TextBaseline.alphabetic,
           children: [
             Container(
@@ -30,7 +28,9 @@ class CardOrderDetailsComponent extends StatelessWidget {
               width: Sizes.icon8,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
-                color: order.deliveryStatus == DeliveryStatus.upcoming ? Colors.green : Colors.blue,
+                color: order.deliveryStatus == DeliveryStatus.upcoming
+                    ? Colors.green
+                    : Colors.blue,
               ),
             ),
             const SizedBox(
@@ -39,11 +39,12 @@ class CardOrderDetailsComponent extends StatelessWidget {
             Expanded(
               child: Text(
                 order.deliveryStatus == DeliveryStatus.upcoming
-                    ? tr(context).orderUpcoming
-                    : tr(context).orderOnTheWay,
+                    ? S.of(context).orderUpcoming
+                    : S.of(context).orderOnTheWay,
                 style: TextStyles.f14(context).copyWith(
-                  color:
-                      order.deliveryStatus == DeliveryStatus.upcoming ? Colors.green : Colors.blue,
+                  color: order.deliveryStatus == DeliveryStatus.upcoming
+                      ? Colors.green
+                      : Colors.blue,
                   fontWeight: FontStyles.fontWeightExtraBold,
                 ),
                 overflow: TextOverflow.ellipsis,

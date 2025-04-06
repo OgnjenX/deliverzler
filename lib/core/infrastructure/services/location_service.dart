@@ -18,7 +18,7 @@ abstract class AppLocationSettings {
 }
 
 @Riverpod(keepAlive: true)
-LocationService locationService(LocationServiceRef ref) {
+LocationService locationService(Ref ref) {
   return LocationService();
 }
 
@@ -29,7 +29,8 @@ class LocationService {
 
   Future<bool> isWhileInUsePermissionGranted() async {
     final permission = await Geolocator.checkPermission();
-    return [LocationPermission.whileInUse, LocationPermission.always].any((p) => p == permission);
+    return [LocationPermission.whileInUse, LocationPermission.always]
+        .any((p) => p == permission);
   }
 
   Future<bool> isAlwaysPermissionGranted() async {
@@ -71,12 +72,16 @@ class LocationService {
     if (Platform.isAndroid) {
       return AndroidSettings(
         accuracy: LocationAccuracy.high,
-        distanceFilter: distanceFilter ?? AppLocationSettings.locationChangeDistance,
-        intervalDuration: Duration(seconds: interval ?? AppLocationSettings.locationChangeInterval),
+        distanceFilter:
+            distanceFilter ?? AppLocationSettings.locationChangeDistance,
+        intervalDuration: Duration(
+          seconds: interval ?? AppLocationSettings.locationChangeInterval,
+        ),
         //Set foreground notification config to keep app alive in background
         foregroundNotificationConfig: const ForegroundNotificationConfig(
           notificationTitle: 'Deliverzler Delivery Service',
-          notificationText: 'Deliverzler will receive your location in background.',
+          notificationText:
+              'Deliverzler will receive your location in background.',
           notificationIcon: AndroidResource(name: 'notification_icon'),
           enableWakeLock: true,
         ),
@@ -84,7 +89,8 @@ class LocationService {
     } else if (Platform.isIOS || Platform.isMacOS) {
       return AppleSettings(
         accuracy: LocationAccuracy.high,
-        distanceFilter: distanceFilter ?? AppLocationSettings.locationChangeDistance,
+        distanceFilter:
+            distanceFilter ?? AppLocationSettings.locationChangeDistance,
         activityType: ActivityType.automotiveNavigation,
         pauseLocationUpdatesAutomatically: true,
         //Set to true to keep app alive in background
@@ -93,16 +99,23 @@ class LocationService {
     } else {
       return LocationSettings(
         accuracy: LocationAccuracy.high,
-        distanceFilter: distanceFilter ?? AppLocationSettings.locationChangeDistance,
+        distanceFilter:
+            distanceFilter ?? AppLocationSettings.locationChangeDistance,
       );
     }
   }
 
   Future<Position?> getLocation() async {
     try {
+      // Define the location settings for both Android and iOS
+      const locationSettings = LocationSettings(
+        accuracy: LocationAccuracy.high,
+        timeLimit: Duration(seconds: AppLocationSettings.getLocationTimeLimit),
+      );
+
+      // Get the current position using the updated LocationSettings
       return await Geolocator.getCurrentPosition(
-        desiredAccuracy: LocationAccuracy.high,
-        timeLimit: const Duration(seconds: AppLocationSettings.getLocationTimeLimit),
+        locationSettings: locationSettings,
       );
     } catch (e) {
       Logger.root.severe(e, StackTrace.current);

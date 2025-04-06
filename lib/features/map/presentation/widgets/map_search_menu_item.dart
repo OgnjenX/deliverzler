@@ -8,6 +8,7 @@ class MapSearchMenuItem extends StatelessWidget {
     required this.placeAutocomplete,
     super.key,
   });
+
   final PlaceAutocomplete placeAutocomplete;
 
   @override
@@ -31,7 +32,8 @@ class MapSearchMenuItem extends StatelessWidget {
         children: [
           Text(
             title,
-            style: TextStyles.f16(context).copyWith(fontWeight: FontStyles.fontWeightBold),
+            style: TextStyles.f16(context)
+                .copyWith(fontWeight: FontStyles.fontWeightBold),
             maxLines: 2,
             overflow: TextOverflow.ellipsis,
           ),

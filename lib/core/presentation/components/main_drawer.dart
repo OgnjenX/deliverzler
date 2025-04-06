@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../../gen/my_assets.dart';
-import '../helpers/localization_helper.dart';
+import '../../../generated/assets.dart';
+import '../../../generated/l10n.dart';
 import '../styles/styles.dart';
 import '../utils/riverpod_framework.dart';
 import 'main_drawer_bottom_component.dart';
@@ -12,6 +12,7 @@ class MainDrawer extends ConsumerWidget {
     required this.scaffoldKey,
     super.key,
   });
+
   final GlobalKey<ScaffoldState> scaffoldKey;
 
   @override
@@ -35,16 +36,16 @@ class MainDrawer extends ConsumerWidget {
                   height: Sizes.marginV28,
                 ),
                 DrawerItem(
-                  title: tr(context).myProfile,
-                  icon: MyAssets.ASSETS_ICONS_SCREENS_ICONS_PROFILE_PNG,
+                  title: S.of(context).myProfile,
+                  icon: Assets.screensIconsProfile,
                   onTap: () {
                     scaffoldKey.currentState!.openEndDrawer();
                     //_indexNotifier.state = 0;
                   },
                 ),
                 DrawerItem(
-                  title: tr(context).settings,
-                  icon: MyAssets.ASSETS_ICONS_SCREENS_ICONS_SETTINGS_PNG,
+                  title: S.of(context).settings,
+                  icon: Assets.screensIconsSettings,
                   onTap: () {
                     scaffoldKey.currentState!.openEndDrawer();
                     //_indexNotifier.state = 2;
@@ -70,6 +71,7 @@ class DrawerItem extends StatelessWidget {
     required this.onTap,
     super.key,
   });
+
   final String title;
   final String icon;
   final VoidCallback onTap;
@@ -82,7 +84,8 @@ class DrawerItem extends StatelessWidget {
       ),
       title: Text(
         title,
-        style: TextStyles.f18(context).copyWith(fontWeight: FontStyles.fontWeightMedium),
+        style: TextStyles.f18(context)
+            .copyWith(fontWeight: FontStyles.fontWeightMedium),
       ),
       onTap: onTap,
       horizontalTitleGap: 0,

@@ -1,48 +1,50 @@
 import 'package:flutter/material.dart';
 
-import '../presentation/helpers/localization_helper.dart';
+import '../../generated/l10n.dart';
 
 class ValueValidators {
   static FormFieldValidator<String?> validateEmail(BuildContext context) {
     const patternEmail = r'(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)';
     return (value) {
       if (value!.isEmpty) {
-        return tr(context).thisFieldIsEmpty;
+        return S.of(context).thisFieldIsEmpty;
       } else if (!checkPattern(pattern: patternEmail, value: value)) {
-        return tr(context).pleaseEnterValidEmail;
+        return S.of(context).pleaseEnterValidEmail;
       } else {
         return null;
       }
     };
   }
 
-  static FormFieldValidator<String?> validateLoginPassword(BuildContext context) {
+  static FormFieldValidator<String?> validateLoginPassword(
+      BuildContext context) {
     return (value) {
       if (value!.isEmpty) {
-        return tr(context).thisFieldIsEmpty;
+        return S.of(context).thisFieldIsEmpty;
       } else {
         return null;
       }
     };
   }
 
-  static FormFieldValidator<String?> validateMobileNumber(BuildContext context) {
+  static FormFieldValidator<String?> validateMobileNumber(
+      BuildContext context) {
     const patternMobileNumber = r'^(?:[+0]9)?[0-9|٩|٠|١|٢|٣|٤|٥|٦|٧|٨]{10,15}$';
     return (value) {
       value = value?.trim();
       if (value!.isEmpty) {
-        return tr(context).thisFieldIsEmpty;
+        return S.of(context).thisFieldIsEmpty;
       } else if (value.contains('+') &&
           value.contains(RegExp('[0-9]|٩|٠|١|٢|٣|٤|٥|٦|٧|٨')) &&
           !value.contains(RegExp('[a-zA-Z]')) &&
           !value.contains(RegExp('[ء-ي]'))) {
-        return tr(context).pleaseEnterValidNumber;
+        return S.of(context).pleaseEnterValidNumber;
       } else if (!value.contains(RegExp('[a-zA-Z]')) &&
           value.contains(RegExp('[0-9]|٩|٠|١|٢|٣|٤|٥|٦|٧|٨')) &&
           !value.contains('+') &&
           !value.contains(RegExp('[ء-ي]'))) {
         if (!checkPattern(pattern: patternMobileNumber, value: value)) {
-          return tr(context).pleaseEnterValidNumber;
+          return S.of(context).pleaseEnterValidNumber;
         }
       }
       return null;
@@ -56,13 +58,13 @@ class ValueValidators {
     const patternName = r'^[\u0621-\u064A\040\a-zA-Z,.\-]+$';
     return (value) {
       if (value!.isEmpty) {
-        return tr(context).thisFieldIsEmpty;
+        return S.of(context).thisFieldIsEmpty;
       } else if (value.length < 2) {
-        return tr(context).nameMustBeAtLeast2Letters;
+        return S.of(context).nameMustBeAtLeast2Letters;
       } else if (value.length > 30) {
-        return tr(context).nameMustBeAtMost30Letters;
+        return S.of(context).nameMustBeAtMost30Letters;
       } else if (!checkPattern(pattern: patternName, value: value)) {
-        return tr(context).pleaseEnterValidName;
+        return S.of(context).pleaseEnterValidName;
       } else {
         return null;
       }
@@ -72,7 +74,7 @@ class ValueValidators {
   /*FormFieldValidator<String?> validateEmptyField(BuildContext context) {
     return (value) {
       if (value!.isEmpty) {
-        return tr(context).thisFieldIsEmpty;
+        return S.of(context).thisFieldIsEmpty;
       } else {
         return null;
       }
@@ -82,7 +84,7 @@ class ValueValidators {
   String? Function(dynamic)? validateEmptySelection(BuildContext context) {
     return (value) {
       if (value == null) {
-        return tr(context).thisSelectionIsEmpty;
+        return S.of(context).thisSelectionIsEmpty;
       } else {
         return null;
       }
@@ -96,9 +98,9 @@ class ValueValidators {
     String patternName = r"^[\u0621-\u064A\040\a-zA-Z,.\-]+$";
     return (value) {
       if (value!.isEmpty) {
-        return tr(context).thisFieldIsEmpty;
+        return S.of(context).thisFieldIsEmpty;
       } else if (!checkPattern(pattern: patternName, value: value)) {
-        return tr(context).pleaseEnterValidName;
+        return S.of(context).pleaseEnterValidName;
       } else {
         return null;
       }
@@ -112,13 +114,13 @@ class ValueValidators {
     String patternName = r"^[\u0621-\u064A\040\a-zA-Z,.\-]+$";
     return (value) {
       if (value!.isEmpty) {
-        return tr(context).thisFieldIsEmpty;
+        return S.of(context).thisFieldIsEmpty;
       } else if (value.toString().length < 15) {
-        return tr(context).nameMustBeAtLeast15Letters;
+        return S.of(context).nameMustBeAtLeast15Letters;
       } else if (value.toString().length > 40) {
-        return tr(context).nameMustBeAtMost40Letters;
+        return S.of(context).nameMustBeAtMost40Letters;
       } else if (!checkPattern(pattern: patternName, value: value)) {
-        return tr(context).pleaseEnterValidName;
+        return S.of(context).pleaseEnterValidName;
       } else {
         return null;
       }
@@ -131,9 +133,9 @@ class ValueValidators {
     return (value) {
       value = value?.trim();
       if (value!.isEmpty) {
-        return tr(context).thisFieldIsEmpty;
+        return S.of(context).thisFieldIsEmpty;
       } else if (!checkPattern(pattern: patternMobileNumber, value: value)) {
-        return tr(context).pleaseEnterValidNumber;
+        return S.of(context).pleaseEnterValidNumber;
       }
       return null;
     };
@@ -144,9 +146,9 @@ class ValueValidators {
         r"(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)";
     return (value) {
       if (value!.isEmpty) {
-        return tr(context).thisFieldIsEmpty;
+        return S.of(context).thisFieldIsEmpty;
       } else if (!checkPattern(pattern: _patternEmail, value: value)) {
-        return tr(context).pleaseEnterValidEmail;
+        return S.of(context).pleaseEnterValidEmail;
       } else {
         return null;
       }
@@ -159,9 +161,9 @@ class ValueValidators {
     return (value) {
       value = value?.trim();
       if (value!.isEmpty) {
-        return tr(context).thisFieldIsEmpty;
+        return S.of(context).thisFieldIsEmpty;
       } else if (!checkPattern(pattern: patternIdNumber, value: value)) {
-        return tr(context).pleaseEnterValidIdNumber;
+        return S.of(context).pleaseEnterValidIdNumber;
       }
       return null;
     };
@@ -178,9 +180,9 @@ class ValueValidators {
     .{8,}             // Must be at least 8 characters in length  */ /*
     return (value) {
       if (value!.isEmpty) {
-        return tr(context).thisFieldIsEmpty;
+        return S.of(context).thisFieldIsEmpty;
       } else if (!checkPattern(pattern: _patternEmail, value: value)) {
-        return tr(context).passwordIsNotStrong;
+        return S.of(context).passwordIsNotStrong;
       } else {
         return null;
       }
@@ -190,9 +192,9 @@ class ValueValidators {
   String? validateConfirmPassword(
       BuildContext context, String password, String? confirmPassword) {
     if (confirmPassword!.isEmpty) {
-      return tr(context).thisFieldIsEmpty;
+      return S.of(context).thisFieldIsEmpty;
     } else if (confirmPassword != password) {
-      return tr(context).confirmPasswordDoNotMatch;
+      return S.of(context).confirmPasswordDoNotMatch;
     } else {
       return null;
     }
@@ -201,9 +203,9 @@ class ValueValidators {
   FormFieldValidator<String?> validatePositiveInteger(BuildContext context) {
     return (value) {
       if (value!.isEmpty) {
-        return tr(context).thisFieldIsEmpty;
+        return S.of(context).thisFieldIsEmpty;
       } else if (!isNumericPositive(value)) {
-        return tr(context).pleaseEnterValidNumberGreaterThanZero;
+        return S.of(context).pleaseEnterValidNumberGreaterThanZero;
       } else {
         return null;
       }
@@ -214,9 +216,9 @@ class ValueValidators {
       BuildContext context, double minAmount) {
     return (value) {
       if (value!.isEmpty) {
-        return tr(context).thisFieldIsEmpty;
+        return S.of(context).thisFieldIsEmpty;
       } else if (!isNumericPositive(value)) {
-        return tr(context).pleaseEnterValidNumberGreaterThanZero;
+        return S.of(context).pleaseEnterValidNumberGreaterThanZero;
       } else if (int.parse(value) < minAmount) {
         return tr(context)
             .partialSponsorshipMustBeGreaterThan(minAmount.toStringAsFixed(0));

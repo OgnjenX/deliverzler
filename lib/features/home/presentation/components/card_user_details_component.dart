@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../../../../core/presentation/helpers/localization_helper.dart';
 import '../../../../core/presentation/styles/styles.dart';
 import '../../../../core/presentation/widgets/cached_network_image_circular.dart';
+import '../../../../generated/l10n.dart';
 import '../../domain/order.dart';
 
 class CardUserDetailsComponent extends StatelessWidget {
@@ -10,6 +10,7 @@ class CardUserDetailsComponent extends StatelessWidget {
     required this.order,
     super.key,
   });
+
   final AppOrder order;
 
   @override
@@ -29,9 +30,10 @@ class CardUserDetailsComponent extends StatelessWidget {
             children: [
               Text(
                 order.userName.isEmpty
-                    ? tr(context).user + order.userId.substring(0, 6)
+                    ? S.of(context).user + order.userId.substring(0, 6)
                     : order.userName,
-                style: TextStyles.f14(context).copyWith(fontWeight: FontStyles.fontWeightBold),
+                style: TextStyles.f14(context)
+                    .copyWith(fontWeight: FontStyles.fontWeightBold),
                 overflow: TextOverflow.ellipsis,
               ),
               Text(

@@ -7,7 +7,7 @@ part of 'my_location_camera_position_provider.dart';
 // **************************************************************************
 
 String _$myLocationCameraPositionHash() =>
-    r'6f7dba71e6bfd69eab19d1d066b7fbda5efed032';
+    r'b0ea57437b0e0c51d573f0b7c7480eec4ea68ecf';
 
 /// See also [myLocationCameraPosition].
 @ProviderFor(myLocationCameraPosition)

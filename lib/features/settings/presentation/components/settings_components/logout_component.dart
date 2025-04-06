@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
 import '../../../../../auth/presentation/providers/sign_out_provider.dart';
-import '../../../../../core/presentation/helpers/localization_helper.dart';
 import '../../../../../core/presentation/styles/styles.dart';
 import '../../../../../core/presentation/utils/riverpod_framework.dart';
 import '../../../../../core/presentation/widgets/platform_widgets/platform_widget.dart';
+import '../../../../../generated/l10n.dart';
 
 class LogoutComponent extends HookConsumerWidget {
   const LogoutComponent({super.key});
@@ -49,7 +49,7 @@ class _SharedItemComponent extends StatelessWidget {
         ),
         boxShadow: [
           BoxShadow(
-            color: Theme.of(context).hintColor.withOpacity(0.15),
+            color: Theme.of(context).hintColor.withValues(alpha: 0.15),
             offset: const Offset(0, 3),
             blurRadius: 10,
           ),
@@ -66,7 +66,7 @@ class _SharedItemComponent extends StatelessWidget {
             width: Sizes.marginH16,
           ),
           Text(
-            tr(context).logOut,
+            S.of(context).logOut,
             style: TextStyles.f18(context).copyWith(
               fontWeight: FontStyles.fontWeightExtraBold,
               color: Theme.of(context).colorScheme.primary,

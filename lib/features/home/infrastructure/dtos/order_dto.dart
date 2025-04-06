@@ -6,7 +6,6 @@ import '../../domain/order.dart';
 import '../../domain/value_objects.dart';
 
 part 'order_dto.freezed.dart';
-
 part 'order_dto.g.dart';
 
 @Freezed(toJson: false)
@@ -34,7 +33,8 @@ abstract class OrderDto with _$OrderDto {
       date: order.date,
       pickupOption: order.pickupOption,
       paymentMethod: order.paymentMethod,
-      address: order.address != null ? AddressDto.fromDomain(order.address!) : null,
+      address:
+          order.address != null ? AddressDto.fromDomain(order.address!) : null,
       userId: order.userId,
       userName: order.userName,
       userImage: order.userImage,
@@ -46,12 +46,15 @@ abstract class OrderDto with _$OrderDto {
       deliveryGeoPoint: order.deliveryGeoPoint,
     );
   }
+
   const OrderDto._();
 
-  factory OrderDto.fromJson(Map<String, dynamic> json) => _$OrderDtoFromJson(json);
+  factory OrderDto.fromJson(Map<String, dynamic> json) =>
+      _$OrderDtoFromJson(json);
 
   factory OrderDto.fromFirestore(DocumentSnapshot document) {
-    return OrderDto.fromJson(document.data()! as Map<String, dynamic>).copyWith(id: document.id);
+    return OrderDto.fromJson(document.data()! as Map<String, dynamic>)
+        .copyWith(id: document.id);
   }
 
   static List<OrderDto> parseListOfDocument(
@@ -89,9 +92,11 @@ abstract class AddressDto with _$AddressDto {
     required String mobile,
     @GeoPointConverter() required GeoPoint? geoPoint,
   }) = _AddressDto;
+
   const AddressDto._();
 
-  factory AddressDto.fromJson(Map<String, dynamic> json) => _$AddressDtoFromJson(json);
+  factory AddressDto.fromJson(Map<String, dynamic> json) =>
+      _$AddressDtoFromJson(json);
 
   factory AddressDto.fromDomain(Address address) {
     return AddressDto(

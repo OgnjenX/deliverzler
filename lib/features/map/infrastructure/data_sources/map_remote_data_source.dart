@@ -10,7 +10,7 @@ import '../dtos/place_directions_dto.dart';
 part 'map_remote_data_source.g.dart';
 
 @Riverpod(keepAlive: true)
-MapRemoteDataSource mapRemoteDataSource(MapRemoteDataSourceRef ref) {
+MapRemoteDataSource mapRemoteDataSource(Ref ref) {
   return MapRemoteDataSource(
     ref,
     googleMapApi: ref.watch(googleMapApiFacadeProvider),
@@ -45,7 +45,9 @@ class MapRemoteDataSource {
         extra: {GoogleMapApiConfig.withSessionTokenExtraKey: true},
       ),
     );
-    return PlaceAutocompleteDto.parseListOfMap(response.data!['predictions'] as List<dynamic>);
+    return PlaceAutocompleteDto.parseListOfMap(
+      response.data!['predictions'] as List<dynamic>,
+    );
   }
 
   Future<PlaceDetailsDto> getPlaceDetails(
@@ -63,7 +65,9 @@ class MapRemoteDataSource {
       ),
       cancelToken: cancelToken,
     );
-    return PlaceDetailsDto.fromJson(response.data!['result'] as Map<String, dynamic>);
+    return PlaceDetailsDto.fromJson(
+      response.data!['result'] as Map<String, dynamic>,
+    );
   }
 
   Future<PlaceDirectionsDto> getPlaceDirections(
@@ -75,7 +79,11 @@ class MapRemoteDataSource {
       queryParameters: query.toJson(),
       cancelToken: cancelToken,
     );
-    // ignore: avoid_dynamic_calls
-    return PlaceDirectionsDto.fromJson(response.data!['routes'][0] as Map<String, dynamic>);
+
+    final rawData = response.data!;
+    final routes = rawData['routes'] as List<dynamic>;
+    final firstRoute = routes.first as Map<String, dynamic>;
+
+    return PlaceDirectionsDto.fromJson(firstRoute);
   }
 }

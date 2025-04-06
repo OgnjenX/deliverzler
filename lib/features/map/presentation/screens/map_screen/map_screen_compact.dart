@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
 import '../../../../../core/infrastructure/notification/notification_service.dart';
-import '../../../../../core/presentation/helpers/localization_helper.dart';
 import '../../../../../core/presentation/routing/app_router.dart';
 import '../../../../../core/presentation/screens/nested_screen_scaffold.dart';
 import '../../../../../core/presentation/utils/fp_framework.dart';
 import '../../../../../core/presentation/utils/riverpod_framework.dart';
-import '../../../../../core/presentation/widgets/toasts.dart';
 import '../../../../../core/presentation/widgets/loading_widgets.dart';
+import '../../../../../core/presentation/widgets/toasts.dart';
+import '../../../../../generated/l10n.dart';
 import '../../../../home/presentation/components/retry_again_component.dart';
 import '../../../../home/presentation/providers/location_stream_provider.dart';
 import '../../../../home/presentation/utils/location_error.dart';
@@ -34,8 +34,8 @@ class MapScreenCompact extends HookConsumerWidget {
           WidgetsBinding.instance.addPostFrameCallback((_) {
             Toasts.showTitledToast(
               context,
-              title: tr(context).pleaseSearchForLocation,
-              description: tr(context).userHasNotProvidedLocation,
+              title: S.of(context).pleaseSearchForLocation,
+              description: S.of(context).userHasNotProvidedLocation,
             );
           });
         }
@@ -47,8 +47,8 @@ class MapScreenCompact extends HookConsumerWidget {
     ref.listen<bool>(isArrivedTargetLocationProvider, (previous, next) {
       if (next == true) {
         ref.read(notificationServiceProvider).showLocalNotification(
-              title: tr(context).arrivedLocation,
-              body: tr(context).youAreCloseToLocationArea,
+              title: S.of(context).arrivedLocation,
+              body: S.of(context).youAreCloseToLocationArea,
             );
       }
     });
@@ -66,7 +66,8 @@ class MapScreenCompact extends HookConsumerWidget {
       body: locationAsync.when(
         skipLoadingOnReload: true,
         skipLoadingOnRefresh: !locationAsync.hasError,
-        loading: () => TitledLoadingIndicator(message: tr(context).determine_location),
+        loading: () =>
+            TitledLoadingIndicator(message: S.of(context).determine_location),
         error: (error, st) => RetryAgainComponent(
           description: (error as LocationError).getErrorText(context),
           onPressed: () {

@@ -15,6 +15,7 @@ class ResponsiveCenter extends StatelessWidget {
     this.padding = EdgeInsets.zero,
     super.key,
   });
+
   final double? maxContentWidth;
   final EdgeInsetsGeometry padding;
   final Widget child;
@@ -45,9 +46,11 @@ class ResponsiveSliverCenter extends StatelessWidget {
     this.padding = EdgeInsets.zero,
     super.key,
   });
+
   final double? maxContentWidth;
   final EdgeInsetsGeometry padding;
   final Widget child;
+
   @override
   Widget build(BuildContext context) {
     return SliverToBoxAdapter(

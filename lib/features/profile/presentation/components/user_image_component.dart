@@ -18,12 +18,15 @@ class UserImageComponent extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     ref.easyListen(updateProfileImageStateProvider);
 
-    final userImage = ref.watch(currentUserProvider.select((user) => user.image));
+    final userImage =
+        ref.watch(currentUserProvider.select((user) => user.image));
 
     void pickImage(PickSource pickSource, BuildContext ctx) {
       ref.read(pickProfileImageProvider(pickSource).future).then(
         (image) {
-          ref.read(updateProfileImageStateProvider.notifier).updateProfileImage(image);
+          ref
+              .read(updateProfileImageStateProvider.notifier)
+              .updateProfileImage(image);
         },
       ).suppressError();
       NavigationService.popDialog(ctx);
@@ -39,12 +42,14 @@ class UserImageComponent extends ConsumerWidget {
         Padding(
           padding: const EdgeInsets.only(right: Sizes.paddingH8),
           child: ImagePickComponent(
-            pickFromCameraCallBack: ref.isLoading(updateProfileImageStateProvider)
-                ? null
-                : (ctx) => pickImage(PickSource.camera, ctx),
-            pickFromGalleryCallBack: ref.isLoading(updateProfileImageStateProvider)
-                ? null
-                : (ctx) => pickImage(PickSource.gallery, ctx),
+            pickFromCameraCallBack:
+                ref.isLoading(updateProfileImageStateProvider)
+                    ? null
+                    : (ctx) => pickImage(PickSource.camera, ctx),
+            pickFromGalleryCallBack:
+                ref.isLoading(updateProfileImageStateProvider)
+                    ? null
+                    : (ctx) => pickImage(PickSource.gallery, ctx),
           ),
         ),
       ],

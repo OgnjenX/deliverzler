@@ -12,7 +12,7 @@ import '../dtos/place_directions_dto.dart';
 part 'map_repo.g.dart';
 
 @Riverpod(keepAlive: true)
-MapRepo mapRepo(MapRepoRef ref) {
+MapRepo mapRepo(Ref ref) {
   return MapRepo(
     remoteDataSource: ref.watch(mapRemoteDataSourceProvider),
   );
@@ -29,8 +29,10 @@ class MapRepo {
     String placeName, {
     CancelToken? cancelToken,
   }) async {
-    final autocomplete =
-        await remoteDataSource.getPlaceAutocomplete(placeName, cancelToken: cancelToken);
+    final autocomplete = await remoteDataSource.getPlaceAutocomplete(
+      placeName,
+      cancelToken: cancelToken,
+    );
     return autocomplete.map((item) => item.toDomain()).toList();
   }
 
@@ -38,7 +40,10 @@ class MapRepo {
     String placeId, {
     CancelToken? cancelToken,
   }) async {
-    final placeDetails = await remoteDataSource.getPlaceDetails(placeId, cancelToken: cancelToken);
+    final placeDetails = await remoteDataSource.getPlaceDetails(
+      placeId,
+      cancelToken: cancelToken,
+    );
     return placeDetails.toDomain();
   }
 
@@ -47,7 +52,10 @@ class MapRepo {
     CancelToken? cancelToken,
   }) async {
     final dto = PlaceDirectionsQueryDto.fromDomain(query);
-    final directions = await remoteDataSource.getPlaceDirections(dto, cancelToken: cancelToken);
+    final directions = await remoteDataSource.getPlaceDirections(
+      dto,
+      cancelToken: cancelToken,
+    );
     return directions.toDomain();
   }
 }

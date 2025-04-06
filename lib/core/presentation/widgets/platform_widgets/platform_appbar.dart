@@ -18,7 +18,10 @@ class PlatformAppBar extends StatelessWidget
     this.bottom,
     this.backgroundColor,
     super.key,
-  }) : preferredSize = PreferredAppBarSize(toolbarHeight, bottom?.preferredSize.height ?? 0.0);
+  }) : preferredSize = PreferredAppBarSize(
+          toolbarHeight,
+          bottom?.preferredSize.height ?? 0.0,
+        );
 
   final Widget appbar;
 
@@ -38,8 +41,9 @@ class PlatformAppBar extends StatelessWidget
 
   @override
   bool shouldFullyObstruct(BuildContext context) {
-    final backgroundColor = CupertinoDynamicColor.maybeResolve(this.backgroundColor, context) ??
-        CupertinoTheme.of(context).barBackgroundColor;
-    return backgroundColor.alpha == 0xFF;
+    final backgroundColor =
+        CupertinoDynamicColor.maybeResolve(this.backgroundColor, context) ??
+            CupertinoTheme.of(context).barBackgroundColor;
+    return backgroundColor.a == 0xFF;
   }
 }

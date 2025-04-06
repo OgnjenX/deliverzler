@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-import '../../../core/presentation/helpers/localization_helper.dart';
 import '../../../core/presentation/styles/styles.dart';
 import '../../../core/presentation/utils/riverpod_framework.dart';
 import '../../../core/presentation/widgets/custom_elevated_button.dart';
 import '../../../core/presentation/widgets/platform_widgets/platform_icons.dart';
+import '../../../generated/l10n.dart';
 import '../../domain/sign_in_with_email.dart';
 import '../providers/sign_in_provider.dart';
 
@@ -35,10 +35,14 @@ class LoginFormComponent extends HookConsumerWidget {
             key: const ValueKey('login_email'),
             controller: emailController,
             decoration: InputDecoration(
-              hintText: tr(context).email,
+              hintText: S.of(context).email,
               suffixIcon: Padding(
                 padding: EdgeInsetsDirectional.only(
-                  end: Theme.of(context).inputDecorationTheme.contentPadding!.horizontal / 2,
+                  end: Theme.of(context)
+                          .inputDecorationTheme
+                          .contentPadding!
+                          .horizontal /
+                      2,
                 ),
                 child: Icon(AppPlatformIcons.platformIcons(context).mail),
               ),
@@ -55,10 +59,14 @@ class LoginFormComponent extends HookConsumerWidget {
             key: const ValueKey('login_password'),
             controller: passwordController,
             decoration: InputDecoration(
-              hintText: tr(context).password,
+              hintText: S.of(context).password,
               suffixIcon: Padding(
                 padding: EdgeInsetsDirectional.only(
-                  end: Theme.of(context).inputDecorationTheme.contentPadding!.horizontal / 2,
+                  end: Theme.of(context)
+                          .inputDecorationTheme
+                          .contentPadding!
+                          .horizontal /
+                      2,
                 ),
                 child: const Icon(Icons.password),
               ),
@@ -67,7 +75,8 @@ class LoginFormComponent extends HookConsumerWidget {
             validator: SignInWithEmail.validatePassword(context),
             textInputAction: TextInputAction.go,
             obscureText: true,
-            onFieldSubmitted: ref.isLoading(signInStateProvider) ? null : (_) => signIn(),
+            onFieldSubmitted:
+                ref.isLoading(signInStateProvider) ? null : (_) => signIn(),
           ),
           const SizedBox(
             height: Sizes.marginV40,
@@ -76,7 +85,7 @@ class LoginFormComponent extends HookConsumerWidget {
             enableGradient: true,
             onPressed: ref.isLoading(signInStateProvider) ? null : signIn,
             child: Text(
-              tr(context).signIn.toUpperCase(),
+              S.of(context).signIn.toUpperCase(),
               style: TextStyles.coloredElevatedButton(context),
             ),
           ),
