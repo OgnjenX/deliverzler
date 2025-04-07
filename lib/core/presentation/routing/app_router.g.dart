@@ -242,7 +242,7 @@ extension $WorkingHoursRouteExtension on WorkingHoursRoute {
 // RiverpodGenerator
 // **************************************************************************
 
-String _$goRouterHash() => r'43a958db998179b3141ce758f650f1a63e1c3cf6';
+String _$goRouterHash() => r'b58eb5532837e430bc1efb7e9b969983cbffdc2b';
 
 /// See also [goRouter].
 @ProviderFor(goRouter)

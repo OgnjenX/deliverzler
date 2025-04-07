@@ -23,7 +23,7 @@ final hasWorkHoursProvider = AutoDisposeFutureProvider<bool>.internal(
 // ignore: unused_element
 typedef HasWorkHoursRef = AutoDisposeFutureProviderRef<bool>;
 String _$updateWorkHoursStateHash() =>
-    r'bc36e10e99bc7fb8262da87a9a6b8ea034263f44';
+    r'f68f6c11d4732836507742c6e151682ade752e7e';
 
 /// See also [UpdateWorkHoursState].
 @ProviderFor(UpdateWorkHoursState)

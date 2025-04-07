@@ -9,15 +9,19 @@ import '../../../core/presentation/utils/riverpod_framework.dart';
 part 'check_auth_provider.g.dart';
 
 @riverpod
-Future<User> checkAuth(CheckAuthRef ref) async {
-  final sub = ref.listen(authStateProvider.notifier, (prev, next) {});
-  ref.listenSelf((previous, next) {
-    next.whenOrNull(
-      data: (user) => sub.read().authenticateUser(user),
-      error: (err, st) => ref.read(signOutStateProvider.notifier).signOut(),
-    );
-  });
+class CheckAuth extends _$CheckAuth {
+  @override
+  Future<User> build() async {
+    final sub = ref.listen(authStateProvider.notifier, (prev, next) {});
 
-  final uid = await ref.watch(authRepoProvider).getUserAuthUid();
-  return ref.watch(authRepoProvider).getUserData(uid);
+    listenSelf((previous, next) {
+      next.whenOrNull(
+        data: (user) => sub.read().authenticateUser(user),
+        error: (err, st) => ref.read(signOutStateProvider.notifier).signOut(),
+      );
+    });
+
+    final uid = await ref.watch(authRepoProvider).getUserAuthUid();
+    return ref.watch(authRepoProvider).getUserData(uid);
+  }
 }
