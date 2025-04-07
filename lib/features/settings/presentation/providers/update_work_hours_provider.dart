@@ -30,6 +30,8 @@ class UpdateWorkHoursState extends _$UpdateWorkHoursState {
         timeZone,
       );
 
+      ref.invalidate(hasWorkHoursProvider);
+
       return const Some(null);
     });
   }
@@ -38,4 +40,11 @@ class UpdateWorkHoursState extends _$UpdateWorkHoursState {
     final profileRepo = ref.read(profileRepoProvider);
     return profileRepo.getWorkHours();
   }
+}
+
+@riverpod
+Future<bool> hasWorkHours(Ref ref) async {
+  final profileRepo = ref.read(profileRepoProvider);
+  final workHours = await profileRepo.getWorkHours();
+  return workHours != null;
 }

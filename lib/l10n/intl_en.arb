@@ -114,5 +114,9 @@
   "myCurrentLocation": "My current location",
   "pleaseSearchForLocation": "Please search for the location!",
   "userHasNotProvidedLocation": "User hasn't provided his location point.",
-  "working_hours": "Working hours"
+  "working_hours": "Working hours",
+  "work_hours_settings": "Work Hours Settings",
+  "please_set_work_hours": "Please set your work hours.",
+  "set_work_hours": "Set Work Hours",
+  "work_hours_set": "Work hours set successfully."
 }

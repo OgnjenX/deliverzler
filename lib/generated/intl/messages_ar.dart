@@ -167,6 +167,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "please_enable_location_service": MessageLookupByLibrary.simpleMessage(
       "الرجاء تمكين خدمة الموقع ، وحاول مرة أخرى...",
     ),
+    "please_set_work_hours": MessageLookupByLibrary.simpleMessage(
+      "يرجى تحديد ساعات العمل الخاصة بك.",
+    ),
     "please_wait": MessageLookupByLibrary.simpleMessage("الرجاء الإنتظار"),
     "profileSettings": MessageLookupByLibrary.simpleMessage(
       "إعدادات الملف الشخصي",
@@ -185,6 +188,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "serviceUnavailableError": MessageLookupByLibrary.simpleMessage(
       "الخادم غير قادر مؤقتاً على معالجة الطلب. يرجى إعادة المحاولة لاحقاً.",
     ),
+    "set_work_hours": MessageLookupByLibrary.simpleMessage("تحديد ساعات العمل"),
     "settings": MessageLookupByLibrary.simpleMessage("الإعدادات"),
     "showMap": MessageLookupByLibrary.simpleMessage("أظهر الخريطة"),
     "signIn": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
@@ -218,6 +222,12 @@ class MessageLookup extends MessageLookupByLibrary {
       "المستخدم لم يوفر موقعه الشخصي.",
     ),
     "welcome": MessageLookupByLibrary.simpleMessage("مرحباً"),
+    "work_hours_set": MessageLookupByLibrary.simpleMessage(
+      "تم تعيين ساعات العمل بنجاح.",
+    ),
+    "work_hours_settings": MessageLookupByLibrary.simpleMessage(
+      "إعدادات ساعات العمل",
+    ),
     "working_hours": MessageLookupByLibrary.simpleMessage("ساعات العمل"),
     "youAreBackOnline": MessageLookupByLibrary.simpleMessage(
       "تمت استعادة الاتصال بالإنترنت.",

@@ -6,8 +6,24 @@ part of 'update_work_hours_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
+String _$hasWorkHoursHash() => r'a6e67f4088b13c9948af0469a9281e896013a0b7';
+
+/// See also [hasWorkHours].
+@ProviderFor(hasWorkHours)
+final hasWorkHoursProvider = AutoDisposeFutureProvider<bool>.internal(
+  hasWorkHours,
+  name: r'hasWorkHoursProvider',
+  debugGetCreateSourceHash:
+      const bool.fromEnvironment('dart.vm.product') ? null : _$hasWorkHoursHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
+typedef HasWorkHoursRef = AutoDisposeFutureProviderRef<bool>;
 String _$updateWorkHoursStateHash() =>
-    r'099180f3e3d15574c3628dbb992bcaa7088403b6';
+    r'bc36e10e99bc7fb8262da87a9a6b8ea034263f44';
 
 /// See also [UpdateWorkHoursState].
 @ProviderFor(UpdateWorkHoursState)

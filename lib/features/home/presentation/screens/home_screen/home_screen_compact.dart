@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 
+import '../../../../../core/presentation/routing/app_router.dart';
 import '../../../../../core/presentation/screens/nested_screen_scaffold.dart';
 import '../../../../../core/presentation/utils/riverpod_framework.dart';
 import '../../../../../core/presentation/widgets/loading_widgets.dart';
 import '../../../../../generated/l10n.dart';
+import '../../../../settings/presentation/providers/update_work_hours_provider.dart';
 import '../../components/retry_again_component.dart';
 import '../../components/upcoming_orders_component.dart';
 import '../../providers/location_stream_provider.dart';
@@ -19,6 +21,20 @@ class HomeScreenCompact extends HookConsumerWidget {
       //Using select to avoid rebuilding when location change
       locationStreamProvider.select((value) => value.whenData((value) => true)),
     );
+
+    // Listen for work hours state
+    final hasWorkHours = ref.watch(
+      hasWorkHoursProvider,
+    );
+
+    // If work hours are not set, navigate to the Work Hours settings screen
+    if (hasWorkHours is AsyncData && !hasWorkHours.value!) {
+      Future.microtask(() {
+        if (context.mounted) {
+          const WorkingHoursRoute().go(context);
+        }
+      });
+    }
 
     ref.listen(updateDeliveryGeoPointStateProvider, (previous, next) {});
 

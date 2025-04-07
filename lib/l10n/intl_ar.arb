@@ -114,5 +114,9 @@
   "myCurrentLocation": "موقعي الحالي",
   "pleaseSearchForLocation": "الرجاء البحث عن الموقع!",
   "userHasNotProvidedLocation": "المستخدم لم يوفر موقعه الشخصي.",
-  "working_hours": "ساعات العمل"
+  "working_hours": "ساعات العمل",
+  "work_hours_settings": "إعدادات ساعات العمل",
+  "please_set_work_hours": "يرجى تحديد ساعات العمل الخاصة بك.",
+  "set_work_hours": "تحديد ساعات العمل",
+  "work_hours_set": "تم تعيين ساعات العمل بنجاح."
 }

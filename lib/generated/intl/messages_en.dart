@@ -171,6 +171,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "please_enable_location_service": MessageLookupByLibrary.simpleMessage(
       "Please enable location services, and try again",
     ),
+    "please_set_work_hours": MessageLookupByLibrary.simpleMessage(
+      "Please set your work hours.",
+    ),
     "please_wait": MessageLookupByLibrary.simpleMessage("Please wait"),
     "profileSettings": MessageLookupByLibrary.simpleMessage("Profile Settings"),
     "reasonForCancelingTheOrder": MessageLookupByLibrary.simpleMessage(
@@ -189,6 +192,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "serviceUnavailableError": MessageLookupByLibrary.simpleMessage(
       "The server is temporarily unavailable. Please try again later.",
     ),
+    "set_work_hours": MessageLookupByLibrary.simpleMessage("Set Work Hours"),
     "settings": MessageLookupByLibrary.simpleMessage("Settings"),
     "showMap": MessageLookupByLibrary.simpleMessage("Show Map"),
     "signIn": MessageLookupByLibrary.simpleMessage("Sign in"),
@@ -228,6 +232,12 @@ class MessageLookup extends MessageLookupByLibrary {
       "User hasn\'t provided his location point.",
     ),
     "welcome": MessageLookupByLibrary.simpleMessage("Welcome"),
+    "work_hours_set": MessageLookupByLibrary.simpleMessage(
+      "Work hours set successfully.",
+    ),
+    "work_hours_settings": MessageLookupByLibrary.simpleMessage(
+      "Work Hours Settings",
+    ),
     "working_hours": MessageLookupByLibrary.simpleMessage("Working hours"),
     "youAreBackOnline": MessageLookupByLibrary.simpleMessage(
       "Your are back online.",

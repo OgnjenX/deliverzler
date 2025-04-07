@@ -959,6 +959,46 @@ class S {
       args: [],
     );
   }
+
+  /// `Work Hours Settings`
+  String get work_hours_settings {
+    return Intl.message(
+      'Work Hours Settings',
+      name: 'work_hours_settings',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please set your work hours.`
+  String get please_set_work_hours {
+    return Intl.message(
+      'Please set your work hours.',
+      name: 'please_set_work_hours',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Set Work Hours`
+  String get set_work_hours {
+    return Intl.message(
+      'Set Work Hours',
+      name: 'set_work_hours',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Work hours set successfully.`
+  String get work_hours_set {
+    return Intl.message(
+      'Work hours set successfully.',
+      name: 'work_hours_set',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

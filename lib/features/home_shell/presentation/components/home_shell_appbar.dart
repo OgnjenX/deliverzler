@@ -5,11 +5,13 @@ import 'package:go_router/go_router.dart';
 import '../../../../core/presentation/components/appbar_with_icon_component.dart';
 import '../../../../core/presentation/routing/app_router.dart';
 import '../../../../core/presentation/styles/styles.dart';
+import '../../../../core/presentation/utils/riverpod_framework.dart';
 import '../../../../core/presentation/widgets/custom_appbar.dart';
 import '../../../../generated/assets.dart';
 import '../../../../generated/l10n.dart';
+import '../../../settings/presentation/providers/update_work_hours_provider.dart';
 
-class HomeShellAppBar extends StatelessWidget {
+class HomeShellAppBar extends ConsumerWidget {
   const HomeShellAppBar({super.key});
 
   static final IList<String> _noAppBarLocations = IListConst([
@@ -17,10 +19,10 @@ class HomeShellAppBar extends StatelessWidget {
   ]);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final location = GoRouterState.of(context).routeLocation;
 
-    /// Home Tab
+    // Home Tab
     if (location == const HomeRoute().location) {
       return CustomAppBar(
         centerTitle: true,
@@ -32,7 +34,7 @@ class HomeShellAppBar extends StatelessWidget {
       );
     }
 
-    /// Profile Tab
+    // Profile Tab
     else if (location == const ProfileRoute().location) {
       return CustomAppBar(
         centerTitle: true,
@@ -43,7 +45,7 @@ class HomeShellAppBar extends StatelessWidget {
       );
     }
 
-    /// Settings Tab
+    // Settings Tab
     else if (location == const SettingsRoute().location) {
       return CustomAppBar(
         centerTitle: true,
@@ -62,8 +64,13 @@ class HomeShellAppBar extends StatelessWidget {
         ),
       );
     } else if (location == const WorkingHoursRoute().location) {
+      final hasWorkHours = ref.watch(hasWorkHoursProvider);
+
+      final showBackButton =
+          hasWorkHours is AsyncData && hasWorkHours.value!; // true only if set
+
       return CustomAppBar(
-        hasBackButton: true,
+        hasBackButton: showBackButton,
         centerTitle: true,
         title: AppBarWithIconComponent(
           icon: Icons.access_time,
