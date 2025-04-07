@@ -4,6 +4,7 @@ import '../../../../auth/presentation/providers/auth_state_provider.dart';
 import '../../../../core/infrastructure/network/main_api/api_callers/firebase_firestorage_facade.dart';
 import '../../../../core/infrastructure/network/main_api/api_callers/firebase_firestore_facade.dart';
 import '../../../../core/presentation/utils/riverpod_framework.dart';
+import '../../../settings/infrastructure/dtos/work_hours_dto.dart';
 import '../dtos/profile_details_dto.dart';
 
 part 'profile_remote_data_source.g.dart';
@@ -19,10 +20,10 @@ ProfileRemoteDataSource profileRemoteDataSource(Ref ref) {
 
 class ProfileRemoteDataSource {
   ProfileRemoteDataSource(
-    this.ref, {
-    required this.firebaseFirestore,
-    required this.firebaseStorage,
-  });
+      this.ref, {
+        required this.firebaseFirestore,
+        required this.firebaseStorage,
+      });
 
   final Ref ref;
   final FirebaseFirestoreFacade firebaseFirestore;
@@ -61,6 +62,17 @@ class ProfileRemoteDataSource {
       path: userDocPath(uid),
       data: params.toJson(),
       merge: true,
+    );
+  }
+
+  Future<void> updateWorkHours(WorkHoursDto workHoursDto) async {
+    final uid = ref.read(currentUserProvider).id;
+
+    // Store the work hours data for the user
+    return firebaseFirestore.setData(
+      path: userDocPath(uid),  // Save work hours under the user
+      data: {'work_hours': workHoursDto.toJson()},
+      merge: true,  // Ensure we don't overwrite other fields
     );
   }
 }

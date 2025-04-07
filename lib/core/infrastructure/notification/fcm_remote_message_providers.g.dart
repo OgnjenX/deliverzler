@@ -6,7 +6,7 @@ part of 'fcm_remote_message_providers.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$getInitialMessageHash() => r'73efb00ccf3c22bff0b8c406badf9bde02c82f96';
+String _$getInitialMessageHash() => r'c820733e8d8352536acf326d3ea0f8989b648f89';
 
 /// Called when the application open from a terminated state.
 /// If it opened via notification, RemoteMessage will be returned, otherwise it will be null.
@@ -29,7 +29,7 @@ final getInitialMessageProvider =
 // ignore: unused_element
 typedef GetInitialMessageRef
     = AutoDisposeFutureProviderRef<Option<RemoteMessage>>;
-String _$onMessageHash() => r'9ef0da5670c6b7de2b80f9c572c74a894d340d44';
+String _$onMessageHash() => r'9ee872063c99d34d7cfccede900ea5c4bf7ddd55';
 
 /// Called when FCM payload is received while the app is in the foreground.
 ///
@@ -48,7 +48,7 @@ final onMessageProvider = AutoDisposeStreamProvider<RemoteMessage>.internal(
 // ignore: unused_element
 typedef OnMessageRef = AutoDisposeStreamProviderRef<RemoteMessage>;
 String _$onMessageOpenedAppHash() =>
-    r'bd9066dfcd4b24ad4f964dfb8a073cf69f822620';
+    r'0943f4995543e4b8fa671f9979602a089bae9511';
 
 /// Called when a user presses a notification message displayed via FCM.
 /// Only if the app has opened from background state (not foreground or terminated).

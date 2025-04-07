@@ -6,7 +6,7 @@ part of 'google_map_dio_providers.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$googleMapDioHash() => r'5dcd13a3fdb2a2349d655f25b2a7ef6cf981a734';
+String _$googleMapDioHash() => r'189cabe6655a09bf0e7be6b108976dd57741eb2a';
 
 /// See also [googleMapDio].
 @ProviderFor(googleMapDio)

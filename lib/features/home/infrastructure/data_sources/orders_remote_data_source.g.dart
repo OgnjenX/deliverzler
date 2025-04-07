@@ -7,7 +7,7 @@ part of 'orders_remote_data_source.dart';
 // **************************************************************************
 
 String _$ordersRemoteDataSourceHash() =>
-    r'd25abd19d06c417548391095b9347f797d9bbea2';
+    r'7689fca8e1af412739926dbec1fbcb4455fb785c';
 
 /// See also [ordersRemoteDataSource].
 @ProviderFor(ordersRemoteDataSource)

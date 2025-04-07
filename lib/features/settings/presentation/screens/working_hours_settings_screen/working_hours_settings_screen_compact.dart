@@ -1,19 +1,22 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_timezone/flutter_timezone.dart';
 
 import '../../../../../core/presentation/screens/nested_screen_scaffold.dart';
 import '../../../../../core/presentation/styles/styles.dart';
+import '../../../../../core/presentation/utils/riverpod_framework.dart';
 import '../../../../../generated/l10n.dart';
+import '../../providers/update_work_hours_provider.dart';
 
-class WorkingHoursSettingsScreenCompact extends StatefulWidget {
+class WorkingHoursSettingsScreenCompact extends ConsumerStatefulWidget {
   const WorkingHoursSettingsScreenCompact({super.key});
 
   @override
-  State<WorkingHoursSettingsScreenCompact> createState() => _WorkingHoursSettingsScreenCompactState();
+  WorkingHoursSettingsScreenCompactState createState() =>
+      WorkingHoursSettingsScreenCompactState();
 }
 
-class _WorkingHoursSettingsScreenCompactState extends State<WorkingHoursSettingsScreenCompact> {
+class WorkingHoursSettingsScreenCompactState
+    extends ConsumerState<WorkingHoursSettingsScreenCompact> {
   final Map<String, bool> _selectedDays = {
     'Mon': false,
     'Tue': false,
@@ -42,9 +45,14 @@ class _WorkingHoursSettingsScreenCompactState extends State<WorkingHoursSettings
     });
   }
 
-  Future<void> _selectTime(BuildContext context, String day, bool isStartTime) async {
+  Future<void> _selectTime(
+    BuildContext context,
+    String day,
+    bool isStartTime,
+  ) async {
     final initialTime = TimeOfDay.now();
-    final picked = await showTimePicker(context: context, initialTime: initialTime);
+    final picked =
+        await showTimePicker(context: context, initialTime: initialTime);
     if (picked != null) {
       setState(() {
         if (isStartTime) {
@@ -58,6 +66,8 @@ class _WorkingHoursSettingsScreenCompactState extends State<WorkingHoursSettings
 
   @override
   Widget build(BuildContext context) {
+    ref.easyListen(updateWorkHoursStateProvider);
+
     return NestedScreenScaffold(
       body: SingleChildScrollView(
         child: Padding(
@@ -72,7 +82,6 @@ class _WorkingHoursSettingsScreenCompactState extends State<WorkingHoursSettings
               const SizedBox(height: Sizes.marginV20),
               Text('Timezone: $_currentTimeZone'),
               const SizedBox(height: Sizes.marginV20),
-
               ..._selectedDays.keys.map((day) {
                 final start = _startTimes[day];
                 final end = _endTimes[day];
@@ -93,12 +102,20 @@ class _WorkingHoursSettingsScreenCompactState extends State<WorkingHoursSettings
                           children: [
                             TextButton(
                               onPressed: () => _selectTime(context, day, true),
-                              child: Text(start != null ? 'From: ${start.format(context)}' : 'Select Start'),
+                              child: Text(
+                                start != null
+                                    ? 'From: ${start.format(context)}'
+                                    : 'Select Start',
+                              ),
                             ),
                             const SizedBox(width: 16),
                             TextButton(
                               onPressed: () => _selectTime(context, day, false),
-                              child: Text(end != null ? 'To: ${end.format(context)}' : 'Select End'),
+                              child: Text(
+                                end != null
+                                    ? 'To: ${end.format(context)}'
+                                    : 'Select End',
+                              ),
                             ),
                           ],
                         ),
@@ -106,17 +123,20 @@ class _WorkingHoursSettingsScreenCompactState extends State<WorkingHoursSettings
                   ],
                 );
               }),
-
               const SizedBox(height: Sizes.marginV20),
               ElevatedButton(
                 onPressed: () {
-                  // You can handle the final selection result here
-                  if (kDebugMode) {
-                    print('Selected Timezone: $_currentTimeZone');
-                    print('Working Days: $_selectedDays');
-                    print('Start Times: $_startTimes');
-                    print('End Times: $_endTimes');
-                  }
+                  // Trigger the work hours update when the button is pressed
+                  final workHoursStateNotifier =
+                      ref.read(updateWorkHoursStateProvider.notifier);
+
+                  // Call updateWorkHours with the selected data
+                  workHoursStateNotifier.updateWorkHours(
+                    selectedDays: _selectedDays,
+                    startTimes: _startTimes,
+                    endTimes: _endTimes,
+                    timeZone: _currentTimeZone,
+                  );
                 },
                 child: const Text('Save Working Hours'),
               ),

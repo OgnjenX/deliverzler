@@ -7,7 +7,7 @@ part of 'splash_providers.dart';
 // **************************************************************************
 
 String _$splashServicesWarmupHash() =>
-    r'5891fc021cc6fe4a94d56f2579d160474e5c77b1';
+    r'32bd0d08808446c5e807918cf181212457459e1b';
 
 /// See also [splashServicesWarmup].
 @ProviderFor(splashServicesWarmup)
@@ -24,7 +24,7 @@ final splashServicesWarmupProvider = AutoDisposeFutureProvider<void>.internal(
 @Deprecated('Will be removed in 3.0. Use Ref instead')
 // ignore: unused_element
 typedef SplashServicesWarmupRef = AutoDisposeFutureProviderRef<void>;
-String _$splashTargetHash() => r'0f4855488fa90a3ac0d1934fd6aed008d782eb29';
+String _$splashTargetHash() => r'c572fcbb2e7583c69c1b567797f1c6258fa5cffe';
 
 /// See also [splashTarget].
 @ProviderFor(splashTarget)

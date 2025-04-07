@@ -43,7 +43,7 @@ final selectedPlaceAutocompleteProvider = AutoDisposeNotifierProvider<
 
 typedef _$SelectedPlaceAutocomplete
     = AutoDisposeNotifier<Option<PlaceAutocomplete>>;
-String _$getPlaceDetailsHash() => r'eb748a944c2a0b7426c9e024275774a982502c54';
+String _$getPlaceDetailsHash() => r'b84c66dcce2e3553ea842954daa77550df24ea1f';
 
 /// Copied from Dart SDK
 class _SystemHash {

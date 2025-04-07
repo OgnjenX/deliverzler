@@ -7,7 +7,7 @@ part of 'target_location_directions_provider.dart';
 // **************************************************************************
 
 String _$targetLocationDirectionsHash() =>
-    r'1d0bafff0445921cf40d2c22fa1a1e4ae4c0f41f';
+    r'8725ed5b77c0e296f49e9b32124728d79909b5c9';
 
 /// See also [targetLocationDirections].
 @ProviderFor(targetLocationDirections)
@@ -27,7 +27,7 @@ final targetLocationDirectionsProvider =
 typedef TargetLocationDirectionsRef
     = AutoDisposeProviderRef<Option<PlaceDirections>>;
 String _$getTargetLocationDirectionsHash() =>
-    r'bfaff014a1f1fcec57135fdf624edfc367cae2f4';
+    r'e9b46d034fce683ee587770185bc5e94da6f971d';
 
 /// See also [getTargetLocationDirections].
 @ProviderFor(getTargetLocationDirections)
