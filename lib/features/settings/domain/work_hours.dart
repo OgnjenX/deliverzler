@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../../../core/domain/value_validators.dart';
+import '../../../utils.dart';
+import '../infrastructure/dtos/work_hours_dto.dart';
 
 part 'work_hours.freezed.dart';
 
@@ -14,11 +15,19 @@ abstract class WorkHours with _$WorkHours {
     required String timeZone, // Time zone information
   }) = _WorkHours;
 
-  // Validator to check the name (for validation example)
-  static FormFieldValidator<String?> validateName(BuildContext context) =>
-      ValueValidators.validateName(context);
-
-  // Validator for phone number (not related to work hours, but for demonstration)
-  static FormFieldValidator<String?> validateMobile(BuildContext context) =>
-      ValueValidators.validateMobileNumber(context);
+  // Factory constructor to create WorkHours from WorkHoursDto
+  factory WorkHours.fromDto(WorkHoursDto dto) {
+    return WorkHours(
+      selectedDays: dto.selectedDays,
+      startTimes: dto.startTimes.map(
+        (key, value) =>
+            MapEntry(key, value != null ? parseTimeOfDay(value) : null),
+      ),
+      endTimes: dto.endTimes.map(
+        (key, value) =>
+            MapEntry(key, value != null ? parseTimeOfDay(value) : null),
+      ),
+      timeZone: dto.timeZone,
+    );
+  }
 }

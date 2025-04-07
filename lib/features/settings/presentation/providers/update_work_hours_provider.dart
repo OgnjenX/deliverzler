@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+
 import '../../../../core/presentation/utils/fp_framework.dart';
 import '../../../../core/presentation/utils/riverpod_framework.dart';
 import '../../../profile/infrastructure/repos/profile_repo.dart';
+import '../../domain/work_hours.dart';
 
 part 'update_work_hours_provider.g.dart';
 
@@ -21,9 +23,19 @@ class UpdateWorkHoursState extends _$UpdateWorkHoursState {
 
     state = await AsyncValue.guard(() async {
       final profileRepo = ref.read(profileRepoProvider);
-      await profileRepo.updateWorkHours(selectedDays, startTimes, endTimes, timeZone);
+      await profileRepo.updateWorkHours(
+        selectedDays,
+        startTimes,
+        endTimes,
+        timeZone,
+      );
 
       return const Some(null);
     });
+  }
+
+  Future<WorkHours?> loadWorkHours() async {
+    final profileRepo = ref.read(profileRepoProvider);
+    return profileRepo.getWorkHours();
   }
 }

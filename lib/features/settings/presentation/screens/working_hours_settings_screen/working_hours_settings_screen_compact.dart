@@ -36,6 +36,7 @@ class WorkingHoursSettingsScreenCompactState
   void initState() {
     super.initState();
     _loadTimeZone();
+    _loadWorkHours();
   }
 
   Future<void> _loadTimeZone() async {
@@ -43,6 +44,21 @@ class WorkingHoursSettingsScreenCompactState
     setState(() {
       _currentTimeZone = tz;
     });
+  }
+
+  // Load work hours using the loadWorkHours method from the provider
+  Future<void> _loadWorkHours() async {
+    final workHours =
+        await ref.read(updateWorkHoursStateProvider.notifier).loadWorkHours();
+
+    if (workHours != null) {
+      setState(() {
+        // Populate the fields with the fetched work hours
+        _selectedDays.addAll(workHours.selectedDays);
+        _startTimes.addAll(workHours.startTimes);
+        _endTimes.addAll(workHours.endTimes);
+      });
+    }
   }
 
   Future<void> _selectTime(

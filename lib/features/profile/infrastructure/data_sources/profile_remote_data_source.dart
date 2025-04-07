@@ -1,5 +1,7 @@
 import 'dart:io';
 
+import 'package:flutter/foundation.dart';
+
 import '../../../../auth/presentation/providers/auth_state_provider.dart';
 import '../../../../core/infrastructure/network/main_api/api_callers/firebase_firestorage_facade.dart';
 import '../../../../core/infrastructure/network/main_api/api_callers/firebase_firestore_facade.dart';
@@ -20,10 +22,10 @@ ProfileRemoteDataSource profileRemoteDataSource(Ref ref) {
 
 class ProfileRemoteDataSource {
   ProfileRemoteDataSource(
-      this.ref, {
-        required this.firebaseFirestore,
-        required this.firebaseStorage,
-      });
+    this.ref, {
+    required this.firebaseFirestore,
+    required this.firebaseStorage,
+  });
 
   final Ref ref;
   final FirebaseFirestoreFacade firebaseFirestore;
@@ -70,9 +72,34 @@ class ProfileRemoteDataSource {
 
     // Store the work hours data for the user
     return firebaseFirestore.setData(
-      path: userDocPath(uid),  // Save work hours under the user
+      path: userDocPath(uid), // Save work hours under the user
       data: {'work_hours': workHoursDto.toJson()},
-      merge: true,  // Ensure we don't overwrite other fields
+      merge: true, // Ensure we don't overwrite other fields
     );
+  }
+
+  Future<WorkHoursDto?> getWorkHours() async {
+    final uid = ref.read(currentUserProvider).id;
+
+    try {
+      // Fetch the document for the user
+      final doc = await firebaseFirestore.getData(path: userDocPath(uid));
+
+      // Check if 'work_hours' exists and is of the expected type
+      if (doc['work_hours'] != null) {
+        final workHoursMap = doc['work_hours'] as Map<String, dynamic>;
+
+        // Return the WorkHoursDto created from the map
+        return WorkHoursDto.fromJson(workHoursMap);
+      }
+    } catch (e) {
+      // Log the error or handle it as needed
+      if (kDebugMode) {
+        print('Error fetching work hours: $e');
+      }
+    }
+
+    // Return null if no work hours found or if an error occurs
+    return null;
   }
 }

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../core/presentation/utils/riverpod_framework.dart';
 import '../../../../utils.dart';
+import '../../../settings/domain/work_hours.dart';
 import '../../../settings/infrastructure/dtos/work_hours_dto.dart';
 import '../../domain/profile_details.dart';
 import '../data_sources/profile_remote_data_source.dart';
@@ -42,15 +43,27 @@ class ProfileRepo {
     // Create a DTO to send to the remote data source
     final workHoursDto = WorkHoursDto(
       selectedDays: selectedDays,
-      startTimes: startTimes.map((key, value) =>
-          MapEntry(key, value != null ? formatTimeOfDay(value) : null)),
-      endTimes: endTimes.map((key, value) =>
-          MapEntry(key, value != null ? formatTimeOfDay(value) : null)),
+      startTimes: startTimes.map(
+        (key, value) =>
+            MapEntry(key, value != null ? formatTimeOfDay(value) : null),
+      ),
+      endTimes: endTimes.map(
+        (key, value) =>
+            MapEntry(key, value != null ? formatTimeOfDay(value) : null),
+      ),
       timeZone: timeZone,
     );
 
     // Call remote data source to update the work hours
     await remoteDataSource.updateWorkHours(workHoursDto);
+  }
+
+  Future<WorkHours?> getWorkHours() async {
+    final workHoursDto = await remoteDataSource.getWorkHours();
+    if (workHoursDto != null) {
+      return WorkHours.fromDto(workHoursDto);
+    }
+    return null; // Return null if workHoursDto is null
   }
 
   Future<void> updateProfileData(ProfileDetails params) async {
