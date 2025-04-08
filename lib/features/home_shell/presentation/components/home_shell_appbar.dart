@@ -10,6 +10,7 @@ import '../../../../core/presentation/widgets/custom_appbar.dart';
 import '../../../../generated/assets.dart';
 import '../../../../generated/l10n.dart';
 import '../../../settings/presentation/providers/update_work_hours_provider.dart';
+import '../../../settings/presentation/providers/update_work_zone_provider.dart';
 
 class HomeShellAppBar extends ConsumerWidget {
   const HomeShellAppBar({super.key});
@@ -78,8 +79,13 @@ class HomeShellAppBar extends ConsumerWidget {
         ),
       );
     } else if (location == const WorkingZoneRoute().location) {
+      final hasWorkZone = ref.watch(hasWorkZoneProvider);
+
+      final showBackButton =
+          hasWorkZone is AsyncData && hasWorkZone.value!; // true only if set
+
       return CustomAppBar(
-        hasBackButton: true,
+        hasBackButton: showBackButton,
         centerTitle: true,
         title: AppBarWithIconComponent(
           icon: Icons.map,

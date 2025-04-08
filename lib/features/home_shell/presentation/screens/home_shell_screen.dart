@@ -12,6 +12,7 @@ import '../../../../core/presentation/utils/riverpod_framework.dart';
 import '../../../../core/presentation/widgets/platform_widgets/platform_appbar.dart';
 import '../../../../core/presentation/widgets/toasts.dart';
 import '../../../settings/presentation/providers/update_work_hours_provider.dart';
+import '../../../settings/presentation/providers/update_work_zone_provider.dart';
 import '../components/home_shell_appbar.dart';
 import '../components/home_shell_bottom_nav_bar.dart';
 import '../utils/tab_item.dart';
@@ -56,11 +57,15 @@ class HomeShellScreen extends HookConsumerWidget {
 
     final location = GoRouterState.of(context).routeLocation;
     final hasWorkHours = ref.watch(hasWorkHoursProvider);
+    final hasWorkZone = ref.watch(hasWorkZoneProvider);
 
     final shouldHideBottomNavBar =
-        location == const WorkingHoursRoute().location &&
-            hasWorkHours is AsyncData &&
-            hasWorkHours.value == false;
+        (location == const WorkingHoursRoute().location &&
+                hasWorkHours is AsyncData &&
+                hasWorkHours.value == false) ||
+            (location == const WorkingZoneRoute().location &&
+                hasWorkZone is AsyncData &&
+                hasWorkZone.value == false);
 
     void onSelectTab(TabItem tab) {
       navigationShell.goBranch(tab.index);
