@@ -53,22 +53,39 @@ class WorkingHoursSettingsScreenCompactState
 
     if (workHours != null) {
       setState(() {
-        // Populate the fields with the fetched work hours
         _selectedDays.addAll(workHours.selectedDays);
         _startTimes.addAll(workHours.startTimes);
         _endTimes.addAll(workHours.endTimes);
+      });
+    } else {
+      // No data found, set default working hours: Mon-Fri, 9 AM to 5 PM
+      const defaultStart = TimeOfDay(hour: 9, minute: 0);
+      const defaultEnd = TimeOfDay(hour: 17, minute: 0);
+      setState(() {
+        for (final day in ['Mon', 'Tue', 'Wed', 'Thu', 'Fri']) {
+          _selectedDays[day] = true;
+          _startTimes[day] = defaultStart;
+          _endTimes[day] = defaultEnd;
+        }
       });
     }
   }
 
   Future<void> _selectTime(
-    BuildContext context,
-    String day,
-    bool isStartTime,
-  ) async {
-    final initialTime = TimeOfDay.now();
-    final picked =
-        await showTimePicker(context: context, initialTime: initialTime);
+      BuildContext context,
+      String day,
+      bool isStartTime,
+      ) async {
+    // Use the already selected time if available, otherwise default to current time
+    final initialTime = isStartTime
+        ? (_startTimes[day] ?? TimeOfDay.now())
+        : (_endTimes[day] ?? TimeOfDay.now());
+
+    final picked = await showTimePicker(
+      context: context,
+      initialTime: initialTime,
+    );
+
     if (picked != null) {
       setState(() {
         if (isStartTime) {
@@ -85,80 +102,102 @@ class WorkingHoursSettingsScreenCompactState
     ref.easyListen(updateWorkHoursStateProvider);
 
     return NestedScreenScaffold(
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(
-            vertical: Sizes.screenPaddingV20,
-            horizontal: Sizes.screenPaddingH36,
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(S.of(context).working_hours, style: TextStyles.f18(context)),
-              const SizedBox(height: Sizes.marginV20),
-              Text('Timezone: $_currentTimeZone'),
-              const SizedBox(height: Sizes.marginV20),
-              ..._selectedDays.keys.map((day) {
-                final start = _startTimes[day];
-                final end = _endTimes[day];
-                return Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+      body: LayoutBuilder(
+        builder: (context, constraints) {
+          return SingleChildScrollView(
+            child: ConstrainedBox(
+              constraints: BoxConstraints(minHeight: constraints.maxHeight),
+              child: Padding(
+                padding: const EdgeInsets.symmetric(
+                  vertical: Sizes.screenPaddingV16,
+                  horizontal: Sizes.screenPaddingH28,
+                ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    CheckboxListTile(
-                      title: Text(day),
-                      value: _selectedDays[day],
-                      onChanged: (value) {
-                        setState(() => _selectedDays[day] = value ?? false);
-                      },
-                    ),
-                    if (_selectedDays[day]!)
-                      Padding(
-                        padding: const EdgeInsets.only(left: 20, bottom: 16),
-                        child: Row(
-                          children: [
-                            TextButton(
-                              onPressed: () => _selectTime(context, day, true),
-                              child: Text(
-                                start != null
-                                    ? 'From: ${start.format(context)}'
-                                    : 'Select Start',
-                              ),
-                            ),
-                            const SizedBox(width: 16),
-                            TextButton(
-                              onPressed: () => _selectTime(context, day, false),
-                              child: Text(
-                                end != null
-                                    ? 'To: ${end.format(context)}'
-                                    : 'Select End',
-                              ),
-                            ),
-                          ],
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          S.of(context).working_hours,
+                          style: TextStyles.f18(context),
                         ),
-                      ),
-                  ],
-                );
-              }),
-              const SizedBox(height: Sizes.marginV20),
-              ElevatedButton(
-                onPressed: () {
-                  // Trigger the work hours update when the button is pressed
-                  final workHoursStateNotifier =
-                      ref.read(updateWorkHoursStateProvider.notifier);
+                        const SizedBox(height: Sizes.marginV12),
+                        Text('Timezone: $_currentTimeZone'),
+                        const SizedBox(height: Sizes.marginV12),
+                        ..._selectedDays.keys.map((day) {
+                          final start = _startTimes[day];
+                          final end = _endTimes[day];
 
-                  // Call updateWorkHours with the selected data
-                  workHoursStateNotifier.updateWorkHours(
-                    selectedDays: _selectedDays,
-                    startTimes: _startTimes,
-                    endTimes: _endTimes,
-                    timeZone: _currentTimeZone,
-                  );
-                },
-                child: const Text('Save Working Hours'),
+                          return Column(
+                            children: [
+                              Row(
+                                children: [
+                                  Checkbox(
+                                    value: _selectedDays[day],
+                                    onChanged: (value) {
+                                      setState(() =>
+                                          _selectedDays[day] = value ?? false,);
+                                    },
+                                  ),
+                                  const SizedBox(width: 8),
+                                  Text(day,
+                                      style: const TextStyle(fontSize: 16),),
+                                  const Spacer(),
+                                  if (_selectedDays[day]!) ...[
+                                    TextButton(
+                                      onPressed: () =>
+                                          _selectTime(context, day, true),
+                                      child: Text(
+                                        start != null
+                                            ? start.format(context)
+                                            : 'Start',
+                                      ),
+                                    ),
+                                    const Text('–'),
+                                    TextButton(
+                                      onPressed: () =>
+                                          _selectTime(context, day, false),
+                                      child: Text(
+                                        end != null
+                                            ? end.format(context)
+                                            : 'End',
+                                      ),
+                                    ),
+                                  ],
+                                ],
+                              ),
+                              if (_selectedDays[day]!)
+                                const Divider(height: 1, thickness: 1),
+                              // Only show divider if day is selected
+                            ],
+                          );
+                        }),
+                      ],
+                    ),
+                    const SizedBox(height: Sizes.marginV20),
+                    Center(
+                      child: ElevatedButton(
+                        onPressed: () {
+                          final workHoursStateNotifier =
+                              ref.read(updateWorkHoursStateProvider.notifier);
+                          workHoursStateNotifier.updateWorkHours(
+                            selectedDays: _selectedDays,
+                            startTimes: _startTimes,
+                            endTimes: _endTimes,
+                            timeZone: _currentTimeZone,
+                          );
+                        },
+                        child: const Text('Save Working Hours'),
+                      ),
+                    ),
+                    const SizedBox(height: Sizes.marginH4),
+                  ],
+                ),
               ),
-            ],
-          ),
-        ),
+            ),
+          );
+        },
       ),
     );
   }
