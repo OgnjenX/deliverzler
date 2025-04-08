@@ -47,6 +47,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "cancelTheOrder": MessageLookupByLibrary.simpleMessage("Cancel the order?"),
     "chooseOption": MessageLookupByLibrary.simpleMessage("Choose Option"),
     "confirm": MessageLookupByLibrary.simpleMessage("Confirm"),
+    "confirm_location": MessageLookupByLibrary.simpleMessage(
+      "Confirm Location",
+    ),
     "conflictError": MessageLookupByLibrary.simpleMessage(
       "The request could not be processed because of conflict in the request. Please try again later.",
     ),
@@ -149,6 +152,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "password": MessageLookupByLibrary.simpleMessage("Password"),
     "payment": MessageLookupByLibrary.simpleMessage("Payment"),
     "phone": MessageLookupByLibrary.simpleMessage("Phone"),
+    "pick_location": MessageLookupByLibrary.simpleMessage("Pick a Location"),
     "pleaseCheckYourDeviceNetwork": MessageLookupByLibrary.simpleMessage(
       "Please check your device\"s network connection.",
     ),
@@ -170,6 +174,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "please_enable_location_service": MessageLookupByLibrary.simpleMessage(
       "Please enable location services, and try again",
+    ),
+    "please_select_location_by_tapping": MessageLookupByLibrary.simpleMessage(
+      "Please select a location by tapping the map.",
     ),
     "please_set_work_hours": MessageLookupByLibrary.simpleMessage(
       "Please set your work hours.",
@@ -239,6 +246,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Work Hours Settings",
     ),
     "working_hours": MessageLookupByLibrary.simpleMessage("Working hours"),
+    "working_zone": MessageLookupByLibrary.simpleMessage("Working Zone"),
     "youAreBackOnline": MessageLookupByLibrary.simpleMessage(
       "Your are back online.",
     ),

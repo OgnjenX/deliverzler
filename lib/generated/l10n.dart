@@ -999,6 +999,46 @@ class S {
       args: [],
     );
   }
+
+  /// `Working Zone`
+  String get working_zone {
+    return Intl.message(
+      'Working Zone',
+      name: 'working_zone',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please select a location by tapping the map.`
+  String get please_select_location_by_tapping {
+    return Intl.message(
+      'Please select a location by tapping the map.',
+      name: 'please_select_location_by_tapping',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Pick a Location`
+  String get pick_location {
+    return Intl.message(
+      'Pick a Location',
+      name: 'pick_location',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Confirm Location`
+  String get confirm_location {
+    return Intl.message(
+      'Confirm Location',
+      name: 'confirm_location',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

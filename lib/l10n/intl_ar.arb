@@ -118,5 +118,9 @@
   "work_hours_settings": "إعدادات ساعات العمل",
   "please_set_work_hours": "يرجى تحديد ساعات العمل الخاصة بك.",
   "set_work_hours": "تحديد ساعات العمل",
-  "work_hours_set": "تم تعيين ساعات العمل بنجاح."
+  "work_hours_set": "تم تعيين ساعات العمل بنجاح.",
+  "working_zone": "منطقة العمل",
+  "please_select_location_by_tapping": "الرجاء اختيار موقع عن طريق النقر على الخريطة.",
+  "pick_location": "اختر موقعًا",
+  "confirm_location": "تأكيد الموقع"
 }

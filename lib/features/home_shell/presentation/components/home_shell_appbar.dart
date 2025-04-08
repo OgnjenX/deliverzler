@@ -77,6 +77,15 @@ class HomeShellAppBar extends ConsumerWidget {
           title: S.of(context).working_hours,
         ),
       );
+    } else if (location == const WorkingZoneRoute().location) {
+      return CustomAppBar(
+        hasBackButton: true,
+        centerTitle: true,
+        title: AppBarWithIconComponent(
+          icon: Icons.map,
+          title: S.of(context).working_zone,
+        ),
+      );
     }
 
     return const CustomAppBar();

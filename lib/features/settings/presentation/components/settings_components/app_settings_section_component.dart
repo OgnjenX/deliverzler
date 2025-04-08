@@ -56,6 +56,11 @@ class AppSettingsSectionComponent extends ConsumerWidget {
           leadingIcon: Icons.access_time,
           onTap: () => const WorkingHoursRoute().go(context),
         ),
+        CustomTileComponent(
+          title: S.of(context).working_zone,
+          leadingIcon: Icons.map,
+          onTap: () => const WorkingZoneRoute().go(context),
+        ),
       ],
     );
   }

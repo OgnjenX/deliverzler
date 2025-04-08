@@ -49,6 +49,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "اختر طريقة التقاط الصورة",
     ),
     "confirm": MessageLookupByLibrary.simpleMessage("تأكيد"),
+    "confirm_location": MessageLookupByLibrary.simpleMessage("تأكيد الموقع"),
     "conflictError": MessageLookupByLibrary.simpleMessage(
       "لقد حدث تضارب في معالجة الطلب. يرجى إعادة المحاولة لاحقاً.",
     ),
@@ -143,6 +144,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "password": MessageLookupByLibrary.simpleMessage("الرقم السري"),
     "payment": MessageLookupByLibrary.simpleMessage("الدفع"),
     "phone": MessageLookupByLibrary.simpleMessage("رقم الهاتف"),
+    "pick_location": MessageLookupByLibrary.simpleMessage("اختر موقعًا"),
     "pleaseCheckYourDeviceNetwork": MessageLookupByLibrary.simpleMessage(
       "الرجاء إصلاح اتصالك بالانترنت.",
     ),
@@ -166,6 +168,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "please_enable_location_service": MessageLookupByLibrary.simpleMessage(
       "الرجاء تمكين خدمة الموقع ، وحاول مرة أخرى...",
+    ),
+    "please_select_location_by_tapping": MessageLookupByLibrary.simpleMessage(
+      "الرجاء اختيار موقع عن طريق النقر على الخريطة.",
     ),
     "please_set_work_hours": MessageLookupByLibrary.simpleMessage(
       "يرجى تحديد ساعات العمل الخاصة بك.",
@@ -229,6 +234,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "إعدادات ساعات العمل",
     ),
     "working_hours": MessageLookupByLibrary.simpleMessage("ساعات العمل"),
+    "working_zone": MessageLookupByLibrary.simpleMessage("منطقة العمل"),
     "youAreBackOnline": MessageLookupByLibrary.simpleMessage(
       "تمت استعادة الاتصال بالإنترنت.",
     ),

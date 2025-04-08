@@ -7,6 +7,7 @@ import '../../../../core/infrastructure/network/main_api/api_callers/firebase_fi
 import '../../../../core/infrastructure/network/main_api/api_callers/firebase_firestore_facade.dart';
 import '../../../../core/presentation/utils/riverpod_framework.dart';
 import '../../../settings/infrastructure/dtos/work_hours_dto.dart';
+import '../../../settings/infrastructure/dtos/work_zone_dto.dart';
 import '../dtos/profile_details_dto.dart';
 
 part 'profile_remote_data_source.g.dart';
@@ -100,6 +101,35 @@ class ProfileRemoteDataSource {
     }
 
     // Return null if no work hours found or if an error occurs
+    return null;
+  }
+
+  Future<void> updateWorkZone(WorkZoneDto workZoneDto) async {
+    final uid = ref.read(currentUserProvider).id;
+
+    return firebaseFirestore.setData(
+      path: userDocPath(uid),
+      data: {'work_zone': workZoneDto.toJson()},
+      merge: true,
+    );
+  }
+
+  Future<WorkZoneDto?> getWorkZone() async {
+    final uid = ref.read(currentUserProvider).id;
+
+    try {
+      final doc = await firebaseFirestore.getData(path: userDocPath(uid));
+
+      if (doc['work_zone'] != null) {
+        final workZoneMap = doc['work_zone'] as Map<String, dynamic>;
+        return WorkZoneDto.fromJson(workZoneMap);
+      }
+    } catch (e) {
+      if (kDebugMode) {
+        print('Error fetching work zone: $e');
+      }
+    }
+
     return null;
   }
 }

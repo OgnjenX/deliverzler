@@ -123,6 +123,10 @@ RouteBase get $homeShellRouteData => StatefulShellRouteData.$route(
                   path: 'workingHours',
                   factory: $WorkingHoursRouteExtension._fromState,
                 ),
+                GoRouteData.$route(
+                  path: 'workingZone',
+                  factory: $WorkingZoneRouteExtension._fromState,
+                ),
               ],
             ),
           ],
@@ -226,6 +230,24 @@ extension $WorkingHoursRouteExtension on WorkingHoursRoute {
 
   String get location => GoRouteData.$location(
         '/settings/workingHours',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+extension $WorkingZoneRouteExtension on WorkingZoneRoute {
+  static WorkingZoneRoute _fromState(GoRouterState state) =>
+      const WorkingZoneRoute();
+
+  String get location => GoRouteData.$location(
+        '/settings/workingZone',
       );
 
   void go(BuildContext context) => context.go(location);

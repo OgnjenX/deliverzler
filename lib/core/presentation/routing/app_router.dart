@@ -11,6 +11,7 @@ import '../../../features/profile/presentation/screens/profile_screen/profile_sc
 import '../../../features/settings/presentation/screens/language_screen/language_screen.dart';
 import '../../../features/settings/presentation/screens/settings_screen/settings_screen.dart';
 import '../../../features/settings/presentation/screens/working_hours_settings_screen/working_hours_settings_screen.dart';
+import '../../../features/settings/presentation/screens/working_zone_settings_screen/working_zone_settings_screen.dart';
 import '../screens/no_internet_screen/no_internet_screen.dart';
 import '../screens/route_error_screen/route_error_screen.dart';
 import '../screens/splash_screen/splash_screen.dart';

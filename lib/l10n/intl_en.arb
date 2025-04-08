@@ -118,5 +118,9 @@
   "work_hours_settings": "Work Hours Settings",
   "please_set_work_hours": "Please set your work hours.",
   "set_work_hours": "Set Work Hours",
-  "work_hours_set": "Work hours set successfully."
+  "work_hours_set": "Work hours set successfully.",
+  "working_zone": "Working Zone",
+  "please_select_location_by_tapping": "Please select a location by tapping the map.",
+  "pick_location": "Pick a Location",
+  "confirm_location": "Confirm Location"
 }

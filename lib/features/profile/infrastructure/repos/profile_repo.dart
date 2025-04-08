@@ -5,7 +5,9 @@ import 'package:flutter/material.dart';
 import '../../../../core/presentation/utils/riverpod_framework.dart';
 import '../../../../utils.dart';
 import '../../../settings/domain/work_hours.dart';
+import '../../../settings/domain/work_zone.dart';
 import '../../../settings/infrastructure/dtos/work_hours_dto.dart';
+import '../../../settings/infrastructure/dtos/work_zone_dto.dart';
 import '../../domain/profile_details.dart';
 import '../data_sources/profile_remote_data_source.dart';
 import '../dtos/profile_details_dto.dart';
@@ -64,6 +66,19 @@ class ProfileRepo {
       return WorkHours.fromDto(workHoursDto);
     }
     return null; // Return null if workHoursDto is null
+  }
+
+  Future<void> updateWorkZone(WorkZone zone) async {
+    final dto = WorkZoneDto.fromDomain(zone);
+    await remoteDataSource.updateWorkZone(dto);
+  }
+
+  Future<WorkZone?> getWorkZone() async {
+    final dto = await remoteDataSource.getWorkZone();
+    if (dto != null) {
+      return WorkZone.fromDto(dto);
+    }
+    return null;
   }
 
   Future<void> updateProfileData(ProfileDetails params) async {
