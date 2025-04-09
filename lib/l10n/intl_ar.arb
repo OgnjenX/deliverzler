@@ -122,5 +122,14 @@
   "working_zone": "منطقة العمل",
   "please_select_location_by_tapping": "الرجاء اختيار موقع عن طريق النقر على الخريطة.",
   "pick_location": "اختر موقعًا",
-  "confirm_location": "تأكيد الموقع"
+  "confirm_location": "تأكيد الموقع",
+  "operating_region_center": "مركز منطقة التشغيل",
+  "set_location": "تعيين الموقع",
+  "operating_radius_km": "نصف قطر التشغيل (كم)",
+  "please_select_location": "يرجى اختيار موقع",
+  "save_working_zone": "حفظ منطقة العمل",
+  "timezone": "المنطقة الزمنية: {timezone}",
+  "start": "ابدأ",
+  "end": "نهاية",
+  "save_working_hours": "حفظ ساعات العمل"
 }

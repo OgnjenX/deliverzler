@@ -35,6 +35,7 @@ class WorkingHoursSettingsScreenCompactState
   @override
   void initState() {
     super.initState();
+    _currentTimeZone = S.of(context).loading;
     _loadTimeZone();
     _loadWorkHours();
   }
@@ -72,10 +73,10 @@ class WorkingHoursSettingsScreenCompactState
   }
 
   Future<void> _selectTime(
-      BuildContext context,
-      String day,
-      bool isStartTime,
-      ) async {
+    BuildContext context,
+    String day,
+    bool isStartTime,
+  ) async {
     // Use the already selected time if available, otherwise default to current time
     final initialTime = isStartTime
         ? (_startTimes[day] ?? TimeOfDay.now())
@@ -123,7 +124,7 @@ class WorkingHoursSettingsScreenCompactState
                           style: TextStyles.f18(context),
                         ),
                         const SizedBox(height: Sizes.marginV12),
-                        Text('Timezone: $_currentTimeZone'),
+                        Text(S.of(context).timezone(_currentTimeZone)),
                         const SizedBox(height: Sizes.marginV12),
                         ..._selectedDays.keys.map((day) {
                           final start = _startTimes[day];
@@ -136,13 +137,17 @@ class WorkingHoursSettingsScreenCompactState
                                   Checkbox(
                                     value: _selectedDays[day],
                                     onChanged: (value) {
-                                      setState(() =>
-                                          _selectedDays[day] = value ?? false,);
+                                      setState(
+                                        () =>
+                                            _selectedDays[day] = value ?? false,
+                                      );
                                     },
                                   ),
                                   const SizedBox(width: 8),
-                                  Text(day,
-                                      style: const TextStyle(fontSize: 16),),
+                                  Text(
+                                    day,
+                                    style: const TextStyle(fontSize: 16),
+                                  ),
                                   const Spacer(),
                                   if (_selectedDays[day]!) ...[
                                     TextButton(
@@ -151,7 +156,7 @@ class WorkingHoursSettingsScreenCompactState
                                       child: Text(
                                         start != null
                                             ? start.format(context)
-                                            : 'Start',
+                                            : S.of(context).start,
                                       ),
                                     ),
                                     const Text('–'),
@@ -161,7 +166,7 @@ class WorkingHoursSettingsScreenCompactState
                                       child: Text(
                                         end != null
                                             ? end.format(context)
-                                            : 'End',
+                                            : S.of(context).end,
                                       ),
                                     ),
                                   ],
@@ -188,7 +193,7 @@ class WorkingHoursSettingsScreenCompactState
                             timeZone: _currentTimeZone,
                           );
                         },
-                        child: const Text('Save Working Hours'),
+                        child: Text(S.of(context).save_working_hours),
                       ),
                     ),
                     const SizedBox(height: Sizes.marginH4),

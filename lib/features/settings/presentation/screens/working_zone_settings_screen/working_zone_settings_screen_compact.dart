@@ -48,17 +48,17 @@ class _WorkingZoneSettingsScreenCompactState
           children: [
             Text(S.of(context).working_zone, style: TextStyles.f18(context)),
             const SizedBox(height: Sizes.marginV20),
-            const Text('Operating Region Center'),
+            Text(S.of(context).operating_region_center),
             ElevatedButton(
               onPressed: _selectLocation,
               child: Text(
                 _centerLocation != null
                     ? 'Lat: ${_centerLocation!.latitude}, Lng: ${_centerLocation!.longitude}'
-                    : 'Set Location',
+                    : S.of(context).set_location,
               ),
             ),
             const SizedBox(height: Sizes.marginV20),
-            const Text('Operating Radius (km)'),
+            Text(S.of(context).operating_radius_km),
             Slider(
               value: _radiusKm,
               min: 1,
@@ -82,11 +82,11 @@ class _WorkingZoneSettingsScreenCompactState
                       );
                 } else {
                   ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(content: Text('Please select a location')),
+                    SnackBar(content: Text(S.of(context).please_select_location)),
                   );
                 }
               },
-              child: const Text('Save Working Zone'),
+              child: Text(S.of(context).save_working_zone),
             ),
           ],
         ),

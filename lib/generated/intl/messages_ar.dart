@@ -20,6 +20,8 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'ar';
 
+  static String m0(timezone) => "المنطقة الزمنية: ${timezone}";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "appName": MessageLookupByLibrary.simpleMessage("Deliverzler"),
@@ -70,6 +72,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "emailOrPasswordIsInCorrect": MessageLookupByLibrary.simpleMessage(
       "البريد أو الرقم السري غير صحيح، حاول مرة أخرى!",
     ),
+    "end": MessageLookupByLibrary.simpleMessage("نهاية"),
     "english": MessageLookupByLibrary.simpleMessage("الإنجليزية"),
     "enterYourName": MessageLookupByLibrary.simpleMessage("أدخل الاسم الشخصي"),
     "enterYourNumber": MessageLookupByLibrary.simpleMessage("أدخل رقم الهاتف"),
@@ -134,6 +137,12 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "note": MessageLookupByLibrary.simpleMessage("ملاحظة"),
     "oK": MessageLookupByLibrary.simpleMessage("حسناً"),
+    "operating_radius_km": MessageLookupByLibrary.simpleMessage(
+      "نصف قطر التشغيل (كم)",
+    ),
+    "operating_region_center": MessageLookupByLibrary.simpleMessage(
+      "مركز منطقة التشغيل",
+    ),
     "operationCanceledByUser": MessageLookupByLibrary.simpleMessage(
       "تم إلغاء الأمر بواسطة المستخدم",
     ),
@@ -169,6 +178,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "please_enable_location_service": MessageLookupByLibrary.simpleMessage(
       "الرجاء تمكين خدمة الموقع ، وحاول مرة أخرى...",
     ),
+    "please_select_location": MessageLookupByLibrary.simpleMessage(
+      "يرجى اختيار موقع",
+    ),
     "please_select_location_by_tapping": MessageLookupByLibrary.simpleMessage(
       "الرجاء اختيار موقع عن طريق النقر على الخريطة.",
     ),
@@ -183,6 +195,12 @@ class MessageLookup extends MessageLookupByLibrary {
       "سبب إلغاء الطلب",
     ),
     "retry": MessageLookupByLibrary.simpleMessage("إعادة المحاولة"),
+    "save_working_hours": MessageLookupByLibrary.simpleMessage(
+      "حفظ ساعات العمل",
+    ),
+    "save_working_zone": MessageLookupByLibrary.simpleMessage(
+      "حفظ منطقة العمل",
+    ),
     "screenNotFound": MessageLookupByLibrary.simpleMessage(
       "عذرًا! لم يتم العثور على الصفحة!",
     ),
@@ -193,6 +211,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "serviceUnavailableError": MessageLookupByLibrary.simpleMessage(
       "الخادم غير قادر مؤقتاً على معالجة الطلب. يرجى إعادة المحاولة لاحقاً.",
     ),
+    "set_location": MessageLookupByLibrary.simpleMessage("تعيين الموقع"),
     "set_work_hours": MessageLookupByLibrary.simpleMessage("تحديد ساعات العمل"),
     "settings": MessageLookupByLibrary.simpleMessage("الإعدادات"),
     "showMap": MessageLookupByLibrary.simpleMessage("أظهر الخريطة"),
@@ -201,6 +220,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "قم بتسجيل الدخول إلى حسابك",
     ),
     "somethingWentWrong": MessageLookupByLibrary.simpleMessage("لقد حدث خطاً."),
+    "start": MessageLookupByLibrary.simpleMessage("ابدأ"),
     "status": MessageLookupByLibrary.simpleMessage("النوع"),
     "theme": MessageLookupByLibrary.simpleMessage("المظهر"),
     "thereAreNoOrders": MessageLookupByLibrary.simpleMessage(
@@ -213,6 +233,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "timeout_error": MessageLookupByLibrary.simpleMessage(
       "يبدو أن الخادم يستغرق وقتًا طويلاً للاستجابة ، وقد يكون السبب في ذلك إما ضعف الاتصال أو خطأ في خوادمنا. يرجى المحاولة مرة أخرى بعد فترة",
     ),
+    "timezone": m0,
     "tracking_permission_required": MessageLookupByLibrary.simpleMessage(
       "بدون إذن التتبع لا يمكنك توصيل الطلبات",
     ),

@@ -1039,6 +1039,86 @@ class S {
       args: [],
     );
   }
+
+  /// `Operating Region Center`
+  String get operating_region_center {
+    return Intl.message(
+      'Operating Region Center',
+      name: 'operating_region_center',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Set Location`
+  String get set_location {
+    return Intl.message(
+      'Set Location',
+      name: 'set_location',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Operating Radius (km)`
+  String get operating_radius_km {
+    return Intl.message(
+      'Operating Radius (km)',
+      name: 'operating_radius_km',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please select a location`
+  String get please_select_location {
+    return Intl.message(
+      'Please select a location',
+      name: 'please_select_location',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Save Working Zone`
+  String get save_working_zone {
+    return Intl.message(
+      'Save Working Zone',
+      name: 'save_working_zone',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Timezone: {timezone}`
+  String timezone(Object timezone) {
+    return Intl.message(
+      'Timezone: $timezone',
+      name: 'timezone',
+      desc: '',
+      args: [timezone],
+    );
+  }
+
+  /// `Start`
+  String get start {
+    return Intl.message('Start', name: 'start', desc: '', args: []);
+  }
+
+  /// `End`
+  String get end {
+    return Intl.message('End', name: 'end', desc: '', args: []);
+  }
+
+  /// `Save Working Hours`
+  String get save_working_hours {
+    return Intl.message(
+      'Save Working Hours',
+      name: 'save_working_hours',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

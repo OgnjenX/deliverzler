@@ -122,5 +122,14 @@
   "working_zone": "Working Zone",
   "please_select_location_by_tapping": "Please select a location by tapping the map.",
   "pick_location": "Pick a Location",
-  "confirm_location": "Confirm Location"
+  "confirm_location": "Confirm Location",
+  "operating_region_center": "Operating Region Center",
+  "set_location": "Set Location",
+  "operating_radius_km": "Operating Radius (km)",
+  "please_select_location": "Please select a location",
+  "save_working_zone": "Save Working Zone",
+  "timezone": "Timezone: {timezone}",
+  "start": "Start",
+  "end": "End",
+  "save_working_hours": "Save Working Hours"
 }

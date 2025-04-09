@@ -20,6 +20,8 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'en';
 
+  static String m0(timezone) => "Timezone: ${timezone}";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "appName": MessageLookupByLibrary.simpleMessage("Deliverzler"),
@@ -70,6 +72,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "emailOrPasswordIsInCorrect": MessageLookupByLibrary.simpleMessage(
       "Email or password is incorrect. Please try again.",
     ),
+    "end": MessageLookupByLibrary.simpleMessage("End"),
     "english": MessageLookupByLibrary.simpleMessage("English"),
     "enterYourName": MessageLookupByLibrary.simpleMessage("Enter Your Name"),
     "enterYourNumber": MessageLookupByLibrary.simpleMessage(
@@ -140,6 +143,12 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "note": MessageLookupByLibrary.simpleMessage("Note"),
     "oK": MessageLookupByLibrary.simpleMessage("OK"),
+    "operating_radius_km": MessageLookupByLibrary.simpleMessage(
+      "Operating Radius (km)",
+    ),
+    "operating_region_center": MessageLookupByLibrary.simpleMessage(
+      "Operating Region Center",
+    ),
     "operationCanceledByUser": MessageLookupByLibrary.simpleMessage(
       "Operation was canceled by user",
     ),
@@ -175,6 +184,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "please_enable_location_service": MessageLookupByLibrary.simpleMessage(
       "Please enable location services, and try again",
     ),
+    "please_select_location": MessageLookupByLibrary.simpleMessage(
+      "Please select a location",
+    ),
     "please_select_location_by_tapping": MessageLookupByLibrary.simpleMessage(
       "Please select a location by tapping the map.",
     ),
@@ -187,6 +199,12 @@ class MessageLookup extends MessageLookupByLibrary {
       "Reason for canceling the order",
     ),
     "retry": MessageLookupByLibrary.simpleMessage("Retry"),
+    "save_working_hours": MessageLookupByLibrary.simpleMessage(
+      "Save Working Hours",
+    ),
+    "save_working_zone": MessageLookupByLibrary.simpleMessage(
+      "Save Working Zone",
+    ),
     "screenNotFound": MessageLookupByLibrary.simpleMessage(
       "Oops! Screen not found!",
     ),
@@ -199,6 +217,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "serviceUnavailableError": MessageLookupByLibrary.simpleMessage(
       "The server is temporarily unavailable. Please try again later.",
     ),
+    "set_location": MessageLookupByLibrary.simpleMessage("Set Location"),
     "set_work_hours": MessageLookupByLibrary.simpleMessage("Set Work Hours"),
     "settings": MessageLookupByLibrary.simpleMessage("Settings"),
     "showMap": MessageLookupByLibrary.simpleMessage("Show Map"),
@@ -209,6 +228,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "somethingWentWrong": MessageLookupByLibrary.simpleMessage(
       "Something went wrong.",
     ),
+    "start": MessageLookupByLibrary.simpleMessage("Start"),
     "status": MessageLookupByLibrary.simpleMessage("Status"),
     "theme": MessageLookupByLibrary.simpleMessage("Theme"),
     "thereAreNoOrders": MessageLookupByLibrary.simpleMessage(
@@ -223,6 +243,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "timeout_error": MessageLookupByLibrary.simpleMessage(
       "Looks like the server is taking to long to respond, this can be caused by either poor connectivity or an error with our servers. Please try again in a while",
     ),
+    "timezone": m0,
     "tracking_permission_required": MessageLookupByLibrary.simpleMessage(
       "Without tracking permission you can\'t deliver orders",
     ),
