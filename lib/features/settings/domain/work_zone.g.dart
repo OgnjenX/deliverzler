@@ -7,13 +7,12 @@ part of 'work_zone.dart';
 // **************************************************************************
 
 _WorkZone _$WorkZoneFromJson(Map<String, dynamic> json) => _WorkZone(
-      latitude: (json['latitude'] as num).toDouble(),
-      longitude: (json['longitude'] as num).toDouble(),
+      center: const GeoFirePointConverter()
+          .fromJson(json['center'] as Map<String, dynamic>),
       radiusKm: (json['radiusKm'] as num).toDouble(),
     );
 
 Map<String, dynamic> _$WorkZoneToJson(_WorkZone instance) => <String, dynamic>{
-      'latitude': instance.latitude,
-      'longitude': instance.longitude,
+      'center': const GeoFirePointConverter().toJson(instance.center),
       'radiusKm': instance.radiusKm,
     };

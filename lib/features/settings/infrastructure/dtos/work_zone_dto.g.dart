@@ -7,14 +7,12 @@ part of 'work_zone_dto.dart';
 // **************************************************************************
 
 _WorkZoneDto _$WorkZoneDtoFromJson(Map<String, dynamic> json) => _WorkZoneDto(
-      latitude: (json['latitude'] as num).toDouble(),
-      longitude: (json['longitude'] as num).toDouble(),
+      center: json['center'] as Map<String, dynamic>,
       radiusKm: (json['radiusKm'] as num).toDouble(),
     );
 
 Map<String, dynamic> _$WorkZoneDtoToJson(_WorkZoneDto instance) =>
     <String, dynamic>{
-      'latitude': instance.latitude,
-      'longitude': instance.longitude,
+      'center': instance.center,
       'radiusKm': instance.radiusKm,
     };

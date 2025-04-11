@@ -1,4 +1,6 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:geoflutterfire_plus/geoflutterfire_plus.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 import '../../../../../core/presentation/screens/nested_screen_scaffold.dart';
@@ -75,11 +77,13 @@ class _WorkingZoneSettingsScreenCompactState
             ElevatedButton(
               onPressed: () {
                 if (_centerLocation != null) {
+                  final geoPoint = GeoFirePoint(GeoPoint(_centerLocation!.latitude, _centerLocation!.longitude));
+
                   // Save the working zone via provider or API
                   ref.read(updateWorkZoneStateProvider.notifier).updateWorkZone(
-                        center: _centerLocation!,
-                        radiusKm: _radiusKm,
-                      );
+                    center: geoPoint,
+                    radiusKm: _radiusKm,
+                  );
                 } else {
                   ScaffoldMessenger.of(context).showSnackBar(
                     SnackBar(content: Text(S.of(context).please_select_location)),

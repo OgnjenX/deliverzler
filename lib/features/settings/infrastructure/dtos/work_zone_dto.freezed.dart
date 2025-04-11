@@ -15,8 +15,7 @@ T _$identity<T>(T value) => value;
 
 /// @nodoc
 mixin _$WorkZoneDto {
-  double get latitude;
-  double get longitude;
+  Map<String, dynamic> get center; // GeoFirePoint's `.data`
   double get radiusKm;
 
   /// Create a copy of WorkZoneDto
@@ -34,21 +33,19 @@ mixin _$WorkZoneDto {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is WorkZoneDto &&
-            (identical(other.latitude, latitude) ||
-                other.latitude == latitude) &&
-            (identical(other.longitude, longitude) ||
-                other.longitude == longitude) &&
+            const DeepCollectionEquality().equals(other.center, center) &&
             (identical(other.radiusKm, radiusKm) ||
                 other.radiusKm == radiusKm));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, latitude, longitude, radiusKm);
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(center), radiusKm);
 
   @override
   String toString() {
-    return 'WorkZoneDto(latitude: $latitude, longitude: $longitude, radiusKm: $radiusKm)';
+    return 'WorkZoneDto(center: $center, radiusKm: $radiusKm)';
   }
 }
 
@@ -58,7 +55,7 @@ abstract mixin class $WorkZoneDtoCopyWith<$Res> {
           WorkZoneDto value, $Res Function(WorkZoneDto) _then) =
       _$WorkZoneDtoCopyWithImpl;
   @useResult
-  $Res call({double latitude, double longitude, double radiusKm});
+  $Res call({Map<String, dynamic> center, double radiusKm});
 }
 
 /// @nodoc
@@ -73,19 +70,14 @@ class _$WorkZoneDtoCopyWithImpl<$Res> implements $WorkZoneDtoCopyWith<$Res> {
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? latitude = null,
-    Object? longitude = null,
+    Object? center = null,
     Object? radiusKm = null,
   }) {
     return _then(_self.copyWith(
-      latitude: null == latitude
-          ? _self.latitude
-          : latitude // ignore: cast_nullable_to_non_nullable
-              as double,
-      longitude: null == longitude
-          ? _self.longitude
-          : longitude // ignore: cast_nullable_to_non_nullable
-              as double,
+      center: null == center
+          ? _self.center
+          : center // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
       radiusKm: null == radiusKm
           ? _self.radiusKm
           : radiusKm // ignore: cast_nullable_to_non_nullable
@@ -98,16 +90,20 @@ class _$WorkZoneDtoCopyWithImpl<$Res> implements $WorkZoneDtoCopyWith<$Res> {
 @JsonSerializable()
 class _WorkZoneDto implements WorkZoneDto {
   const _WorkZoneDto(
-      {required this.latitude,
-      required this.longitude,
-      required this.radiusKm});
+      {required final Map<String, dynamic> center, required this.radiusKm})
+      : _center = center;
   factory _WorkZoneDto.fromJson(Map<String, dynamic> json) =>
       _$WorkZoneDtoFromJson(json);
 
+  final Map<String, dynamic> _center;
   @override
-  final double latitude;
-  @override
-  final double longitude;
+  Map<String, dynamic> get center {
+    if (_center is EqualUnmodifiableMapView) return _center;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_center);
+  }
+
+// GeoFirePoint's `.data`
   @override
   final double radiusKm;
 
@@ -131,21 +127,19 @@ class _WorkZoneDto implements WorkZoneDto {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _WorkZoneDto &&
-            (identical(other.latitude, latitude) ||
-                other.latitude == latitude) &&
-            (identical(other.longitude, longitude) ||
-                other.longitude == longitude) &&
+            const DeepCollectionEquality().equals(other._center, _center) &&
             (identical(other.radiusKm, radiusKm) ||
                 other.radiusKm == radiusKm));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, latitude, longitude, radiusKm);
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(_center), radiusKm);
 
   @override
   String toString() {
-    return 'WorkZoneDto(latitude: $latitude, longitude: $longitude, radiusKm: $radiusKm)';
+    return 'WorkZoneDto(center: $center, radiusKm: $radiusKm)';
   }
 }
 
@@ -157,7 +151,7 @@ abstract mixin class _$WorkZoneDtoCopyWith<$Res>
       __$WorkZoneDtoCopyWithImpl;
   @override
   @useResult
-  $Res call({double latitude, double longitude, double radiusKm});
+  $Res call({Map<String, dynamic> center, double radiusKm});
 }
 
 /// @nodoc
@@ -172,19 +166,14 @@ class __$WorkZoneDtoCopyWithImpl<$Res> implements _$WorkZoneDtoCopyWith<$Res> {
   @override
   @pragma('vm:prefer-inline')
   $Res call({
-    Object? latitude = null,
-    Object? longitude = null,
+    Object? center = null,
     Object? radiusKm = null,
   }) {
     return _then(_WorkZoneDto(
-      latitude: null == latitude
-          ? _self.latitude
-          : latitude // ignore: cast_nullable_to_non_nullable
-              as double,
-      longitude: null == longitude
-          ? _self.longitude
-          : longitude // ignore: cast_nullable_to_non_nullable
-              as double,
+      center: null == center
+          ? _self._center
+          : center // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
       radiusKm: null == radiusKm
           ? _self.radiusKm
           : radiusKm // ignore: cast_nullable_to_non_nullable

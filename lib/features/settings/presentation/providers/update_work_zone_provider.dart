@@ -1,4 +1,4 @@
-import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:geoflutterfire_plus/geoflutterfire_plus.dart';
 
 import '../../../../core/presentation/utils/fp_framework.dart';
 import '../../../../core/presentation/utils/riverpod_framework.dart';
@@ -13,7 +13,7 @@ class UpdateWorkZoneState extends _$UpdateWorkZoneState {
   FutureOr<Option<void>> build() => const None();
 
   Future<void> updateWorkZone({
-    required LatLng center,
+    required GeoFirePoint center,
     required double radiusKm,
   }) async {
     state = const AsyncLoading();
@@ -21,8 +21,8 @@ class UpdateWorkZoneState extends _$UpdateWorkZoneState {
     state = await AsyncValue.guard(() async {
       final profileRepo = ref.read(profileRepoProvider);
 
-      // ✅ Construct WorkZone from center + radius
-      final workZone = WorkZone.fromLatLng(center: center, radiusKm: radiusKm);
+      // Construct WorkZone from center + radius
+      final workZone = WorkZone(center: center, radiusKm: radiusKm);
 
       await profileRepo.updateWorkZone(workZone);
 

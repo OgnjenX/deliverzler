@@ -9,18 +9,14 @@ part 'work_zone_dto.g.dart';
 @immutable
 abstract class WorkZoneDto with _$WorkZoneDto {
   const factory WorkZoneDto({
-    required double latitude,
-    required double longitude,
+    required Map<String, dynamic> center, // GeoFirePoint's `.data`
     required double radiusKm,
   }) = _WorkZoneDto;
 
-  factory WorkZoneDto.fromDomain(WorkZone zone) {
-    return WorkZoneDto(
-      latitude: zone.latitude,
-      longitude: zone.longitude,
-      radiusKm: zone.radiusKm,
-    );
-  }
+  factory WorkZoneDto.fromDomain(WorkZone zone) => WorkZoneDto(
+        center: zone.center.data,
+        radiusKm: zone.radiusKm,
+      );
 
   factory WorkZoneDto.fromJson(Map<String, dynamic> json) =>
       _$WorkZoneDtoFromJson(json);

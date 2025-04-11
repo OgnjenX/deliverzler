@@ -15,8 +15,8 @@ T _$identity<T>(T value) => value;
 
 /// @nodoc
 mixin _$WorkZone {
-  double get latitude;
-  double get longitude;
+  @GeoFirePointConverter()
+  GeoFirePoint get center;
   double get radiusKm;
 
   /// Create a copy of WorkZone
@@ -34,21 +34,18 @@ mixin _$WorkZone {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is WorkZone &&
-            (identical(other.latitude, latitude) ||
-                other.latitude == latitude) &&
-            (identical(other.longitude, longitude) ||
-                other.longitude == longitude) &&
+            (identical(other.center, center) || other.center == center) &&
             (identical(other.radiusKm, radiusKm) ||
                 other.radiusKm == radiusKm));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, latitude, longitude, radiusKm);
+  int get hashCode => Object.hash(runtimeType, center, radiusKm);
 
   @override
   String toString() {
-    return 'WorkZone(latitude: $latitude, longitude: $longitude, radiusKm: $radiusKm)';
+    return 'WorkZone(center: $center, radiusKm: $radiusKm)';
   }
 }
 
@@ -57,7 +54,7 @@ abstract mixin class $WorkZoneCopyWith<$Res> {
   factory $WorkZoneCopyWith(WorkZone value, $Res Function(WorkZone) _then) =
       _$WorkZoneCopyWithImpl;
   @useResult
-  $Res call({double latitude, double longitude, double radiusKm});
+  $Res call({@GeoFirePointConverter() GeoFirePoint center, double radiusKm});
 }
 
 /// @nodoc
@@ -72,19 +69,14 @@ class _$WorkZoneCopyWithImpl<$Res> implements $WorkZoneCopyWith<$Res> {
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? latitude = null,
-    Object? longitude = null,
+    Object? center = null,
     Object? radiusKm = null,
   }) {
     return _then(_self.copyWith(
-      latitude: null == latitude
-          ? _self.latitude
-          : latitude // ignore: cast_nullable_to_non_nullable
-              as double,
-      longitude: null == longitude
-          ? _self.longitude
-          : longitude // ignore: cast_nullable_to_non_nullable
-              as double,
+      center: null == center
+          ? _self.center
+          : center // ignore: cast_nullable_to_non_nullable
+              as GeoFirePoint,
       radiusKm: null == radiusKm
           ? _self.radiusKm
           : radiusKm // ignore: cast_nullable_to_non_nullable
@@ -97,16 +89,13 @@ class _$WorkZoneCopyWithImpl<$Res> implements $WorkZoneCopyWith<$Res> {
 @JsonSerializable()
 class _WorkZone implements WorkZone {
   const _WorkZone(
-      {required this.latitude,
-      required this.longitude,
-      required this.radiusKm});
+      {@GeoFirePointConverter() required this.center, required this.radiusKm});
   factory _WorkZone.fromJson(Map<String, dynamic> json) =>
       _$WorkZoneFromJson(json);
 
   @override
-  final double latitude;
-  @override
-  final double longitude;
+  @GeoFirePointConverter()
+  final GeoFirePoint center;
   @override
   final double radiusKm;
 
@@ -130,21 +119,18 @@ class _WorkZone implements WorkZone {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _WorkZone &&
-            (identical(other.latitude, latitude) ||
-                other.latitude == latitude) &&
-            (identical(other.longitude, longitude) ||
-                other.longitude == longitude) &&
+            (identical(other.center, center) || other.center == center) &&
             (identical(other.radiusKm, radiusKm) ||
                 other.radiusKm == radiusKm));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, latitude, longitude, radiusKm);
+  int get hashCode => Object.hash(runtimeType, center, radiusKm);
 
   @override
   String toString() {
-    return 'WorkZone(latitude: $latitude, longitude: $longitude, radiusKm: $radiusKm)';
+    return 'WorkZone(center: $center, radiusKm: $radiusKm)';
   }
 }
 
@@ -155,7 +141,7 @@ abstract mixin class _$WorkZoneCopyWith<$Res>
       __$WorkZoneCopyWithImpl;
   @override
   @useResult
-  $Res call({double latitude, double longitude, double radiusKm});
+  $Res call({@GeoFirePointConverter() GeoFirePoint center, double radiusKm});
 }
 
 /// @nodoc
@@ -170,19 +156,14 @@ class __$WorkZoneCopyWithImpl<$Res> implements _$WorkZoneCopyWith<$Res> {
   @override
   @pragma('vm:prefer-inline')
   $Res call({
-    Object? latitude = null,
-    Object? longitude = null,
+    Object? center = null,
     Object? radiusKm = null,
   }) {
     return _then(_WorkZone(
-      latitude: null == latitude
-          ? _self.latitude
-          : latitude // ignore: cast_nullable_to_non_nullable
-              as double,
-      longitude: null == longitude
-          ? _self.longitude
-          : longitude // ignore: cast_nullable_to_non_nullable
-              as double,
+      center: null == center
+          ? _self.center
+          : center // ignore: cast_nullable_to_non_nullable
+              as GeoFirePoint,
       radiusKm: null == radiusKm
           ? _self.radiusKm
           : radiusKm // ignore: cast_nullable_to_non_nullable
