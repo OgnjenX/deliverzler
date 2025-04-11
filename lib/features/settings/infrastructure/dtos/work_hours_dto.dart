@@ -10,23 +10,28 @@ part 'work_hours_dto.g.dart'; // Add this part for json_serializable
 @immutable
 abstract class WorkHoursDto with _$WorkHoursDto {
   const factory WorkHoursDto({
-    required Map<String, bool> selectedDays,
-    required Map<String, String?> startTimes, // Start times as "HH:mm"
-    required Map<String, String?> endTimes, // End times as "HH:mm"
+    required Map<String, Map<String, String>?>
+        days, // Map of day name to schedule with start/end times
     required String timeZone,
   }) = _WorkHoursDto;
 
   factory WorkHoursDto.fromDomain(WorkHours details) {
+    final days = <String, Map<String, String>?>{};
+
+    // Convert each day's schedule to the DTO format
+    for (final day in details.days.keys) {
+      final daySchedule = details.days[day];
+      if (daySchedule != null) {
+        days[day] = {
+          'start': formatTimeOfDay(daySchedule.start),
+          'end': formatTimeOfDay(daySchedule.end),
+        };
+      }
+      // If daySchedule is null, we simply don't add this day to the map
+    }
+
     return WorkHoursDto(
-      selectedDays: details.selectedDays,
-      startTimes: details.startTimes.map(
-        (key, value) =>
-            MapEntry(key, value != null ? formatTimeOfDay(value) : null),
-      ),
-      endTimes: details.endTimes.map(
-        (key, value) =>
-            MapEntry(key, value != null ? formatTimeOfDay(value) : null),
-      ),
+      days: days,
       timeZone: details.timeZone,
     );
   }

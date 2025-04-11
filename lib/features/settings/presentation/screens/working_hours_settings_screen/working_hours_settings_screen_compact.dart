@@ -35,9 +35,15 @@ class WorkingHoursSettingsScreenCompactState
   @override
   void initState() {
     super.initState();
-    _currentTimeZone = S.of(context).loading;
     _loadTimeZone();
     _loadWorkHours();
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    // Set localized loading text after dependencies are available
+    _currentTimeZone = S.of(context).loading;
   }
 
   Future<void> _loadTimeZone() async {

@@ -3,7 +3,6 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 
 import '../../../../core/presentation/utils/riverpod_framework.dart';
-import '../../../../utils.dart';
 import '../../../settings/domain/work_hours.dart';
 import '../../../settings/domain/work_zone.dart';
 import '../../../settings/infrastructure/dtos/work_hours_dto.dart';
@@ -42,19 +41,27 @@ class ProfileRepo {
     Map<String, TimeOfDay?> endTimes,
     String timeZone,
   ) async {
+    // Convert the separate maps to our new compact format
+    final days = <String, DaySchedule?>{};
+
+    // Process each day
+    for (final day in selectedDays.keys) {
+      final isSelected = selectedDays[day] ?? false;
+      final startTime = startTimes[day];
+      final endTime = endTimes[day];
+
+      // Only include days that are selected and have both start and end times
+      if (isSelected && startTime != null && endTime != null) {
+        days[day] = DaySchedule(start: startTime, end: endTime);
+      }
+      // If not selected or missing times, we simply don't add this day
+    }
+
+    // Create a WorkHours object
+    final workHours = WorkHours(days: days, timeZone: timeZone);
+
     // Create a DTO to send to the remote data source
-    final workHoursDto = WorkHoursDto(
-      selectedDays: selectedDays,
-      startTimes: startTimes.map(
-        (key, value) =>
-            MapEntry(key, value != null ? formatTimeOfDay(value) : null),
-      ),
-      endTimes: endTimes.map(
-        (key, value) =>
-            MapEntry(key, value != null ? formatTimeOfDay(value) : null),
-      ),
-      timeZone: timeZone,
-    );
+    final workHoursDto = WorkHoursDto.fromDomain(workHours);
 
     // Call remote data source to update the work hours
     await remoteDataSource.updateWorkHours(workHoursDto);

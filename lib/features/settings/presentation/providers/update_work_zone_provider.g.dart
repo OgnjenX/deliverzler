@@ -23,7 +23,7 @@ final hasWorkZoneProvider = AutoDisposeFutureProvider<bool>.internal(
 // ignore: unused_element
 typedef HasWorkZoneRef = AutoDisposeFutureProviderRef<bool>;
 String _$updateWorkZoneStateHash() =>
-    r'9e8135edbf257c60a5b30af350d367b230341b62';
+    r'76390fa5ee2751626894b4fea5050fc8c7919a8b';
 
 /// See also [UpdateWorkZoneState].
 @ProviderFor(UpdateWorkZoneState)

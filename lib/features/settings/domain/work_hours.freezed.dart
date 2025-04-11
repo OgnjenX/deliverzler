@@ -15,9 +15,7 @@ T _$identity<T>(T value) => value;
 
 /// @nodoc
 mixin _$WorkHours {
-  Map<String, bool> get selectedDays; // Days of the week (Mon-Sun)
-  Map<String, TimeOfDay?> get startTimes; // Start time for each day
-  Map<String, TimeOfDay?> get endTimes; // End time for each day
+  Map<String, DaySchedule?> get days; // Map of day name to schedule
   String get timeZone;
 
   /// Create a copy of WorkHours
@@ -32,26 +30,18 @@ mixin _$WorkHours {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is WorkHours &&
-            const DeepCollectionEquality()
-                .equals(other.selectedDays, selectedDays) &&
-            const DeepCollectionEquality()
-                .equals(other.startTimes, startTimes) &&
-            const DeepCollectionEquality().equals(other.endTimes, endTimes) &&
+            const DeepCollectionEquality().equals(other.days, days) &&
             (identical(other.timeZone, timeZone) ||
                 other.timeZone == timeZone));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(selectedDays),
-      const DeepCollectionEquality().hash(startTimes),
-      const DeepCollectionEquality().hash(endTimes),
-      timeZone);
+      runtimeType, const DeepCollectionEquality().hash(days), timeZone);
 
   @override
   String toString() {
-    return 'WorkHours(selectedDays: $selectedDays, startTimes: $startTimes, endTimes: $endTimes, timeZone: $timeZone)';
+    return 'WorkHours(days: $days, timeZone: $timeZone)';
   }
 }
 
@@ -60,11 +50,7 @@ abstract mixin class $WorkHoursCopyWith<$Res> {
   factory $WorkHoursCopyWith(WorkHours value, $Res Function(WorkHours) _then) =
       _$WorkHoursCopyWithImpl;
   @useResult
-  $Res call(
-      {Map<String, bool> selectedDays,
-      Map<String, TimeOfDay?> startTimes,
-      Map<String, TimeOfDay?> endTimes,
-      String timeZone});
+  $Res call({Map<String, DaySchedule?> days, String timeZone});
 }
 
 /// @nodoc
@@ -79,24 +65,14 @@ class _$WorkHoursCopyWithImpl<$Res> implements $WorkHoursCopyWith<$Res> {
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? selectedDays = null,
-    Object? startTimes = null,
-    Object? endTimes = null,
+    Object? days = null,
     Object? timeZone = null,
   }) {
     return _then(_self.copyWith(
-      selectedDays: null == selectedDays
-          ? _self.selectedDays
-          : selectedDays // ignore: cast_nullable_to_non_nullable
-              as Map<String, bool>,
-      startTimes: null == startTimes
-          ? _self.startTimes
-          : startTimes // ignore: cast_nullable_to_non_nullable
-              as Map<String, TimeOfDay?>,
-      endTimes: null == endTimes
-          ? _self.endTimes
-          : endTimes // ignore: cast_nullable_to_non_nullable
-              as Map<String, TimeOfDay?>,
+      days: null == days
+          ? _self.days
+          : days // ignore: cast_nullable_to_non_nullable
+              as Map<String, DaySchedule?>,
       timeZone: null == timeZone
           ? _self.timeZone
           : timeZone // ignore: cast_nullable_to_non_nullable
@@ -107,45 +83,21 @@ class _$WorkHoursCopyWithImpl<$Res> implements $WorkHoursCopyWith<$Res> {
 
 /// @nodoc
 
-class _WorkHours implements WorkHours {
+class _WorkHours extends WorkHours {
   const _WorkHours(
-      {required final Map<String, bool> selectedDays,
-      required final Map<String, TimeOfDay?> startTimes,
-      required final Map<String, TimeOfDay?> endTimes,
-      required this.timeZone})
-      : _selectedDays = selectedDays,
-        _startTimes = startTimes,
-        _endTimes = endTimes;
+      {required final Map<String, DaySchedule?> days, required this.timeZone})
+      : _days = days,
+        super._();
 
-  final Map<String, bool> _selectedDays;
+  final Map<String, DaySchedule?> _days;
   @override
-  Map<String, bool> get selectedDays {
-    if (_selectedDays is EqualUnmodifiableMapView) return _selectedDays;
+  Map<String, DaySchedule?> get days {
+    if (_days is EqualUnmodifiableMapView) return _days;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_selectedDays);
+    return EqualUnmodifiableMapView(_days);
   }
 
-// Days of the week (Mon-Sun)
-  final Map<String, TimeOfDay?> _startTimes;
-// Days of the week (Mon-Sun)
-  @override
-  Map<String, TimeOfDay?> get startTimes {
-    if (_startTimes is EqualUnmodifiableMapView) return _startTimes;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_startTimes);
-  }
-
-// Start time for each day
-  final Map<String, TimeOfDay?> _endTimes;
-// Start time for each day
-  @override
-  Map<String, TimeOfDay?> get endTimes {
-    if (_endTimes is EqualUnmodifiableMapView) return _endTimes;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_endTimes);
-  }
-
-// End time for each day
+// Map of day name to schedule
   @override
   final String timeZone;
 
@@ -162,26 +114,18 @@ class _WorkHours implements WorkHours {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _WorkHours &&
-            const DeepCollectionEquality()
-                .equals(other._selectedDays, _selectedDays) &&
-            const DeepCollectionEquality()
-                .equals(other._startTimes, _startTimes) &&
-            const DeepCollectionEquality().equals(other._endTimes, _endTimes) &&
+            const DeepCollectionEquality().equals(other._days, _days) &&
             (identical(other.timeZone, timeZone) ||
                 other.timeZone == timeZone));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(_selectedDays),
-      const DeepCollectionEquality().hash(_startTimes),
-      const DeepCollectionEquality().hash(_endTimes),
-      timeZone);
+      runtimeType, const DeepCollectionEquality().hash(_days), timeZone);
 
   @override
   String toString() {
-    return 'WorkHours(selectedDays: $selectedDays, startTimes: $startTimes, endTimes: $endTimes, timeZone: $timeZone)';
+    return 'WorkHours(days: $days, timeZone: $timeZone)';
   }
 }
 
@@ -193,11 +137,7 @@ abstract mixin class _$WorkHoursCopyWith<$Res>
       __$WorkHoursCopyWithImpl;
   @override
   @useResult
-  $Res call(
-      {Map<String, bool> selectedDays,
-      Map<String, TimeOfDay?> startTimes,
-      Map<String, TimeOfDay?> endTimes,
-      String timeZone});
+  $Res call({Map<String, DaySchedule?> days, String timeZone});
 }
 
 /// @nodoc
@@ -212,24 +152,14 @@ class __$WorkHoursCopyWithImpl<$Res> implements _$WorkHoursCopyWith<$Res> {
   @override
   @pragma('vm:prefer-inline')
   $Res call({
-    Object? selectedDays = null,
-    Object? startTimes = null,
-    Object? endTimes = null,
+    Object? days = null,
     Object? timeZone = null,
   }) {
     return _then(_WorkHours(
-      selectedDays: null == selectedDays
-          ? _self._selectedDays
-          : selectedDays // ignore: cast_nullable_to_non_nullable
-              as Map<String, bool>,
-      startTimes: null == startTimes
-          ? _self._startTimes
-          : startTimes // ignore: cast_nullable_to_non_nullable
-              as Map<String, TimeOfDay?>,
-      endTimes: null == endTimes
-          ? _self._endTimes
-          : endTimes // ignore: cast_nullable_to_non_nullable
-              as Map<String, TimeOfDay?>,
+      days: null == days
+          ? _self._days
+          : days // ignore: cast_nullable_to_non_nullable
+              as Map<String, DaySchedule?>,
       timeZone: null == timeZone
           ? _self.timeZone
           : timeZone // ignore: cast_nullable_to_non_nullable

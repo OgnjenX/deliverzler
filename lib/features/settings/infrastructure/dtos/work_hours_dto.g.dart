@@ -8,16 +8,18 @@ part of 'work_hours_dto.dart';
 
 _WorkHoursDto _$WorkHoursDtoFromJson(Map<String, dynamic> json) =>
     _WorkHoursDto(
-      selectedDays: Map<String, bool>.from(json['selectedDays'] as Map),
-      startTimes: Map<String, String?>.from(json['startTimes'] as Map),
-      endTimes: Map<String, String?>.from(json['endTimes'] as Map),
+      days: (json['days'] as Map<String, dynamic>).map(
+        (k, e) => MapEntry(
+            k,
+            (e as Map<String, dynamic>?)?.map(
+              (k, e) => MapEntry(k, e as String),
+            )),
+      ),
       timeZone: json['timeZone'] as String,
     );
 
 Map<String, dynamic> _$WorkHoursDtoToJson(_WorkHoursDto instance) =>
     <String, dynamic>{
-      'selectedDays': instance.selectedDays,
-      'startTimes': instance.startTimes,
-      'endTimes': instance.endTimes,
+      'days': instance.days,
       'timeZone': instance.timeZone,
     };
