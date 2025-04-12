@@ -7,7 +7,7 @@ part of 'deliverer_availability_provider.dart';
 // **************************************************************************
 
 String _$delivererAvailabilityNotifierHash() =>
-    r'909e007ed2861b772efc12a6fcc4cbbe116da508';
+    r'a5b33575f5c027b87d80fa919d2bd8ad4c6f8c56';
 
 /// See also [DelivererAvailabilityNotifier].
 @ProviderFor(DelivererAvailabilityNotifier)

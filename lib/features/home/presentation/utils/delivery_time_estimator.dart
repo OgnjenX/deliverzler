@@ -111,7 +111,7 @@ class DeliveryTimeEstimator {
 
       if (kDebugMode) {
         print(
-            'Delivery started. Estimated completion: $estimatedCompletionTime');
+            'Delivery started. Estimated completion: $estimatedCompletionTime',);
       }
     } catch (e) {
       if (kDebugMode) {

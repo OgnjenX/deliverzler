@@ -3,11 +3,12 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 import '../../../../core/infrastructure/services/location_service.dart';
 import '../../../../core/presentation/utils/riverpod_framework.dart';
+import '../../../profile/presentation/providers/deliverer_availability_provider.dart';
 import '../../domain/order.dart';
 import '../../domain/update_delivery_status.dart';
 import '../../domain/value_objects.dart';
 import '../../infrastructure/repos/orders_repo.dart';
-import '../utils/delivery_time_estimator.dart';
+import '../utils/delivery_progress_tracker.dart';
 
 part 'order_delivery_provider.g.dart';
 
@@ -30,7 +31,8 @@ class OrderDeliveryNotifier extends _$OrderDeliveryNotifier {
 
       if (currentLocation == null) {
         throw Exception(
-            'Current location not available. Please enable location services and try again.');
+          'Current location not available. Please enable location services and try again.',
+        );
       }
 
       // Get delivery location from the order
@@ -40,9 +42,6 @@ class OrderDeliveryNotifier extends _$OrderDeliveryNotifier {
         throw Exception('Delivery location not available');
       }
 
-      // Create delivery time estimator
-      final estimator = DeliveryTimeEstimator(ref);
-
       // Update order status to onTheWay
       await ref.read(ordersRepoProvider).updateDeliveryStatus(
             UpdateDeliveryStatus(
@@ -51,11 +50,12 @@ class OrderDeliveryNotifier extends _$OrderDeliveryNotifier {
             ),
           );
 
-      // Start delivery and update deliverer status
-      await estimator.startDelivery(
-        currentLocation: currentLocation,
-        deliveryLocation: deliveryLocation,
-      );
+      // Start tracking delivery progress for continuous ETA updates
+      // This will also calculate the initial ETA and update the deliverer status
+      await ref.read(deliveryProgressTrackerProvider).startTracking(
+            order,
+            currentLocation,
+          );
 
       state = const AsyncData(null);
     } catch (e) {
@@ -71,6 +71,9 @@ class OrderDeliveryNotifier extends _$OrderDeliveryNotifier {
     state = const AsyncLoading();
 
     try {
+      // Stop tracking delivery progress
+      ref.read(deliveryProgressTrackerProvider).stopTracking();
+
       // Update order status to delivered
       await ref.read(ordersRepoProvider).updateDeliveryStatus(
             UpdateDeliveryStatus(
@@ -79,11 +82,10 @@ class OrderDeliveryNotifier extends _$OrderDeliveryNotifier {
             ),
           );
 
-      // Create delivery time estimator
-      final estimator = DeliveryTimeEstimator(ref);
-
-      // Complete delivery and update deliverer status to available
-      await estimator.completeDelivery();
+      // Update deliverer status to available
+      await ref
+          .read(delivererAvailabilityNotifierProvider.notifier)
+          .completeDelivery();
 
       state = const AsyncData(null);
     } catch (e) {
