@@ -37,3 +37,14 @@ enum DeliveryStatus {
 
   final String jsonValue;
 }
+
+@JsonEnum(valueField: 'jsonValue')
+enum DelivererStatus {
+  available('available'), // Deliverer is free and can take new orders
+  onDelivery('onDelivery'), // Deliverer is currently on a delivery
+  offline('offline'); // Deliverer is not working (outside work hours)
+
+  const DelivererStatus(this.jsonValue);
+
+  final String jsonValue;
+}

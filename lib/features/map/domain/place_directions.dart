@@ -13,6 +13,7 @@ abstract class PlaceDirections with _$PlaceDirections {
     required List<PointLatLng> polylinePoints,
     required int distance,
     required String duration,
+    required int durationValue,
   }) = _PlaceDirections;
 }
 

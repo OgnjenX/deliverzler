@@ -23,7 +23,8 @@ Stream<Position> locationStream(
     //Throttling location's stream as intervalDuration is not supported on iOS
   )
       .throttleTime(
-          const Duration(seconds: AppLocationSettings.locationChangeInterval))
+    const Duration(seconds: AppLocationSettings.locationChangeInterval),
+  )
       .handleError(
     (Object err, StackTrace st) {
       Error.throwWithStackTrace(LocationError.getLocationTimeout, st);

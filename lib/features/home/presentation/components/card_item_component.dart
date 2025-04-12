@@ -10,6 +10,7 @@ import '../../domain/order.dart';
 import '../../domain/orders_service.dart';
 import '../../domain/update_delivery_status.dart';
 import '../../domain/value_objects.dart';
+import '../providers/order_delivery_provider.dart';
 import '../providers/selected_order_provider.dart';
 import '../providers/update_delivery_status_provider/update_delivery_status_provider.dart';
 import '../widgets/order_dialogs.dart';
@@ -65,6 +66,7 @@ class CardItemComponent extends ConsumerWidget {
           ).then(
             (confirmChoice) {
               if (confirmChoice) {
+                // 1. First update order status to delivered
                 final params = UpdateDeliveryStatus(
                   orderId: order.id,
                   deliveryStatus: DeliveryStatus.delivered,
@@ -72,6 +74,10 @@ class CardItemComponent extends ConsumerWidget {
                 ref
                     .read(updateDeliveryStatusControllerProvider.notifier)
                     .updateStatus(params);
+                    
+                // 2. Then use the OrderDeliveryNotifier to complete the delivery
+                // This will update the deliverer's status to available
+                ref.read(orderDeliveryNotifierProvider.notifier).completeDelivery(order);
               }
             },
           );
@@ -92,6 +98,7 @@ class CardItemComponent extends ConsumerWidget {
             S.of(context).doYouWantToDeliverTheOrder,
           );
           if (confirmChoice) {
+            // 1. First update order status to onTheWay
             final params = UpdateDeliveryStatus(
               orderId: order.id,
               deliveryStatus: DeliveryStatus.onTheWay,
@@ -100,6 +107,10 @@ class CardItemComponent extends ConsumerWidget {
             await ref
                 .read(updateDeliveryStatusControllerProvider.notifier)
                 .updateStatus(params);
+                
+            // 2. Then use the OrderDeliveryNotifier to handle delivery logistics
+            // This will calculate estimated delivery time and update the deliverer's status
+            await ref.read(orderDeliveryNotifierProvider.notifier).acceptOrder(order);
           }
         case _:
           return;

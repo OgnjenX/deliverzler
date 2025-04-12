@@ -13,6 +13,7 @@ _PlaceDirectionsDto _$PlaceDirectionsDtoFromJson(Map<String, dynamic> json) =>
           json['overview_polyline'] as Map<String, dynamic>),
       distance: (_readDistance(json, 'distance') as num).toInt(),
       duration: _readDuration(json, 'duration') as String,
+      durationValue: (_readDurationValue(json, 'durationValue') as num).toInt(),
     );
 
 Map<String, dynamic> _$PlaceDirectionsQueryDtoToJson(

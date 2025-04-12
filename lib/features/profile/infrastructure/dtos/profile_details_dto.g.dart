@@ -10,4 +10,7 @@ Map<String, dynamic> _$ProfileDetailsDtoToJson(_ProfileDetailsDto instance) =>
     <String, dynamic>{
       'name': instance.name,
       'phone': instance.phone,
+      'delivererStatus': instance.delivererStatus,
+      'estimatedDeliveryCompletionTime':
+          instance.estimatedDeliveryCompletionTime,
     };

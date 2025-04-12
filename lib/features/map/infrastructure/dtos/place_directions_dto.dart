@@ -17,6 +17,7 @@ abstract class PlaceDirectionsDto with _$PlaceDirectionsDto {
     required List<PointLatLng> polylinePoints,
     @JsonKey(readValue: _readDistance) required int distance,
     @JsonKey(readValue: _readDuration) required String duration,
+    @JsonKey(readValue: _readDurationValue) required int durationValue,
   }) = _PlaceDirectionsDto;
 
   const PlaceDirectionsDto._();
@@ -30,6 +31,7 @@ abstract class PlaceDirectionsDto with _$PlaceDirectionsDto {
       polylinePoints: placeDirections.polylinePoints,
       distance: placeDirections.distance,
       duration: placeDirections.duration,
+      durationValue: placeDirections.durationValue,
     );
   }
 
@@ -39,6 +41,7 @@ abstract class PlaceDirectionsDto with _$PlaceDirectionsDto {
       polylinePoints: polylinePoints,
       distance: distance,
       duration: duration,
+      durationValue: durationValue,
     );
   }
 }
@@ -80,6 +83,10 @@ int _readDistance(Map<dynamic, dynamic> json, String key) =>
 String _readDuration(Map<dynamic, dynamic> json, String key) =>
 // ignore: avoid_dynamic_calls
     json['legs'][0]['duration']['text'] as String;
+
+int _readDurationValue(Map<dynamic, dynamic> json, String key) =>
+// ignore: avoid_dynamic_calls
+    json['legs'][0]['duration']['value'] as int;
 
 String _toJsonOrigin(Position p) => '${p.latitude},${p.longitude}';
 

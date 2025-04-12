@@ -19,6 +19,7 @@ mixin _$PlaceDirections {
   List<PointLatLng> get polylinePoints;
   int get distance;
   String get duration;
+  int get durationValue;
 
   /// Create a copy of PlaceDirections
   /// with the given fields replaced by the non-null parameter values.
@@ -39,16 +40,23 @@ mixin _$PlaceDirections {
             (identical(other.distance, distance) ||
                 other.distance == distance) &&
             (identical(other.duration, duration) ||
-                other.duration == duration));
+                other.duration == duration) &&
+            (identical(other.durationValue, durationValue) ||
+                other.durationValue == durationValue));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, bounds,
-      const DeepCollectionEquality().hash(polylinePoints), distance, duration);
+  int get hashCode => Object.hash(
+      runtimeType,
+      bounds,
+      const DeepCollectionEquality().hash(polylinePoints),
+      distance,
+      duration,
+      durationValue);
 
   @override
   String toString() {
-    return 'PlaceDirections(bounds: $bounds, polylinePoints: $polylinePoints, distance: $distance, duration: $duration)';
+    return 'PlaceDirections(bounds: $bounds, polylinePoints: $polylinePoints, distance: $distance, duration: $duration, durationValue: $durationValue)';
   }
 }
 
@@ -62,7 +70,8 @@ abstract mixin class $PlaceDirectionsCopyWith<$Res> {
       {LatLngBounds bounds,
       List<PointLatLng> polylinePoints,
       int distance,
-      String duration});
+      String duration,
+      int durationValue});
 }
 
 /// @nodoc
@@ -82,6 +91,7 @@ class _$PlaceDirectionsCopyWithImpl<$Res>
     Object? polylinePoints = null,
     Object? distance = null,
     Object? duration = null,
+    Object? durationValue = null,
   }) {
     return _then(_self.copyWith(
       bounds: null == bounds
@@ -100,6 +110,10 @@ class _$PlaceDirectionsCopyWithImpl<$Res>
           ? _self.duration
           : duration // ignore: cast_nullable_to_non_nullable
               as String,
+      durationValue: null == durationValue
+          ? _self.durationValue
+          : durationValue // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -111,7 +125,8 @@ class _PlaceDirections implements PlaceDirections {
       {required this.bounds,
       required final List<PointLatLng> polylinePoints,
       required this.distance,
-      required this.duration})
+      required this.duration,
+      required this.durationValue})
       : _polylinePoints = polylinePoints;
 
   @override
@@ -128,6 +143,8 @@ class _PlaceDirections implements PlaceDirections {
   final int distance;
   @override
   final String duration;
+  @override
+  final int durationValue;
 
   /// Create a copy of PlaceDirections
   /// with the given fields replaced by the non-null parameter values.
@@ -148,16 +165,23 @@ class _PlaceDirections implements PlaceDirections {
             (identical(other.distance, distance) ||
                 other.distance == distance) &&
             (identical(other.duration, duration) ||
-                other.duration == duration));
+                other.duration == duration) &&
+            (identical(other.durationValue, durationValue) ||
+                other.durationValue == durationValue));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, bounds,
-      const DeepCollectionEquality().hash(_polylinePoints), distance, duration);
+  int get hashCode => Object.hash(
+      runtimeType,
+      bounds,
+      const DeepCollectionEquality().hash(_polylinePoints),
+      distance,
+      duration,
+      durationValue);
 
   @override
   String toString() {
-    return 'PlaceDirections(bounds: $bounds, polylinePoints: $polylinePoints, distance: $distance, duration: $duration)';
+    return 'PlaceDirections(bounds: $bounds, polylinePoints: $polylinePoints, distance: $distance, duration: $duration, durationValue: $durationValue)';
   }
 }
 
@@ -173,7 +197,8 @@ abstract mixin class _$PlaceDirectionsCopyWith<$Res>
       {LatLngBounds bounds,
       List<PointLatLng> polylinePoints,
       int distance,
-      String duration});
+      String duration,
+      int durationValue});
 }
 
 /// @nodoc
@@ -193,6 +218,7 @@ class __$PlaceDirectionsCopyWithImpl<$Res>
     Object? polylinePoints = null,
     Object? distance = null,
     Object? duration = null,
+    Object? durationValue = null,
   }) {
     return _then(_PlaceDirections(
       bounds: null == bounds
@@ -211,6 +237,10 @@ class __$PlaceDirectionsCopyWithImpl<$Res>
           ? _self.duration
           : duration // ignore: cast_nullable_to_non_nullable
               as String,
+      durationValue: null == durationValue
+          ? _self.durationValue
+          : durationValue // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }

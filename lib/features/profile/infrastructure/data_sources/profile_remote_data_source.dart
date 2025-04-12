@@ -6,6 +6,7 @@ import '../../../../auth/presentation/providers/auth_state_provider.dart';
 import '../../../../core/infrastructure/network/main_api/api_callers/firebase_firestorage_facade.dart';
 import '../../../../core/infrastructure/network/main_api/api_callers/firebase_firestore_facade.dart';
 import '../../../../core/presentation/utils/riverpod_framework.dart';
+import '../../../home/domain/value_objects.dart';
 import '../../../settings/infrastructure/dtos/work_hours_dto.dart';
 import '../../../settings/infrastructure/dtos/work_zone_dto.dart';
 import '../dtos/profile_details_dto.dart';
@@ -131,5 +132,88 @@ class ProfileRemoteDataSource {
     }
 
     return null;
+  }
+
+  // Updates the deliverer's status (available, onDelivery, offline)
+  Future<void> updateDelivererStatus(DelivererStatus status) async {
+    final uid = ref.read(currentUserProvider).id;
+
+    return firebaseFirestore.setData(
+      path: userDocPath(uid),
+      data: {'deliverer_status': status.jsonValue},
+      merge: true,
+    );
+  }
+
+  // Updates the estimated completion time for the current delivery
+  Future<void> updateEstimatedCompletionTime(
+      DateTime? estimatedCompletionTime,) async {
+    final uid = ref.read(currentUserProvider).id;
+
+    final data = estimatedCompletionTime != null
+        ? {
+            'estimated_completion_time':
+                estimatedCompletionTime.millisecondsSinceEpoch,
+          }
+        : {'estimated_completion_time': null};
+
+    return firebaseFirestore.setData(
+      path: userDocPath(uid),
+      data: data,
+      merge: true,
+    );
+  }
+
+  // Updates both status and estimated completion time in a single operation
+  Future<void> updateDelivererAvailability({
+    required DelivererStatus status,
+    DateTime? estimatedCompletionTime,
+  }) async {
+    final uid = ref.read(currentUserProvider).id;
+
+    final data = {
+      'deliverer_status': status.jsonValue,
+      'estimated_completion_time':
+          estimatedCompletionTime?.millisecondsSinceEpoch,
+    };
+
+    return firebaseFirestore.setData(
+      path: userDocPath(uid),
+      data: data,
+      merge: true,
+    );
+  }
+
+  // Gets the current status and estimated completion time
+  Future<Map<String, dynamic>> getDelivererAvailability() async {
+    final uid = ref.read(currentUserProvider).id;
+
+    try {
+      final doc = await firebaseFirestore.getData(path: userDocPath(uid));
+
+      final statusValue = doc['deliverer_status'] as String? ?? 'available';
+      final status = DelivererStatus.values.firstWhere(
+        (s) => s.jsonValue == statusValue,
+        orElse: () => DelivererStatus.available,
+      );
+
+      final completionTimeMillis = doc['estimated_completion_time'] as int?;
+      final completionTime = completionTimeMillis != null
+          ? DateTime.fromMillisecondsSinceEpoch(completionTimeMillis)
+          : null;
+
+      return {
+        'status': status,
+        'estimatedCompletionTime': completionTime,
+      };
+    } catch (e) {
+      if (kDebugMode) {
+        print('Error fetching deliverer availability: $e');
+      }
+      return {
+        'status': DelivererStatus.available,
+        'estimatedCompletionTime': null,
+      };
+    }
   }
 }

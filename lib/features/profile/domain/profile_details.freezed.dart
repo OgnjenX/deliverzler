@@ -17,6 +17,8 @@ T _$identity<T>(T value) => value;
 mixin _$ProfileDetails {
   String get name;
   String get phone;
+  DelivererStatus get delivererStatus;
+  DateTime? get estimatedDeliveryCompletionTime;
 
   /// Create a copy of ProfileDetails
   /// with the given fields replaced by the non-null parameter values.
@@ -32,15 +34,22 @@ mixin _$ProfileDetails {
         (other.runtimeType == runtimeType &&
             other is ProfileDetails &&
             (identical(other.name, name) || other.name == name) &&
-            (identical(other.phone, phone) || other.phone == phone));
+            (identical(other.phone, phone) || other.phone == phone) &&
+            (identical(other.delivererStatus, delivererStatus) ||
+                other.delivererStatus == delivererStatus) &&
+            (identical(other.estimatedDeliveryCompletionTime,
+                    estimatedDeliveryCompletionTime) ||
+                other.estimatedDeliveryCompletionTime ==
+                    estimatedDeliveryCompletionTime));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, name, phone);
+  int get hashCode => Object.hash(runtimeType, name, phone, delivererStatus,
+      estimatedDeliveryCompletionTime);
 
   @override
   String toString() {
-    return 'ProfileDetails(name: $name, phone: $phone)';
+    return 'ProfileDetails(name: $name, phone: $phone, delivererStatus: $delivererStatus, estimatedDeliveryCompletionTime: $estimatedDeliveryCompletionTime)';
   }
 }
 
@@ -50,7 +59,11 @@ abstract mixin class $ProfileDetailsCopyWith<$Res> {
           ProfileDetails value, $Res Function(ProfileDetails) _then) =
       _$ProfileDetailsCopyWithImpl;
   @useResult
-  $Res call({String name, String phone});
+  $Res call(
+      {String name,
+      String phone,
+      DelivererStatus delivererStatus,
+      DateTime? estimatedDeliveryCompletionTime});
 }
 
 /// @nodoc
@@ -68,6 +81,8 @@ class _$ProfileDetailsCopyWithImpl<$Res>
   $Res call({
     Object? name = null,
     Object? phone = null,
+    Object? delivererStatus = null,
+    Object? estimatedDeliveryCompletionTime = freezed,
   }) {
     return _then(_self.copyWith(
       name: null == name
@@ -78,6 +93,15 @@ class _$ProfileDetailsCopyWithImpl<$Res>
           ? _self.phone
           : phone // ignore: cast_nullable_to_non_nullable
               as String,
+      delivererStatus: null == delivererStatus
+          ? _self.delivererStatus
+          : delivererStatus // ignore: cast_nullable_to_non_nullable
+              as DelivererStatus,
+      estimatedDeliveryCompletionTime: freezed ==
+              estimatedDeliveryCompletionTime
+          ? _self.estimatedDeliveryCompletionTime
+          : estimatedDeliveryCompletionTime // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
     ));
   }
 }
@@ -85,12 +109,21 @@ class _$ProfileDetailsCopyWithImpl<$Res>
 /// @nodoc
 
 class _UpdateProfileParams implements ProfileDetails {
-  const _UpdateProfileParams({required this.name, required this.phone});
+  const _UpdateProfileParams(
+      {required this.name,
+      required this.phone,
+      this.delivererStatus = DelivererStatus.available,
+      this.estimatedDeliveryCompletionTime});
 
   @override
   final String name;
   @override
   final String phone;
+  @override
+  @JsonKey()
+  final DelivererStatus delivererStatus;
+  @override
+  final DateTime? estimatedDeliveryCompletionTime;
 
   /// Create a copy of ProfileDetails
   /// with the given fields replaced by the non-null parameter values.
@@ -107,15 +140,22 @@ class _UpdateProfileParams implements ProfileDetails {
         (other.runtimeType == runtimeType &&
             other is _UpdateProfileParams &&
             (identical(other.name, name) || other.name == name) &&
-            (identical(other.phone, phone) || other.phone == phone));
+            (identical(other.phone, phone) || other.phone == phone) &&
+            (identical(other.delivererStatus, delivererStatus) ||
+                other.delivererStatus == delivererStatus) &&
+            (identical(other.estimatedDeliveryCompletionTime,
+                    estimatedDeliveryCompletionTime) ||
+                other.estimatedDeliveryCompletionTime ==
+                    estimatedDeliveryCompletionTime));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, name, phone);
+  int get hashCode => Object.hash(runtimeType, name, phone, delivererStatus,
+      estimatedDeliveryCompletionTime);
 
   @override
   String toString() {
-    return 'ProfileDetails(name: $name, phone: $phone)';
+    return 'ProfileDetails(name: $name, phone: $phone, delivererStatus: $delivererStatus, estimatedDeliveryCompletionTime: $estimatedDeliveryCompletionTime)';
   }
 }
 
@@ -127,7 +167,11 @@ abstract mixin class _$UpdateProfileParamsCopyWith<$Res>
       __$UpdateProfileParamsCopyWithImpl;
   @override
   @useResult
-  $Res call({String name, String phone});
+  $Res call(
+      {String name,
+      String phone,
+      DelivererStatus delivererStatus,
+      DateTime? estimatedDeliveryCompletionTime});
 }
 
 /// @nodoc
@@ -145,6 +189,8 @@ class __$UpdateProfileParamsCopyWithImpl<$Res>
   $Res call({
     Object? name = null,
     Object? phone = null,
+    Object? delivererStatus = null,
+    Object? estimatedDeliveryCompletionTime = freezed,
   }) {
     return _then(_UpdateProfileParams(
       name: null == name
@@ -155,6 +201,15 @@ class __$UpdateProfileParamsCopyWithImpl<$Res>
           ? _self.phone
           : phone // ignore: cast_nullable_to_non_nullable
               as String,
+      delivererStatus: null == delivererStatus
+          ? _self.delivererStatus
+          : delivererStatus // ignore: cast_nullable_to_non_nullable
+              as DelivererStatus,
+      estimatedDeliveryCompletionTime: freezed ==
+              estimatedDeliveryCompletionTime
+          ? _self.estimatedDeliveryCompletionTime
+          : estimatedDeliveryCompletionTime // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
     ));
   }
 }

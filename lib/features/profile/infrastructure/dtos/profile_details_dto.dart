@@ -10,12 +10,17 @@ abstract class ProfileDetailsDto with _$ProfileDetailsDto {
   const factory ProfileDetailsDto({
     required String name,
     required String phone,
+    @Default('available') String delivererStatus,
+    int? estimatedDeliveryCompletionTime,
   }) = _ProfileDetailsDto;
 
   factory ProfileDetailsDto.fromDomain(ProfileDetails details) {
     return ProfileDetailsDto(
       name: details.name,
       phone: details.phone,
+      delivererStatus: details.delivererStatus.jsonValue,
+      estimatedDeliveryCompletionTime:
+          details.estimatedDeliveryCompletionTime?.millisecondsSinceEpoch,
     );
   }
 }

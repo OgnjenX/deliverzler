@@ -23,6 +23,8 @@ mixin _$PlaceDirectionsDto {
   int get distance;
   @JsonKey(readValue: _readDuration)
   String get duration;
+  @JsonKey(readValue: _readDurationValue)
+  int get durationValue;
 
   /// Create a copy of PlaceDirectionsDto
   /// with the given fields replaced by the non-null parameter values.
@@ -43,17 +45,24 @@ mixin _$PlaceDirectionsDto {
             (identical(other.distance, distance) ||
                 other.distance == distance) &&
             (identical(other.duration, duration) ||
-                other.duration == duration));
+                other.duration == duration) &&
+            (identical(other.durationValue, durationValue) ||
+                other.durationValue == durationValue));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, bounds,
-      const DeepCollectionEquality().hash(polylinePoints), distance, duration);
+  int get hashCode => Object.hash(
+      runtimeType,
+      bounds,
+      const DeepCollectionEquality().hash(polylinePoints),
+      distance,
+      duration,
+      durationValue);
 
   @override
   String toString() {
-    return 'PlaceDirectionsDto(bounds: $bounds, polylinePoints: $polylinePoints, distance: $distance, duration: $duration)';
+    return 'PlaceDirectionsDto(bounds: $bounds, polylinePoints: $polylinePoints, distance: $distance, duration: $duration, durationValue: $durationValue)';
   }
 }
 
@@ -68,7 +77,8 @@ abstract mixin class $PlaceDirectionsDtoCopyWith<$Res> {
       @JsonKey(name: 'overview_polyline', fromJson: _fromJsonPolylinePoints)
       List<PointLatLng> polylinePoints,
       @JsonKey(readValue: _readDistance) int distance,
-      @JsonKey(readValue: _readDuration) String duration});
+      @JsonKey(readValue: _readDuration) String duration,
+      @JsonKey(readValue: _readDurationValue) int durationValue});
 }
 
 /// @nodoc
@@ -88,6 +98,7 @@ class _$PlaceDirectionsDtoCopyWithImpl<$Res>
     Object? polylinePoints = null,
     Object? distance = null,
     Object? duration = null,
+    Object? durationValue = null,
   }) {
     return _then(_self.copyWith(
       bounds: null == bounds
@@ -106,6 +117,10 @@ class _$PlaceDirectionsDtoCopyWithImpl<$Res>
           ? _self.duration
           : duration // ignore: cast_nullable_to_non_nullable
               as String,
+      durationValue: null == durationValue
+          ? _self.durationValue
+          : durationValue // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -118,7 +133,8 @@ class _PlaceDirectionsDto extends PlaceDirectionsDto {
       @JsonKey(name: 'overview_polyline', fromJson: _fromJsonPolylinePoints)
       required final List<PointLatLng> polylinePoints,
       @JsonKey(readValue: _readDistance) required this.distance,
-      @JsonKey(readValue: _readDuration) required this.duration})
+      @JsonKey(readValue: _readDuration) required this.duration,
+      @JsonKey(readValue: _readDurationValue) required this.durationValue})
       : _polylinePoints = polylinePoints,
         super._();
   factory _PlaceDirectionsDto.fromJson(Map<String, dynamic> json) =>
@@ -142,6 +158,9 @@ class _PlaceDirectionsDto extends PlaceDirectionsDto {
   @override
   @JsonKey(readValue: _readDuration)
   final String duration;
+  @override
+  @JsonKey(readValue: _readDurationValue)
+  final int durationValue;
 
   /// Create a copy of PlaceDirectionsDto
   /// with the given fields replaced by the non-null parameter values.
@@ -162,17 +181,24 @@ class _PlaceDirectionsDto extends PlaceDirectionsDto {
             (identical(other.distance, distance) ||
                 other.distance == distance) &&
             (identical(other.duration, duration) ||
-                other.duration == duration));
+                other.duration == duration) &&
+            (identical(other.durationValue, durationValue) ||
+                other.durationValue == durationValue));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, bounds,
-      const DeepCollectionEquality().hash(_polylinePoints), distance, duration);
+  int get hashCode => Object.hash(
+      runtimeType,
+      bounds,
+      const DeepCollectionEquality().hash(_polylinePoints),
+      distance,
+      duration,
+      durationValue);
 
   @override
   String toString() {
-    return 'PlaceDirectionsDto(bounds: $bounds, polylinePoints: $polylinePoints, distance: $distance, duration: $duration)';
+    return 'PlaceDirectionsDto(bounds: $bounds, polylinePoints: $polylinePoints, distance: $distance, duration: $duration, durationValue: $durationValue)';
   }
 }
 
@@ -189,7 +215,8 @@ abstract mixin class _$PlaceDirectionsDtoCopyWith<$Res>
       @JsonKey(name: 'overview_polyline', fromJson: _fromJsonPolylinePoints)
       List<PointLatLng> polylinePoints,
       @JsonKey(readValue: _readDistance) int distance,
-      @JsonKey(readValue: _readDuration) String duration});
+      @JsonKey(readValue: _readDuration) String duration,
+      @JsonKey(readValue: _readDurationValue) int durationValue});
 }
 
 /// @nodoc
@@ -209,6 +236,7 @@ class __$PlaceDirectionsDtoCopyWithImpl<$Res>
     Object? polylinePoints = null,
     Object? distance = null,
     Object? duration = null,
+    Object? durationValue = null,
   }) {
     return _then(_PlaceDirectionsDto(
       bounds: null == bounds
@@ -227,6 +255,10 @@ class __$PlaceDirectionsDtoCopyWithImpl<$Res>
           ? _self.duration
           : duration // ignore: cast_nullable_to_non_nullable
               as String,
+      durationValue: null == durationValue
+          ? _self.durationValue
+          : durationValue // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
