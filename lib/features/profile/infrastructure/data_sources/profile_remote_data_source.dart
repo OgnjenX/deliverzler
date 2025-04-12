@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/foundation.dart';
+import 'package:flutter_timezone/flutter_timezone.dart';
 
 import '../../../../auth/presentation/providers/auth_state_provider.dart';
 import '../../../../core/infrastructure/network/main_api/api_callers/firebase_firestorage_facade.dart';
@@ -147,13 +148,17 @@ class ProfileRemoteDataSource {
 
   // Updates the estimated completion time for the current delivery
   Future<void> updateEstimatedCompletionTime(
-      DateTime? estimatedCompletionTime,) async {
+    DateTime? estimatedCompletionTime,
+  ) async {
     final uid = ref.read(currentUserProvider).id;
 
     final data = estimatedCompletionTime != null
         ? {
-            'estimated_completion_time':
-                estimatedCompletionTime.millisecondsSinceEpoch,
+            'estimated_completion_time': {
+              'timestamp':
+                  estimatedCompletionTime.toUtc().millisecondsSinceEpoch,
+              'timezone': await FlutterTimezone.getLocalTimezone(),
+            },
           }
         : {'estimated_completion_time': null};
 
@@ -171,11 +176,18 @@ class ProfileRemoteDataSource {
   }) async {
     final uid = ref.read(currentUserProvider).id;
 
-    final data = {
+    final data = <String, dynamic>{
       'deliverer_status': status.jsonValue,
-      'estimated_completion_time':
-          estimatedCompletionTime?.millisecondsSinceEpoch,
     };
+
+    if (estimatedCompletionTime != null) {
+      data['estimated_completion_time'] = {
+        'timestamp': estimatedCompletionTime.toUtc().millisecondsSinceEpoch,
+        'timezone': await FlutterTimezone.getLocalTimezone(),
+      };
+    } else {
+      data['estimated_completion_time'] = null;
+    }
 
     return firebaseFirestore.setData(
       path: userDocPath(uid),
@@ -197,10 +209,37 @@ class ProfileRemoteDataSource {
         orElse: () => DelivererStatus.available,
       );
 
-      final completionTimeMillis = doc['estimated_completion_time'] as int?;
-      final completionTime = completionTimeMillis != null
-          ? DateTime.fromMillisecondsSinceEpoch(completionTimeMillis)
-          : null;
+      DateTime? completionTime;
+      final completionTimeData = doc['estimated_completion_time'];
+
+      if (completionTimeData != null) {
+        if (completionTimeData is Map<String, dynamic>) {
+          // New format with timezone information
+          final timestamp = completionTimeData['timestamp'] as int?;
+          final timezone = completionTimeData['timezone'] as String?;
+
+          if (timestamp != null) {
+            // Create UTC DateTime from timestamp
+            final utcTime =
+                DateTime.fromMillisecondsSinceEpoch(timestamp, isUtc: true);
+
+            // If we have timezone info, we can properly convert to local time
+            if (timezone != null) {
+              // If the stored timezone matches current timezone, no conversion needed
+              // Otherwise, we'd need a more sophisticated timezone conversion library
+              // For now, we'll use the UTC time which is still better than before
+              completionTime = utcTime.toLocal();
+            } else {
+              // Fallback to simple UTC to local conversion
+              completionTime = utcTime.toLocal();
+            }
+          }
+        } else if (completionTimeData is int) {
+          // Handle legacy format (milliseconds only)
+          completionTime =
+              DateTime.fromMillisecondsSinceEpoch(completionTimeData).toLocal();
+        }
+      }
 
       return {
         'status': status,
