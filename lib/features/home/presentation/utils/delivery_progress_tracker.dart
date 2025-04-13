@@ -7,6 +7,7 @@ import '../../../../core/infrastructure/services/location_service.dart';
 import '../../../../core/presentation/utils/riverpod_framework.dart';
 import '../../../profile/presentation/providers/deliverer_availability_provider.dart';
 import '../../domain/order.dart';
+import '../../domain/value_objects.dart';
 import 'delivery_time_estimator.dart';
 
 part 'delivery_progress_tracker.g.dart';
@@ -92,6 +93,17 @@ class DeliveryProgressTracker {
   Future<void> _updateEstimatedCompletionTime() async {
     try {
       if (_destinationLocation == null) {
+        return;
+      }
+
+      // Check if the deliverer is actually on delivery
+      final delivererStatus = ref.read(delivererAvailabilityNotifierProvider.notifier).currentStatus;
+      if (delivererStatus != DelivererStatus.onDelivery) {
+        if (kDebugMode) {
+          print('Not updating ETA: deliverer is not on active delivery');
+        }
+        // Stop tracking if we're not on delivery but the tracker is still running
+        stopTracking();
         return;
       }
 
