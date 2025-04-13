@@ -20,7 +20,7 @@ class SelectedOrderId extends _$SelectedOrderId with NotifierUpdate {
 }
 
 @riverpod
-Option<AppOrder> selectedOrder(SelectedOrderRef ref) {
+Option<AppOrder> selectedOrder(Ref ref) {
   final selectedOrderId = ref.watch(selectedOrderIdProvider);
   return selectedOrderId.match(
     () => const None(),

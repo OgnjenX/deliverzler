@@ -9,7 +9,7 @@ import 'my_location_camera_position_provider.dart';
 part 'my_location_circle_provider.g.dart';
 
 @riverpod
-Circle myLocationCircle(MyLocationCircleRef ref) {
+Circle myLocationCircle(Ref ref) {
   final cameraTarget = ref.watch(
     myLocationCameraPositionProvider.select((camera) => camera.target),
   );

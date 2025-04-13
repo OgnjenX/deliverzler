@@ -124,8 +124,8 @@ class OrderDeliveryNotifier extends _$OrderDeliveryNotifier {
 
   // Extract delivery location from order
   LatLng? _getDeliveryLocation(AppOrder order) {
-    if (order.address?.geoPoint != null) {
-      final geoPoint = order.address!.geoPoint!;
+    if (order.buyerAddress?.geoPoint != null) {
+      final geoPoint = order.buyerAddress!.geoPoint!;
       return LatLng(geoPoint.latitude, geoPoint.longitude);
     }
     return null;

@@ -28,6 +28,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "appSettings": MessageLookupByLibrary.simpleMessage("App Settings"),
     "arabic": MessageLookupByLibrary.simpleMessage("Arabic"),
     "areYouSure": MessageLookupByLibrary.simpleMessage("Are you sure?"),
+    "arrivedAtBuyer": MessageLookupByLibrary.simpleMessage("Arrived at Buyer"),
     "arrivedLocation": MessageLookupByLibrary.simpleMessage(
       "Arrived Location!",
     ),
@@ -57,9 +58,31 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "continue2": MessageLookupByLibrary.simpleMessage("Continue"),
     "deliver": MessageLookupByLibrary.simpleMessage("Deliver"),
+    "deliveryStageAtBuyerAction": MessageLookupByLibrary.simpleMessage(
+      "Arrived at Buyer",
+    ),
+    "deliveryStageCompleted": MessageLookupByLibrary.simpleMessage("Delivered"),
+    "deliveryStageCompletedAction": MessageLookupByLibrary.simpleMessage(
+      "Complete Delivery",
+    ),
+    "deliveryStageDropoff": MessageLookupByLibrary.simpleMessage("To Buyer"),
+    "deliveryStagePicked": MessageLookupByLibrary.simpleMessage("Picked Up"),
+    "deliveryStagePickedUpAction": MessageLookupByLibrary.simpleMessage(
+      "Confirm Pickup",
+    ),
+    "deliveryStagePickup": MessageLookupByLibrary.simpleMessage("To Seller"),
+    "deliveryStageTrackerTitle": MessageLookupByLibrary.simpleMessage(
+      "Delivery Progress",
+    ),
     "details": MessageLookupByLibrary.simpleMessage("Details"),
     "determine_location": MessageLookupByLibrary.simpleMessage(
       "Please wait until your location is determined.",
+    ),
+    "doYouWantToConfirmArrivalAtBuyer": MessageLookupByLibrary.simpleMessage(
+      "Do you want to confirm that you\'ve arrived at the buyer\'s location?",
+    ),
+    "doYouWantToConfirmPickup": MessageLookupByLibrary.simpleMessage(
+      "Do you want to confirm that you\'ve picked up the order?",
     ),
     "doYouWantToConfirmTheOrder": MessageLookupByLibrary.simpleMessage(
       "Do you want to Confirm the order?",
@@ -161,6 +184,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "password": MessageLookupByLibrary.simpleMessage("Password"),
     "payment": MessageLookupByLibrary.simpleMessage("Payment"),
     "phone": MessageLookupByLibrary.simpleMessage("Phone"),
+    "pickUp": MessageLookupByLibrary.simpleMessage("Pick Up"),
     "pick_location": MessageLookupByLibrary.simpleMessage("Pick a Location"),
     "pleaseCheckYourDeviceNetwork": MessageLookupByLibrary.simpleMessage(
       "Please check your device\"s network connection.",
@@ -214,6 +238,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "selectYourPreferredLanguage": MessageLookupByLibrary.simpleMessage(
       "Select Your Preferred Language",
     ),
+    "seller": MessageLookupByLibrary.simpleMessage("Seller"),
     "serviceUnavailableError": MessageLookupByLibrary.simpleMessage(
       "The server is temporarily unavailable. Please try again later.",
     ),

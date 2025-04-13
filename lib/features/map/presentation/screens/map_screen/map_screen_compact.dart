@@ -8,9 +8,12 @@ import '../../../../../core/presentation/utils/riverpod_framework.dart';
 import '../../../../../core/presentation/widgets/loading_widgets.dart';
 import '../../../../../core/presentation/widgets/toasts.dart';
 import '../../../../../generated/l10n.dart';
+import '../../../../home/domain/value_objects.dart';
 import '../../../../home/presentation/components/retry_again_component.dart';
+import '../../../../home/presentation/providers/delivery_stage_provider.dart';
 import '../../../../home/presentation/providers/location_stream_provider.dart';
 import '../../../../home/presentation/utils/location_error.dart';
+import '../../../../home/presentation/widgets/delivery_stage_tracker.dart';
 import '../../components/google_map_component.dart';
 import '../../components/map_confirm_button_component.dart';
 import '../../components/map_directions_info_component.dart';
@@ -27,6 +30,7 @@ class MapScreenCompact extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final locationAsync = ref.watch(locationStreamProvider);
+    final deliveryStage = ref.watch(deliveryStageStateProvider);
 
     useEffect(
       () {
@@ -46,9 +50,22 @@ class MapScreenCompact extends HookConsumerWidget {
 
     ref.listen<bool>(isArrivedTargetLocationProvider, (previous, next) {
       if (next == true) {
+        // Show notification based on current delivery stage
+        var title = S.of(context).arrivedLocation;
+        var body = S.of(context).youAreCloseToLocationArea;
+
+        // Update notification message based on delivery stage
+        if (deliveryStage == DeliveryStage.atSeller) {
+          title = S.of(context).arrivedLocation;
+          body = "You've arrived at the seller location. Ready for pickup!";
+        } else if (deliveryStage == DeliveryStage.atBuyer) {
+          title = S.of(context).arrivedLocation;
+          body = S.of(context).youAreCloseToLocationArea;
+        }
+
         ref.read(notificationServiceProvider).showLocalNotification(
-              title: S.of(context).arrivedLocation,
-              body: S.of(context).youAreCloseToLocationArea,
+              title: title,
+              body: body,
             );
       }
     });
@@ -84,6 +101,14 @@ class MapScreenCompact extends HookConsumerWidget {
             MapConfirmButtonComponent(),
             MapFloatingSearchBar(),
             MapFloatingActionButton(),
+
+            // Add the delivery stage tracker at the bottom of the screen
+            Positioned(
+              bottom: 80,
+              left: 0,
+              right: 0,
+              child: DeliveryStageTracker(),
+            ),
           ],
         ),
       ),

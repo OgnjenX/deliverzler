@@ -37,13 +37,13 @@ class CardUserDetailsComponent extends StatelessWidget {
                 overflow: TextOverflow.ellipsis,
               ),
               Text(
-                '${order.address!.state}, ${order.address!.city}, ${order.address!.street}',
+                '${order.buyerAddress!.state}, ${order.buyerAddress!.city}, ${order.buyerAddress!.street}',
                 style: TextStyles.f12(context),
                 maxLines: 2,
                 overflow: TextOverflow.ellipsis,
               ),
               Text(
-                order.address!.mobile,
+                order.buyerAddress!.mobile,
                 style: TextStyles.f12(context),
                 overflow: TextOverflow.ellipsis,
               ),

@@ -19,7 +19,8 @@ mixin _$AppOrder {
   int get date;
   PickupOption get pickupOption;
   String get paymentMethod;
-  Address? get address;
+  Address? get buyerAddress;
+  Address? get sellerAddress;
   String get userId;
   String get userName;
   String get userImage;
@@ -39,7 +40,7 @@ mixin _$AppOrder {
 
   @override
   String toString() {
-    return 'AppOrder(id: $id, date: $date, pickupOption: $pickupOption, paymentMethod: $paymentMethod, address: $address, userId: $userId, userName: $userName, userImage: $userImage, userPhone: $userPhone, userNote: $userNote, employeeCancelNote: $employeeCancelNote, deliveryStatus: $deliveryStatus, deliveryId: $deliveryId, deliveryGeoPoint: $deliveryGeoPoint)';
+    return 'AppOrder(id: $id, date: $date, pickupOption: $pickupOption, paymentMethod: $paymentMethod, buyerAddress: $buyerAddress, sellerAddress: $sellerAddress, userId: $userId, userName: $userName, userImage: $userImage, userPhone: $userPhone, userNote: $userNote, employeeCancelNote: $employeeCancelNote, deliveryStatus: $deliveryStatus, deliveryId: $deliveryId, deliveryGeoPoint: $deliveryGeoPoint)';
   }
 }
 
@@ -53,7 +54,8 @@ abstract mixin class $AppOrderCopyWith<$Res> {
       int date,
       PickupOption pickupOption,
       String paymentMethod,
-      Address? address,
+      Address? buyerAddress,
+      Address? sellerAddress,
       String userId,
       String userName,
       String userImage,
@@ -64,7 +66,8 @@ abstract mixin class $AppOrderCopyWith<$Res> {
       String? deliveryId,
       GeoPoint? deliveryGeoPoint});
 
-  $AddressCopyWith<$Res>? get address;
+  $AddressCopyWith<$Res>? get buyerAddress;
+  $AddressCopyWith<$Res>? get sellerAddress;
 }
 
 /// @nodoc
@@ -83,7 +86,8 @@ class _$AppOrderCopyWithImpl<$Res> implements $AppOrderCopyWith<$Res> {
     Object? date = null,
     Object? pickupOption = null,
     Object? paymentMethod = null,
-    Object? address = freezed,
+    Object? buyerAddress = freezed,
+    Object? sellerAddress = freezed,
     Object? userId = null,
     Object? userName = null,
     Object? userImage = null,
@@ -111,9 +115,13 @@ class _$AppOrderCopyWithImpl<$Res> implements $AppOrderCopyWith<$Res> {
           ? _self.paymentMethod
           : paymentMethod // ignore: cast_nullable_to_non_nullable
               as String,
-      address: freezed == address
-          ? _self.address
-          : address // ignore: cast_nullable_to_non_nullable
+      buyerAddress: freezed == buyerAddress
+          ? _self.buyerAddress
+          : buyerAddress // ignore: cast_nullable_to_non_nullable
+              as Address?,
+      sellerAddress: freezed == sellerAddress
+          ? _self.sellerAddress
+          : sellerAddress // ignore: cast_nullable_to_non_nullable
               as Address?,
       userId: null == userId
           ? _self.userId
@@ -158,13 +166,27 @@ class _$AppOrderCopyWithImpl<$Res> implements $AppOrderCopyWith<$Res> {
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $AddressCopyWith<$Res>? get address {
-    if (_self.address == null) {
+  $AddressCopyWith<$Res>? get buyerAddress {
+    if (_self.buyerAddress == null) {
       return null;
     }
 
-    return $AddressCopyWith<$Res>(_self.address!, (value) {
-      return _then(_self.copyWith(address: value));
+    return $AddressCopyWith<$Res>(_self.buyerAddress!, (value) {
+      return _then(_self.copyWith(buyerAddress: value));
+    });
+  }
+
+  /// Create a copy of AppOrder
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $AddressCopyWith<$Res>? get sellerAddress {
+    if (_self.sellerAddress == null) {
+      return null;
+    }
+
+    return $AddressCopyWith<$Res>(_self.sellerAddress!, (value) {
+      return _then(_self.copyWith(sellerAddress: value));
     });
   }
 }
@@ -177,7 +199,8 @@ class _AppOrder extends AppOrder {
       required this.date,
       required this.pickupOption,
       required this.paymentMethod,
-      required this.address,
+      required this.buyerAddress,
+      required this.sellerAddress,
       required this.userId,
       required this.userName,
       required this.userImage,
@@ -198,7 +221,9 @@ class _AppOrder extends AppOrder {
   @override
   final String paymentMethod;
   @override
-  final Address? address;
+  final Address? buyerAddress;
+  @override
+  final Address? sellerAddress;
   @override
   final String userId;
   @override
@@ -228,7 +253,7 @@ class _AppOrder extends AppOrder {
 
   @override
   String toString() {
-    return 'AppOrder(id: $id, date: $date, pickupOption: $pickupOption, paymentMethod: $paymentMethod, address: $address, userId: $userId, userName: $userName, userImage: $userImage, userPhone: $userPhone, userNote: $userNote, employeeCancelNote: $employeeCancelNote, deliveryStatus: $deliveryStatus, deliveryId: $deliveryId, deliveryGeoPoint: $deliveryGeoPoint)';
+    return 'AppOrder(id: $id, date: $date, pickupOption: $pickupOption, paymentMethod: $paymentMethod, buyerAddress: $buyerAddress, sellerAddress: $sellerAddress, userId: $userId, userName: $userName, userImage: $userImage, userPhone: $userPhone, userNote: $userNote, employeeCancelNote: $employeeCancelNote, deliveryStatus: $deliveryStatus, deliveryId: $deliveryId, deliveryGeoPoint: $deliveryGeoPoint)';
   }
 }
 
@@ -244,7 +269,8 @@ abstract mixin class _$AppOrderCopyWith<$Res>
       int date,
       PickupOption pickupOption,
       String paymentMethod,
-      Address? address,
+      Address? buyerAddress,
+      Address? sellerAddress,
       String userId,
       String userName,
       String userImage,
@@ -256,7 +282,9 @@ abstract mixin class _$AppOrderCopyWith<$Res>
       GeoPoint? deliveryGeoPoint});
 
   @override
-  $AddressCopyWith<$Res>? get address;
+  $AddressCopyWith<$Res>? get buyerAddress;
+  @override
+  $AddressCopyWith<$Res>? get sellerAddress;
 }
 
 /// @nodoc
@@ -275,7 +303,8 @@ class __$AppOrderCopyWithImpl<$Res> implements _$AppOrderCopyWith<$Res> {
     Object? date = null,
     Object? pickupOption = null,
     Object? paymentMethod = null,
-    Object? address = freezed,
+    Object? buyerAddress = freezed,
+    Object? sellerAddress = freezed,
     Object? userId = null,
     Object? userName = null,
     Object? userImage = null,
@@ -303,9 +332,13 @@ class __$AppOrderCopyWithImpl<$Res> implements _$AppOrderCopyWith<$Res> {
           ? _self.paymentMethod
           : paymentMethod // ignore: cast_nullable_to_non_nullable
               as String,
-      address: freezed == address
-          ? _self.address
-          : address // ignore: cast_nullable_to_non_nullable
+      buyerAddress: freezed == buyerAddress
+          ? _self.buyerAddress
+          : buyerAddress // ignore: cast_nullable_to_non_nullable
+              as Address?,
+      sellerAddress: freezed == sellerAddress
+          ? _self.sellerAddress
+          : sellerAddress // ignore: cast_nullable_to_non_nullable
               as Address?,
       userId: null == userId
           ? _self.userId
@@ -350,13 +383,27 @@ class __$AppOrderCopyWithImpl<$Res> implements _$AppOrderCopyWith<$Res> {
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $AddressCopyWith<$Res>? get address {
-    if (_self.address == null) {
+  $AddressCopyWith<$Res>? get buyerAddress {
+    if (_self.buyerAddress == null) {
       return null;
     }
 
-    return $AddressCopyWith<$Res>(_self.address!, (value) {
-      return _then(_self.copyWith(address: value));
+    return $AddressCopyWith<$Res>(_self.buyerAddress!, (value) {
+      return _then(_self.copyWith(buyerAddress: value));
+    });
+  }
+
+  /// Create a copy of AppOrder
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $AddressCopyWith<$Res>? get sellerAddress {
+    if (_self.sellerAddress == null) {
+      return null;
+    }
+
+    return $AddressCopyWith<$Res>(_self.sellerAddress!, (value) {
+      return _then(_self.copyWith(sellerAddress: value));
     });
   }
 }

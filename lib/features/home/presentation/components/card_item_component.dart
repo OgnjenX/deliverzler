@@ -55,39 +55,6 @@ class CardItemComponent extends ConsumerWidget {
       }
     }
 
-    Future<void> confirmOrder() async {
-      final authority = fetchOrderAuthority();
-
-      switch (authority) {
-        case (canProceed: true, isLoading: false):
-          return OrderDialogs.confirmChoiceDialog(
-            context,
-            S.of(context).doYouWantToConfirmTheOrder,
-          ).then(
-            (confirmChoice) {
-              if (confirmChoice) {
-                // 1. First update order status to delivered
-                final params = UpdateDeliveryStatus(
-                  orderId: order.id,
-                  deliveryStatus: DeliveryStatus.delivered,
-                );
-                ref
-                    .read(updateDeliveryStatusControllerProvider.notifier)
-                    .updateStatus(params);
-                    
-                // 2. Then use the OrderDeliveryNotifier to complete the delivery
-                // This will update the deliverer's status to available
-                ref.read(orderDeliveryNotifierProvider.notifier).completeDelivery(order);
-              }
-            },
-          );
-        case (canProceed: false, isLoading: false):
-          OrderDialogs.showCanNotProceedDialog(context);
-        case _:
-          return;
-      }
-    }
-
     Future<void> deliverOrder() async {
       final authority = fetchOrderAuthority();
 
@@ -107,10 +74,12 @@ class CardItemComponent extends ConsumerWidget {
             await ref
                 .read(updateDeliveryStatusControllerProvider.notifier)
                 .updateStatus(params);
-                
+
             // 2. Then use the OrderDeliveryNotifier to handle delivery logistics
             // This will calculate estimated delivery time and update the deliverer's status
-            await ref.read(orderDeliveryNotifierProvider.notifier).acceptOrder(order);
+            await ref
+                .read(orderDeliveryNotifierProvider.notifier)
+                .acceptOrder(order);
           }
         case _:
           return;
@@ -193,33 +162,40 @@ class CardItemComponent extends ConsumerWidget {
             const SizedBox(
               height: Sizes.marginV6,
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Expanded(
-                  // Allow the button to shrink if needed
+            // Conditionally render different button layouts based on order status
+            if (isUpcomingOrder)
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Expanded(
+                    child: CardButtonComponent(
+                      title: S.of(context).cancel,
+                      isColored: false,
+                      onPressed: cancelOrder,
+                    ),
+                  ),
+                  const SizedBox(width: 8),
+                  Expanded(
+                    child: CardButtonComponent(
+                      title: S.of(context).deliver,
+                      isColored: true,
+                      onPressed: deliverOrder,
+                    ),
+                  ),
+                ],
+              )
+            else
+              Center(
+                child: SizedBox(
+                  width: MediaQuery.of(context).size.width *
+                      0.5, // Half screen width for better appearance
                   child: CardButtonComponent(
                     title: S.of(context).cancel,
                     isColored: false,
                     onPressed: cancelOrder,
                   ),
                 ),
-                const SizedBox(width: 8), // Add spacing between buttons
-                Expanded(
-                  child: isUpcomingOrder
-                      ? CardButtonComponent(
-                          title: S.of(context).deliver,
-                          isColored: true,
-                          onPressed: deliverOrder,
-                        )
-                      : CardButtonComponent(
-                          title: S.of(context).confirm,
-                          isColored: true,
-                          onPressed: confirmOrder,
-                        ),
-                ),
-              ],
-            ),
+              ),
           ],
         ),
       ),

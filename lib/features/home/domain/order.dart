@@ -16,7 +16,8 @@ abstract class AppOrder with _$AppOrder {
     required int date,
     required PickupOption pickupOption,
     required String paymentMethod,
-    required Address? address,
+    required Address? buyerAddress,
+    required Address? sellerAddress,
     required String userId,
     required String userName,
     required String userImage,
@@ -46,7 +47,10 @@ abstract class AppOrder with _$AppOrder {
                 other.pickupOption == pickupOption) &&
             (identical(other.paymentMethod, paymentMethod) ||
                 other.paymentMethod == paymentMethod) &&
-            (identical(other.address, address) || other.address == address) &&
+            (identical(other.buyerAddress, buyerAddress) ||
+                other.buyerAddress == buyerAddress) &&
+            (identical(other.sellerAddress, sellerAddress) ||
+                other.sellerAddress == sellerAddress) &&
             (identical(other.userId, userId) || other.userId == userId) &&
             (identical(other.userName, userName) ||
                 other.userName == userName) &&
@@ -71,7 +75,8 @@ abstract class AppOrder with _$AppOrder {
         date,
         pickupOption,
         paymentMethod,
-        address,
+        buyerAddress,
+        sellerAddress,
         userId,
         userName,
         userImage,

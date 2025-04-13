@@ -14,7 +14,8 @@ abstract class OrderDto with _$OrderDto {
     required int date,
     required PickupOption pickupOption,
     required String paymentMethod,
-    @JsonKey(name: 'addressModel') required AddressDto? address,
+    @JsonKey(name: 'buyerAddressModel') required AddressDto? buyerAddress,
+    @JsonKey(name: 'sellerAddressModel') required AddressDto? sellerAddress,
     required String userId,
     required String userName,
     required String userImage,
@@ -33,8 +34,12 @@ abstract class OrderDto with _$OrderDto {
       date: order.date,
       pickupOption: order.pickupOption,
       paymentMethod: order.paymentMethod,
-      address:
-          order.address != null ? AddressDto.fromDomain(order.address!) : null,
+      buyerAddress: order.buyerAddress != null
+          ? AddressDto.fromDomain(order.buyerAddress!)
+          : null,
+      sellerAddress: order.sellerAddress != null
+          ? AddressDto.fromDomain(order.sellerAddress!)
+          : null,
       userId: order.userId,
       userName: order.userName,
       userImage: order.userImage,
@@ -69,7 +74,8 @@ abstract class OrderDto with _$OrderDto {
       date: date,
       pickupOption: pickupOption,
       paymentMethod: paymentMethod,
-      address: address?.toDomain(),
+      buyerAddress: buyerAddress?.toDomain(),
+      sellerAddress: sellerAddress?.toDomain(),
       userId: userId,
       userName: userName,
       userImage: userImage,

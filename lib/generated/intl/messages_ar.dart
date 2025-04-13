@@ -28,9 +28,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "appSettings": MessageLookupByLibrary.simpleMessage("إعدادات التطبيق"),
     "arabic": MessageLookupByLibrary.simpleMessage("العربية"),
     "areYouSure": MessageLookupByLibrary.simpleMessage("هل أنت متأكد؟"),
-    "arrivedLocation": MessageLookupByLibrary.simpleMessage(
-      "تم الوصول للموقع!",
+    "arrivedAtBuyer": MessageLookupByLibrary.simpleMessage(
+      "وصلت لموقع المشتري",
     ),
+    "arrivedLocation": MessageLookupByLibrary.simpleMessage("وصلت للموقع!"),
     "authInvalidEmailError": MessageLookupByLibrary.simpleMessage(
       "البريد غير صالح. يرجى إدخال بريد الكتروني صحيح.",
     ),
@@ -57,12 +58,36 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "continue2": MessageLookupByLibrary.simpleMessage("استمرار"),
     "deliver": MessageLookupByLibrary.simpleMessage("قم بالتوصيل"),
+    "deliveryStageAtBuyerAction": MessageLookupByLibrary.simpleMessage(
+      "الوصول إلى المشتري",
+    ),
+    "deliveryStageCompleted": MessageLookupByLibrary.simpleMessage(
+      "تم التوصيل",
+    ),
+    "deliveryStageCompletedAction": MessageLookupByLibrary.simpleMessage(
+      "إنهاء التوصيل",
+    ),
+    "deliveryStageDropoff": MessageLookupByLibrary.simpleMessage("إلى المشتري"),
+    "deliveryStagePicked": MessageLookupByLibrary.simpleMessage("تم الاستلام"),
+    "deliveryStagePickedUpAction": MessageLookupByLibrary.simpleMessage(
+      "تأكيد الاستلام",
+    ),
+    "deliveryStagePickup": MessageLookupByLibrary.simpleMessage("إلى البائع"),
+    "deliveryStageTrackerTitle": MessageLookupByLibrary.simpleMessage(
+      "تقدّم التوصيل",
+    ),
     "details": MessageLookupByLibrary.simpleMessage("التفاصيل"),
     "determine_location": MessageLookupByLibrary.simpleMessage(
       "الرجاء الإنتظار حتى يتم تحديد موقعك",
     ),
+    "doYouWantToConfirmArrivalAtBuyer": MessageLookupByLibrary.simpleMessage(
+      "هل تريد تأكيد وصولك إلى موقع المشتري؟",
+    ),
+    "doYouWantToConfirmPickup": MessageLookupByLibrary.simpleMessage(
+      "هل تريد تأكيد استلام الطلب؟",
+    ),
     "doYouWantToConfirmTheOrder": MessageLookupByLibrary.simpleMessage(
-      "هل تريد تأكيد توصيل هذا الطلب؟",
+      "هل تريد تأكيد الطلب؟",
     ),
     "doYouWantToDeliverTheOrder": MessageLookupByLibrary.simpleMessage(
       "هل تريد توصيل هذا الطلب؟",
@@ -153,6 +178,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "password": MessageLookupByLibrary.simpleMessage("الرقم السري"),
     "payment": MessageLookupByLibrary.simpleMessage("الدفع"),
     "phone": MessageLookupByLibrary.simpleMessage("رقم الهاتف"),
+    "pickUp": MessageLookupByLibrary.simpleMessage("استلام الطلب"),
     "pick_location": MessageLookupByLibrary.simpleMessage("اختر موقعًا"),
     "pleaseCheckYourDeviceNetwork": MessageLookupByLibrary.simpleMessage(
       "الرجاء إصلاح اتصالك بالانترنت.",
@@ -208,6 +234,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "selectYourPreferredLanguage": MessageLookupByLibrary.simpleMessage(
       "اختر لغتك المفضلة",
     ),
+    "seller": MessageLookupByLibrary.simpleMessage("البائع"),
     "serviceUnavailableError": MessageLookupByLibrary.simpleMessage(
       "الخادم غير قادر مؤقتاً على معالجة الطلب. يرجى إعادة المحاولة لاحقاً.",
     ),
@@ -259,18 +286,15 @@ class MessageLookup extends MessageLookupByLibrary {
     "youAreBackOnline": MessageLookupByLibrary.simpleMessage(
       "تمت استعادة الاتصال بالإنترنت.",
     ),
-    "youAreCloseToLocationArea": MessageLookupByLibrary.simpleMessage(
-      "أنت قريب من الموقع. تم تفعيل تأكيد الطلب.",
-    ),
     "youAreCurrentlyOffline": MessageLookupByLibrary.simpleMessage(
       "أنت غير متصل بالإنترنت حالياً.",
     ),
     "youCanNotProceedThisOrder": MessageLookupByLibrary.simpleMessage(
-      "لا يمكنك تنفيذ هذا الطلب!",
+      "لا يمكنك متابعة هذا الطلب!",
     ),
     "youCanOnlyProceedOrdersYouDelivering":
         MessageLookupByLibrary.simpleMessage(
-          "يمكنك تنفيذ الطلبات التي تقوم بتوصيلها فقط.",
+          "يمكنك فقط متابعة الطلبات التي تقوم بتوصيلها.",
         ),
   };
 }

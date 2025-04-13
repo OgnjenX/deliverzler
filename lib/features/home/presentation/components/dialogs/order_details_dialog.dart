@@ -102,6 +102,35 @@ class OrderDetailsDialog extends StatelessWidget {
           const SizedBox(
             height: Sizes.marginV8,
           ),
+          if (order.sellerAddress != null) ...[
+            Text(
+              '${S.of(context).seller} ${S.of(context).details}:',
+              style: TextStyles.f18SemiBold(context)
+                  .copyWith(decoration: TextDecoration.underline),
+            ),
+            const SizedBox(
+              height: Sizes.marginV2,
+            ),
+            Padding(
+              padding: const EdgeInsetsDirectional.only(start: Sizes.paddingH14),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    '${order.sellerAddress!.state}, ${order.sellerAddress!.city}, ${order.sellerAddress!.street}',
+                    style: TextStyles.f16(context),
+                  ),
+                  Text(
+                    order.sellerAddress!.mobile,
+                    style: TextStyles.f16(context),
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(
+              height: Sizes.marginV8,
+            ),
+          ],
           Text(
             '${S.of(context).userDetails}:',
             style: TextStyles.f18SemiBold(context)
@@ -122,11 +151,11 @@ class OrderDetailsDialog extends StatelessWidget {
                   style: TextStyles.f16(context),
                 ),
                 Text(
-                  '${order.address!.state}, ${order.address!.city}, ${order.address!.street}',
+                  '${order.buyerAddress!.state}, ${order.buyerAddress!.city}, ${order.buyerAddress!.street}',
                   style: TextStyles.f16(context),
                 ),
                 Text(
-                  order.address!.mobile,
+                  order.buyerAddress!.mobile,
                   style: TextStyles.f16(context),
                 ),
               ],

@@ -18,8 +18,10 @@ mixin _$OrderDto {
   int get date;
   PickupOption get pickupOption;
   String get paymentMethod;
-  @JsonKey(name: 'addressModel')
-  AddressDto? get address;
+  @JsonKey(name: 'buyerAddressModel')
+  AddressDto? get buyerAddress;
+  @JsonKey(name: 'sellerAddressModel')
+  AddressDto? get sellerAddress;
   String get userId;
   String get userName;
   String get userImage;
@@ -50,7 +52,10 @@ mixin _$OrderDto {
                 other.pickupOption == pickupOption) &&
             (identical(other.paymentMethod, paymentMethod) ||
                 other.paymentMethod == paymentMethod) &&
-            (identical(other.address, address) || other.address == address) &&
+            (identical(other.buyerAddress, buyerAddress) ||
+                other.buyerAddress == buyerAddress) &&
+            (identical(other.sellerAddress, sellerAddress) ||
+                other.sellerAddress == sellerAddress) &&
             (identical(other.userId, userId) || other.userId == userId) &&
             (identical(other.userName, userName) ||
                 other.userName == userName) &&
@@ -78,7 +83,8 @@ mixin _$OrderDto {
       date,
       pickupOption,
       paymentMethod,
-      address,
+      buyerAddress,
+      sellerAddress,
       userId,
       userName,
       userImage,
@@ -92,7 +98,7 @@ mixin _$OrderDto {
 
   @override
   String toString() {
-    return 'OrderDto(date: $date, pickupOption: $pickupOption, paymentMethod: $paymentMethod, address: $address, userId: $userId, userName: $userName, userImage: $userImage, userPhone: $userPhone, userNote: $userNote, employeeCancelNote: $employeeCancelNote, deliveryStatus: $deliveryStatus, deliveryId: $deliveryId, deliveryGeoPoint: $deliveryGeoPoint, id: $id)';
+    return 'OrderDto(date: $date, pickupOption: $pickupOption, paymentMethod: $paymentMethod, buyerAddress: $buyerAddress, sellerAddress: $sellerAddress, userId: $userId, userName: $userName, userImage: $userImage, userPhone: $userPhone, userNote: $userNote, employeeCancelNote: $employeeCancelNote, deliveryStatus: $deliveryStatus, deliveryId: $deliveryId, deliveryGeoPoint: $deliveryGeoPoint, id: $id)';
   }
 }
 
@@ -105,7 +111,8 @@ abstract mixin class $OrderDtoCopyWith<$Res> {
       {int date,
       PickupOption pickupOption,
       String paymentMethod,
-      @JsonKey(name: 'addressModel') AddressDto? address,
+      @JsonKey(name: 'buyerAddressModel') AddressDto? buyerAddress,
+      @JsonKey(name: 'sellerAddressModel') AddressDto? sellerAddress,
       String userId,
       String userName,
       String userImage,
@@ -117,7 +124,8 @@ abstract mixin class $OrderDtoCopyWith<$Res> {
       @GeoPointConverter() GeoPoint? deliveryGeoPoint,
       @JsonKey(includeToJson: false) String? id});
 
-  $AddressDtoCopyWith<$Res>? get address;
+  $AddressDtoCopyWith<$Res>? get buyerAddress;
+  $AddressDtoCopyWith<$Res>? get sellerAddress;
 }
 
 /// @nodoc
@@ -135,7 +143,8 @@ class _$OrderDtoCopyWithImpl<$Res> implements $OrderDtoCopyWith<$Res> {
     Object? date = null,
     Object? pickupOption = null,
     Object? paymentMethod = null,
-    Object? address = freezed,
+    Object? buyerAddress = freezed,
+    Object? sellerAddress = freezed,
     Object? userId = null,
     Object? userName = null,
     Object? userImage = null,
@@ -160,9 +169,13 @@ class _$OrderDtoCopyWithImpl<$Res> implements $OrderDtoCopyWith<$Res> {
           ? _self.paymentMethod
           : paymentMethod // ignore: cast_nullable_to_non_nullable
               as String,
-      address: freezed == address
-          ? _self.address
-          : address // ignore: cast_nullable_to_non_nullable
+      buyerAddress: freezed == buyerAddress
+          ? _self.buyerAddress
+          : buyerAddress // ignore: cast_nullable_to_non_nullable
+              as AddressDto?,
+      sellerAddress: freezed == sellerAddress
+          ? _self.sellerAddress
+          : sellerAddress // ignore: cast_nullable_to_non_nullable
               as AddressDto?,
       userId: null == userId
           ? _self.userId
@@ -211,13 +224,27 @@ class _$OrderDtoCopyWithImpl<$Res> implements $OrderDtoCopyWith<$Res> {
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $AddressDtoCopyWith<$Res>? get address {
-    if (_self.address == null) {
+  $AddressDtoCopyWith<$Res>? get buyerAddress {
+    if (_self.buyerAddress == null) {
       return null;
     }
 
-    return $AddressDtoCopyWith<$Res>(_self.address!, (value) {
-      return _then(_self.copyWith(address: value));
+    return $AddressDtoCopyWith<$Res>(_self.buyerAddress!, (value) {
+      return _then(_self.copyWith(buyerAddress: value));
+    });
+  }
+
+  /// Create a copy of OrderDto
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $AddressDtoCopyWith<$Res>? get sellerAddress {
+    if (_self.sellerAddress == null) {
+      return null;
+    }
+
+    return $AddressDtoCopyWith<$Res>(_self.sellerAddress!, (value) {
+      return _then(_self.copyWith(sellerAddress: value));
     });
   }
 }
@@ -229,7 +256,8 @@ class _OrderDto extends OrderDto {
       {required this.date,
       required this.pickupOption,
       required this.paymentMethod,
-      @JsonKey(name: 'addressModel') required this.address,
+      @JsonKey(name: 'buyerAddressModel') required this.buyerAddress,
+      @JsonKey(name: 'sellerAddressModel') required this.sellerAddress,
       required this.userId,
       required this.userName,
       required this.userImage,
@@ -251,8 +279,11 @@ class _OrderDto extends OrderDto {
   @override
   final String paymentMethod;
   @override
-  @JsonKey(name: 'addressModel')
-  final AddressDto? address;
+  @JsonKey(name: 'buyerAddressModel')
+  final AddressDto? buyerAddress;
+  @override
+  @JsonKey(name: 'sellerAddressModel')
+  final AddressDto? sellerAddress;
   @override
   final String userId;
   @override
@@ -294,7 +325,10 @@ class _OrderDto extends OrderDto {
                 other.pickupOption == pickupOption) &&
             (identical(other.paymentMethod, paymentMethod) ||
                 other.paymentMethod == paymentMethod) &&
-            (identical(other.address, address) || other.address == address) &&
+            (identical(other.buyerAddress, buyerAddress) ||
+                other.buyerAddress == buyerAddress) &&
+            (identical(other.sellerAddress, sellerAddress) ||
+                other.sellerAddress == sellerAddress) &&
             (identical(other.userId, userId) || other.userId == userId) &&
             (identical(other.userName, userName) ||
                 other.userName == userName) &&
@@ -322,7 +356,8 @@ class _OrderDto extends OrderDto {
       date,
       pickupOption,
       paymentMethod,
-      address,
+      buyerAddress,
+      sellerAddress,
       userId,
       userName,
       userImage,
@@ -336,7 +371,7 @@ class _OrderDto extends OrderDto {
 
   @override
   String toString() {
-    return 'OrderDto(date: $date, pickupOption: $pickupOption, paymentMethod: $paymentMethod, address: $address, userId: $userId, userName: $userName, userImage: $userImage, userPhone: $userPhone, userNote: $userNote, employeeCancelNote: $employeeCancelNote, deliveryStatus: $deliveryStatus, deliveryId: $deliveryId, deliveryGeoPoint: $deliveryGeoPoint, id: $id)';
+    return 'OrderDto(date: $date, pickupOption: $pickupOption, paymentMethod: $paymentMethod, buyerAddress: $buyerAddress, sellerAddress: $sellerAddress, userId: $userId, userName: $userName, userImage: $userImage, userPhone: $userPhone, userNote: $userNote, employeeCancelNote: $employeeCancelNote, deliveryStatus: $deliveryStatus, deliveryId: $deliveryId, deliveryGeoPoint: $deliveryGeoPoint, id: $id)';
   }
 }
 
@@ -351,7 +386,8 @@ abstract mixin class _$OrderDtoCopyWith<$Res>
       {int date,
       PickupOption pickupOption,
       String paymentMethod,
-      @JsonKey(name: 'addressModel') AddressDto? address,
+      @JsonKey(name: 'buyerAddressModel') AddressDto? buyerAddress,
+      @JsonKey(name: 'sellerAddressModel') AddressDto? sellerAddress,
       String userId,
       String userName,
       String userImage,
@@ -364,7 +400,9 @@ abstract mixin class _$OrderDtoCopyWith<$Res>
       @JsonKey(includeToJson: false) String? id});
 
   @override
-  $AddressDtoCopyWith<$Res>? get address;
+  $AddressDtoCopyWith<$Res>? get buyerAddress;
+  @override
+  $AddressDtoCopyWith<$Res>? get sellerAddress;
 }
 
 /// @nodoc
@@ -382,7 +420,8 @@ class __$OrderDtoCopyWithImpl<$Res> implements _$OrderDtoCopyWith<$Res> {
     Object? date = null,
     Object? pickupOption = null,
     Object? paymentMethod = null,
-    Object? address = freezed,
+    Object? buyerAddress = freezed,
+    Object? sellerAddress = freezed,
     Object? userId = null,
     Object? userName = null,
     Object? userImage = null,
@@ -407,9 +446,13 @@ class __$OrderDtoCopyWithImpl<$Res> implements _$OrderDtoCopyWith<$Res> {
           ? _self.paymentMethod
           : paymentMethod // ignore: cast_nullable_to_non_nullable
               as String,
-      address: freezed == address
-          ? _self.address
-          : address // ignore: cast_nullable_to_non_nullable
+      buyerAddress: freezed == buyerAddress
+          ? _self.buyerAddress
+          : buyerAddress // ignore: cast_nullable_to_non_nullable
+              as AddressDto?,
+      sellerAddress: freezed == sellerAddress
+          ? _self.sellerAddress
+          : sellerAddress // ignore: cast_nullable_to_non_nullable
               as AddressDto?,
       userId: null == userId
           ? _self.userId
@@ -458,13 +501,27 @@ class __$OrderDtoCopyWithImpl<$Res> implements _$OrderDtoCopyWith<$Res> {
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $AddressDtoCopyWith<$Res>? get address {
-    if (_self.address == null) {
+  $AddressDtoCopyWith<$Res>? get buyerAddress {
+    if (_self.buyerAddress == null) {
       return null;
     }
 
-    return $AddressDtoCopyWith<$Res>(_self.address!, (value) {
-      return _then(_self.copyWith(address: value));
+    return $AddressDtoCopyWith<$Res>(_self.buyerAddress!, (value) {
+      return _then(_self.copyWith(buyerAddress: value));
+    });
+  }
+
+  /// Create a copy of OrderDto
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $AddressDtoCopyWith<$Res>? get sellerAddress {
+    if (_self.sellerAddress == null) {
+      return null;
+    }
+
+    return $AddressDtoCopyWith<$Res>(_self.sellerAddress!, (value) {
+      return _then(_self.copyWith(sellerAddress: value));
     });
   }
 }

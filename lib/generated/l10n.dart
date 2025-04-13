@@ -900,6 +900,41 @@ class S {
     );
   }
 
+  /// `Pick Up`
+  String get pickUp {
+    return Intl.message('Pick Up', name: 'pickUp', desc: '', args: []);
+  }
+
+  /// `Do you want to confirm that you've picked up the order?`
+  String get doYouWantToConfirmPickup {
+    return Intl.message(
+      'Do you want to confirm that you\'ve picked up the order?',
+      name: 'doYouWantToConfirmPickup',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Arrived at Buyer`
+  String get arrivedAtBuyer {
+    return Intl.message(
+      'Arrived at Buyer',
+      name: 'arrivedAtBuyer',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Do you want to confirm that you've arrived at the buyer's location?`
+  String get doYouWantToConfirmArrivalAtBuyer {
+    return Intl.message(
+      'Do you want to confirm that you\'ve arrived at the buyer\'s location?',
+      name: 'doYouWantToConfirmArrivalAtBuyer',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `You"re close to location area. Order delivery confirmation has enabled.`
   String get youAreCloseToLocationArea {
     return Intl.message(
@@ -1115,6 +1150,91 @@ class S {
     return Intl.message(
       'Save Working Hours',
       name: 'save_working_hours',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Seller`
+  String get seller {
+    return Intl.message('Seller', name: 'seller', desc: '', args: []);
+  }
+
+  /// `Delivery Progress`
+  String get deliveryStageTrackerTitle {
+    return Intl.message(
+      'Delivery Progress',
+      name: 'deliveryStageTrackerTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `To Seller`
+  String get deliveryStagePickup {
+    return Intl.message(
+      'To Seller',
+      name: 'deliveryStagePickup',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Picked Up`
+  String get deliveryStagePicked {
+    return Intl.message(
+      'Picked Up',
+      name: 'deliveryStagePicked',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `To Buyer`
+  String get deliveryStageDropoff {
+    return Intl.message(
+      'To Buyer',
+      name: 'deliveryStageDropoff',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Delivered`
+  String get deliveryStageCompleted {
+    return Intl.message(
+      'Delivered',
+      name: 'deliveryStageCompleted',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Confirm Pickup`
+  String get deliveryStagePickedUpAction {
+    return Intl.message(
+      'Confirm Pickup',
+      name: 'deliveryStagePickedUpAction',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Arrived at Buyer`
+  String get deliveryStageAtBuyerAction {
+    return Intl.message(
+      'Arrived at Buyer',
+      name: 'deliveryStageAtBuyerAction',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Complete Delivery`
+  String get deliveryStageCompletedAction {
+    return Intl.message(
+      'Complete Delivery',
+      name: 'deliveryStageCompletedAction',
       desc: '',
       args: [],
     );

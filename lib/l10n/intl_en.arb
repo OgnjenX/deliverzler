@@ -108,6 +108,10 @@
   "youCanNotProceedThisOrder": "You can\"t proceed this order!",
   "youCanOnlyProceedOrdersYouDelivering": "You can only proceed orders that you\"re delivering.",
   "arrivedLocation": "Arrived Location!",
+  "pickUp": "Pick Up",
+  "doYouWantToConfirmPickup": "Do you want to confirm that you've picked up the order?",
+  "arrivedAtBuyer": "Arrived at Buyer",
+  "doYouWantToConfirmArrivalAtBuyer": "Do you want to confirm that you've arrived at the buyer's location?",
   "youAreCloseToLocationArea": "You\"re close to location area. Order delivery confirmation has enabled.",
   "@_MAP": {},
   "searchForAPlace": "Search for a place...",
@@ -131,5 +135,15 @@
   "timezone": "Timezone: {timezone}",
   "start": "Start",
   "end": "End",
-  "save_working_hours": "Save Working Hours"
+  "save_working_hours": "Save Working Hours",
+  "seller": "Seller",
+  "@_DELIVERY_STAGES": {},
+  "deliveryStageTrackerTitle": "Delivery Progress",
+  "deliveryStagePickup": "To Seller",
+  "deliveryStagePicked": "Picked Up",
+  "deliveryStageDropoff": "To Buyer",
+  "deliveryStageCompleted": "Delivered",
+  "deliveryStagePickedUpAction": "Confirm Pickup",
+  "deliveryStageAtBuyerAction": "Arrived at Buyer",
+  "deliveryStageCompletedAction": "Complete Delivery"
 }
