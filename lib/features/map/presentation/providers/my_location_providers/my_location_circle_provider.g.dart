@@ -6,7 +6,7 @@ part of 'my_location_circle_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$myLocationCircleHash() => r'85b741861ef23a18cbf15e191e7e74f658a6681f';
+String _$myLocationCircleHash() => r'bfb72090937536fc1c54e9ab8383fe05b9b58cc5';
 
 /// See also [myLocationCircle].
 @ProviderFor(myLocationCircle)

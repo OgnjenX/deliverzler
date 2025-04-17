@@ -7,7 +7,7 @@ part of 'is_arrived_target_location_provider.dart';
 // **************************************************************************
 
 String _$isArrivedTargetLocationHash() =>
-    r'a333e2851e9430805ac3db98881372763d70036b';
+    r'caefa45c1165d009470bda51fc0d23d8c48dd1cc';
 
 /// See also [isArrivedTargetLocation].
 @ProviderFor(isArrivedTargetLocation)

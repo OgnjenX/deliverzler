@@ -7,7 +7,7 @@ part of 'locale_local_data_source.dart';
 // **************************************************************************
 
 String _$localeLocalDataSourceHash() =>
-    r'4f0bd71bf24999c3d9bd22f9246a6b3b9912cf1c';
+    r'e692899cf2246c31a17dbabcd19a2221e4edd67c';
 
 /// See also [localeLocalDataSource].
 @ProviderFor(localeLocalDataSource)

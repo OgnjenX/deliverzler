@@ -18,9 +18,9 @@ mixin _$OrderDto {
   int get date;
   PickupOption get pickupOption;
   String get paymentMethod;
-  @JsonKey(name: 'buyerAddressModel')
+  @JsonKey(name: 'buyerAddress')
   AddressDto? get buyerAddress;
-  @JsonKey(name: 'sellerAddressModel')
+  @JsonKey(name: 'sellerAddress')
   AddressDto? get sellerAddress;
   String get userId;
   String get userName;
@@ -111,8 +111,8 @@ abstract mixin class $OrderDtoCopyWith<$Res> {
       {int date,
       PickupOption pickupOption,
       String paymentMethod,
-      @JsonKey(name: 'buyerAddressModel') AddressDto? buyerAddress,
-      @JsonKey(name: 'sellerAddressModel') AddressDto? sellerAddress,
+      @JsonKey(name: 'buyerAddress') AddressDto? buyerAddress,
+      @JsonKey(name: 'sellerAddress') AddressDto? sellerAddress,
       String userId,
       String userName,
       String userImage,
@@ -256,8 +256,8 @@ class _OrderDto extends OrderDto {
       {required this.date,
       required this.pickupOption,
       required this.paymentMethod,
-      @JsonKey(name: 'buyerAddressModel') required this.buyerAddress,
-      @JsonKey(name: 'sellerAddressModel') required this.sellerAddress,
+      @JsonKey(name: 'buyerAddress') required this.buyerAddress,
+      @JsonKey(name: 'sellerAddress') required this.sellerAddress,
       required this.userId,
       required this.userName,
       required this.userImage,
@@ -279,10 +279,10 @@ class _OrderDto extends OrderDto {
   @override
   final String paymentMethod;
   @override
-  @JsonKey(name: 'buyerAddressModel')
+  @JsonKey(name: 'buyerAddress')
   final AddressDto? buyerAddress;
   @override
-  @JsonKey(name: 'sellerAddressModel')
+  @JsonKey(name: 'sellerAddress')
   final AddressDto? sellerAddress;
   @override
   final String userId;
@@ -386,8 +386,8 @@ abstract mixin class _$OrderDtoCopyWith<$Res>
       {int date,
       PickupOption pickupOption,
       String paymentMethod,
-      @JsonKey(name: 'buyerAddressModel') AddressDto? buyerAddress,
-      @JsonKey(name: 'sellerAddressModel') AddressDto? sellerAddress,
+      @JsonKey(name: 'buyerAddress') AddressDto? buyerAddress,
+      @JsonKey(name: 'sellerAddress') AddressDto? sellerAddress,
       String userId,
       String userName,
       String userImage,

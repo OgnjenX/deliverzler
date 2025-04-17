@@ -10,14 +10,12 @@ _OrderDto _$OrderDtoFromJson(Map<String, dynamic> json) => _OrderDto(
       date: (json['date'] as num).toInt(),
       pickupOption: $enumDecode(_$PickupOptionEnumMap, json['pickupOption']),
       paymentMethod: json['paymentMethod'] as String,
-      buyerAddress: json['buyerAddressModel'] == null
+      buyerAddress: json['buyerAddress'] == null
           ? null
-          : AddressDto.fromJson(
-              json['buyerAddressModel'] as Map<String, dynamic>),
-      sellerAddress: json['sellerAddressModel'] == null
+          : AddressDto.fromJson(json['buyerAddress'] as Map<String, dynamic>),
+      sellerAddress: json['sellerAddress'] == null
           ? null
-          : AddressDto.fromJson(
-              json['sellerAddressModel'] as Map<String, dynamic>),
+          : AddressDto.fromJson(json['sellerAddress'] as Map<String, dynamic>),
       userId: json['userId'] as String,
       userName: json['userName'] as String,
       userImage: json['userImage'] as String,
