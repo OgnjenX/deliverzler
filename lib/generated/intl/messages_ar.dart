@@ -286,6 +286,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "youAreBackOnline": MessageLookupByLibrary.simpleMessage(
       "تمت استعادة الاتصال بالإنترنت.",
     ),
+    "youAreCloseToLocationArea": MessageLookupByLibrary.simpleMessage(
+      "أنت قريب من منطقة الموقع. تم تفعيل تأكيد توصيل الطلب.",
+    ),
     "youAreCurrentlyOffline": MessageLookupByLibrary.simpleMessage(
       "أنت غير متصل بالإنترنت حالياً.",
     ),

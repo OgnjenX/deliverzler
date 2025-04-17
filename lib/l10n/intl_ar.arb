@@ -112,6 +112,7 @@
   "doYouWantToConfirmPickup": "هل تريد تأكيد استلام الطلب؟",
   "arrivedAtBuyer": "وصلت لموقع المشتري",
   "doYouWantToConfirmArrivalAtBuyer": "هل تريد تأكيد وصولك إلى موقع المشتري؟",
+  "youAreCloseToLocationArea": "أنت قريب من منطقة الموقع. تم تفعيل تأكيد توصيل الطلب.",
   "@_MAP": {},
   "searchForAPlace": "ابحث عن موقع...",
   "myCurrentLocation": "موقعي الحالي",
