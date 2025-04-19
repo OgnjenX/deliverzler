@@ -27,6 +27,7 @@ _OrderDto _$OrderDtoFromJson(Map<String, dynamic> json) => _OrderDto(
       deliveryId: json['deliveryId'] as String?,
       deliveryGeoPoint: _$JsonConverterFromJson<GeoPoint, GeoPoint>(
           json['deliveryGeoPoint'], const GeoPointConverter().fromJson),
+      isAsap: json['isAsap'] as bool? ?? false,
       id: json['id'] as String?,
     );
 

@@ -32,6 +32,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "arrivedLocation": MessageLookupByLibrary.simpleMessage(
       "Arrived Location!",
     ),
+    "asSoonAsPossible": MessageLookupByLibrary.simpleMessage(
+      "As soon as possible",
+    ),
     "authInvalidEmailError": MessageLookupByLibrary.simpleMessage(
       "Your email is not valid. Please enter a valid email.",
     ),

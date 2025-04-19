@@ -25,6 +25,7 @@ abstract class OrderDto with _$OrderDto {
     required DeliveryStatus deliveryStatus,
     required String? deliveryId,
     @GeoPointConverter() required GeoPoint? deliveryGeoPoint,
+    @Default(false) bool isAsap,
     @JsonKey(includeToJson: false) String? id,
   }) = _OrderDto;
 
@@ -49,6 +50,7 @@ abstract class OrderDto with _$OrderDto {
       deliveryStatus: order.deliveryStatus,
       deliveryId: order.deliveryId,
       deliveryGeoPoint: order.deliveryGeoPoint,
+      isAsap: order.isAsap,
     );
   }
 
@@ -85,6 +87,7 @@ abstract class OrderDto with _$OrderDto {
       deliveryStatus: deliveryStatus,
       deliveryId: deliveryId,
       deliveryGeoPoint: deliveryGeoPoint,
+      isAsap: isAsap,
     );
   }
 }

@@ -56,7 +56,9 @@ class CardOrderDetailsComponent extends StatelessWidget {
           height: Sizes.marginV2,
         ),
         Text(
-          DateHelper.convertEpochToLocal(context, order.deliveryDateTime),
+          order.isAsap
+              ? S.of(context).asSoonAsPossible
+              : DateHelper.convertEpochToLocal(context, order.deliveryDateTime),
           style: TextStyles.f12(context),
           overflow: TextOverflow.ellipsis,
         ),

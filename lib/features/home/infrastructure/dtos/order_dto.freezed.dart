@@ -32,6 +32,7 @@ mixin _$OrderDto {
   String? get deliveryId;
   @GeoPointConverter()
   GeoPoint? get deliveryGeoPoint;
+  bool get isAsap;
   @JsonKey(includeToJson: false)
   String? get id;
 
@@ -74,6 +75,7 @@ mixin _$OrderDto {
                 other.deliveryId == deliveryId) &&
             (identical(other.deliveryGeoPoint, deliveryGeoPoint) ||
                 other.deliveryGeoPoint == deliveryGeoPoint) &&
+            (identical(other.isAsap, isAsap) || other.isAsap == isAsap) &&
             (identical(other.id, id) || other.id == id));
   }
 
@@ -95,11 +97,12 @@ mixin _$OrderDto {
       deliveryStatus,
       deliveryId,
       deliveryGeoPoint,
+      isAsap,
       id);
 
   @override
   String toString() {
-    return 'OrderDto(deliveryDateTime: $deliveryDateTime, pickupOption: $pickupOption, paymentMethod: $paymentMethod, buyerAddress: $buyerAddress, sellerAddress: $sellerAddress, userId: $userId, userName: $userName, userImage: $userImage, userPhone: $userPhone, userNote: $userNote, employeeCancelNote: $employeeCancelNote, deliveryStatus: $deliveryStatus, deliveryId: $deliveryId, deliveryGeoPoint: $deliveryGeoPoint, id: $id)';
+    return 'OrderDto(deliveryDateTime: $deliveryDateTime, pickupOption: $pickupOption, paymentMethod: $paymentMethod, buyerAddress: $buyerAddress, sellerAddress: $sellerAddress, userId: $userId, userName: $userName, userImage: $userImage, userPhone: $userPhone, userNote: $userNote, employeeCancelNote: $employeeCancelNote, deliveryStatus: $deliveryStatus, deliveryId: $deliveryId, deliveryGeoPoint: $deliveryGeoPoint, isAsap: $isAsap, id: $id)';
   }
 }
 
@@ -123,6 +126,7 @@ abstract mixin class $OrderDtoCopyWith<$Res> {
       DeliveryStatus deliveryStatus,
       String? deliveryId,
       @GeoPointConverter() GeoPoint? deliveryGeoPoint,
+      bool isAsap,
       @JsonKey(includeToJson: false) String? id});
 
   $AddressDtoCopyWith<$Res>? get buyerAddress;
@@ -155,6 +159,7 @@ class _$OrderDtoCopyWithImpl<$Res> implements $OrderDtoCopyWith<$Res> {
     Object? deliveryStatus = null,
     Object? deliveryId = freezed,
     Object? deliveryGeoPoint = freezed,
+    Object? isAsap = null,
     Object? id = freezed,
   }) {
     return _then(_self.copyWith(
@@ -214,6 +219,10 @@ class _$OrderDtoCopyWithImpl<$Res> implements $OrderDtoCopyWith<$Res> {
           ? _self.deliveryGeoPoint
           : deliveryGeoPoint // ignore: cast_nullable_to_non_nullable
               as GeoPoint?,
+      isAsap: null == isAsap
+          ? _self.isAsap
+          : isAsap // ignore: cast_nullable_to_non_nullable
+              as bool,
       id: freezed == id
           ? _self.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -268,6 +277,7 @@ class _OrderDto extends OrderDto {
       required this.deliveryStatus,
       required this.deliveryId,
       @GeoPointConverter() required this.deliveryGeoPoint,
+      this.isAsap = false,
       @JsonKey(includeToJson: false) this.id})
       : super._();
   factory _OrderDto.fromJson(Map<String, dynamic> json) =>
@@ -304,6 +314,9 @@ class _OrderDto extends OrderDto {
   @override
   @GeoPointConverter()
   final GeoPoint? deliveryGeoPoint;
+  @override
+  @JsonKey()
+  final bool isAsap;
   @override
   @JsonKey(includeToJson: false)
   final String? id;
@@ -348,6 +361,7 @@ class _OrderDto extends OrderDto {
                 other.deliveryId == deliveryId) &&
             (identical(other.deliveryGeoPoint, deliveryGeoPoint) ||
                 other.deliveryGeoPoint == deliveryGeoPoint) &&
+            (identical(other.isAsap, isAsap) || other.isAsap == isAsap) &&
             (identical(other.id, id) || other.id == id));
   }
 
@@ -369,11 +383,12 @@ class _OrderDto extends OrderDto {
       deliveryStatus,
       deliveryId,
       deliveryGeoPoint,
+      isAsap,
       id);
 
   @override
   String toString() {
-    return 'OrderDto(deliveryDateTime: $deliveryDateTime, pickupOption: $pickupOption, paymentMethod: $paymentMethod, buyerAddress: $buyerAddress, sellerAddress: $sellerAddress, userId: $userId, userName: $userName, userImage: $userImage, userPhone: $userPhone, userNote: $userNote, employeeCancelNote: $employeeCancelNote, deliveryStatus: $deliveryStatus, deliveryId: $deliveryId, deliveryGeoPoint: $deliveryGeoPoint, id: $id)';
+    return 'OrderDto(deliveryDateTime: $deliveryDateTime, pickupOption: $pickupOption, paymentMethod: $paymentMethod, buyerAddress: $buyerAddress, sellerAddress: $sellerAddress, userId: $userId, userName: $userName, userImage: $userImage, userPhone: $userPhone, userNote: $userNote, employeeCancelNote: $employeeCancelNote, deliveryStatus: $deliveryStatus, deliveryId: $deliveryId, deliveryGeoPoint: $deliveryGeoPoint, isAsap: $isAsap, id: $id)';
   }
 }
 
@@ -399,6 +414,7 @@ abstract mixin class _$OrderDtoCopyWith<$Res>
       DeliveryStatus deliveryStatus,
       String? deliveryId,
       @GeoPointConverter() GeoPoint? deliveryGeoPoint,
+      bool isAsap,
       @JsonKey(includeToJson: false) String? id});
 
   @override
@@ -433,6 +449,7 @@ class __$OrderDtoCopyWithImpl<$Res> implements _$OrderDtoCopyWith<$Res> {
     Object? deliveryStatus = null,
     Object? deliveryId = freezed,
     Object? deliveryGeoPoint = freezed,
+    Object? isAsap = null,
     Object? id = freezed,
   }) {
     return _then(_OrderDto(
@@ -492,6 +509,10 @@ class __$OrderDtoCopyWithImpl<$Res> implements _$OrderDtoCopyWith<$Res> {
           ? _self.deliveryGeoPoint
           : deliveryGeoPoint // ignore: cast_nullable_to_non_nullable
               as GeoPoint?,
+      isAsap: null == isAsap
+          ? _self.isAsap
+          : isAsap // ignore: cast_nullable_to_non_nullable
+              as bool,
       id: freezed == id
           ? _self.id
           : id // ignore: cast_nullable_to_non_nullable

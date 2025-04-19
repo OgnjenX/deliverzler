@@ -27,6 +27,7 @@ abstract class AppOrder with _$AppOrder {
     required DeliveryStatus deliveryStatus,
     required String? deliveryId,
     required GeoPoint? deliveryGeoPoint,
+    @Default(false) bool isAsap,
   }) = _AppOrder;
 
   const AppOrder._();
@@ -66,7 +67,9 @@ abstract class AppOrder with _$AppOrder {
             (identical(other.deliveryStatus, deliveryStatus) ||
                 other.deliveryStatus == deliveryStatus) &&
             (identical(other.deliveryId, deliveryId) ||
-                other.deliveryId == deliveryId));
+                other.deliveryId == deliveryId) &&
+            (identical(other.isAsap, isAsap) ||
+                other.isAsap == isAsap));
   }
 
   @override
@@ -86,5 +89,6 @@ abstract class AppOrder with _$AppOrder {
         employeeCancelNote,
         deliveryStatus,
         deliveryId,
+        isAsap,
       );
 }

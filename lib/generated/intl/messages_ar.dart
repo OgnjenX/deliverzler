@@ -32,6 +32,9 @@ class MessageLookup extends MessageLookupByLibrary {
       "وصلت لموقع المشتري",
     ),
     "arrivedLocation": MessageLookupByLibrary.simpleMessage("وصلت للموقع!"),
+    "asSoonAsPossible": MessageLookupByLibrary.simpleMessage(
+      "في أقرب وقت ممكن",
+    ),
     "authInvalidEmailError": MessageLookupByLibrary.simpleMessage(
       "البريد غير صالح. يرجى إدخال بريد الكتروني صحيح.",
     ),
@@ -154,7 +157,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "الاسم لا يمكن أن يتخطى ٣٠ حرف",
     ),
     "noInternetConnection": MessageLookupByLibrary.simpleMessage(
-      "لا يوجد اتصال بالانترنت",
+      "لا يوجد اتصال بالإنترنت",
     ),
     "noInternetError": MessageLookupByLibrary.simpleMessage(
       "لا يتوفر اتصال بالانترنت. يرجى التحقق من الاتصال وإعادة المحاولة.",
@@ -184,7 +187,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "pickUp": MessageLookupByLibrary.simpleMessage("استلام الطلب"),
     "pick_location": MessageLookupByLibrary.simpleMessage("اختر موقعًا"),
     "pleaseCheckYourDeviceNetwork": MessageLookupByLibrary.simpleMessage(
-      "الرجاء إصلاح اتصالك بالانترنت.",
+      "الرجاء إصلاح اتصالك بالإنترنت.",
     ),
     "pleaseEnterValidEmail": MessageLookupByLibrary.simpleMessage(
       "الرجاء ادخال بريد الكتروني صحيح",

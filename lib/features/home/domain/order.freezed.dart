@@ -30,6 +30,7 @@ mixin _$AppOrder {
   DeliveryStatus get deliveryStatus;
   String? get deliveryId;
   GeoPoint? get deliveryGeoPoint;
+  bool get isAsap;
 
   /// Create a copy of AppOrder
   /// with the given fields replaced by the non-null parameter values.
@@ -40,7 +41,7 @@ mixin _$AppOrder {
 
   @override
   String toString() {
-    return 'AppOrder(id: $id, deliveryDateTime: $deliveryDateTime, pickupOption: $pickupOption, paymentMethod: $paymentMethod, buyerAddress: $buyerAddress, sellerAddress: $sellerAddress, userId: $userId, userName: $userName, userImage: $userImage, userPhone: $userPhone, userNote: $userNote, employeeCancelNote: $employeeCancelNote, deliveryStatus: $deliveryStatus, deliveryId: $deliveryId, deliveryGeoPoint: $deliveryGeoPoint)';
+    return 'AppOrder(id: $id, deliveryDateTime: $deliveryDateTime, pickupOption: $pickupOption, paymentMethod: $paymentMethod, buyerAddress: $buyerAddress, sellerAddress: $sellerAddress, userId: $userId, userName: $userName, userImage: $userImage, userPhone: $userPhone, userNote: $userNote, employeeCancelNote: $employeeCancelNote, deliveryStatus: $deliveryStatus, deliveryId: $deliveryId, deliveryGeoPoint: $deliveryGeoPoint, isAsap: $isAsap)';
   }
 }
 
@@ -64,7 +65,8 @@ abstract mixin class $AppOrderCopyWith<$Res> {
       String? employeeCancelNote,
       DeliveryStatus deliveryStatus,
       String? deliveryId,
-      GeoPoint? deliveryGeoPoint});
+      GeoPoint? deliveryGeoPoint,
+      bool isAsap});
 
   $AddressCopyWith<$Res>? get buyerAddress;
   $AddressCopyWith<$Res>? get sellerAddress;
@@ -97,6 +99,7 @@ class _$AppOrderCopyWithImpl<$Res> implements $AppOrderCopyWith<$Res> {
     Object? deliveryStatus = null,
     Object? deliveryId = freezed,
     Object? deliveryGeoPoint = freezed,
+    Object? isAsap = null,
   }) {
     return _then(_self.copyWith(
       id: null == id
@@ -159,6 +162,10 @@ class _$AppOrderCopyWithImpl<$Res> implements $AppOrderCopyWith<$Res> {
           ? _self.deliveryGeoPoint
           : deliveryGeoPoint // ignore: cast_nullable_to_non_nullable
               as GeoPoint?,
+      isAsap: null == isAsap
+          ? _self.isAsap
+          : isAsap // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 
@@ -209,7 +216,8 @@ class _AppOrder extends AppOrder {
       required this.employeeCancelNote,
       required this.deliveryStatus,
       required this.deliveryId,
-      required this.deliveryGeoPoint})
+      required this.deliveryGeoPoint,
+      this.isAsap = false})
       : super._();
 
   @override
@@ -242,6 +250,9 @@ class _AppOrder extends AppOrder {
   final String? deliveryId;
   @override
   final GeoPoint? deliveryGeoPoint;
+  @override
+  @JsonKey()
+  final bool isAsap;
 
   /// Create a copy of AppOrder
   /// with the given fields replaced by the non-null parameter values.
@@ -253,7 +264,7 @@ class _AppOrder extends AppOrder {
 
   @override
   String toString() {
-    return 'AppOrder(id: $id, deliveryDateTime: $deliveryDateTime, pickupOption: $pickupOption, paymentMethod: $paymentMethod, buyerAddress: $buyerAddress, sellerAddress: $sellerAddress, userId: $userId, userName: $userName, userImage: $userImage, userPhone: $userPhone, userNote: $userNote, employeeCancelNote: $employeeCancelNote, deliveryStatus: $deliveryStatus, deliveryId: $deliveryId, deliveryGeoPoint: $deliveryGeoPoint)';
+    return 'AppOrder(id: $id, deliveryDateTime: $deliveryDateTime, pickupOption: $pickupOption, paymentMethod: $paymentMethod, buyerAddress: $buyerAddress, sellerAddress: $sellerAddress, userId: $userId, userName: $userName, userImage: $userImage, userPhone: $userPhone, userNote: $userNote, employeeCancelNote: $employeeCancelNote, deliveryStatus: $deliveryStatus, deliveryId: $deliveryId, deliveryGeoPoint: $deliveryGeoPoint, isAsap: $isAsap)';
   }
 }
 
@@ -279,7 +290,8 @@ abstract mixin class _$AppOrderCopyWith<$Res>
       String? employeeCancelNote,
       DeliveryStatus deliveryStatus,
       String? deliveryId,
-      GeoPoint? deliveryGeoPoint});
+      GeoPoint? deliveryGeoPoint,
+      bool isAsap});
 
   @override
   $AddressCopyWith<$Res>? get buyerAddress;
@@ -314,6 +326,7 @@ class __$AppOrderCopyWithImpl<$Res> implements _$AppOrderCopyWith<$Res> {
     Object? deliveryStatus = null,
     Object? deliveryId = freezed,
     Object? deliveryGeoPoint = freezed,
+    Object? isAsap = null,
   }) {
     return _then(_AppOrder(
       id: null == id
@@ -376,6 +389,10 @@ class __$AppOrderCopyWithImpl<$Res> implements _$AppOrderCopyWith<$Res> {
           ? _self.deliveryGeoPoint
           : deliveryGeoPoint // ignore: cast_nullable_to_non_nullable
               as GeoPoint?,
+      isAsap: null == isAsap
+          ? _self.isAsap
+          : isAsap // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 

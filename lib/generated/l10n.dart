@@ -955,6 +955,16 @@ class S {
     );
   }
 
+  /// `As soon as possible`
+  String get asSoonAsPossible {
+    return Intl.message(
+      'As soon as possible',
+      name: 'asSoonAsPossible',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Search for a place...`
   String get searchForAPlace {
     return Intl.message(

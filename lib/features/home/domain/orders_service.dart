@@ -47,6 +47,11 @@ class OrdersService {
     if (order.deliveryStatus != DeliveryStatus.upcoming) {
       return false;
     }
+    
+    // If order is marked as ASAP, it's ready for delivery immediately
+    if (order.isAsap) {
+      return true;
+    }
 
     // Get current time in milliseconds since epoch
     final now = DateTime.now().millisecondsSinceEpoch;
@@ -106,6 +111,7 @@ class OrdersService {
       print('Current time: $now');
       print('Order delivery time: $orderTime');
       print('Earliest delivery time: $earliest');
+      print('Is ASAP order: ${order.isAsap}');
     }
 
     // Check if current time is after the earliest delivery time
