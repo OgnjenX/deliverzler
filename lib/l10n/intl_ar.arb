@@ -108,6 +108,7 @@
   "youCanNotProceedThisOrder": "لا يمكنك متابعة هذا الطلب!",
   "youCanOnlyProceedOrdersYouDelivering": "يمكنك فقط متابعة الطلبات التي تقوم بتوصيلها.",
   "arrivedLocation": "وصلت للموقع!",
+  "deliveryNotReadyYet": "هذا التوصيل غير جاهز للبدء بعد",
   "pickUp": "استلام الطلب",
   "doYouWantToConfirmPickup": "هل تريد تأكيد استلام الطلب؟",
   "arrivedAtBuyer": "وصلت لموقع المشتري",

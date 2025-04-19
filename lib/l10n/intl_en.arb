@@ -108,6 +108,7 @@
   "youCanNotProceedThisOrder": "You can\"t proceed this order!",
   "youCanOnlyProceedOrdersYouDelivering": "You can only proceed orders that you\"re delivering.",
   "arrivedLocation": "Arrived Location!",
+  "deliveryNotReadyYet": "This delivery is not ready to be started yet",
   "pickUp": "Pick Up",
   "doYouWantToConfirmPickup": "Do you want to confirm that you've picked up the order?",
   "arrivedAtBuyer": "Arrived at Buyer",

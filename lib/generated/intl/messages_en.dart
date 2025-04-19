@@ -58,6 +58,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "continue2": MessageLookupByLibrary.simpleMessage("Continue"),
     "deliver": MessageLookupByLibrary.simpleMessage("Deliver"),
+    "deliveryNotReadyYet": MessageLookupByLibrary.simpleMessage(
+      "This delivery is not ready to be started yet",
+    ),
     "deliveryStageAtBuyerAction": MessageLookupByLibrary.simpleMessage(
       "Arrived at Buyer",
     ),

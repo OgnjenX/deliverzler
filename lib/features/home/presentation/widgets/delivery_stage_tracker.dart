@@ -78,17 +78,21 @@ class DeliveryStageTracker extends ConsumerWidget {
 
             // Action button
             if (currentStage != DeliveryStage.delivered)
-              ElevatedButton(
-                onPressed: () {
-                  ref
-                      .read(deliveryStageStateProvider.notifier)
-                      .moveToNextStage();
-                },
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: theme.extension<AppColors>()?.primary ?? Colors.blue,
-                  minimumSize: const Size(double.infinity, 45),
+              Padding(
+                padding: const EdgeInsets.only(bottom: Sizes.marginV12),
+                child: ElevatedButton(
+                  onPressed: () {
+                    ref
+                        .read(deliveryStageStateProvider.notifier)
+                        .moveToNextStage();
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor:
+                        theme.extension<AppColors>()?.primary ?? Colors.blue,
+                    minimumSize: const Size(double.infinity, 45),
+                  ),
+                  child: Text(_getActionButtonText(context, currentStage)),
                 ),
-                child: Text(_getActionButtonText(context, currentStage)),
               ),
           ],
         ),
@@ -114,7 +118,9 @@ class DeliveryStageTracker extends ConsumerWidget {
             width: 30,
             height: 30,
             decoration: BoxDecoration(
-              color: isCompleted ? (colors?.primary ?? Colors.blue) : Colors.grey.shade300,
+              color: isCompleted
+                  ? (colors?.primary ?? Colors.blue)
+                  : Colors.grey.shade300,
               shape: BoxShape.circle,
               border: isCurrent
                   ? Border.all(color: colors?.primary ?? Colors.blue, width: 3)
@@ -142,12 +148,15 @@ class DeliveryStageTracker extends ConsumerWidget {
     return Container(
       width: 20,
       height: 2,
-      color: isCompleted ? (colors?.primary ?? Colors.blue) : Colors.grey.shade300,
+      color:
+          isCompleted ? (colors?.primary ?? Colors.blue) : Colors.grey.shade300,
     );
   }
 
   String _getActionButtonText(
-      BuildContext context, DeliveryStage currentStage,) {
+    BuildContext context,
+    DeliveryStage currentStage,
+  ) {
     switch (currentStage) {
       case DeliveryStage.atSeller:
         return S.of(context).deliveryStagePickedUpAction;

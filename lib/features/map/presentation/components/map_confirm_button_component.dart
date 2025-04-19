@@ -35,15 +35,15 @@ class MapConfirmButtonComponent extends ConsumerWidget {
       case DeliveryStage.atSeller:
         buttonText = S.of(context).pickUp;
         onPressed = () => _confirmStageTransition(
-              context, 
-              ref, 
+              context,
+              ref,
               S.of(context).doYouWantToConfirmPickup,
             );
       case DeliveryStage.pickedUp:
         buttonText = S.of(context).arrivedAtBuyer;
         onPressed = () => _confirmStageTransition(
-              context, 
-              ref, 
+              context,
+              ref,
               S.of(context).doYouWantToConfirmArrivalAtBuyer,
             );
       case DeliveryStage.atBuyer:
@@ -81,7 +81,7 @@ class MapConfirmButtonComponent extends ConsumerWidget {
       context,
       confirmMessage,
     );
-    
+
     if (result) {
       ref.read(deliveryStageStateProvider.notifier).moveToNextStage();
     }
@@ -90,7 +90,7 @@ class MapConfirmButtonComponent extends ConsumerWidget {
   // Helper method for confirming final delivery
   Future<void> _confirmDelivery(BuildContext context, WidgetRef ref) async {
     final selectedOrder = ref.read(selectedOrderProvider).toNullable();
-    
+
     final authority = ref.read(ordersServiceProvider).orderAuthority(
           userId: ref.read(currentUserProvider).id,
           orderDeliveryId: selectedOrder?.deliveryId,
@@ -100,12 +100,12 @@ class MapConfirmButtonComponent extends ConsumerWidget {
       case (canProceed: true, isLoading: false):
         // Store the necessary data before showing the dialog
         final order = ref.read(selectedOrderProvider);
-        
+
         final confirmChoice = await OrderDialogs.confirmChoiceDialog(
           context,
           S.of(context).doYouWantToConfirmTheOrder,
         );
-        
+
         if (confirmChoice) {
           order.match(
             () {},
@@ -117,7 +117,7 @@ class MapConfirmButtonComponent extends ConsumerWidget {
               ref
                   .read(mapConfirmOrderStatusProvider.notifier)
                   .confirmOrder(params);
-              
+
               // Also update the delivery stage
               ref.read(deliveryStageStateProvider.notifier).moveToNextStage();
             },

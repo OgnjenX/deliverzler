@@ -9,12 +9,14 @@ class CardButtonComponent extends StatelessWidget {
     required this.title,
     required this.isColored,
     required this.onPressed,
+    this.buttonColor,
     super.key,
   });
 
   final String title;
   final bool isColored;
   final VoidCallback? onPressed;
+  final Color? buttonColor;
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +29,8 @@ class CardButtonComponent extends StatelessWidget {
       side: isColored
           ? null
           : BorderSide(color: customColors(context).greyColor!),
-      enableGradient: isColored,
+      enableGradient: isColored && buttonColor == null,
+      buttonColor: buttonColor,
       onPressed: onPressed,
       child: Text(
         title,

@@ -900,6 +900,16 @@ class S {
     );
   }
 
+  /// `This delivery is not ready to be started yet`
+  String get deliveryNotReadyYet {
+    return Intl.message(
+      'This delivery is not ready to be started yet',
+      name: 'deliveryNotReadyYet',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Pick Up`
   String get pickUp {
     return Intl.message('Pick Up', name: 'pickUp', desc: '', args: []);
