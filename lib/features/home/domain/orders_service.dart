@@ -83,7 +83,7 @@ class OrdersService {
     }
 
     // Get order delivery time (stored as epoch milliseconds)
-    final orderDeliveryTime = order.date;
+    final orderDeliveryTime = order.deliveryDateTime;
 
     // Define buffer times (in milliseconds)
     const bufferTimeBeforeMs =

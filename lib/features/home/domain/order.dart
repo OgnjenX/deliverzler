@@ -13,7 +13,7 @@ part 'order.freezed.dart';
 abstract class AppOrder with _$AppOrder {
   const factory AppOrder({
     required String id,
-    required int date,
+    required int deliveryDateTime,
     required PickupOption pickupOption,
     required String paymentMethod,
     required Address? buyerAddress,
@@ -42,7 +42,8 @@ abstract class AppOrder with _$AppOrder {
         (other.runtimeType == runtimeType &&
             other is _AppOrder &&
             (identical(other.id, id) || other.id == id) &&
-            (identical(other.date, date) || other.date == date) &&
+            (identical(other.deliveryDateTime, deliveryDateTime) ||
+                other.deliveryDateTime == deliveryDateTime) &&
             (identical(other.pickupOption, pickupOption) ||
                 other.pickupOption == pickupOption) &&
             (identical(other.paymentMethod, paymentMethod) ||
@@ -72,7 +73,7 @@ abstract class AppOrder with _$AppOrder {
   int get hashCode => Object.hash(
         runtimeType,
         id,
-        date,
+        deliveryDateTime,
         pickupOption,
         paymentMethod,
         buyerAddress,

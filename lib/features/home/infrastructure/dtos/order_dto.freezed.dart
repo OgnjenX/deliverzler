@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 
 /// @nodoc
 mixin _$OrderDto {
-  int get date;
+  int get deliveryDateTime;
   PickupOption get pickupOption;
   String get paymentMethod;
   @JsonKey(name: 'buyerAddress')
@@ -47,7 +47,8 @@ mixin _$OrderDto {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is OrderDto &&
-            (identical(other.date, date) || other.date == date) &&
+            (identical(other.deliveryDateTime, deliveryDateTime) ||
+                other.deliveryDateTime == deliveryDateTime) &&
             (identical(other.pickupOption, pickupOption) ||
                 other.pickupOption == pickupOption) &&
             (identical(other.paymentMethod, paymentMethod) ||
@@ -80,7 +81,7 @@ mixin _$OrderDto {
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      date,
+      deliveryDateTime,
       pickupOption,
       paymentMethod,
       buyerAddress,
@@ -98,7 +99,7 @@ mixin _$OrderDto {
 
   @override
   String toString() {
-    return 'OrderDto(date: $date, pickupOption: $pickupOption, paymentMethod: $paymentMethod, buyerAddress: $buyerAddress, sellerAddress: $sellerAddress, userId: $userId, userName: $userName, userImage: $userImage, userPhone: $userPhone, userNote: $userNote, employeeCancelNote: $employeeCancelNote, deliveryStatus: $deliveryStatus, deliveryId: $deliveryId, deliveryGeoPoint: $deliveryGeoPoint, id: $id)';
+    return 'OrderDto(deliveryDateTime: $deliveryDateTime, pickupOption: $pickupOption, paymentMethod: $paymentMethod, buyerAddress: $buyerAddress, sellerAddress: $sellerAddress, userId: $userId, userName: $userName, userImage: $userImage, userPhone: $userPhone, userNote: $userNote, employeeCancelNote: $employeeCancelNote, deliveryStatus: $deliveryStatus, deliveryId: $deliveryId, deliveryGeoPoint: $deliveryGeoPoint, id: $id)';
   }
 }
 
@@ -108,7 +109,7 @@ abstract mixin class $OrderDtoCopyWith<$Res> {
       _$OrderDtoCopyWithImpl;
   @useResult
   $Res call(
-      {int date,
+      {int deliveryDateTime,
       PickupOption pickupOption,
       String paymentMethod,
       @JsonKey(name: 'buyerAddress') AddressDto? buyerAddress,
@@ -140,7 +141,7 @@ class _$OrderDtoCopyWithImpl<$Res> implements $OrderDtoCopyWith<$Res> {
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? date = null,
+    Object? deliveryDateTime = null,
     Object? pickupOption = null,
     Object? paymentMethod = null,
     Object? buyerAddress = freezed,
@@ -157,9 +158,9 @@ class _$OrderDtoCopyWithImpl<$Res> implements $OrderDtoCopyWith<$Res> {
     Object? id = freezed,
   }) {
     return _then(_self.copyWith(
-      date: null == date
-          ? _self.date
-          : date // ignore: cast_nullable_to_non_nullable
+      deliveryDateTime: null == deliveryDateTime
+          ? _self.deliveryDateTime
+          : deliveryDateTime // ignore: cast_nullable_to_non_nullable
               as int,
       pickupOption: null == pickupOption
           ? _self.pickupOption
@@ -253,7 +254,7 @@ class _$OrderDtoCopyWithImpl<$Res> implements $OrderDtoCopyWith<$Res> {
 @JsonSerializable(createToJson: false)
 class _OrderDto extends OrderDto {
   const _OrderDto(
-      {required this.date,
+      {required this.deliveryDateTime,
       required this.pickupOption,
       required this.paymentMethod,
       @JsonKey(name: 'buyerAddress') required this.buyerAddress,
@@ -273,7 +274,7 @@ class _OrderDto extends OrderDto {
       _$OrderDtoFromJson(json);
 
   @override
-  final int date;
+  final int deliveryDateTime;
   @override
   final PickupOption pickupOption;
   @override
@@ -320,7 +321,8 @@ class _OrderDto extends OrderDto {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _OrderDto &&
-            (identical(other.date, date) || other.date == date) &&
+            (identical(other.deliveryDateTime, deliveryDateTime) ||
+                other.deliveryDateTime == deliveryDateTime) &&
             (identical(other.pickupOption, pickupOption) ||
                 other.pickupOption == pickupOption) &&
             (identical(other.paymentMethod, paymentMethod) ||
@@ -353,7 +355,7 @@ class _OrderDto extends OrderDto {
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      date,
+      deliveryDateTime,
       pickupOption,
       paymentMethod,
       buyerAddress,
@@ -371,7 +373,7 @@ class _OrderDto extends OrderDto {
 
   @override
   String toString() {
-    return 'OrderDto(date: $date, pickupOption: $pickupOption, paymentMethod: $paymentMethod, buyerAddress: $buyerAddress, sellerAddress: $sellerAddress, userId: $userId, userName: $userName, userImage: $userImage, userPhone: $userPhone, userNote: $userNote, employeeCancelNote: $employeeCancelNote, deliveryStatus: $deliveryStatus, deliveryId: $deliveryId, deliveryGeoPoint: $deliveryGeoPoint, id: $id)';
+    return 'OrderDto(deliveryDateTime: $deliveryDateTime, pickupOption: $pickupOption, paymentMethod: $paymentMethod, buyerAddress: $buyerAddress, sellerAddress: $sellerAddress, userId: $userId, userName: $userName, userImage: $userImage, userPhone: $userPhone, userNote: $userNote, employeeCancelNote: $employeeCancelNote, deliveryStatus: $deliveryStatus, deliveryId: $deliveryId, deliveryGeoPoint: $deliveryGeoPoint, id: $id)';
   }
 }
 
@@ -383,7 +385,7 @@ abstract mixin class _$OrderDtoCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {int date,
+      {int deliveryDateTime,
       PickupOption pickupOption,
       String paymentMethod,
       @JsonKey(name: 'buyerAddress') AddressDto? buyerAddress,
@@ -417,7 +419,7 @@ class __$OrderDtoCopyWithImpl<$Res> implements _$OrderDtoCopyWith<$Res> {
   @override
   @pragma('vm:prefer-inline')
   $Res call({
-    Object? date = null,
+    Object? deliveryDateTime = null,
     Object? pickupOption = null,
     Object? paymentMethod = null,
     Object? buyerAddress = freezed,
@@ -434,9 +436,9 @@ class __$OrderDtoCopyWithImpl<$Res> implements _$OrderDtoCopyWith<$Res> {
     Object? id = freezed,
   }) {
     return _then(_OrderDto(
-      date: null == date
-          ? _self.date
-          : date // ignore: cast_nullable_to_non_nullable
+      deliveryDateTime: null == deliveryDateTime
+          ? _self.deliveryDateTime
+          : deliveryDateTime // ignore: cast_nullable_to_non_nullable
               as int,
       pickupOption: null == pickupOption
           ? _self.pickupOption

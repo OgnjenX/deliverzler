@@ -11,7 +11,7 @@ part 'order_dto.g.dart';
 @Freezed(toJson: false)
 abstract class OrderDto with _$OrderDto {
   const factory OrderDto({
-    required int date,
+    required int deliveryDateTime,
     required PickupOption pickupOption,
     required String paymentMethod,
     @JsonKey(name: 'buyerAddress') required AddressDto? buyerAddress,
@@ -31,7 +31,7 @@ abstract class OrderDto with _$OrderDto {
   factory OrderDto.fromDomain(AppOrder order) {
     return OrderDto(
       id: order.id,
-      date: order.date,
+      deliveryDateTime: order.deliveryDateTime,
       pickupOption: order.pickupOption,
       paymentMethod: order.paymentMethod,
       buyerAddress: order.buyerAddress != null
@@ -71,7 +71,7 @@ abstract class OrderDto with _$OrderDto {
   AppOrder toDomain() {
     return AppOrder(
       id: id ?? '',
-      date: date,
+      deliveryDateTime: deliveryDateTime,
       pickupOption: pickupOption,
       paymentMethod: paymentMethod,
       buyerAddress: buyerAddress?.toDomain(),

@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$AppOrder {
   String get id;
-  int get date;
+  int get deliveryDateTime;
   PickupOption get pickupOption;
   String get paymentMethod;
   Address? get buyerAddress;
@@ -40,7 +40,7 @@ mixin _$AppOrder {
 
   @override
   String toString() {
-    return 'AppOrder(id: $id, date: $date, pickupOption: $pickupOption, paymentMethod: $paymentMethod, buyerAddress: $buyerAddress, sellerAddress: $sellerAddress, userId: $userId, userName: $userName, userImage: $userImage, userPhone: $userPhone, userNote: $userNote, employeeCancelNote: $employeeCancelNote, deliveryStatus: $deliveryStatus, deliveryId: $deliveryId, deliveryGeoPoint: $deliveryGeoPoint)';
+    return 'AppOrder(id: $id, deliveryDateTime: $deliveryDateTime, pickupOption: $pickupOption, paymentMethod: $paymentMethod, buyerAddress: $buyerAddress, sellerAddress: $sellerAddress, userId: $userId, userName: $userName, userImage: $userImage, userPhone: $userPhone, userNote: $userNote, employeeCancelNote: $employeeCancelNote, deliveryStatus: $deliveryStatus, deliveryId: $deliveryId, deliveryGeoPoint: $deliveryGeoPoint)';
   }
 }
 
@@ -51,7 +51,7 @@ abstract mixin class $AppOrderCopyWith<$Res> {
   @useResult
   $Res call(
       {String id,
-      int date,
+      int deliveryDateTime,
       PickupOption pickupOption,
       String paymentMethod,
       Address? buyerAddress,
@@ -83,7 +83,7 @@ class _$AppOrderCopyWithImpl<$Res> implements $AppOrderCopyWith<$Res> {
   @override
   $Res call({
     Object? id = null,
-    Object? date = null,
+    Object? deliveryDateTime = null,
     Object? pickupOption = null,
     Object? paymentMethod = null,
     Object? buyerAddress = freezed,
@@ -103,9 +103,9 @@ class _$AppOrderCopyWithImpl<$Res> implements $AppOrderCopyWith<$Res> {
           ? _self.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
-      date: null == date
-          ? _self.date
-          : date // ignore: cast_nullable_to_non_nullable
+      deliveryDateTime: null == deliveryDateTime
+          ? _self.deliveryDateTime
+          : deliveryDateTime // ignore: cast_nullable_to_non_nullable
               as int,
       pickupOption: null == pickupOption
           ? _self.pickupOption
@@ -196,7 +196,7 @@ class _$AppOrderCopyWithImpl<$Res> implements $AppOrderCopyWith<$Res> {
 class _AppOrder extends AppOrder {
   const _AppOrder(
       {required this.id,
-      required this.date,
+      required this.deliveryDateTime,
       required this.pickupOption,
       required this.paymentMethod,
       required this.buyerAddress,
@@ -215,7 +215,7 @@ class _AppOrder extends AppOrder {
   @override
   final String id;
   @override
-  final int date;
+  final int deliveryDateTime;
   @override
   final PickupOption pickupOption;
   @override
@@ -253,7 +253,7 @@ class _AppOrder extends AppOrder {
 
   @override
   String toString() {
-    return 'AppOrder(id: $id, date: $date, pickupOption: $pickupOption, paymentMethod: $paymentMethod, buyerAddress: $buyerAddress, sellerAddress: $sellerAddress, userId: $userId, userName: $userName, userImage: $userImage, userPhone: $userPhone, userNote: $userNote, employeeCancelNote: $employeeCancelNote, deliveryStatus: $deliveryStatus, deliveryId: $deliveryId, deliveryGeoPoint: $deliveryGeoPoint)';
+    return 'AppOrder(id: $id, deliveryDateTime: $deliveryDateTime, pickupOption: $pickupOption, paymentMethod: $paymentMethod, buyerAddress: $buyerAddress, sellerAddress: $sellerAddress, userId: $userId, userName: $userName, userImage: $userImage, userPhone: $userPhone, userNote: $userNote, employeeCancelNote: $employeeCancelNote, deliveryStatus: $deliveryStatus, deliveryId: $deliveryId, deliveryGeoPoint: $deliveryGeoPoint)';
   }
 }
 
@@ -266,7 +266,7 @@ abstract mixin class _$AppOrderCopyWith<$Res>
   @useResult
   $Res call(
       {String id,
-      int date,
+      int deliveryDateTime,
       PickupOption pickupOption,
       String paymentMethod,
       Address? buyerAddress,
@@ -300,7 +300,7 @@ class __$AppOrderCopyWithImpl<$Res> implements _$AppOrderCopyWith<$Res> {
   @pragma('vm:prefer-inline')
   $Res call({
     Object? id = null,
-    Object? date = null,
+    Object? deliveryDateTime = null,
     Object? pickupOption = null,
     Object? paymentMethod = null,
     Object? buyerAddress = freezed,
@@ -320,9 +320,9 @@ class __$AppOrderCopyWithImpl<$Res> implements _$AppOrderCopyWith<$Res> {
           ? _self.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
-      date: null == date
-          ? _self.date
-          : date // ignore: cast_nullable_to_non_nullable
+      deliveryDateTime: null == deliveryDateTime
+          ? _self.deliveryDateTime
+          : deliveryDateTime // ignore: cast_nullable_to_non_nullable
               as int,
       pickupOption: null == pickupOption
           ? _self.pickupOption
