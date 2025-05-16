@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.only_farms_delivery"
+    namespace = "com.appzler.deliverzler"
     compileSdk = flutter.compileSdkVersion
     ndkVersion = "28.0.13004108"
 
@@ -27,7 +27,7 @@ android {
     }
 
     defaultConfig {
-        applicationId = "com.example.only_farms_delivery"
+        applicationId = "com.appzler.deliverzler"
         // You can update the following values to match your application needs.
         // For more information, see: https://flutter.dev/to/review-gradle-config.
         minSdk = 23
