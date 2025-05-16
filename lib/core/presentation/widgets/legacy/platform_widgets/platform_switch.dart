@@ -44,8 +44,8 @@ class PlatformSwitch extends PlatformBaseWidget<Switch, CupertinoSwitch> {
       key: widgetKey,
       value: value,
       onChanged: onChanged,
-      activeColor: activeTrackColor,
-      trackColor: inactiveTrackColor,
+      activeTrackColor: activeTrackColor,
+      inactiveTrackColor: inactiveTrackColor,
       thumbColor: thumbColor,
     );
   }

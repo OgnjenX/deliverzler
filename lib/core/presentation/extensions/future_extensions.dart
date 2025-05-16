@@ -2,7 +2,7 @@ import 'dart:async' as dart_async;
 
 extension FutureErrorX<T> on Future<T> {
   Future<void> suppressError(
-      {bool Function(Object e)? shouldSuppressError}) async {
+      {bool Function(Object e)? shouldSuppressError,}) async {
     try {
       await this;
     } catch (e) {
@@ -23,7 +23,7 @@ extension FutureIterableErrorX<R, T extends Iterable<R>> on Future<T> {
             .map((e) => '\nError: ${e?.error}\nStackTrace: ${e?.stackTrace}')
             .toList();
         throw Error.throwWithStackTrace(
-            errorsWithStackTrace.toString(), StackTrace.current);
+            errorsWithStackTrace.toString(), StackTrace.current,);
       }
       rethrow;
     }
@@ -37,7 +37,7 @@ extension FutureIterableErrorX<R, T extends Iterable<R>> on Future<T> {
           List<dart_async.AsyncError?>>) {
         final error = e.errors.firstWhere((e) => e != null);
         throw Error.throwWithStackTrace(
-            error.toString(), error?.stackTrace ?? StackTrace.current);
+            error.toString(), error?.stackTrace ?? StackTrace.current,);
       }
       rethrow;
     }

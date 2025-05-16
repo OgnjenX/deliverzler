@@ -6,7 +6,7 @@ class MainScrollBehavior extends ScrollBehavior {
   // https://github.com/flutter/flutter/issues/82906
   @override
   Widget buildOverscrollIndicator(
-      BuildContext context, Widget child, ScrollableDetails details) {
+      BuildContext context, Widget child, ScrollableDetails details,) {
     return child;
   }
 

@@ -49,7 +49,7 @@ class ProviderLogger extends ProviderObserver {
 
   @override
   void didDisposeProvider(
-      ProviderBase<dynamic> provider, ProviderContainer container) {
+      ProviderBase<dynamic> provider, ProviderContainer container,) {
     _logger.fine('🗑️ DidDisposeProvider: ${provider.providerName}');
   }
 }
@@ -58,7 +58,7 @@ class ProviderCrashlytics extends ProviderObserver {
   ProviderCrashlytics() : _logger = Logger('Riverpod-Crashlytics') {
     _logger.level = Level.SEVERE;
     _logger.onRecord.listen(
-        loggerOnDataCallback(prefix: _riverpodEmoji, logColor: LogColor.red));
+        loggerOnDataCallback(prefix: _riverpodEmoji, logColor: LogColor.red),);
   }
 
   final Logger _logger;

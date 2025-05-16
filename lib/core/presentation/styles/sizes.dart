@@ -2,12 +2,12 @@ part of 'styles.dart';
 
 abstract class Sizes {
   static final double statusBarHeight = MediaQueryData.fromView(
-          WidgetsBinding.instance.platformDispatcher.views.single)
+          WidgetsBinding.instance.platformDispatcher.views.single,)
       .padding
       .top;
 
   static final double homeIndicatorHeight = MediaQueryData.fromView(
-          WidgetsBinding.instance.platformDispatcher.views.single)
+          WidgetsBinding.instance.platformDispatcher.views.single,)
       .viewPadding
       .bottom;
 

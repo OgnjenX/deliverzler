@@ -11,7 +11,7 @@ abstract class PlatformHelper {
   static bool get isDesktopDevice =>
       !kIsWeb &&
       _matchPlatform(
-          [TargetPlatform.macOS, TargetPlatform.windows, TargetPlatform.linux]);
+          [TargetPlatform.macOS, TargetPlatform.windows, TargetPlatform.linux],);
 
   static bool get isMobileDeviceOrWeb => kIsWeb || isMobileDevice;
 
@@ -21,7 +21,7 @@ abstract class PlatformHelper {
     if (kIsWeb) return true;
 
     if (_matchPlatform(
-        [TargetPlatform.iOS, TargetPlatform.macOS, TargetPlatform.linux])) {
+        [TargetPlatform.iOS, TargetPlatform.macOS, TargetPlatform.linux],)) {
       return false;
     } else {
       return true;

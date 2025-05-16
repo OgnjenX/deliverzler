@@ -8,7 +8,7 @@ class MockResponseInterceptorHandler extends Mock implements ResponseInterceptor
 
 class MockErrorInterceptorHandler extends Mock implements ErrorInterceptorHandler {}
 
-class MockDioError extends Mock implements DioError {}
+class MockDioError extends Mock implements DioException {}
 
 void main() {
   late MockResponseInterceptorHandler mockResponseInterceptorHandler;
@@ -43,7 +43,7 @@ void main() {
         verify(
           () => mockResponseInterceptorHandler.reject(
             any(
-              that: isA<DioError>()
+              that: isA<DioException>()
                   .having((e) => e.response, 'response', equals(tResponse))
                   .having(
                     (e) => e.response?.requestOptions,
@@ -80,13 +80,13 @@ void main() {
   group('onError', () {
     const tErrorMessage = 'error_message_test';
     const resultStatusCode = 400;
-    const resultErrorType = DioErrorType.badResponse;
+    const resultErrorType = DioExceptionType.badResponse;
 
     test(
       'should call handler.next if error is not RejectError',
       () async {
         // GIVEN
-        final tError = DioError(
+        final tError = DioException(
           response: Response(
             requestOptions: RequestOptions(),
             data: {'status': tErrorMessage},
@@ -107,7 +107,7 @@ void main() {
       'with proper DioError: [error message from backend / statusCode 400 / DioErrorType.badResponse]',
       () async {
         // GIVEN
-        final tError = DioError(
+        final tError = DioException(
           response: Response(
             requestOptions: RequestOptions(),
             data: {'status': tErrorMessage},
@@ -122,7 +122,7 @@ void main() {
         verify(
           () => mockErrorInterceptorHandler.reject(
             any(
-              that: isA<DioError>()
+              that: isA<DioException>()
                   .having((e) => e.response?.statusCode, 'statusCode', equals(resultStatusCode))
                   .having((e) => e.error, 'error', equals(tErrorMessage))
                   .having((e) => e.type, 'type', equals(resultErrorType)),

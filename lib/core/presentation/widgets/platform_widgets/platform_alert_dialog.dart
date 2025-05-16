@@ -67,7 +67,7 @@ Future<T?> showPlatformAlertDialog<T extends Object?>({
                       actions: materialDialogData.actions?.call(context),
                       actionsPadding: reformedActionsPadding,
                       buttonPadding: EdgeInsets.symmetric(
-                          horizontal: horizontalActionPadding / 2),
+                          horizontal: horizontalActionPadding / 2,),
                       actionsAlignment: MainAxisAlignment.center,
                       insetPadding: materialDialogData.insetPadding,
                       shape: materialDialogData.shape,
