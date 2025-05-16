@@ -1,1 +1,36 @@
-{"functions":[{"source":"functions","codebase":"default","ignore":["node_modules",".git","firebase-debug.log","firebase-debug.*.log"]}],"flutter":{"platforms":{"android":{"default":{"projectId":"local-farmer-app","appId":"1:246150891637:android:2272ab8919a446e816103c","fileOutput":"android/app/google-services.json"}},"dart":{"lib/firebase_options.dart":{"projectId":"local-farmer-app","configurations":{"android":"1:246150891637:android:2272ab8919a446e816103c","ios":"1:246150891637:ios:83df974d5a41474116103c"}}}}}}
+{
+  "functions": [
+    {
+      "source": "functions",
+      "codebase": "default",
+      "ignore": [
+        "node_modules",
+        ".git",
+        "firebase-debug.log",
+        "firebase-debug.*.log"
+      ]
+    }
+  ],
+  "flutter": {
+    "platforms": {
+      "android": {
+        "default": {
+          "projectId": "local-farmer-app",
+          "appId": "1:246150891637:android:2272ab8919a446e816103c",
+          "androidPackageName": "com.appzler.deliverzler",
+          "fileOutput": "android/app/google-services.json"
+        }
+      },
+      "dart": {
+        "lib/firebase_options.dart": {
+          "projectId": "local-farmer-app",
+          "configurations": {
+            "android": "1:246150891637:android:2272ab8919a446e816103c",
+            "ios": "1:246150891637:ios:83df974d5a41474116103c",
+            "macos": "1:246150891637:ios:3951c54e64efbf5516103c"
+          }
+        }
+      }
+    }
+  }
+}
