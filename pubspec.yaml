@@ -1,6 +1,6 @@
 name: deliverzler
 description: Delivery App for Restaurants built on Flutter using Domain-Driven Design (DDD) and Riverpod Framework.
-version: 1.0.0+1
+version: 1.0.3+4
 publish_to: none
 
 environment:
