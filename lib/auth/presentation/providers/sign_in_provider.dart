@@ -1,3 +1,7 @@
+import 'dart:async';
+
+import 'package:flutter/foundation.dart';
+
 import '../../../core/infrastructure/notification/notification_service.dart';
 import '../../../core/presentation/utils/fp_framework.dart';
 import '../../../core/presentation/utils/riverpod_framework.dart';
@@ -21,7 +25,19 @@ class SignInState extends _$SignInState {
       final authRepo = ref.read(authRepoProvider);
       final userFromCredential = await authRepo.signInWithEmail(params);
       final user = await authRepo.getUserData(userFromCredential.id);
-      await ref.read(notificationServiceProvider).subscribeToTopic('general');
+
+      // Make topic subscription non-blocking and handle errors
+      unawaited(
+        ref.read(notificationServiceProvider)
+            .subscribeToTopic('general')
+            .catchError((Object e) {
+          // Log the error but don't fail the sign-in process
+          if (kDebugMode) {
+            print('Failed to subscribe to topic: $e');
+          }
+          return null;
+        }),
+      );
 
       ref.read(authStateProvider.notifier).authenticateUser(user);
 
