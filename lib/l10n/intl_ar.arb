@@ -147,5 +147,6 @@
   "deliveryStageCompleted": "تم التوصيل",
   "deliveryStagePickedUpAction": "تأكيد الاستلام",
   "deliveryStageAtBuyerAction": "الوصول إلى المشتري",
-  "deliveryStageCompletedAction": "إنهاء التوصيل"
+  "deliveryStageCompletedAction": "إنهاء التوصيل",
+  "mustBeCloserToDestination": "يجب أن تكون أقرب إلى الوجهة لإكمال التوصيل"
 }

@@ -4,8 +4,12 @@ import '../../../../core/core_features/theme/presentation/utils/app_colors.dart'
 import '../../../../core/presentation/styles/styles.dart';
 import '../../../../core/presentation/utils/riverpod_framework.dart';
 import '../../../../generated/l10n.dart';
+import '../../../map/presentation/providers/is_arrived_target_location_provider.dart';
+import '../../../map/presentation/providers/map_confirm_order_provider.dart';
+import '../../domain/update_delivery_status.dart';
 import '../../domain/value_objects.dart';
 import '../providers/delivery_stage_provider.dart';
+import '../providers/selected_order_provider.dart';
 
 class DeliveryStageTracker extends ConsumerWidget {
   const DeliveryStageTracker({super.key});
@@ -82,6 +86,40 @@ class DeliveryStageTracker extends ConsumerWidget {
                 padding: const EdgeInsets.only(bottom: Sizes.marginV12),
                 child: ElevatedButton(
                   onPressed: () {
+                    // Get the current stage
+                    final currentStage = ref.read(deliveryStageStateProvider);
+
+                    // If this is the final stage (atBuyer -> delivered)
+                    if (currentStage == DeliveryStage.atBuyer) {
+                      // Check if user is near the destination
+                      final isNearDestination = ref.read(isArrivedTargetLocationProvider);
+                      
+                      if (!isNearDestination) {
+                        // Show a message that user needs to be closer to destination
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            content: Text(S.of(context).mustBeCloserToDestination),
+                            backgroundColor: Colors.orange,
+                          ),
+                        );
+                        return;
+                      }
+                      
+                      // Get the selected order
+                      final selectedOrder = ref.read(selectedOrderProvider).toNullable();
+                      if (selectedOrder != null) {
+                        // Update the delivery status in Firestore
+                        final params = UpdateDeliveryStatus(
+                          orderId: selectedOrder.id,
+                          deliveryStatus: DeliveryStatus.delivered,
+                        );
+                        ref
+                            .read(mapConfirmOrderStatusProvider.notifier)
+                            .confirmOrder(params);
+                      }
+                    }
+
+                    // Move to the next stage in the UI
                     ref
                         .read(deliveryStageStateProvider.notifier)
                         .moveToNextStage();

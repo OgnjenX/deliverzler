@@ -147,6 +147,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "logOut": MessageLookupByLibrary.simpleMessage("تسجيل الخروج"),
     "mobileNumber": MessageLookupByLibrary.simpleMessage("رقم الهاتف"),
+    "mustBeCloserToDestination": MessageLookupByLibrary.simpleMessage(
+      "يجب أن تكون أقرب إلى الوجهة لإكمال التوصيل",
+    ),
     "myCurrentLocation": MessageLookupByLibrary.simpleMessage("موقعي الحالي"),
     "myProfile": MessageLookupByLibrary.simpleMessage("الملف الشخصي"),
     "name": MessageLookupByLibrary.simpleMessage("الاسم"),

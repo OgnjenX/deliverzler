@@ -1259,6 +1259,16 @@ class S {
       args: [],
     );
   }
+
+  /// `You must be closer to the destination to complete delivery`
+  String get mustBeCloserToDestination {
+    return Intl.message(
+      'You must be closer to the destination to complete delivery',
+      name: 'mustBeCloserToDestination',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

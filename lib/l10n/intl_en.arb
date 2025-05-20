@@ -147,5 +147,6 @@
   "deliveryStageCompleted": "Delivered",
   "deliveryStagePickedUpAction": "Confirm Pickup",
   "deliveryStageAtBuyerAction": "Arrived at Buyer",
-  "deliveryStageCompletedAction": "Complete Delivery"
+  "deliveryStageCompletedAction": "Complete Delivery",
+  "mustBeCloserToDestination": "You must be closer to the destination to complete delivery"
 }
