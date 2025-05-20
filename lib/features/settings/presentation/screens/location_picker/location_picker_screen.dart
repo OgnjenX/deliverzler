@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:permission_handler/permission_handler.dart';
 
 import '../../../../../generated/l10n.dart';
 
@@ -24,14 +23,28 @@ class _LocationPickerScreenState extends State<LocationPickerScreen> {
   }
 
   Future<void> _setInitialPosition() async {
-    final status = await Permission.location.request();
-    if (status.isGranted) {
+    const fallback = LatLng(37.7749, -122.4194);
+
+    if (!await Geolocator.isLocationServiceEnabled()) {
+      setState(() => _initialPosition = fallback);
+      return;
+    }
+
+    var permission = await Geolocator.checkPermission();
+    if (permission == LocationPermission.denied) {
+      permission = await Geolocator.requestPermission();
+    }
+    if (permission == LocationPermission.denied || permission == LocationPermission.deniedForever) {
+      setState(() => _initialPosition = fallback);
+      return;
+    }
+
+    try {
       final pos = await Geolocator.getCurrentPosition();
-      setState(() {
-        _initialPosition = LatLng(pos.latitude, pos.longitude);
-      });
-      await _mapController
-          ?.animateCamera(CameraUpdate.newLatLng(_initialPosition));
+      setState(() => _initialPosition = LatLng(pos.latitude, pos.longitude));
+      await _mapController?.animateCamera(CameraUpdate.newLatLng(_initialPosition));
+    } catch (_) {
+      setState(() => _initialPosition = fallback);
     }
   }
 
